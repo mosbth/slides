@@ -19,7 +19,7 @@
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
 #Webbteknologier
-##HTML, CSS, PHP och databaser
+##HTML, CSS, PHP
 ###Mikael Roos, dbwebb
 </script>
 
@@ -31,7 +31,6 @@
 * HTML
 * CSS
 * PHP
-* Databaser
 
 </script>
 
@@ -39,10 +38,26 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Du är nörd?
+#HTML
+</script>
 
-* Nedsättande eller något positivt?
-* Passionerat förhållningssätt till något (smalt) intresse
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#HTML element
+
+```html
+<p class="blog">
+    Här är innehållet i paragrafen.
+</p> 
+```
+
+```html
+<tagg attribut="värde">
+    Innehåll i elementet
+</tagg> 
+```
 
 </script>
 
@@ -50,23 +65,20 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Vad säger jobbannonserna?
+#Grundstrukturen
 
-* Jag hämtade info från [jobbannonser](https://dbwebb.se/forum/viewforum.php?f=18)
-* Låt kika på några av dem
+```html
+<!doctype html>
+<html>
+    <head>
+        
+    </head>
 
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#[Vass programmerare med fokus på backend](https://dbwebb.se/t/5493)
-
-* Python, Webbtekniker (HTTP, JSON, APIer) samt SQL
-* Unit-testning och systemtester
-* Linux-miljöer
-* Amazon Web Services och Micro Services
+    <body>
+        
+    </body>
+</html>
+```
 
 </script>
 
@@ -74,11 +86,33 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#[Webbutvecklare till Webhallen Sverige AB](https://dbwebb.se/t/4966)
+#Validerar följande sida?
 
-* PHP, Javascript och gärna HTML och CSS
-* Inköpssystem till logistik till webbshop och kassaprogram.
-* Linux-servrar och nätverk (Debian, MySQL, ...) 
+```html
+<!doctype html>
+<meta charset="utf-8">
+<title>Me-sidan</title>
+<h1>Om Mig Själv</h1>
+<p>Här kommer snart min egen fina me-sida.
+<img src="img/me.jpg" class="me" alt="Bild på Mikael Roos">
+```
+
+</script>
+
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Att använda element
+
+* Vilka element finns på dbwebb.se? Kanske 25-50 olika?
+* Hur många finns i standarden? Kanske 120 eller så?
+* HTML 4 kontra HTML 5
+* XHTML avslutar alltid elementet  
+    `<hr/>` kontra `<hr>`
 
 </script>
 
@@ -86,13 +120,15 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#[Webbutvecklare med inriktning mot NodeJS](https://dbwebb.se/t/5246)
+#CSS
+</script>
 
-* Webbutveckling i NodeJS, NoSQL
-* Precompiler-bibliotek för CSS
-* Webbkomponenter i React
-* npm och Git
-* Agilt
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<iframe src="https://arkiv.dbwebb.se/kod-exempel/css/page-nostyle.html" width="1024" height="900" frameborder="0"></iframe>
 
 </script>
 
@@ -100,12 +136,8 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#[Prisjakt söker utvecklare](https://dbwebb.se/t/5392)
 
-* Problemlösning och objektorienterad utveckling
-* PHP, CSS, JavaScript och MySQL
-* Systemarkitektur och agila metoder
-* Du är nörd
+<iframe src="https://arkiv.dbwebb.se/kod-exempel/css/page.html" width="1024" height="900" frameborder="0"></iframe>
 
 </script>
 
@@ -113,22 +145,11 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Tekniker inom Webbprogrammering
+#Style med CSS
 
-* De tre sista annonserna var från gamla studenter som sökte nya kollegor.
-* Nåväl, låt oss sammanställa lite.
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Tekniker inom Webbprogrammering
-
-* Frontend, backend, databas, devops
-* En större mängd tekniker som används för att bygga webbaserade tjänster och servrar
-* *Morgondagens* vanligaste sätt att bedriva programutveckling?
+```html
+<link rel="stylesheet" href="style.css">
+```
 
 </script>
 
@@ -136,43 +157,19 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Frontend
+#CSS regel
 
-* Tekniker som finns i webbläsaren hos användaren
-* HTML
-* CSS, LESS, SASS
-* JavaScript
-* Kommunikation
-* Användbarhet och design
+```css
+body {
+    background-color: #E9E9E9;
+}
 
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Backend
-
-* Tekniker på serversidan
-* PHP, Python, JavaScript, ASP.NET, Java, m.fl.
-* Databaser (SQLite, MySQL, SQL Server, NOSQL)
-* Webbservrar Apache, Nginx
-* Tjänster som servrar och kommunikation
-* Operativsystem Linux/Unix
- 
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Devops
-
-* Developer and Operations
-* Lösningsarkitektur, agilt arbetssätt
-* Script, build-filer
-* Konfigurationshantering, automatiserade tester
-* Servrar, unix/linux, "moln"
+h1,
+p {
+    font-family: georgia, "Times New Roman", serif;
+    font-size: 19px;
+}
+```
 
 </script>
 
@@ -180,13 +177,40 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Miljö
+#CSS syntax
 
-* Desktop
-* Mobiler
-* Läsplattor
-* Script
-* Server till server
+```css
+selector { property: value }
+
+selector,
+selector {
+    property: value;
+    property: value;
+}
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Styla vad?
+
+```css
+h1 { font-weight: bold; }
+
+.warning { color: red; }
+
+#headline { border-bottom: 1 px solid #333; }
+```
+
+```html
+<h1 id="headline" class="warning">
+    En tjock, röd och understruken rubrik
+</h1>
+```
 
 </script>
 
@@ -194,11 +218,147 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Mycke blir det
+#Styla var?
 
-* Brett område
-* Många olika tekniker som samverkar
-* Webbprogrammering, ett samlingsnamn för programutvecklingstekniker som använder webbaserade tekniker.
+* Extern stylesheet i separat fil
+* Inbäddad i HTML-sidans `<head></head>` via `<style></style>`
+* Inline style i elementet `<p style="color: red;"></p>`
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vilken style gäller?
+
+Ett kort svar:
+
+* Ju närmare HTML element regeln ligger...
+* `!important` tar överhanden
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Utmaningen med HTML?
+
+* Att ha en struktur som validerar
+* En struktur som är enkel att styla
+* Förberedd för styling
+* Att strukturen är "sökmotorvänlig"
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Utmaningen med CSS?
+
+* Med små medel styla en webbsida
+* Oavsett hur HTML-strukturen ser ut
+* God basstyle - enkel att modifiera
+* Att få HTML och CSS att fungera tillsammans
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP
+
+* (Serverside) skriptspråk
+* Interpretator
+* Dynamisk webbsida
+* Koppla databas
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Flödet
+
+* Webbservern låter interpretatorn parsa `.php`
+* Programmet skriver ut, `echo`
+* Resultatet blir HTML-sidan
+* Webbservern skickar resultatet till webbläsaren
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Låt dig inte luras
+
+* Multi purpose language, fulländat programmeringsspråk
+* Minneshantering och dynamisk typning
+* CLI-skript
+* Objektorienterat
+* Strukturerad/procedurell programmering
+* Funktionell programmering
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mycket har hänt
+
+During the 2010s there have been increased efforts towards standardisation and code sharing in PHP applications by projects such as PHP-FIG in the form of PSR-initiatives as well as Composer dependency manager and the Packagist repository.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Popularitet [TIOBE](http://www.tiobe.com/tiobe-index/)
+
+* Plats 6 på TIOBE aug 2016
+* Java, C, C++, C#, Python, PHP, JavaScript
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img alt="W3Techs" src="img/w3techs.png" style="width: 100%">
+
+Popularitet [W3Techs](https://w3techs.com/technologies/overview/programming_language/all).
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tolka en undersökning
+
+> PHP is used by 82% of all the websites whose server-side programming language we know.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#HTML + CSS + PHP
+
+* Få dem att fungera tillsammans. På ett vackert sätt. Det är utmaningen.
 
 </script>
 
