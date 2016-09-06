@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>CGI-skript</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#CGI-skript
+##Python
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Vad är ett CGI-skript
+* Varför bry sig om CGI?
+* Vad går fel?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#CGI-skript
+
+* Common Gateway Interface
+* Webbserver som exekverar ett externt program
+* Python, Perl, Bash, C (any language)
+* Spec 1993 (WWW 1990, PHP 1994)
+* PHP's första implementation var som CGI
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Ett CGI svar
+
+```php
+print("Content-type: text/plain\n\n");
+print("Hello CGI\n");
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#CGI i Python
+
+```python
+# Send the HTTP header for plain text or for html
+print("Content-Type: text/plain;charset=utf-8")
+#print("Content-Type: text/html;charset=utf-8")
+print("")
+print("Hello CGI")
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om UTF-8 teckenkodning
+
+* Ett tecken, ett byte, en lagringsplats.
+* Utan teckenkoding - ström av bytes
+* ISO-8859-1: "Äpple"
+* UTF-8: "\xC4pple"
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om UTF-8 i Python
+
+* Ställ in din editor på UTF-8
+* PEP 263
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Skriv ut som UTF-8
+
+* Varför inte bara print?
+
+```python
+# Write page content
+sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+sys.stdout.write(content)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad kan gå fel?
+
+> **Internal Server Error**
+
+> The server encountered an internal error or misconfiguration and was unable to complete your request.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Felsök
+
+1. Kör programmet `python3 me.cgi`.
+1. Unix radbrytning.
+1. UTF-8 NO BOM
+1. Rättigheter så webbservern kan exekvera.
+1. Kör programmet `./me.cgi` (shebang).
+
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Summera
+
+* Äldre teknik
+* Används inte så ofta
+* Bra veta om
+* Perfekt felsökning
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

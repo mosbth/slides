@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Datatyper</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Datatyper
+##Grundläggande om datatyper
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Olika datatyper
+* Kolla datatypen
+* Exempel i Python och PHP
+* Statiskt/Dynamiskt typade språk
+* Typkonvertering
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Grundläggande datatyper
+
+* integer
+* float, double
+* string
+* boolean
+* null/None
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python int
+
+```python
+>>> a=42          
+>>> type(a)       
+<class 'int'>     
+>>> a             
+42                
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python float
+
+```python
+>>> a=4.2          
+>>> type(a)        
+<class 'float'>    
+>>> a              
+4.2                
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python float
+
+```python
+>>> a=4.2          
+>>> type(a)        
+<class 'float'>    
+>>> a              
+4.2                
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python string
+
+```python
+>>> a="42"      
+>>> type(a)     
+<class 'str'>   
+>>> a           
+'42'            
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python boolean
+
+```python
+>>> a=True       
+>>> type(a)      
+<class 'bool'>   
+>>> a            
+True             
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python null/None
+
+```python
+>>> a=None          
+>>> type(a)         
+<class 'NoneType'>  
+>>> a               
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP int
+
+```python
+<?php         
+$a = 42;      
+var_dump($a); 
+```
+
+```php
+int(42)       
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP float
+
+```php
+$a = 4.2;      
+var_dump($a); 
+```
+
+```php
+double(42)       
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP string
+
+```php
+$a = "42";      
+var_dump($a); 
+```
+
+```php
+string(2) "42"  
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP boolean
+
+```php
+$a = true;      
+var_dump($a); 
+```
+
+```php
+bool(true)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP null/None
+
+```php
+$a = null;      
+var_dump($a); 
+```
+
+```php
+NULL
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Statiskt/Dynamiskt typat
+
+* Statiskt typade språk (C/C++, SQL)
+    * Ange typen vid variabeldeklarationen
+* Dynamiskt typade språk (PHP, Python, JavaScript)
+    * Typen känns igen vid runtime
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Konvertera typen Python
+
+```python
+>>> a = 42               
+>>> b = "4.2"            
+>>> c = a + float(b)     
+>>> d = str(a) + b       
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Konvertera typen Python...
+
+```python
+>>> c                    
+46.2                     
+>>> d                    
+'424.2'                  
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Konvertera typen PHP
+
+```php
+$a = 42;
+$b = "4.2";
+$c = $a + (float) $b;
+$d = $a + $b;
+$e = $a . $b;
+var_dump($c);
+var_dump($d);
+var_dump($e);
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Konvertera typen PHP...
+
+```php
+double(46.2)        
+double(46.2)        
+string(5) "424.2"   
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Typkonvertering
+
+* PHP type juggling
+* Python aningen hårdare typkontroll
+* Konvertera explicit vid behov
+* + för siffror
+* + eller . för strängar
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Kika på videoserierna för fler exempel
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
