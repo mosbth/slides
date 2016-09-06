@@ -177,7 +177,7 @@ html    { background-image: "standard.jpg"; }
 ```
 
 ```css
-.page main   { width: 600px; }
+.page        { width: 600px; }
 .page.me-php { width: 660px; }
 ```
 
@@ -233,6 +233,33 @@ html    { background-image: "standard.jpg"; }
 * 100 id
 * 10 class, attribute, pseudo-class
 * 1 element, pseudo-element
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Specificity
+
+```css
+.breadcrumb li:last-child { padding: 0; }
+
+.page        { width: 600px; }
+.page.me-php { width: 660px; }
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Att tänka på
+
+* Lägg reglerna i "rätt ordning"
+* Högre specificitet vinner över ordning
+* `!important` vinner över specificitet
 
 </script>
 
