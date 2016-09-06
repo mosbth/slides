@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>Webbteknologier</title>
+<title>CSS - regler och prioritet</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -18,8 +18,8 @@
 
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
-#Webbteknologier
-##HTML, CSS, PHP
+#CSS
+##Regler och prioritet
 ###Mikael Roos, dbwebb
 </script>
 
@@ -38,171 +38,18 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#HTML
+#Att välja ut ett element
 </script>
 
 
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#HTML element
-
-```html
-<p class="blog">
-    Här är innehållet i paragrafen.
-</p> 
-```
-
-```html
-<tagg attribut="värde">
-    Innehåll i elementet
-</tagg> 
-```
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Grundstrukturen
-
-```html
-<!doctype html>
-<html>
-    <head>
-        
-    </head>
-
-    <body>
-        
-    </body>
-</html>
-```
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Validerar följande sida?
-
-```html
-<!doctype html>
-<meta charset="utf-8">
-<title>Me-sidan</title>
-<h1>Om Mig Själv</h1>
-<p>Här kommer snart min egen fina me-sida.
-<img src="img/me.jpg" class="me" alt="Bild på Mikael Roos">
-```
-
-</script>
-
-
-
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Att använda element
-
-* Vilka element finns på dbwebb.se? Kanske 25-50 olika?
-* Hur många finns i standarden? Kanske 120 eller så?
-* HTML 4 kontra HTML 5
-* XHTML avslutar alltid elementet  
-    `<hr/>` kontra `<hr>`
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#CSS
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-
-<iframe src="https://arkiv.dbwebb.se/kod-exempel/css/page-nostyle.html" width="1024" height="900" frameborder="0"></iframe>
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-
-<iframe src="https://arkiv.dbwebb.se/kod-exempel/css/page.html" width="1024" height="900" frameborder="0"></iframe>
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Style med CSS
-
-```html
-<link rel="stylesheet" href="style.css">
-```
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#CSS regel
-
-```css
-body {
-    background-color: #E9E9E9;
-}
-
-h1,
-p {
-    font-family: georgia, "Times New Roman", serif;
-    font-size: 19px;
-}
-```
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#CSS syntax
-
-```css
-selector { property: value }
-
-selector,
-selector {
-    property: value;
-    property: value;
-}
-```
-
-</script>
-
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Styla vad?
+#Klass, id, elementet
 
 ```css
 h1 { font-weight: bold; }
-
 .warning { color: red; }
-
 #headline { border-bottom: 1 px solid #333; }
 ```
 
@@ -218,25 +65,14 @@ h1 { font-weight: bold; }
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Styla var?
+#Element i element
 
-* Extern stylesheet i separat fil
-* Inbäddad i HTML-sidans `<head></head>` via `<style></style>`
-* Inline style i elementet `<p style="color: red;"></p>`
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Vilken style gäller?
-
-Ett kort svar:
-
-* Ju närmare HTML element regeln ligger...
-* `!important` tar överhanden  
-    `.red { color: red !important; }`
+```html
+<figure class="right">
+    <img src="img/me.jpg" class="me" alt="Bild på Mikael Roos">
+    <figcaption>Mikael Roos när han går ut högstadiet.</figcaption>
+</figure>
+```
 
 </script>
 
@@ -244,25 +80,15 @@ Ett kort svar:
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Utmaningen med HTML?
+#Hur styla?
 
-* Att ha en struktur som validerar
-* En struktur som är enkel att styla
-* Förbereda sidan för styling
-* Att strukturen är "sökmotorvänlig"
+```css
+figure .right { float: right; }
+```
 
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Utmaningen med CSS?
-
-* Med små medel styla en webbsida
-* Oavsett hur HTML-strukturen ser ut
-* God basstyle - enkel att modifiera
-* Att få HTML och CSS att fungera tillsammans
+```css
+.right { float: right; }
+```
 
 </script>
 
@@ -270,19 +96,15 @@ Ett kort svar:
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#PHP
-</script>
+#Hur styla?
 
+```css
+figure figcaption { padding-top: 1em; }
+```
 
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#PHP
-
-* (Serverside) skriptspråk
-* Interpretator
-* Dynamisk webbsida
-* Koppla databas
+```css
+figcaption { padding-top: 1em; }
+```
 
 </script>
 
@@ -290,12 +112,42 @@ Ett kort svar:
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Flödet
+#Hur styla?
 
-* Webbservern låter interpretatorn parsa `.php`
-* Programmet skriver ut, `echo`
-* Resultatet blir HTML-sidan
-* Webbservern skickar resultatet till webbläsaren
+```html
+<figure class="figure right">
+```
+
+```css
+.figure figcaption { padding-top: 1em; }
+```
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Hur styla?
+
+```html
+<figure class="figure thumbnail right">
+    <img src="img/me.jpg" class="me" alt="Bild på Mikael Roos">
+```
+
+```css
+.figure.small img { width 80px; }
+```
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Styla enkelt
+
+* Använd klasser
+* Kort regel bra
+* Undvik generella regler
 
 </script>
 
@@ -303,23 +155,16 @@ Ett kort svar:
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Låt dig inte luras
+#Style en sida per årstid
 
-* Multi paradigm language
-* Minneshantering och dynamisk typning
-* Objektorienterat
-* Strukturerad/procedurell programmering
-* Funktionell programmering
-* CLI-skript
+```html
+<html class="autumn">
+```
 
-</script>
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Ordning och struktur
-
-During the 2010s there have been increased efforts towards standardisation and code sharing in PHP applications by projects such as PHP-FIG in the form of PSR-initiatives as well as Composer dependency manager and the Packagist repository.
+```css
+html    { background-image: "standard.jpg"; }
+.autumn { background-image: "autumn.jpg"; }
+```
 
 </script>
 
@@ -327,19 +172,16 @@ During the 2010s there have been increased efforts towards standardisation and c
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Popularitet [TIOBE](http://www.tiobe.com/tiobe-index/)
+#Styla varje sida specifikt
 
-* Plats 6 på TIOBE aug 2016
-* Java, C, C++, C#, Python, PHP, JavaScript
+```html
+<body class="page me-php">
+```
 
-</script>
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-<img alt="W3Techs" src="img/w3techs.png" style="width: 100%">
-
-Popularitet [W3Techs](https://w3techs.com/technologies/overview/programming_language/all).
+```css
+.page main   { width: 600px; }
+.page.me-php { width: 660px; }
+```
 
 </script>
 
@@ -347,9 +189,15 @@ Popularitet [W3Techs](https://w3techs.com/technologies/overview/programming_lang
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Tolka en undersökning
+#Pseudo element/classes
 
-> PHP is used by 82% of all the websites whose server-side programming language we know.
+```html
+<ul class="breadcrumb">
+    <li>Item A</li>
+    <li>Item B</li>
+    <li>Item C</li>
+</ul>
+```
 
 </script>
 
@@ -357,9 +205,37 @@ Popularitet [W3Techs](https://w3techs.com/technologies/overview/programming_lang
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#HTML + CSS + PHP
+#Pseudo element
 
-* Få dem att fungera tillsammans. På ett vackert sätt. Vacker kod. Det är utmaningen.
+```css
+.breadcrumb li::after { content: ">>"; }
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Pseudo classes
+
+```css
+.breadcrumb li:last-child { padding: 0; }
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Pseudo prioritet
+
+* CSS specificy
+
+```html
+<p id="large" class="large"><em>BIG</em></p>
+```
 
 </script>
 
