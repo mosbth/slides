@@ -43,7 +43,7 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Klass, id, elementet
+#Klass, id, element
 
 ```css
 h1 { font-weight: bold; }
@@ -133,7 +133,7 @@ figcaption { padding-top: 1em; }
 ```
 
 ```css
-.figure.small img { width 80px; }
+.figure.thumbnail img { width 80px; }
 ```
 
 </script>
@@ -187,7 +187,7 @@ html    { background-image: "standard.jpg"; }
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Pseudo element/classes
+#Pseudo element, classes
 
 ```html
 <ul class="breadcrumb">
@@ -243,8 +243,11 @@ html    { background-image: "standard.jpg"; }
 #Specificity
 
 ```css
+li:last-child             { padding: 0; }
 .breadcrumb li:last-child { padding: 0; }
+```
 
+```css
 .page        { width: 600px; }
 .page.me-php { width: 660px; }
 ```
