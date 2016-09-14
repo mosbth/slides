@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Säker programmering 1</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Säker programmering 1
+##PHP och HTML
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Lite om säkerhetsrisker
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Lite aldrig på någon
+
+* Låt se hur det kan gå.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<img src=https://dbwebb.se/image/snapshot/sappar-xss-orginal.jpg style="width: 100%" alt="">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<iframe width="1024" height="720" src="https://www.youtube.com/embed/CYMR4BjHIeM" frameborder="0" allowfullscreen></iframe>
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Att leta exploits
+
+* [Svaghet på svaghet och till slut](https://dbwebb.se/forum/viewtopic.php?t=1702#p37302)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+> This means that we need to wait a full week in order to exploit our vulnerability, as this is the time frame that takes that draft to be deleted. Fortunately for us, tokens usually last 24 hours, allowing us to retrieve the token a day before the expected deletion date, and using it in order to get into ‘edit_post()’ after the draft gets deleted.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+> Finally, after passing the token validation, the privileges validation, the basic admin validation, and the post ID validation, changing the post status to ‘trash’ is as simple as sending an HTTP parameter. Thank God.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+> Combining all of these bypasses together, we use a chain of around a dozen different bugs, a faulty privilege system, and about every false assumption in the system to achieve partial editor privileges. The road to a critical vulnerability is still long, but at its end we found both a SQLi and an XSS, to be described in the next posts.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Stressa systemet
+
+* En stressad webbplats kan ge lite väl tydliga felmeddelanden.
+* Stressa MySQL med "to many connections"
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<img src=img/max-connections.png style="width: 100%" alt="">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Hur skydda sig?
+
+* Stäng av felmeddelanden
+* Lita inte på någon input som du inte kontrollerar själv
+* Validera inkommande
+* Kontrollera värdemängder och typ
+* Avbryt programmet vid felaktig input
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Hur skydda sig?
+
+* Skriv ut kontrollerat (till webbsidan)
+* `htmlentities()`
+* Vid behov `striptags()`
+* Bygg stabil webbplats som inte krashar
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vanliga attacker
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#XSS Cross site scripting
+
+```
+?page=home
+?page=< script>alert("Got ya.");< /script>
+```
+
+```
+die("The value of ?page=" . $page . " is invalid.");
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#File inclusion
+
+```
+?page=home
+?page=../../../etc/passwd
+```
+
+```
+include("$dir/$page.php");
+include("$dir/{$_GET['page']}.php");
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#source.php
+
+* Att visa källkod på en server
+
+```
+source.php?path=hangman/playhangman.php
+```
+
+```
+?path=../../../../etc/passwd
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#img.php
+
+* Att hämta remote info
+* Tänk även HTTP headern
+
+```
+img.php?src=http://dbwebb.se/img/jul.jpg
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Fundering
+
+* Kontrollfråga:
+* Datat jag nu behandlar, är jag verkligen verkligen säker på att ingen kan manipulera det?
+* Finns ingen magi
+* Kunskap är ditt bästa skydd
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

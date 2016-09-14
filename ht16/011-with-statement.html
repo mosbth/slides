@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>With statement i Python</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#With statement
+##Python
+###Mikael Roos, dbwebb
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#With för filer
+
+* With stänger automatiskt filen
+* Hanterar fel automatiskt
+* Slipper egna `try catch`
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Läsa fil
+
+```
+# read all lines into list
+with open("test.txt") as fhand:
+    all_lines = fhand.readlines()
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Läsa fil...
+
+```
+# read line by line from file
+with open("test.txt") as fhand:
+    for line in fhand:
+       print(line, end='')
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Skriva till fil
+
+```
+# write line into file
+with open("test.txt", "w") as fhand:
+    fhand.write("This is a test.")
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kuriosa
+
+* [Exampel i kursrepot `tutorial/with-files.md`](https://github.com/dbwebb-se/python/blob/master/tutorial/with-files.md)
+* [PEP343](https://www.python.org/dev/peps/pep-0343/)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

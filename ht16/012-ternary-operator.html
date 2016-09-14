@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Ternary operator</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Ternary operator
+##PHP, Python
+###Mikael Roos, dbwebb
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kortvariant av if else
+
+* PHP 
+
+```
+condition ? a : b
+```
+
+* Python
+
+```
+a if condition else b
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Som if-sats
+
+```
+if (isset($_GET["user"])) {
+    $user = $_GET["user"];
+} else {
+    $user = null;
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Som if-sats...
+
+```
+$user = null;
+if (isset($_GET["user"])) {
+    $user = $_GET["user"];
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Som ternary
+
+```
+$user = isset($_GET["user"]) ? $_GET["user"] : null;
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Som ternary...
+
+```
+$user = isset($_GET["user"])
+    ? $_GET["user"]
+    : null;
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#I Python
+
+```
+>>> userIsAuthenticated = True                   
+>>> user = "yes" if userIsAuthenticated else None
+>>> user                                         
+'yes'                                            
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Summering
+
+* PHP [Ternary operator](http://php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary)
+* Python [Conditional expressions](https://docs.python.org/3/reference/expressions.html#conditional-expressions)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
