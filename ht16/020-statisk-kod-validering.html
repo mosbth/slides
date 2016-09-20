@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Statisk kodvalidering</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Statisk kodvalidering
+##PHP
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Background
+
+During autum 2014 to spring 2015 we had roughly 2500 registered students in dbwebb courses. At the same time we introduced static code validation as a requirement to pass the courses.
+
+This is reflections upon that.
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#About Static Code Validation
+
+* Tools like `phpcs` and `phpmd`
+* `phpcs`: Code style
+* `phpmd`: Mess detector
+* Parse and analyse code to detect incompliance with ruleset
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Why static code validation?
+
+* Development teams need to write uniform code.
+* Version systems diffs spaces and linebreaks.
+* Follow guidelines, standards and best practice.
+
+So, pros need it, but use it in education?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Static code validation, example
+
+<pre data-code="c-11"></pre>
+</script>
+
+<script id="c-11" data-role="code" data-language="php" type="text/html">
+<?php
+function checkValue($value){
+    if($value == 42) 
+    {
+        $status = true; 
+    }
+    else 
+    {
+        $status = false;
+    }
+
+     return $status;
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#So what?
+
+* The code provides the correct answer
+* No syntax errors or warnings during execution
+
+Is this enough?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#What say `phpcs`?
+
+```
+$ phpcs --standard=.phpcs.xml test.php              
+
+FILE: /home/mos/git/test/test.php
+----------------------------------------------------------------------
+FOUND 6 ERRORS AFFECTING 5 LINES
+----------------------------------------------------------------------
+  2 | ERROR | [x] Opening brace should be on a new line
+  3 | ERROR | [x] Expected 1 space after IF keyword; 0 found
+  3 | ERROR | [x] Expected 1 space after closing parenthesis; found 6
+  6 | ERROR | [x] Expected 1 space after closing brace; newline found
+  7 | ERROR | [x] Expected 1 space after ELSE keyword; newline found
+ 12 | ERROR | [x] Line indented incorrectly; expected at least 4
+    |       |     spaces, found 2
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+```
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#What say phpmd?
+
+```
+$ phpmd test.php text cleancode,codesize,controversial,design,naming,unusedcode
+
+test.php:8   The method checkValue uses an else expression.
+             Else is never necessary and you can simplify 
+             the code to work without else.
+```
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#"Corrected" and validates
+
+<pre data-code="c-12"></pre>
+</script>
+
+<script id="c-12" data-role="code" data-language="php" type="text/html">
+<?php
+function checkValue($value)
+{
+    if ($value == 42) {
+        return true;
+    }
+
+    return false;
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Main concerns
+
+* Students not accepting tools as guides
+* Students unwilling to follow protocol
+* Installation process as part of course introduction
+* Using terminal as a requirement
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#What say students?
+
+* Installation (terminal, unix-commands) is a concern
+* Unix-commands is a concern
+* Validation messages is a pin in their but
+* They adapt quickly
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Benefits
+
+* Less problems/supervision with basic issues
+* An "extra teacher"
+* Using well established codestyle
+* Enforcing best practice
+* Students wants to do right and is eager to follow best practice
+* Provoking discussions on coding best practice and what is "right" and "wrong"
+
+</script>
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tools used
+
+* Validation: htmlhint, , csslint, jshint, jscs, jsonlint, php, phpmd, phpcs, pylint, js-yaml, schellcheck, file CRLF, file BOM
+* Publish: 
+html-minifier, cleancss, uglifyjs, php -strip
+* Integrates with: Own bash-tool, Git, GitHub, Web/production server 
+* Using: ssh, rsync, wget, bash
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Sum it up
+
+* Static code validation can be used as an effective training tool in introductionary programming courses.
+* The setup and maintaining the process might require extensive effort.
+* The gain is worth it, it levels up course quality.
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
