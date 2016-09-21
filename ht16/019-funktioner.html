@@ -112,13 +112,14 @@ doit1(41)
 #Default argument PHP
 
 ```
-function doit1($num)
+function doit2($num1, $num2 = 40)
 {
-    $tot = 1 + $num;
+    $tot = 1 + $num1 + $num2;
     print($tot);
 }
 
-doit1(41);
+doit2(1);
+doit2(2, 39);
 ```
 
 </script>
@@ -195,7 +196,7 @@ print(tot)
 
 * Pass reference to object
 * Mutable eller immutable
-* String + integer immutable
+* String + integer immutable i funktion
 * Lista mutable
 
 </script>
@@ -341,11 +342,11 @@ print(tot)
 def doit7(num1, num2=2, num3=40):
     return num1 + num2 + num3
 
-print(doit7(0))
-print(doit7(1, 1))
-print(doit7(1, 40, 1))
-print(doit7(num3=39, num1=1))
-print(doit7(42, num3=0, num2=0))
+doit7(0)
+doit7(1, 1)
+doit7(1, 40, 1)
+doit7(num3=39, num1=1)
+doit7(42, num3=0, num2=0)
 ```
 
 </script>
@@ -358,6 +359,7 @@ print(doit7(42, num3=0, num2=0))
 
 * Det som händer inuti funktionen lever i sitt eget scope.
 * Blockscope
+* Globala variabler kan synas i funktionens scope
 
 </script>
 
@@ -367,7 +369,7 @@ print(doit7(42, num3=0, num2=0))
 <script data-role="slide" data-markdown type="text/html">
 #Var placera funktioner?
 
-* PHP include
+* PHP include (autoloader)
 * Python import
 
 </script>
