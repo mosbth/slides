@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Key value array och dictionary</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Datastruktur key value
+##PHP array och Python dictionary
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Datastruktur med key value
+* PHP array
+* Python dictionary
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Begrepp
+
+* Associative array
+* Key/value array
+* Dictionary
+* Unordered collection of key/value
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP key value
+
+```
+$team = [
+    "mosstud" => "Mikael Roos",
+    "lew" => "Kenneth Lewenhagen",
+];
+print_r($team);
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP key value...
+
+```
+Array                           
+(                               
+    [mosstud] => Mikael Roos    
+    [lew] => Kenneth Lewenhagen 
+)                               
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python dictionary
+
+```
+team = {
+    "mosstud": "Mikael Roos",
+    "lew": "Kenneth Lewenhagen",
+}
+print(team)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python dictionary...
+
+```
+{'mosstud': 'Mikael Roos', 'lew': 'Kenneth Lewenhagen'}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP lägg till
+
+```
+$team["zeldah"] = "Andreas Arnesson";
+$team["efo"] = "Emil Folino";
+print_r($team);
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP lägg till...
+
+```
+Array                           
+(                               
+    [mosstud] => Mikael Roos    
+    [lew] => Kenneth Lewenhagen 
+    [zeldah] => Andreas Arnesson
+    [efo] => Emil Folino        
+)                               
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python lägg till
+
+```
+team["zeldah"] = "Andreas Arnesson"
+team["efo"] = "Emil Folino"
+print(team)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python lägg till...
+
+```
+{'mosstud': 'Mikael Roos', 'efo': 'Emil Folino', 'zeldah': 'Andreas Arnesson', 'lew': 'Kenneth Lewenhagen'}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#En gång till
+
+* Nu med array av array och dictionary av tuple
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Array av array
+
+```
+$mosstud = [
+    "name" => "Mikael Roos",
+    "city" => "Bankeryd",
+];
+
+$lew = [
+    "name" => "Kenneth Lewenhagen",
+    "city" => "Karlskrona"
+];
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Array av array...
+
+```
+$team = [
+    "mosstud" => $mosstud,
+    "lew" => $lew,
+];
+
+print_r($team);
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Array av array...
+
+```
+Array                                    
+(                                        
+    [mosstud] => Array                   
+        (                                
+            [name] => Mikael Roos        
+            [city] => Bankeryd           
+        )                                
+                                         
+    [lew] => Array                       
+        (                                
+            [name] => Kenneth Lewenhagen 
+            [city] => Karlskrona         
+        )                                
+                                         
+)                                        
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Dictionary med dictionary
+
+```
+mosstud = {
+    "name": "Mikael Roos",
+    "city": "Bankeryd",
+}
+
+lew = {
+    "name": "Kenneth Lewenhagen",
+    "city": "Karlskrona",
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Dictionary med dictionary...
+
+```
+team = {
+    "mosstud": mosstud,
+    "lew": lew,
+}
+
+print(team)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Dictionary med dictionary...
+
+```
+{
+    'mosstud': {'name': 'Mikael Roos', 'city': 'Bankeryd'},
+    'lew': {'name': 'Kenneth Lewenhagen', 'city': 'Karlskrona'}
+} 
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Accessa element
+
+```
+print($team["mosstud"]["name"]);
+print($team["lew"]["name"]);
+
+print(team["mosstud"]["name"])
+print(team["lew"]["name"])
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Accessa element...
+
+```
+Mikael Roos       
+Kenneth Lewenhagen
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Lagringsstruktur
+
+* Hash table (hash map)
+* Hash funktion hanterar indexet
+* Lookup tid oberoende av storleken
+* Enkel (om man har nyckeln)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[Lagringsstruktur...](https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_3_1_1_0_1_0_0_SP.svg)
+
+<div style="background-color; white">
+<img alt="Bild hash table" src="img/hash-table.png" style="width: 100%">
+</div>
+
+</script>
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Switch
+
+* Använd array/dictionary som alternativ till switch
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Switch...
+
+```
+$pages = [
+    "home"  => "incl/default.php",
+    "about" => "incl/about.php",
+];
+$somekey = "home";
+$page = isset($pages[$somekey])
+    ? $pages[$somekey]
+    : null;
+print($page);
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Switch...
+
+```
+pages = {
+    "home": "incl/default.php",
+    "about": "incl/about.php",
+}
+
+somekey = "home"
+page = pages[somekey] if somekey in pages else None
+print(page)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Switch...
+
+```
+incl/default.php
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Sortera
+
+* Finns funktioner för att sortera på key/value
+* PHP array har en ordning
+* Python använd lista för ordning
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tänka på
+
+* PHP kan mixa value och key/value i samma array.
+* Positionen blir nyckeln.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kärt barn många namn
+
+* Key value array
+* Associative array
+* Dictionary
+* Hash table
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kodexemplet
+
+* [array-key-value.php](https://github.com/mosbth/slides/tree/master/ht16/example/array-key-value.php) i sin helhet
+* [dictionary.py](https://github.com/mosbth/slides/tree/master/ht16/example/dictionary.py)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
