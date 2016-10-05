@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Python getopt och CLI</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Python getopt och CLI
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* CLI
+* getopt()
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#CLI
+
+* Command line interface
+
+```
+$ ls
+$ ls -l
+$ ls -lRF
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#sqlite3 exempel
+
+```
+$ sqlite3 --version
+$ sqlite3 --help
+Usage: sqlite3 [OPTIONS] FILENAME [SQL]
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#sqlite3 exempel
+
+```
+OPTIONS include:
+   -ascii               set output mode to 'ascii'
+   -bail                stop after hitting an error
+   -cmd COMMAND         run "COMMAND" before reading stdin
+   -init FILENAME       read/process named file
+   -[no]header          turn headers on or off
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Exempel
+
+* [mynameis.py](https://github.com/dbwebb-se/python/tree/master/example/cli)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Enkla options
+
+```
+$ ./mynameis2.py MegaMic
+My name is MegaMic!
+Script executed in 0.28 seconds
+$ ./mynameis2.py -s MegaMic
+My name is MegaMic!
+$ ./mynameis2.py --silent MegaMic
+My name is MegaMic!
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Options med argument
+
+```
+$ ./mynameis2.py --silent -r 3 MegaMic
+My name is MegaMicMegaMicMegaMicMegaMic!
+$ ./mynameis2.py --silent --repeat=3 MegaMic 
+My name is MegaMicMegaMicMegaMicMegaMic!
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#getopts()
+
+```
+opts, args = getopt.getopt(sys.argv[1:], "hvsd:r:o:", [
+    "help",
+    "version",
+    "silent",
+    "drum=",
+    "repeat=",
+    "output="
+])
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#getopts()
+
+```
+for opt, arg in opts:
+
+    elif opt in ("-s", "--silent"):
+        VERBOSE = False
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#getopts()
+
+```
+for opt, arg in opts:
+
+    elif opt in ("-r", "--repeat"):
+        if not arg.isnumeric():
+            assert False, "-r, --repeat: {arg} is not a numeric value".format(arg=arg)
+
+        REPEAT = int(arg)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#args när opts konsumerats
+
+```
+if len(args) != 1:
+    assert False, "Missing name as argument"
+
+# The name passed as a required argument
+NAME = args[0]
+```
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tankar
+
+* ParseOptions-delen generell
+* Försök göra återanvändbar
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

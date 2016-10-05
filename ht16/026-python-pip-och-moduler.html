@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Python moduler och PIP</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Python PIP och moduler
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* PIP
+* JSON
+* Requests
+* SQLite
+* Beautifulsoup4
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[PyPI](https://pypi.python.org/pypi)
+
+* Python Package Index
+* Currently 90025 packages
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[PyPAI](https://www.pypa.io/en/latest/)
+
+* Python Packaging Authority
+* To provide a relatively easy to use software distribution infrastructure
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[PIP](https://pip.pypa.io/en/latest/)
+
+* The PyPA recommended tool for installing Python packages.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#JSON
+
+* Om [JSON](http://www.json.org/) dataformat
+* Om [JSON modulen](https://docs.python.org/3/library/json.html)
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#JSON...
+
+```
+{
+    "colorsArray": [
+        {
+            "colorName": "red",
+            "hexValue": "#f00"
+        },
+        {
+            "colorName": "pink",
+            "hexValue": "#f9f"
+        }
+    ]
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#JSON...
+
+```
+import json
+data = """
+{
+    "colorsArray": [
+        {
+            "colorName": "red",
+            "hexValue": "#f00"
+        },
+        {
+            "colorName": "pink",
+            "hexValue": "#f9f"
+        }
+    ]
+}
+"""
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#JSON...
+
+```
+jsonobj = json.loads(data)
+print(jsonobj)
+```
+
+```
+>>> jsonobj
+{'colorsArray': [{'colorName': 'red', 'hexValue': '#f00'}, {'colorName': 'pink', 'hexValue': '#f9f'}]}
+>>> type(jsonobj)
+<class 'dict'>
+>>> type(jsonobj["colorsArray"])
+<class 'list'>
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Requests
+
+* Om [Requests](http://docs.python-requests.org/en/master/)
+
+```
+pip3 install requests
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Requests
+
+```
+import requests
+
+url = "http://dbwebb.se/humans.txt"
+req = requests.head(url)
+
+print("Request to ", url)
+print("Recieved status code: ", req.status_code)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQLite
+
+* Om [SQLite](https://sqlite.org/)
+* Om [SQLite modulen](https://docs.python.org/3/library/sqlite3.html)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQLite
+
+```
+import sqlite3
+
+# Create a connection and a cursor
+db = sqlite3.connect(dbFile)
+dbc = db.cursor()
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQLite
+
+```
+# Perform SQL queries
+dbc.execute("CREATE TABLE IF NOT EXISTS Pings (url TEXT, time TEXT, response INTEGER)")
+
+aTuple = (url, rTime, code)
+dbc.execute("INSERT INTO Pings (url, time, response) VALUES (?, ?, ?)", aTuple)
+dbc.commit()
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQLite
+
+```
+# Loop through a resultset from a SELECT query
+row = dbc.execute("SELECT url, time, response FROM Pings")
+
+for row in dbc:
+    print(row)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#REST API
+
+* [Quote vanlig webbsida](https://dbwebb.se/repo/javascript/example/lekplats/get-marvin-quotes-using-ajax/)
+* [Quote GET JSON](https://dbwebb.se/repo/javascript/example/lekplats/get-marvin-quotes-using-ajax/quote.php)
+* Requests + JSON modul
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Scrape
+
+* Om [Scrape modulen](https://www.crummy.com/software/BeautifulSoup/)
+
+```
+pip3 install beautifulsoup4
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Scrape
+
+```
+import requests
+from bs4 import BeautifulSoup
+
+# Get webpage
+url = "http://dbwebb.se/"
+req = requests.get(url)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Scrape
+
+```
+# Get the webpage content as a soup
+soup = BeautifulSoup(req.text)
+
+# Get all elements looking like <p class="irclog">
+ircLog = soup.find("p", class_="irclog")
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Så, vad göra?
+
+* Verktyg för att accessa data på en webbplats
+* Parsa alla sidor och leta efter 404
+* Mät sidors laddningstid
+* Sökmotorrobot
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Modul som verktyg
+
+* Behöver du göra något i Python?
+* Finns det modul som underlättar?
+* Vilken modul är "den man ska använda"?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

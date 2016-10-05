@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>PHP klasser och objekt</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP klasser och objekt
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Klass som datastruktur
+* Objekt
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP class
+
+```
+class Dice {
+    public $faces = 6;
+    
+    public function roll() {
+        return rand(1, $this->faces);
+    }
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP object
+
+```
+$dice = new Dice();
+
+echo $dice->roll() . "\n";
+$dice->faces = 32;
+echo $dice->roll() . "\n";
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#En gång till
+
+* Visa på statisk medlem
+* Att tillhöra klassen eller objektet - skillnad?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP class
+
+```
+class DiceAlphabetic {
+    private $faces = 6;
+    private static $images = ["A", "B", "C", "D", "E", "F"];
+    
+    public function roll() {
+        return self::$images[rand(0, $this->faces - 1)];
+    }
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP object
+
+```
+$dice = new DiceAlphabetic();
+
+echo "\n";
+echo $dice->roll() . "\n";
+echo print_r(DiceAlphabetic::$images, 1) . "\n";
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP blandar och ger
+
+* Funktioner
+* Klasser och objekt
+* Eller både och
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Minns om klasser
+
+* En datastruktur
+* Metoder och properties
+* (Funktioner och medlemsvariabler)
+* `class` ger mallen
+* `new` skapar nytt objekt
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Minns om klasser...
+
+* Pil `->` för att accessa objektets medlemmar
+* `::` för att accessa klassens statiska medlemmar
+* `::` (scope resolution operator)
+* `::` (Paamayim Nekudotayim)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Objektorientering?
+
+* Objektorienterad programmering (och analys/design)
+* Programmmeringsparadigm med klasser, objekt, inkapsling, arv, består av.
+* Ämne för kommande kurser
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kodexemplet
+
+* [class-object.php](https://github.com/mosbth/slides/tree/master/ht16/example/class-object.php)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

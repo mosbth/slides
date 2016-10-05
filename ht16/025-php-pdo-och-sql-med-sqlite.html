@@ -18,7 +18,7 @@
 
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
-#PHP PDO och SQLite (WORK IN PROGRESS!)
+#PHP PDO och SQLite
 ###Mikael Roos, dbwebb
 </script>
 
@@ -220,20 +220,10 @@ $stmt = $db->prepare($sql);
 
 ```
 // Execute the SQL statement using parameters to replace the ?
+//WHERE boatType LIKE ? OR boatEngine LIKE ?";
 $params = [$search, $search];
 $stmt->execute($params);
 ```
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Testkör exmplet
-
-* [Exempel](https://dbwebb.se/repo/htmlphp/example/pdo-sqlite/)
-* [Källkod](https://github.com/dbwebb-se/htmlphp/tree/master/example/pdo-sqlite)
 
 </script>
 
@@ -268,7 +258,8 @@ $stmt->execute($params);
 #SQL injections...
 
 ```
-search.php?search=1+UNION+(SELECT+1,1,1,user,passwdord,email+FROM+Users)--
+search.php?search=%buster%
+search.php?search=1+UNION+(SELECT+1,1,1,user,password,email+FROM+Users)--
 ```
 
 ```
@@ -286,7 +277,7 @@ $sql = "SELECT * FROM Jetty WHERE boatType LIKE $search OR boatEngine LIKE $sear
 * Kan du hitta säkerhetshål i exemplet?
 * SQL injection?
 * XSS?
-* CSRF
+* CSRF?
 
 </script>
 
@@ -302,6 +293,16 @@ $sql = "SELECT * FROM Jetty WHERE boatType LIKE $search OR boatEngine LIKE $sear
 
 </script>
 
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Testkör exemplet
+
+* [Exempel](https://dbwebb.se/repo/htmlphp/example/pdo-sqlite/)
+* [Källkod](https://github.com/dbwebb-se/htmlphp/tree/master/example/pdo-sqlite)
+
+</script>
 
 
 
