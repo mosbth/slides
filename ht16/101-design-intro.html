@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kursen design</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Kursen design
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Om kursen
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[Översikt](https://dbwebb.se/kurser/design)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Ambitionen
+
+* Webbdesign
+* Skriva för webben
+* Användbarhet/usability
+* Förmåga kommunicera med designer och kund
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Ambitionen...
+
+* Träna förmågan om vad som är snyggt
+* Öva på bastekniker inom vad som är snyggt
+* Mäta, analysera, skriv
+* Plattform för teknisk webbdesign och användbarhet
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Ambitionen...
+
+* Läs boken, det är det minsta du kan göra
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Upplägget
+
+* Använd ramverk
+* Producera innehåll i ramverket
+* Bygg tema-familj
+* Mät, analysera, skriv (grupparbete)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Projektet
+
+* Tvådelat
+* Familj av teman
+* Mät, analysera, skriv (grupparbete)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Farhågor
+
+* Vad kan gå fel?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Bonus
+
+* Förståelse för hur verktyg och infrastruktur kan fungera för en professionell webbprogrammerare
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kort om Usability
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Definitionen Usability
+
+* Learnability
+* Efficiency
+* Memorability
+* Errors
+* Satisfaction
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Learnability
+
+* How easy is it for users to accomplish basic tasks the first time they encounter the design?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Efficiency
+
+* Once users have learned the design, how quickly can they perform tasks?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Memorability
+
+* When users return to the design after a period of not using it, how easily can they re-establish proficiency?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Errors
+
+* How many errors do users make, how severe are these errors, and how easily can they recover from the errors?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Satisfaction
+
+* How pleasant is it to use the design?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Testa Usability
+
+* Låt någon använda din produkt, tjänst
+* Stå bakom och notera
+* Var självkritisk - hur kan du göra bättre?
+* Ta ett steg för att bli bättre
+* Testa igen, och igen.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kmom01
+
+* Allmän intro till "ämnet"
+* Labbmiljön
+* Komma igång med ett CMS
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Miljön
+
+* Composer
+* Make
+* Node och npm
+* Markdown
+* YAML
+* Git och GitHub
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Composer
+
+* [Packagist mos/anax-flat](https://packagist.org/packages/mos/anax)
+* Infrastruktur för PHP paket
+* Composer require mos/anax-flat
+* Composer update
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Make
+
+* Makefile
+* Bash-liknande syntax
+* Måste vara tabbar `\t`
+* Buildtool
+* Makefilen för [dbwebb.se](https://github.com/dbwebb-se/website/blob/master/Makefile) [kursrepot design](https://github.com/dbwebb-se/design/blob/master/Makefile)
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Node och npm
+
+* Node = JavaScript på server
+* Chrome V8, event-driven och non-blocking
+* npm = pakethantering för JavaScript
+* Kompilera LESS
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Markdown
+
+* John Gruber (Daring Fireball)
+* PHP Markdown (Michel Fortin)
+* Text-till-HTML
+* Varför Markdown?
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#YAML
+
+* Text till configuration
+* Parsas till PHP array
+* Frontmatter
+* [Exempel förstasidan dbwebb.se](https://raw.githubusercontent.com/dbwebb-se/website/master/content/index.md)
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Git och GitHub
+
+* [Mos på GitHub](https://github.com/mosbth)
+* [dbwebb.se på GitHub](https://github.com/dbwebb-se/website)
+* Git (Linus T, Linux-kärnan)
+* GitHub, webbtjänst för Git-repon
+* Bitbucket (fria privata repo)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Git
+
+* git init, git add
+* gt commit
+* git tag
+* git push &amp;&amp; git push --tags
+* git pull
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#GitHub
+
+* [GitHub exempel historia](https://github.com/dbwebb-se/website/blob/master/content/kunskap/1014_bygg-me-sida-med-anax-flat.md)
+* [Vad händer med dbwebb.se?](https://github.com/dbwebb-se/website/commits/master)
+* [Vad händer med kursrepot?](https://github.com/dbwebb-se/design/commits/master)
+* Koppling till automatiserade tester
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Arbetssätt med Git/GitHub
+
+* Att tappa data...
+* Masterkopia på GitHub
+* Många servar/utvecklingsmaskiner, git pull
+* Fixa - git commit + push
+* (Dropbox är inte heller dumt)
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax Flat
+
+* Flat file CMS
+* Skapa innehåll sida, block
+* Basen i dbwebb.se, grillcon.dbwebb.se
+* Fokus innehåll för webben
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax Flat består av
+
+* [Anax Flat composer.json](https://github.com/canax/anax-flat/blob/master/composer.json)
+* [Anax composer.json](https://github.com/mosbth/anax/blob/master/composer.json)
+* [CTextFilter composer.json](https://github.com/mosbth/ctextfilter/blob/master/composer.json)
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#composer info
+
+```
+ezyang/htmlpurifier     v4.8.0 
+michelf/php-markdown    1.6.0  
+michelf/php-smartypants 1.6.0  
+mos/anax                v2.5.18
+mos/anax-flat           v1.0.17
+mos/cimage              v0.7.18
+mos/ctextfilter         v1.2.16
+scrivo/highlight.php    v9.0.0 
+symfony/yaml            v3.1.6 
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax Flat kataloger
+
+* [Vilka kataloger finns?](https://github.com/mosbth/anax-flat)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
