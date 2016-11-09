@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>LESS core</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#LESS core
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Om LESS
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om LESS
+
+* [Referensmanual på lesscss.org](http://lesscss.org/)
+* [Kompilator](https://www.npmjs.com/package/less)
+* [Moduler som används i Anax Flat theme](https://github.com/canax/anax-flat-theme/blob/master/package.json)
+* Kan kompilera direkt i webbläsaren
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Makefilen
+
+* [Vad händer i Makefilen](https://github.com/canax/anax-flat-theme/blob/master/Makefile)?
+* Även i [Anax Flats Makefile](https://github.com/canax/anax-flat/blob/master/Makefile)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Låt oss kika på språket LESS
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Variabler
+<pre data-code="c1"></pre>
+</script>
+
+<script id="c1" data-role="code" data-language="less" type="text/html">
+/* Show off how variables work */
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#header {
+  color: @light-blue;
+}
+-------- css -------------------
+#header {
+  color: #6c94be;
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mixins
+<pre data-code="c2"></pre>
+</script>
+
+<script id="c2" data-role="code" data-language="less" type="text/html">
+/* Define a "mixin" */
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+---------------------------
+/* Reuse minix */
+#menu a {
+  color: #111;
+  .bordered;
+}
+
+.post a {
+  color: red;
+  .bordered;
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mixins...
+<pre data-code="c21"></pre>
+</script>
+
+<script id="c21" data-role="code" data-language="less" type="text/html">
+/* Use () to hide mixin from css */
+.bordered() {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+---------------------------
+/* Use minix */
+.post a {
+  color: red;
+  .bordered();
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Nested rules
+<pre data-code="c3"></pre>
+</script>
+
+<script id="c3" data-role="code" data-language="less" type="text/html">
+/* Not nested */
+#header {
+  color: black;
+}
+#header .navigation {
+  font-size: 12px;
+}
+#header .logo {
+  width: 300px;
+}
+---------------------------
+/* Same but nested */
+#header {
+  color: black;
+  .navigation {
+    font-size: 12px;
+  }
+  .logo {
+    width: 300px;
+  }
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Nested rules...
+<pre data-code="c4"></pre>
+</script>
+
+<script id="c4" data-role="code" data-language="less" type="text/html">
+/* Nested rule */
+.clearfix {
+    display: block;
+    zoom: 1;
+
+    &:after {
+        content: " ";
+        display: block;
+        font-size: 0;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+--------- css ------------------
+.clearfix {
+.clearfix:after {
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Nested rules...
+<pre data-code="c5"></pre>
+</script>
+
+<script id="c5" data-role="code" data-language="less" type="text/html">
+/* Nested rule */
+.figure {
+    display: block;
+
+    &.left {
+        float: left;
+    }
+}
+-------- css and how to use it in html ---------
+.figure.left {
+<figure class="figure left">
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Nested rules bubbling
+<pre data-code="c6"></pre>
+</script>
+
+<script id="c6" data-role="code" data-language="less" type="text/html">
+/* Nested with media query */
+.screen-color {
+    color: yellow;
+    @media screen {
+        color: green;
+        @media (min-width: 768px) {
+            color: red;
+        }
+    }
+}
+-------- css -------------------
+.screen-color {
+    color: yellow;
+}
+@media screen {
+    .screen-color {
+        color: green;
+    }
+}
+@media screen and (min-width: 768px) {
+    .screen-color {
+        color: red;
+    }
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Operations +-/*
+<pre data-code="c7"></pre>
+</script>
+
+<script id="c7" data-role="code" data-language="less" type="text/html">
+// numbers are converted into the same units
+@conversion-1: 5cm + 10mm; // result is 6cm
+@conversion-2: 2 - 3cm - 5mm; // result is -1.5cm
+
+// conversion is impossible
+@incompatible-units: 2 + 5px - 3cm; // result is 4px
+
+// example with variables
+@base: 5%;
+@filler: @base * 2; // result is 10%
+@other: @base + @filler; // result is 15%
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Operations +-/*...
+<pre data-code="c8"></pre>
+</script>
+
+<script id="c8" data-role="code" data-language="less" type="text/html">
+/* No area */
+@base: 2cm * 3mm; // result is 6cm
+
+/* Color calculation */
+@color: #224488 / 2; //results in #112244
+background-color: #112244 + #111; // result is #223355
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Escaping with ~
+<pre data-code="c9"></pre>
+</script>
+
+<script id="c9" data-role="code" data-language="less" type="text/html">
+.weird-element {
+    content: ~"^//* some horrible but needed css hack";
+}
+---------------------------
+.weird-element {
+    content: ^//* some horrible but needed css hack;
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Functions builtin
+<pre data-code="c10"></pre>
+</script>
+
+<script id="c10" data-role="code" data-language="less" type="text/html">
+@base: #f04615;
+@width: 0.5;
+
+.class {
+    width: percentage(@width); // returns `50%`
+    color: saturate(@base, 5%);
+    background-color: spin(lighten(@base, 25%), 8);
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Namespace
+<pre data-code="c11"></pre>
+</script>
+
+<script id="c11" data-role="code" data-language="less" type="text/html">
+#bundle {
+  .button {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover {
+      background-color: white
+    }
+  }
+  .tab { ... }
+  .citation { ... }
+}
+---------------------------
+#header a {
+  color: orange;
+  #bundle > .button;
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Scope
+<pre data-code="c12"></pre>
+</script>
+
+<script id="c12" data-role="code" data-language="less" type="text/html">
+@var: red;
+
+#page {
+  @var: white;
+  #header {
+    color: @var; // white
+  }
+}
+---------------------------
+#page {
+  #header {
+    color: @var; // white
+  }
+  @var: white;
+}
+
+@var: red;
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Scope (lazy loading)
+<pre data-code="c13"></pre>
+</script>
+
+<script id="c13" data-role="code" data-language="less" type="text/html">
+/* Both constructs below, same results */
+.lazy-eval-scope {
+    width: 9%;
+}
+---------------------------
+.lazy-eval {
+  width: @var;
+}
+
+@var: @a;
+@a: 9%;
+---------------------------
+.lazy-eval-scope {
+  width: @var;
+  @a: 9%;
+}
+
+@var: @a;
+@a: 100%;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Scope (last defined)
+<pre data-code="c14"></pre>
+</script>
+
+<script id="c14" data-role="code" data-language="less" type="text/html">
+@var: 0;
+.class {
+  @var: 1;
+  .brass {
+    @var: 2;
+    three: @var;
+    @var: 3;
+  }
+  one: @var;
+}
+--------- css ------------------
+.class {
+  one: 1;
+}
+.class .brass {
+  three: 3;
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Scope (default variables)
+<pre data-code="c15"></pre>
+</script>
+
+<script id="c15" data-role="code" data-language="less" type="text/html">
+/* @dark-color will be dark-red */
+// library
+@base-color: green;
+@dark-color: darken(@base-color, 10%);
+
+// use of library
+@import "library.less";
+@base-color: red;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Variable interpolation
+<pre data-code="c16"></pre>
+</script>
+
+<script id="c16" data-role="code" data-language="less" type="text/html">
+// Variables
+@images: "../img";
+
+// Usage
+body {
+  color: #444;
+  background: url("@{images}/white-sand.png");
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mixins parametric
+<pre data-code="c17"></pre>
+</script>
+
+<script id="c17" data-role="code" data-language="less" type="text/html">
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+---------------------------
+#header {
+  .border-radius(4px);
+}
+.button {
+  .border-radius(6px);
+}
+---------------------------
+/* Default value */
+.border-radius(@radius: 5px) {
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mixins
+
+* Multipla parametrar
+* Namngivna parametrar
+* @arguments
+* @rest
+* Return values as function
+* Ruleset to mixin
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Struktur
+
+* Förutsättning för god struktur
+* Läs in dig på språkets konstruktioner
+* Det finns med i manualen
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
