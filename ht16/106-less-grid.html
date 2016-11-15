@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>LESS grid</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#LESS grid
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Vertikalt grid
+* Horisontellt/typografiskt grid
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vertikalt grid
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="https://dbwebb.se/image/snapvt16/grid-displayed.png" alt="vgrid" width="100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vertikalt grid
+
+* Olika CSS ramverk, 960-1100px fixed size
+* Massa förberedda CSS-klasser
+* LESS/SASS ger andra möjligheter
+* Många varianter på gridramverk
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/semanticgridsystem.png" alt="semgrid" width="100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Ett gridsystem
+
+* Variabeldefinitioner på gridet
+* Antal kolumner, kolumnbredd, gutter
+* `column()`
+* `row()` för att wrappa kolumnerna
+* `container()` för att wrappa raderna
+* `clearfix()`
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Typer av grid
+
+* Fixed - baserat på pixlar
+* Fluid - flyter med sidans bredd, baserat på %
+* Responsivt - mediaqueries dölja/visa delar
+* Max-width
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Float eller Flexbox?
+
+* Gridet fungerar för båda
+* Samma API till gridet
+* Välj float om du är osäker
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[HTML-strukturen](https://github.com/mosbth/anax/blob/master/view/default/index.tpl.php)
+
+```
+<div class="outer-wrap outer-wrap-header">
+    <div class="inner-wrap inner-wrap-header">
+        <div class="row">
+            <div class="header"><span>header</span></div>
+        </div>
+    </div>
+</div>
+
+<div class="outer-wrap outer-wrap-flash">
+    <div class="inner-wrap inner-wrap-flash">
+        <div class="row">
+            <div class="flash"><span>flash</span></div>
+        </div>
+    </div>
+</div>
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#box-sizing: border-box
+
+* content-box | border-box
+* width inkluderar content
+* width inkluderar content, padding, border
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#När allt är på plats
+
+* Dela in allt innehåll i kolumner.
+* Använd kolumner som whitespace.
+* Bilder och andra resurser kan matcha gridet
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Horisontellt/typografiskt grid
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="https://dbwebb.se/image/snapvt16/typografiskt-grid.png" alt="hgrid" width="100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="https://dbwebb.se/image/snapvt16/horisontellt-grid.png" alt="hgrid example" width="100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Det magiska numret
+
+* `@magicNumber`
+* Basfontens storlek och vald radhöjd
+* Olika typsnitt fungerar med olika radhöjder
+* Radhöjd påverkar läsbarheten av text
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#En multipel av @magicNumber
+
+* Matcha alla typografiska element och dess höjd
+* Matcha alla regioner så att deras höjd
+* Matcha alla mellanrum, mellan typografiska element, regioner och alla mellanrum
+* Ögat och hjärnan gillar ordning
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Storlek på typografiska element
+
+```
+// Definiera en mixin
+.fontSize(@fontSize) {
+    font-size: @fontSize;
+    line-height: @lineHeight / unit(@fontSize) * ceil(unit(@fontSize) / @lineHeight);
+}
+
+// Aktivera font-size och line-height
+h1 {
+    .fontSize(2.375em);
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mellanrum på typografiska element
+
+```
+// Lättare att enbart jobba med margin-bottom
+h1, h2, h3, h4, h5, h6 {
+    margin-top: @magicNumber;
+    margin-bottom: @magicNumber;
+}
+
+// Definiera som variabler så de kan 
+// omdefinieras av användaren
+@fontSizeH1: 2.375em;
+@colorH1BorderBottom: #666;
+@borderSizeH1: 1px;
+
+h1 {
+    .fontSize(@fontSizeH1);
+    font-weight: normal;
+
+    border-bottom: @borderSizeH1 solid @colorH1BorderBottom;
+    margin-bottom: @magicNumber - @borderSizeH1;
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tips
+
+* Håll basen enkel, lägg inte in massa style i basen
+* Tänk bas och anpassning, håll separerat
+* Undvik hamna i ett träsk av omskrivande av regler
+* Collapsing margins
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Uppgiften
+
+* Aktivera vertikalt grid
+* Aktivera horisontellt grid
+* Välj en trivsam typografi
+* Separera basen från anpassningen
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/typographic-web.png" alt="typgraphic website" width="100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tips
+
+* Jobba mest med margin-bottom
+* Måste man matcha varje grid-rad?
+* Rytmen är det viktiga
+* Det typografiska gridet är en enbart för typografin
+* Räkna även in regionerna och whitespace
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tips...
+
+* Kom överens med webbdesignern
+* Tänk hela tiden bas och anpassning, separera
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
