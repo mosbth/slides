@@ -95,6 +95,13 @@ today?`);
 * `var` ES5 och function scope
 * `let` ES6 och block scope
 
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#var och let...
+
 ```
 // Blockscope
 function doit(x) {
@@ -144,7 +151,6 @@ function func() {
 ```
 
 </script>
-
 
 
 
@@ -248,34 +254,6 @@ function doit() {
 
 <script data-role="slide" data-markdown type="text/html">
 #Scope closure
-<pre data-code="c11"></pre>
-</script>
-
-<script id="c11" data-role="code" data-language="javascript" type="text/html">
-// Inner functions is always executing
-// within its outer function,
-// creating a closure
-function doit() {
-    var a = 1;
- 
-    function again() {
-        var b = 2;
-        a = a + b;
-    }
-
-    return again;
-}
-
-myAgain = doit();
-myAgain(); // a === 3
-myAgain(); // a === 5
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Scope closure
 <pre data-code="c12"></pre>
 </script>
 
@@ -365,6 +343,10 @@ window.mos = (function() {
         ing:    function() { return c(); },
     }
 })();
+
+window.mos.thing; // 2
+window.mos.ing(); // "hej"
+
 </script>
 
 
@@ -374,7 +356,7 @@ window.mos = (function() {
 
 * Returnera objekt med publikt api
 * Resten privat i closuret
-* Alla delar som returneras lever i sitt closure
+* Alla delar som returneras lever i sitt closure när de exekveras
 
 </script>
 
