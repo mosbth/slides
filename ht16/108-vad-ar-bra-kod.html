@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Vad är bra kod?</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad är bra kod?
+## Del 1: Programmeringsfilofofier
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Filosofier vid programmering
+<!--* Kriterier för bra kod-->
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Varför behöver man programmeringsfilosofier?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Låt oss titta på ett par (osorterade) filosofier
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tim Toady
+
+* There's more than one way to do it.
+* Ibland löser vi saker olika, skriver kod olika
+* Det behöver inte vara ett fel i det
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#DRY
+
+* Don't Repeat Yourself
+* Duplicera inte koden på flera ställen
+* Lite för mycket copy paste?
+* Dax att organisera koden bättre?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#KISS
+
+* Keep It Stupid Simple
+* Keep It Simple, Stupid
+* Krångla inte
+* Finns en enkel väg, ta den?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#POGE
+
+* Principle of good enough
+* Tillräckligt bra?
+* Är det värt tiden du lägger ned?
+* Rimlig nivå att sträva efter
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#YAGNI
+
+* You aren’t gonna need it
+* Ytterligare en "bra-att-ha" grej?
+* "Det vore trevligt om..."
+* En stor del features är ofta yagni
+* Skippa alla 'bra att ha' saker redan på ritbordet, lägg bara till dem om någon verkligen behöver dem
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Copy and paste programming
+
+* Vill du vara snabb?
+* Snabbt och "enkelt"
+* Det är inte värt tiden att strukturera
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Dont fix it
+
+* If it ain't broke, don't fix it
+* Lägg inte tid på att laga saker som inte är sönder
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#POC
+
+* Proof-of-concept.
+* Bygg för att visa att idén fungerar
+* Snabbt och lätt för att visa konceptet
+* Överarbeta inte
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#80-20 (Pareto)
+
+* Pareto principle (80-20).
+* 80% av användarna kommer använda 20% av produktens funktioner 
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Overdoit
+
+* Overdoit, or overengineering.
+* Att bygg en produkt som mer robust eller komplicerad än som är försvarbart för dess tänkta användningsområde
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Satisfy and suffice
+
+* Överväg alla alternativ och finn ett alternativ som når ett acceptabelt gränsvärde - då en optimal lösning inte är ett alternativ
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Worse is better
+
+* Worse is better (Less is more).
+* Kvaliteten ökar inte nödvändigvis när funktionaliteten ökar
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Premature optimizations
+
+* Optimizing before we know that we need to
+* We should forget about small efficiencies, say about 97% of the time
+* We should not pass up our opportunities in that critical 3%
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Separation of Concerns
+
+* Dela upp koden
+* Var sak på sin plats
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Technical debt
+
+* Snabba fixar skuldsätter dig i det långa loppet
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Fundering
+
+* Filosofier sätter ord på våra tankar
+* Ger oss termer att samtala design och kodstruktur
+* Gör aktiva val, tänk innan
+* Belyser att det är okey med olika val
+* Okey att göra "dåliga val", om det finns sådana?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Ok, så långt om filosofi...
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Hur lång tid tar det att bli bra?
+
+* "Teach yourself C++ in 24 hours"
+* Varför stressa?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#10 år blir bra
+
+* Ett välkänt faktum [forskning] att det tar lång tid att bemästra ett område
+
+> "...it takes about ten years to develop expertise in any of a wide variety of areas..."
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Eller en livstid...
+
+Samuel Johnson (1709-1784) said:
+
+> "Excellence in any department can be attained only by the labor of a lifetime; it is not to be purchased at a lesser price."
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Läs mer
+
+* [Teach Yourself Programming in Ten Years](https://dbwebb.se/f/15832)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Läs ännu mer
+
+* [Principer vid programutveckling](https://dbwebb.se/kunskap/principer-och-filosofier-for-programmering)
+* [Mer programmeringsfilosofier på Wikipedia](https://en.wikipedia.org/wiki/List_of_software_development_philosophies)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#No Silver Bullet
+
+> "... [a] there is no single development, in either technology or management technique, which by itself promises even one order of magnitude [tenfold] improvement in productivity, in reliability, in simplicity [of software projects]" 
+ 
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#No Silver Bullet, Brooks
+
+* No Silver Bullet — Essence and Accident in Software Engineering (pdf)
+* 'No Silver Bullet' Refired". The Mythical Man Month (Anniversary Edition)
+ 
+</script>
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad är bra kod?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Skolbokslitteraturen
+
+*
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad säger folk i allmänhet
+
+*
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad sa undersökningen
+
+*
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad säger en programmeraren
+
+*
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Planeringsfilosofier
+
+the ninety-ninety rule is a humorous aphorism that states:
+
+    The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts for the other 90 percent of the development time.[1]
+    
+Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law.
+
+Small Matter of Programming (SMOP) or Simple Matter of Programming
+
+Planning fallacy 
+
+
+</script>
+
+
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
