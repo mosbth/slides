@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>JavaScript object och prototyp kedjan</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#JavaScript object
+##Prototype chain
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Om JavaScript object och prototype chain
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vi minns
+
+* Function expression
+* Functionsscope
+* Variable hoisting
+* Closure
+* Siaf, iife/iffy
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vi minns...
+
+* Module pattern
+* Constructor function
+* Prototype and __proto__
+* This - that
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt prototype
+<pre data-code="c6"></pre>
+</script>
+
+<script id="c6" data-role="code" data-language="javascript" type="text/html">
+// Object sharing implementation
+function Person(name, born) {
+    this.name = name || "John/Jane Doe";
+    this.born = born || null;
+}
+
+Person.prototype.age = function () {
+    var today = new Date();
+    var age = today.getFullYear() - this.born.getFullYear();
+    var m = today.getMonth() - this.born.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < this.born.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+Person.prototype.description = function () {
+    return "Hi, I'm " + this.name + " and I'm " + this.age() + " years old.";
+}
+
+
+// Create an instance of the object
+> mos = new Person("MegaMos", new Date("1968-03-07"))
+Person {
+  name: 'MegaMos',
+  born: Thu Mar 07 1968 01:00:00 GMT+0100 (CET) }
+> mos.age()
+48
+> mos.description()
+'Hi, I\'m MegaMos and I\'m 48 years old.'
+
+
+// mos is an instance of Person
+> mos instanceof Person
+true
+> mos instanceof Object
+true
+> typeof(mos)
+'object'
+> "age" in mos
+true
+> "description" in mos
+true
+> "born" in mos
+true
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt i kedja
+<pre data-code="c7"></pre>
+</script>
+
+<script id="c7" data-role="code" data-language="javascript" type="text/html">
+// Shape - superclass
+function Shape(x, y) {
+    this.x = x || 0;
+    this.y = y || 0;
+}
+
+// superclass method
+Shape.prototype.move = function(x, y) {
+    this.x += x;
+    this.y += y;
+    console.info("Shape moved.");
+};
+
+// superclass method
+Shape.prototype.position = function(x, y) {
+    this.x = x || this.x;
+    this.y = y || this.y;
+    console.info("Position (" + this.x + ", " + this.y + ")");
+};
+
+// Try it out
+> ball = new Shape(1,1)
+Shape { x: 1, y: 1 }
+> ball.move(5,5)
+Shape moved.
+> ball
+Shape { x: 6, y: 6 }
+> ball.position()
+Position (6, 6)
+
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt i kedja...
+<pre data-code="c8"></pre>
+</script>
+
+<script id="c8" data-role="code" data-language="javascript" type="text/html">
+// Rectangle - subclass
+function Rectangle(x1, y1, x2, y2) {
+    Shape.call(this, x1, y1); // call super constructor.
+    this.x2 = x2 || 0;
+    this.y2 = y2 || 0;
+}
+
+// subclass extends superclass
+Rectangle.prototype = Object.create(Shape.prototype);
+Rectangle.prototype.constructor = Rectangle;
+
+// subclass specific method
+Rectangle.prototype.overlap = function(shape) {
+    return (
+        shape.x >= this.x
+        && shape.x <= this.x2
+        && shape.y >= this.y
+        && shape.y <= this.y2
+    );
+}
+
+
+// Try it out
+> r = new Rectangle(5, 5, 10, 10)
+Rectangle { x: 5, y: 5, x2: 10, y2: 10 }
+> r.overlap(new Shape(5, 5))
+true
+> r.overlap(new Shape(4, 4))
+false
+> r.overlap(new Shape(10, 10))
+true
+> r.move(10, 10)
+Shape moved.
+> r.overlap(new Shape(10, 10))
+false
+> r.position()
+Position (15, 15)
+
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt i kedja...
+<pre data-code="c9"></pre>
+</script>
+
+<script id="c9" data-role="code" data-language="javascript" type="text/html">
+// Triangle - subclass
+function Triangle(x1, y1, x2, y2, x3, y3) {
+    Shape.call(this, x1, y1); // call super constructor.
+    this.x2 = x2 || 0;
+    this.y2 = y2 || 0;
+    this.x3 = x3 || 0;
+    this.y3 = y3 || 0;
+}
+
+// subclass extends superclass
+Triangle.prototype = Object.create(Shape.prototype);
+Triangle.prototype.constructor = Triangle;
+
+// subclass specific method
+Triangle.prototype.overlap = function(shape) {
+    return "To be implemented";
+}
+
+
+// Try it out
+> t = new Triangle(1,1,5,5,10,10)
+Triangle { x: 1, y: 1, x2: 5, y2: 5, x3: 10, y3: 10 }
+> t.move(10,10)
+Shape moved.
+> t.position()
+Position (11, 11)
+
+Ugh!
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Metod anropa metod
+<pre data-code="c10"></pre>
+</script>
+
+<script id="c10" data-role="code" data-language="javascript" type="text/html">
+// subclass specific method
+Triangle.prototype.move = function(x, y) {
+    Shape.prototype.move.call(this, x, y);
+    this.x2 += x;
+    this.y2 += y;
+    this.x3 += x;
+    this.y3 += y;
+    console.info("Moved all parts");
+}
+
+
+// Try it out
+> t = new Triangle(1,1,10,10,20,20)
+Triangle { x: 1, y: 1, x2: 10, y2: 10, x3: 20, y3: 20 }
+> t.move(5,5)
+Shape moved.
+Moved all parts
+> t
+Triangle { x: 6, y: 6, x2: 15, y2: 15, x3: 25, y3: 25 }
+
+Yeah!
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Allmänt
+
+* Single inheritance
+* Extend object
+* Inheritance = Arv
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Läs på
+
+* [ES5: Speaking JavaScript](http://speakingjs.com/)
+* 17\. Objects and Inheritance
+* samt MDN Object.create
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/questions2.png" style="width: 70%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
