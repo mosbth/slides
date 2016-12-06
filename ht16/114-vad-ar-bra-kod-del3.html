@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Vad är bra kod?</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad är bra kod?
+## Del 3: Definition av bra kod
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Definition av bra kod
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Låt oss rekapitulera
+
+* Programmingsfilosofier (principer)
+* Det krävs tid och träning för att bli bra
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tips från coachen
+
+* Bli **intresserad**
+* Programmera
+* Prata med programmerare
+* (Gå i skola/universitet)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tips från coachen...
+
+* Arbete i projekt med andra
+* Underhåll gamla projekt
+* Lär dig ett halvdussin programmeringsspråk
+* Kom ihåg Computer-delen i Computer Science
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Bra kod?
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#["I know it when I see it"](https://en.wikipedia.org/wiki/I_know_it_when_I_see_it)
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/wtf-good-code.jpg" style="width: 80%">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Hur ser bra kod ut?
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<a href="http://blackwidowbilliards.com/"><img src="img/black-widow-1.jpg" style="width: 100%"></a>
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+##["A good coder writes code that looks like it was easy and straightforward to do"](http://softwareengineering.stackexchange.com/a/17503/179237)
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<a href="http://blackwidowbilliards.com/"><img src="img/black-widow-2.jpg" style="width: 100%"></a>
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[En undersökning om "Good Code"](http://engineering.intenthq.com/2015/03/what-is-good-code-a-scientific-definition/)
+
+* "What do you feel makes code good?"
+* "How would you define good code?"
+* Answers from 65 developers
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/good-code-characteristics.png" style="width: 100%">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#"Förvånansvärt"
+
+* Maintainable
+* Works
+* Testable/Tested
+* Efficient
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Definition (undersökningen)
+
+* Readable, Testable/Tested, Works, Simple and Maintainable
+
+> “Good code is written so that is readable, understandable, covered by automated tests, not over complicated and does well what is intended to do.”
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Definition (mos mod)
+
+> “Good code is written so that is readable, understandable and does well what is intended to do.”
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Ergo sum
+
+* Läsbar kod - by peers
+* Enkel - simple code
+* Funkar - it works as intended
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Låt kika på vad detta kan innebära
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Koda enkelt
+
+```
+// One way
+if (hours < 24 && minutes < 60 && seconds < 60)
+{
+    return true;
+}
+else
+{
+    return false;
+}
+
+// Another way
+return hours < 24 && minutes < 60 && seconds < 60;
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Koda enkelt och läsbart
+
+* Använd en validator för kodstandard
+* Använd en source code analyser (mess detector)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kodstandard
+
+* phpcs, jscs, pylint
+* Kodstandard som medvetet val
+* Strukturera och organisera koden
+* Namngivning
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Source code analyser
+
+* Mess Detector, phpmd, phpcs, pmd, pylint
+* Copy Paste Detector, cpd, phpcpd
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#CS, MD, CPD
+
+* Använd integrerad i editor
+* Använd som del i automatiserad testning
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/pmd_logo.png" style="width: 100%" alt="pmd-logo">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Bra kod är...
+
+* Läsbar kod - by peers
+* Enkel - simple code
+* Funkar - it works as intended
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="https://dbwebb.se/img/snapht16/make-it-look-easy.jpg" style="width: 100%">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kod är poesi
+
+* Code is Poetry, Matt Mullenweg WP
+* [Studying French 1700 poetry - David H RoR](https://www.youtube.com/watch?v=9LfmrkyP81M&feature=youtu.be&t=1053)
+* *"What the fuck is going on here?"*
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+http://stackoverflow.com/a/20580/341137
+
+The abstractions snap together perfectly. There is very little leakage. The code reads like English. The data structures and/or objects fits the problem perfectly. Everything goes in and out of procedures and functions with minimal fuss.
+
+You can use a beautiful API based on intuition. You almost know what to type without even looking it up because of some inner structure to the API.
+
+Each line of code is elegant in that it performs seemingly complicated operations with amazing simplicity and very succinctly while simultaneously appearing bulletproof (by assuming nothing)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Cyclomatic dependencies
+
+* Vad är detta begreppet?
+* Exempel
+* https://en.wikipedia.org/wiki/Cyclomatic_complexity
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Läs mer
+
+http://loup-vaillant.fr/articles/good-code
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#More
+
+* Refactor often
+* Comments are evil
+* Code reviews
+* Code to interface, not implementation
+* Unit testing
+* Autamize what automized can be
+* Organize the code
+* one class, one responsibilty, the right responsibility
+
+* no side effects
+* short methods/functions
+
+* Proper naming of files, variables, methods, properties, classes, functions,modules
+
+LÄr dig mixa programmeringsparadigmer
+
+* Code is easy
+
+http://www.makinggoodsoftware.com/2009/06/04/10-commandments-for-creating-good-code/
+https://bittermanandy.wordpress.com/2010/09/10/what-is-good-code/
+http://www.codeexcellence.com/2012/05/8-must-have-characteristics-for-writing-quality-code/
+
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Best coding practice
+
+* Samling informella regler, inlärda över tiden, som kan påverka kvaliteten av programvaran
+* Många programvaror används bra mycket längre än orginalförfattaren trodde (ibland 40 år)
+* Ninety-ninety rule, allt som kan undvika det är värt att överväga
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#No Silver Bullet
+
+> "... [a] there is no single development, in either technology or management technique, which by itself promises even one order of magnitude [tenfold] improvement in productivity, in reliability, in simplicity [of software projects]" 
+ 
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#No Silver Bullet, Brooks
+
+* No Silver Bullet — Essence and Accident in Software Engineering (pdf)
+* 'No Silver Bullet' Refired". The Mythical Man Month (Anniversary Edition)
+ 
+</script>
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Skolbokslitteraturen
+
+* Se wikipwdia https://en.wikipedia.org/wiki/Best_coding_practices
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad säger folk i allmänhet
+
+*
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad sa undersökningen
+
+*
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad säger en programmeraren
+
+*
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Planeringsfilosofier
+
+the ninety-ninety rule is a humorous aphorism that states:
+
+    The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts for the other 90 percent of the development time.[1]
+    
+Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law.
+
+Small Matter of Programming (SMOP) or Simple Matter of Programming
+
+Planning fallacy 
+
+
+https://en.wikipedia.org/wiki/Law_of_Demeter
+
+
+</script>
+
+
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
