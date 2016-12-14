@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Vad är bra kod?</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad är bra kod?
+## Del 4: Exempel på bra kod
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Exempel på bra kod
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Låt oss rekapitulera
+
+* Programmingsfilosofier (principer)
+* Det krävs tid och träning för att bli bra
+* “Good code is written so that is readable, understandable and does well what is intended to do.”
+* [Forumtråd om bra kod](https://dbwebb.se/forum/viewtopic.php?f=36&t=5981)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kod är poesi?
+
+* Code is Poetry, Matt Mullenweg WP
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kod är poesi...?
+
+* [Studying 1700 French poetry - David H RoR](https://www.youtube.com/watch?v=9LfmrkyP81M&feature=youtu.be&t=1053)
+* *"What the fuck is going on here?"*
+* Forensic analysis
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kod är poesi...?
+
+> "I really wanna work with people having good taste... (which is)... really seeing the big patterns and instinctively knowing the right way of doing things." Linus Torvalds
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+##Linus om good taste
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/good-taste-1.png" alt="Good taste" style="width: 90%">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/good-taste-2.png" alt="Good taste" style="width: 90%">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad menade Linus?
+<pre data-code="c1"></pre>
+</script>
+
+<script id="c1" data-role="code" data-language="javascript" type="text/html">
+// One way
+function min(a, b) {
+    if (a < b) {
+       return a;
+    } else {
+       return b;
+   }
+}
+
+// Another way
+function min(a, b) {
+    return (a < b) ? a : b;
+}
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Undvik beslutspunkt
+<pre data-code="c2"></pre>
+</script>
+
+<script id="c2" data-role="code" data-language="javascript" type="text/html">
+// One way
+if (hours < 24 && minutes < 60 && seconds < 60)
+{
+    return true;
+}
+else
+{
+    return false;
+}
+
+// Another way
+return hours < 24 && minutes < 60 && seconds < 60;
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Undvik else
+<pre data-code="c4"></pre>
+</script>
+
+<script id="c4" data-role="code" data-language="javascript" type="text/html">
+// One way
+void Demo(...)
+{
+    if (something) {
+        ... // 20 lines here.
+    } else {
+        throw new SomeException();
+    }
+}
+
+// Another way
+void Demo(...)
+{
+    if (!something) {
+        throw new SomeException();
+    }
+
+    ... // No indentation for the next 20 lines.
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Generalisera
+<pre data-code="c5"></pre>
+</script>
+
+<script id="c5" data-role="code" data-language="javascript" type="text/html">
+// One way
+// `animal` is either a dog or a cat.
+if (animal.IsDog) {
+    animal.EatPedigree();
+    animal.Bark();
+} else { // The animal is a cat.
+    animal.EatWhiskas();
+    animal.Meow();
+}
+
+// Another way
+IAnimal animal = ...;
+animal.Eat();
+animal.MakeSound();
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tilldela
+<pre data-code="c6"></pre>
+</script>
+
+<script id="c6" data-role="code" data-language="javascript" type="text/html">
+// One way
+if (isDiscount) {
+    price = unitCost * quantity - discount;
+} else {
+    price = unitCost * quantity;
+}
+
+// Another way
+price = unitCost * quantity - (isDiscount ? discount : 0);
+
+// Yet Another way
+price = unitCost * quantity - isDiscount * discount;
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Cyclomatic complexity
+
+* Metric för software quality
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Cyclomatic Complexity
+<pre data-code="c3"></pre>
+</script>
+
+<script id="c3" data-role="code" data-language="javascript" type="text/html">
+// Cyclomatic Complexity = 12
+class Foo {
+1   public function example() {
+2       if ($a == $b) {
+3           if ($a1 == $b1) {
+                fiddle();
+4           } elseif ($a2 == $b2) {
+                fiddle();
+            } else {
+                fiddle();
+            }
+5       } elseif ($c == $d) {
+6           while ($c == $d) {
+                fiddle();
+            }
+7        } elseif ($e == $f) {
+8           for ($n = 0; $n < $h; $n++) {
+                fiddle();
+            }
+        } else {
+            switch ($z) {
+9               case 1:
+                    fiddle();
+                    break;
+10              case 2:
+                    fiddle();
+                    break;
+11              case 3:
+                    fiddle();
+                    break;
+12              default:
+                    fiddle();
+                    break;
+            }
+        }
+    }
+}
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kodkvalitet
+
+* [Anax](https://scrutinizer-ci.com/g/mosbth/anax/issues/master)
+* [Cimage](https://scrutinizer-ci.com/g/mosbth/cimage/issues/master)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="https://dbwebb.se/img/snapht16/make-it-look-easy.jpg" style="width: 100%">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#No Silver Bullet
+
+> "... [a] there is no single development, in either technology or management technique, which by itself promises even one order of magnitude [tenfold] improvement in productivity, in reliability, in simplicity [of software projects]" 
+ 
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kommentarer
+
+* Hur kommentera koden?
+* Mycket - inte alls
+* Varje språk sitt sätt
+* phpdoc, jsdoc
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Skriv och skriv om
+
+* Jämför en uppsats
+* [Code refactoring](https://en.wikipedia.org/wiki/Code_refactoring)
+* "Maintain it"
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Skriv om från scratch?
+
+* [Single worst strategic mistake](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/)
+* Rewrite the code from scratch
+* WordPress taktiken
+* Drupal taktiken
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+##"It’s harder to read code than to write it."
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Billig kod
+
+* @ Loup's - Impossible? Like that would stop me
+* [What is good code](http://loup-vaillant.fr/articles/good-code)
+* Programmering som [dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+##"Good code is cheap code that meets our needs. The cheaper the better."
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Good (enough) programs
+
+* Correctness. The program must not have too many bugs.
+* Performance. The program must not be too slow.
+* Frugality. The program must not use too much resources.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#More
+
+* Refactor often
+* Comments are evil
+* Code reviews
+* Code to interface, not implementation
+* Unit testing
+* Autamize what automized can be
+* Organize the code
+* one class, one responsibilty, the right responsibility
+
+* no side effects
+* short methods/functions
+
+* Proper naming of files, variables, methods, properties, classes, functions,modules
+
+LÄr dig mixa programmeringsparadigmer
+
+* Code is easy
+
+http://www.makinggoodsoftware.com/2009/06/04/10-commandments-for-creating-good-code/
+https://bittermanandy.wordpress.com/2010/09/10/what-is-good-code/
+http://www.codeexcellence.com/2012/05/8-must-have-characteristics-for-writing-quality-code/
+
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Best coding practice
+
+* Samling informella regler, inlärda över tiden, som kan påverka kvaliteten av programvaran
+* Många programvaror används bra mycket längre än orginalförfattaren trodde (ibland 40 år)
+* Ninety-ninety rule, allt som kan undvika det är värt att överväga
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#No Silver Bullet
+
+> "... [a] there is no single development, in either technology or management technique, which by itself promises even one order of magnitude [tenfold] improvement in productivity, in reliability, in simplicity [of software projects]" 
+ 
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#No Silver Bullet, Brooks
+
+* No Silver Bullet — Essence and Accident in Software Engineering (pdf)
+* 'No Silver Bullet' Refired". The Mythical Man Month (Anniversary Edition)
+ 
+</script>
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Skolbokslitteraturen
+
+* Se wikipwdia https://en.wikipedia.org/wiki/Best_coding_practices
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Planeringsfilosofier
+
+the ninety-ninety rule is a humorous aphorism that states:
+
+    The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts for the other 90 percent of the development time.[1]
+    
+Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law.
+
+Small Matter of Programming (SMOP) or Simple Matter of Programming
+
+Planning fallacy 
+
+
+https://en.wikipedia.org/wiki/Law_of_Demeter
+
+
+</script>
+
+
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
