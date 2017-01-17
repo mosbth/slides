@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>HTTP protokollet</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#HTTP protokollet
+##Grunden
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Ge oss en kort insyn i HTTP-protokollet
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tim gjorde det 1990
+
+* En browser
+* En server
+* Ett protokoll för att prata
+* HTML för hypertextdokument
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#HTTP-protokollet
+
+* Textbaserat
+* Stateless
+* Request: GET, POST, HEAD, ...
+* Response: header + body
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Request
+
+```bash
+$ telnet bth.se 80 
+GET /mupp HTTP/1.0
+```
+
+```bash
+$ telnet www.bth.se 80 
+HEAD / HTTP/1.0 
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Response header
+
+```bash
+HTTP/1.1 301 Moved Permanently               
+Date: Tue, 06 Sep 2016 08:38:02 GMT          
+Server: Apache                               
+Location: https://www.bth.se/mupp            
+Content-Length: 231                          
+Connection: close                            
+Content-Type: text/html; charset=iso-8859-1  
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Response body
+
+```bash
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">                       
+<html><head>                                                             
+<title>301 Moved Permanently</title>                                     
+</head><body>                                                            
+<h1>Moved Permanently</h1>                                               
+<p>The document has moved <a href="https://www.bth.se/mupp">here</a>.</p>
+</body></html>                                                           
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Att se samma information i en webbläsare?
+
+* [bth.se](http://bth.se)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
