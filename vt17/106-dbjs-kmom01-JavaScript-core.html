@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>dbjs kmom02 JavaScript Core</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#dbjs kmom01 JavaScript Core
+###Mikael Roos, dbwebb
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Att koda i JavaScript
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Innan vi börjar
+
+* Deltagandet på labben
+* Förkunskaper/registrering
+* Att komma igång?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Exempelprogram
+
+Låt oss kika på ett par [exempelprogram](https://dbwebb.se/repo/javascript1/example/client)...
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Eget exempel
+
+* Hmm, vad ska det göra?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Testmiljö
+
+* I webbläsarens console
+* Interaktiv node i terminalen
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Validatorer
+
+* [jscs](http://jscs.info/)
+* [jshint](http://jshint.com/)
+* [uglifyjs](http://lisperator.net/uglifyjs/)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#[dbwebb-cli](https://dbwebb.se/dbwebb-cli)
+
+* dbwebb validate
+* dbwebb publish
+* dbwebb login
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#JavaScript - Grunden
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#strict mode
+
+* `"use strict";`
+* Filnivå men föredragsvis på funktionsnivå.
+* Kastar error istället för misslyckas i tysthet
+* Förenkla för intern optimering
+* Bort med syntax som kan komma att försvinna
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Lexikalisk struktur
+
+* Skiljer små/stora bokstäver
+* Tab/mellanslag
+* Semikolon valfria
+* Kommentarer // och /* */
+* Tänk minifiering
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Identifierare
+
+En identifierare börjar med en bokstav a-z, A-Z, understreck _ eller dollartecken $ och följs därefter av bokstav a-z, A-Z, understreck _, dollartecken $ eller siffror 0-9.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Identifierare...
+
+```
+$
+_
+moped42
+$something
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kodexempel
+<pre data-code="c100"></pre>
+</script>
+
+<script id="c100" data-role="code" data-language="javascript" type="text/html">
+/**
+ * This is some basics in JavaScript.
+ */
+
+// One line comment
+
+var someValue = 42;
+var someString = "42";
+
+if (someValue == "42") {
+    console.log("Yes, its 42 alright.");
+}
+
+if (someString === "42") {
+    console.log("Yes, its 42 alright.");
+}
+
+// Short syntax for an if statement
+var res = someValue === 42 ? 42 : "42";
+console.log(res);
+
+var i = 0;
+while (i < 42) {
+    i++;
+}
+console.log(i);
+
+for (i = 37; i <= 42; i++) {
+    console.log(i);
+}
+
+function alpha(x, y) {
+    return x + y;
+}
+
+console.log(alpha(40, 2));
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Datatyper och objekt
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Primitiva värden
+
+* Boolska variabler `true` och `false`.
+* Numeriska värden `42` och `4.2`.
+* Strängar `"mumin"` och `'mumin'`.
+* Icke-värden `null` och `undefined`.
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+#`typeof()`
+
+```
+> typeof(42)
+'number'
+
+> typeof(4.2)
+'number'
+
+> typeof("moped")
+'string'
+
+> typeof('moped')
+'string'
+
+> typeof(true)
+'boolean'
+
+> typeof(false)
+'boolean'
+
+> typeof(null)
+'object'
+
+> typeof(undefined)
+'undefined'
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt
+
+* `[]` `{}` `//` typeof() ger "object"
+* `function(){}` typeof() ger "function"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#`typeof()`
+
+```
+> typeof(/./)
+'object'
+
+> typeof([])
+'object'
+
+> typeof({})
+'object'
+
+> typeof(function () {})
+'function'
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt...
+
+* `[]` ger instanceof `Array`, `Object`
+* `{}` ger instanceof `Object`
+* `//` ger instanceof `RegExp`, `Object`
+* `function(){}` ger instanceof `Function`, `Object`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#`instanceof`
+
+```
+> [] instanceof Array && [] instanceof Object
+true
+
+> a = {}
+> {} instanceof Object
+true
+
+> /./ instanceof RegExp && /./ instanceof Object
+true
+
+> a = function(){}
+> a instanceof Function && a instanceof Object 
+true
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objektbaserade typer
+
+* `Number`, `String`, `Boolean`
+* `Object`, `Array`, `Function`, `RegExp`
+* Globala objekt som exponerar metoder och properties
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#`Number`
+
+* Objektet `Number` innehåller
+    * `Number.isInteger`, `Number.isNaN`
+* Objektet `Math` innehåller
+    * `Math.PI`, `Math.random`, ...
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#`Number`...
+
+```
+> 1/0
+Infinity
+> 0/0
+NaN
+> 0/1
+0
+
+> NaN > Infinity
+false
+> Infinity > NaN
+false
+> Infinity < (Infinity + 1)
+false
+> Infinity + 1
+Infinity
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#`Number`...
+
+* Kika på [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) och [`Math`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#`String`
+
+* Använd literalen
+* Konkatenera med + och +=
+* Strängfunktioner `trim`,  `split`, `substr` mfl i [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Typkonvertering
+
+```
+> 1 + 1
+2
+> "1" + 1
+'11'
+> 1 + "1"
+'11'
+> 1 + true
+2
+> "1" + true
+'1true'
+> true + 1
+2
+> true + 1 + NaN
+NaN
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Typkonvertering...
+
+* Konvertera strängar till nummer med `parseInt()` och `parseFloat()`
+* Konvertera nummer till sträng med `toString()`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Typkonvertering...
+
+```
+> parseInt("42 mopeder")
+42
+> a = 42
+42
+> a.toString()
+'42'
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#`Boolean`
+
+* Använd literalen
+* false - false, 0, empty string (""), NaN, null, undefined
+* true - allt annat
+* Omvandla godtyckligt värde till boolean med !!
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#`Boolean`...
+
+* Omvandla godtyckligt värde till boolean med !!
+
+```
+> !42
+false
+> !!42
+true
+> !0
+true
+> !!0
+false
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Jämför värde och typ
+
+* Skillnad mellan == och ===
+* != och !==
+* Använd === och !===
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Variabel deklarationer
+<pre data-code="c20"></pre>
+</script>
+
+<script id="c20" data-role="code" data-language="javascript" type="text/html">
+//Like this
+var variable1 = "Hello World!";
+var variable2 = "Testing...";
+var variable3 = 42;
+var variable4;
+
+// or like this
+var variable1 = "Hello World!",
+    variable2 = "Testing...",
+    variable3 = 42,
+    variable4;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad har vi inte hanterat?
+
+* Arrayer
+* Objekt
+* Funktioner
+* Kodningsstruktur
+* Designmönster
+* DOM
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#create lab
+
+* Att skapa, jobba och felsöka i en labb
+
+</script>
+
+
+
+<!--
+<script data-role="slide" data-markdown type="text/html">
+#Scope och hoisting
+<pre data-code="c9"></pre>
+</script>
+
+<script id="c9" data-role="code" data-language="javascript" type="text/html">
+// Not like this
+function doit() {
+    var a = 1;
+ 
+    for(var i = 0; i < 42; i++) {
+        var b = "hej";
+    }
+}
+ 
+// Do like this (hoisting and function scope)
+function doit() {
+    var a = 1;
+    var b;
+    var i;
+ 
+    for(i = 0; i < 42; i++) {
+        b = "hej";
+    }
+}
+ 
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Scope inre funktioner
+<pre data-code="c10"></pre>
+</script>
+
+<script id="c10" data-role="code" data-language="javascript" type="text/html">
+// Inner functions can access
+// outer function variables
+function doit() {
+    var a = 1;
+ 
+    function again() {
+        var b = 2;
+        console.log(a + b); // 3
+    }
+}
+</script>
+-->
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>

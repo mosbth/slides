@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>linux kmom02 sysadmin 101</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#linux kmom02 sysadmin 101
+###Mikael Roos, dbwebb
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Sysadmin 101
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Shell
+
+* sh, csh, tcsh, bash, zsh
+* Shell och skriptspråk
+* Bash startupfiler:
+    * /etc/profile, ~/.bash_profile, ~/.bash_login, ~/.profile
+    * ~/.bashrc
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#User env
+
+* env, echo $PATH
+* whoami
+* hostname
+* uname, motd
+* aliases
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Shell builtins
+
+* help
+* type -a
+* compgen -b
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Manualen
+
+* man man
+* man -k
+* man 
+* söka, navigera, avsluta
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Vilket kommando?
+
+* type -a
+* which
+* whereis
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Pakethantering
+
+* /etc/apt
+* apt-get update && apt-get upgrade
+* apt-get install cowsay
+* apt-cache search cow
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Job Control
+
+* sleep 10 && echo "Done sleeping"
+* ctrl-c, ctrl-z
+* bg, fg, jobs
+* &, &> /dev/null
+* kill %1
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Process control
+
+* ps aux, ps -ef, top
+* PID, PPID, PGID
+* kill -l, * kill PID, kill -9 PID
+* pgrep, pkill
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Logs
+
+* /var/logs
+* last
+* who
+* tail -f
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Bra att ha
+
+* ctrl-d
+* exit
+* touch, cat >
+* cat, more, less, head, tail
+* ctrl-a, ctrl-e, ctrl-k, ctrl-y
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#History
+
+* history
+* !!, !0, !1
+* sudo !!
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Boota om
+
+* reboot
+* single user mode
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#vi/vim
+
+* Två modes, flytta och insert
+* Esc till flytta/radera
+* i, a, o, r för insert/replace
+* dd (radera rad), x (radera tecken)
+* shift-ZZ (avsluta spara), :wq!
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Användare och grupper
+
+* whoami, id, groups
+* /etc/{passwd,shadow,groups}
+* adduser, passwd, userdel, usermod
+* sudo, su
+* homedir
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#[Debian filesystem](https://wiki.debian.org/FileSystem)
+
+* Behöver stöd i kärnan
+* ext4 (fat, ntfs, mfl)
+* mkfs
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Debian filesystem hierarki
+
+* [Standard](https://wiki.debian.org/FilesystemHierarchyStandard)
+* /
+* Automount
+* df, du, mount
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Filrättigheter
+
+* 0755, -rwxr-xr-x
+* chmod, chown, chgrp
+* stat
+* setuid, setgid (executable/dirs)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Länkar
+
+* ln (länk)
+* ln -s (symboliska länkar)
+
+```
+touch a && ln a b && ln -s a c
+ls -lF a b c
+-rw-r--r-- 2 mos mos 0 Jan 23 16:16 a
+-rw-r--r-- 2 mos mos 0 Jan 23 16:16 b
+lrwxrwxrwx 1 mos mos 1 Jan 23 16:17 c -> a
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Mellan servrar
+
+* ssh-nycklar
+* ssh med ssh-nycklar
+* rsync med ssh-nycklar
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* 
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
