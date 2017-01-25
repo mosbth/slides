@@ -46,7 +46,7 @@
 <script data-role="slide" data-markdown type="text/html">
 #Exempelprogram
 
-Låt oss kika på ett par [exempelprogram](https://dbwebb.se/repo/javascript1/example/client)...
+Låt oss kika på ett par [exempelprogram](https://dbwebb.se/repo/dbjs/example/client)
 
 </script>
 
@@ -72,22 +72,22 @@ Låt oss kika på ett par [exempelprogram](https://dbwebb.se/repo/javascript1/ex
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Validatorer
+#[dbwebb-cli](https://dbwebb.se/dbwebb-cli)
 
-* [jscs](http://jscs.info/)
-* [jshint](http://jshint.com/)
-* [uglifyjs](http://lisperator.net/uglifyjs/)
+* dbwebb validate
+* dbwebb publish
+* dbwebb login
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#[dbwebb-cli](https://dbwebb.se/dbwebb-cli)
+#Validatorer
 
-* dbwebb validate
-* dbwebb publish
-* dbwebb login
+* [jscs](http://jscs.info/)
+* [jshint](http://jshint.com/)
+* [uglifyjs](http://lisperator.net/uglifyjs/)
 
 </script>
 
@@ -120,7 +120,7 @@ Låt oss kika på ett par [exempelprogram](https://dbwebb.se/repo/javascript1/ex
 * Tab/mellanslag
 * Semikolon valfria
 * Kommentarer // och /* */
-* Tänk minifiering
+* Tänk minifiering (a + ++a)
 
 </script>
 
@@ -245,10 +245,12 @@ console.log(alpha(40, 2));
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Objekt
+#Icke-primitiva värden
 
-* `[]` `{}` `//` typeof() ger "object"
-* `function(){}` typeof() ger "function"
+* `[]` array
+* `{}` object
+* `//` reguljärt uttryck
+* `function(){}` function expression
 
 </script>
 
@@ -276,7 +278,7 @@ console.log(alpha(40, 2));
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Objekt...
+#Moderobjekt
 
 * `[]` ger instanceof `Array`, `Object`
 * `{}` ger instanceof `Object`
@@ -336,19 +338,26 @@ true
 #`Number`...
 
 ```
+// How to deal with numbers
 > 1/0
 Infinity
+
 > 0/0
 NaN
+
 > 0/1
 0
 
+// Compare
 > NaN > Infinity
 false
+
 > Infinity > NaN
 false
+
 > Infinity < (Infinity + 1)
 false
+
 > Infinity + 1
 Infinity
 ```
@@ -383,16 +392,22 @@ Infinity
 ```
 > 1 + 1
 2
+
 > "1" + 1
 '11'
+
 > 1 + "1"
 '11'
+
 > 1 + true
 2
+
 > "1" + true
 '1true'
+
 > true + 1
 2
+
 > true + 1 + NaN
 NaN
 ```
@@ -417,8 +432,10 @@ NaN
 ```
 > parseInt("42 mopeder")
 42
+
 > a = 42
 42
+
 > a.toString()
 '42'
 ```
@@ -433,7 +450,6 @@ NaN
 * Använd literalen
 * false - false, 0, empty string (""), NaN, null, undefined
 * true - allt annat
-* Omvandla godtyckligt värde till boolean med !!
 
 </script>
 
@@ -447,10 +463,13 @@ NaN
 ```
 > !42
 false
+
 > !!42
 true
+
 > !0
 true
+
 > !!0
 false
 ```
@@ -491,13 +510,157 @@ var variable1 = "Hello World!",
 
 
 
+<script data-role="slide" data-markdown type="text/html">
+#Lite om funktioner
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Funktioner (1)
+<pre data-code="c1"></pre>
+</script>
+
+<script id="c1" data-role="code" data-language="javascript" type="text/html">
+// Traditionellt sätt, globalt scope
+// att jämföra med C/C++, PHP.
+function square (x) { 
+    return x*x;
+}
+val = square(2);
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Funktioner (2)
+<pre data-code="c2"></pre>
+</script>
+
+<script id="c2" data-role="code" data-language="javascript" type="text/html">
+// Funktions expression, 
+// funktionen tilldelas en variabel
+var square = function (x) {
+    return x*x;
+};
+val = square(2);
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Funktioner (3)
+<pre data-code="c3"></pre>
+</script>
+
+<script id="c3" data-role="code" data-language="javascript" type="text/html">
+// Namnlös funktion som används 
+// som eventhanterare, function expression
+element.onclick = function () {
+    alert('Hello');
+};
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Funktioner (4)
+<pre data-code="c4"></pre>
+</script>
+
+<script id="c4" data-role="code" data-language="javascript" type="text/html">
+// Variant på namnlös funktion som
+// eventhanterare som skickas som 
+// parameter i en funktion.
+element.addEventListener("click", function () {
+    alert('Hello');
+});
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Funktioner (5)
+<pre data-code="c40"></pre>
+</script>
+
+<script id="c40" data-role="code" data-language="javascript" type="text/html">
+// En självexekverande funktion expression 
+(function() {
+    // Kod
+})();
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Funktioner (6)
+<pre data-code="c41"></pre>
+</script>
+
+<script id="c41" data-role="code" data-language="javascript" type="text/html">
+// Argument
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+sum(1, 2, 3); // returnerar 6
+sum(1, 2);    // c undefined, returnerar NaN
+</script>
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Funktioner (7)
+<pre data-code="c42"></pre>
+</script>
+
+<script id="c42" data-role="code" data-language="javascript" type="text/html">
+// Default argument
+function sum(a, b, c) {
+  a = a || 0;
+  b = b || 0;
+  c = c || 0;
+  return a + b + c;
+}
+
+sum(1, 2, 3); // returnerar 6
+sum(1, 2);    // returnerar 3
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Funktioner (8)
+<pre data-code="c43"></pre>
+</script>
+
+<script id="c43" data-role="code" data-language="javascript" type="text/html">
+// Arrayen arguments
+function sum() {
+  var i, sum = 0;
+  
+  for(i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  
+  return sum;
+}
+
+sum(1, 2, 3);           // returnerar 6
+sum(1, 2, 3, 4, 5, 6);  // returnerar 21
+</script>
+
+
+
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 #Vad har vi inte hanterat?
 
 * Arrayer
 * Objekt
-* Funktioner
 * Kodningsstruktur
 * Designmönster
 * DOM

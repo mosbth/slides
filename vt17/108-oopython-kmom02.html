@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>oopython kmom02</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#oopython kmom02
+###Mikael Roos, dbwebb
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Pythonic och pep8
+* Refactoring & OO
+* Documentation
+* Unittesting
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Objektorientering
+
+* OO analys
+* OO design
+* OO programmering
+* OO designmönster
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Att tänka på
+
+* Är det relevant?
+* YAGNI, Cut the waste
+* Analys/design eller programmering?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Validera Pythonic
+
+* [Nya filer](https://github.com/dbwebb-se/oopython) för .pylintrc
+* Atom linter-pylint + linter-pep8
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Refactor labbverktyg
+
+* Refactor [labbverktyget Python](https://github.com/dbwebb-se/oopython/tree/master/example/refactor)
+* [PEP8](https://www.python.org/dev/peps/pep-0008/)/Pylint
+* Objektorientering/modul
+* help/dir
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Att minnas
+
+* Namngivning
+* Multiline
+* Stränghantering
+* Disable inline
+* 79 char per rad
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Refactor exceptions
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Fail hard, fail early
+<pre data-code="c11"></pre>
+</script>
+
+<script id="c11" data-role="code" data-language="python" type="text/html">
+def add(self, id, name):
+    assert type(id) is IntType, "id is not an integer: %r" % id
+    assert type(name) is StringType, "name is not a string: %r" % name
+
+
+# Från mynameis.py
+assert False, "Unknown option: {}".format(opt)
+
+
+>>> assert False, "moped %s" % "haha"
+>>> assert False, "moped {}".format("haha")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AssertionError: moped haha
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Assert eller Exception?
+<pre data-code="c12"></pre>
+</script>
+
+<script id="c12" data-role="code" data-language="python" type="text/html">
+# Från mynameis.py
+# assert False, "Unknown option: {}".format(opt)
+raise CLIOptionsException("Unknown option: {}".format(opt))
+
+
+
+class CLIOptionsException(Exception):
+    """
+    When CLI options failes to parse.
+    """
+    pass
+
+
+
+#except Exception as err:
+except CLIOptionsException as e:
+    print(e)
+    print(MSG_USAGE)
+    sys.exit(1)
+
+
+
+# Uncatched error message ends with exception class
+Traceback (most recent call last):
+  File "./main.py", line 25, in <module>
+    main()
+  File "./main.py", line 18, in main
+    options = usage.parseOptions()
+  File "/home/mos/git/ooadv/usage.py", line 88, in parseOptions
+    raise CLIOptionsException("Unknown option: {}".format("mo"))
+usage.CLIOptionsException: Unknown option: mo
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Egen Exception?
+<pre data-code="c13"></pre>
+</script>
+
+<script id="c13" data-role="code" data-language="python" type="text/html">
+def parseOptions(self):
+    """
+    Parse all command line options and arguments and
+    return them as a dictionary.
+    """
+    all_options = {}
+    try:
+        opts, _ = getopt.getopt(sys.argv[1:], "hv", [
+            "help",
+            "version",
+        ])
+
+        for opt, _ in opts:
+            if opt in ("-h", "--help"):
+                self.printUsage()
+
+            elif opt in ("-v", "--version"):
+                self.printVersion()
+
+            else:
+                # assert False, "Unknown option: {}".format(opt)
+                raise CLIOptionsException("Unknown option: {}".format(opt))
+
+    except CLIOptionsException as e:
+        print(e)
+        print(MSG_USAGE)
+        sys.exit(EXIT_USAGE)
+
+    return all_options
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Inbyggda Exception
+<pre data-code="c14"></pre>
+</script>
+
+<script id="c14" data-role="code" data-language="python" type="text/html">
+$ ./main.py --this-option-is-not               
+...
+  File "/usr/lib/python3.4/getopt.py", line 174, in long_has_args 
+    raise GetoptError(_('option --%s not recognized') % opt, opt) 
+getopt.GetoptError: option --this-option-is-not not recognized    
+
+
+def parseOptions(self):
+    """
+    Parse all command line options and arguments and
+    return them as a dictionary.
+    """
+    all_options = {}
+    try:
+        opts, _ = getopt.getopt(sys.argv[1:], "hv", [
+            "help",
+            "version",
+        ])
+
+        for opt, _ in opts:
+            if opt in ("-h", "--help"):
+                self.printUsage()
+
+            elif opt in ("-v", "--version"):
+                self.printVersion()
+
+    except getopt.GetoptError as e:
+        print(e)
+        print(MSG_HELP)
+        sys.exit(EXIT_USAGE)
+
+    return all_options
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#CLI objektorienterad
+
+* [ooadv](https://github.com/dbwebb-se/ooadv)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Refactoring
+* Kodstandard pythonic
+* Dokumentera koden, help/dir
+* Enhetstestning/Exception/assertions
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!--
+<script data-role="slide" data-markdown type="text/html">
+#Begrepp oo-modellering
+
+* Objekt, Klasser
+* Instanser, att instansiera ett objekt av en klass
+* Saker som har ett tillstånd, egenskaper
+* properties, attributes
+* Saker man kan göra nåt med
+* metoder, behaviours, actions
+
+* Bil är ett Fordon (is-a, arv)
+* Hus innehåller Lägenheter (består av, composition)
+* Stol finns i Lägenhet (innehåller, aggregation)
+* Associationer
+* Kardinalitet
+
+> "Program objects may represent real objects, but that does not make
+them real objects."
+
+* Polymorphism (inheritance)
+* Duck typing
+* (Dynamiskt typade språk)
+
+* Multipelt/Singelt arv
+* Interface
+* Mixins, trait
+* Överlagring
+
+
+Modules and packages
+OO i python
+
+
+</script>
+
+
+-->
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>

@@ -18,7 +18,8 @@
 
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
-#linux kmom02 sysadmin 101
+#linux kmom02
+##sysadmin 101
 ###Mikael Roos, dbwebb
 </script>
 
@@ -39,8 +40,8 @@
 * sh, csh, tcsh, bash, zsh
 * Shell och skriptspråk
 * Bash startupfiler:
-    * /etc/profile, ~/.bash_profile, ~/.bash_login, ~/.profile
-    * ~/.bashrc
+    * `/etc/profile`, `~/.bash_profile`, `~/.bash_login`, `~/.profile`
+    * `~/.bashrc`
 
 </script>
 
@@ -67,6 +68,7 @@
 * help
 * type -a
 * compgen -b
+* tab completion
 
 </script>
 
@@ -78,6 +80,7 @@
 * man man
 * man -k
 * man 
+* man passwd, 5 passwdq
 * söka, navigera, avsluta
 
 </script>
@@ -111,7 +114,7 @@
 #Job Control
 
 * sleep 10 && echo "Done sleeping"
-* ctrl-c, ctrl-z
+* ctrl-c, ctrl-z, ctrl-s, ctrl-q
 * bg, fg, jobs
 * &, &> /dev/null
 * kill %1
@@ -151,7 +154,7 @@
 * exit
 * touch, cat >
 * cat, more, less, head, tail
-* ctrl-a, ctrl-e, ctrl-k, ctrl-y
+* ctrl-a, ctrl-e, ctrl-k, ctrl-y, ctrl-d
 
 </script>
 
@@ -163,6 +166,7 @@
 * history
 * !!, !0, !1
 * sudo !!
+* !rm
 
 </script>
 
@@ -197,7 +201,7 @@
 * whoami, id, groups
 * /etc/{passwd,shadow,groups}
 * adduser, passwd, userdel, usermod
-* sudo, su
+* sudo, /etc/sudoers*, su
 * homedir
 
 </script>
@@ -263,6 +267,7 @@ lrwxrwxrwx 1 mos mos 1 Jan 23 16:17 c -> a
 * ssh-nycklar
 * ssh med ssh-nycklar
 * rsync med ssh-nycklar
+* Spärra inloggning för root, pi, vanlig user
 
 </script>
 
@@ -270,8 +275,6 @@ lrwxrwxrwx 1 mos mos 1 Jan 23 16:17 c -> a
 
 <script data-role="slide" data-markdown type="text/html">
 #Avslutningsvis
-
-* 
 
 </script>
 
