@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>linux kmom02 sysadmin 101</title>
+<title>dbjs kmom02 databas och sql</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -18,106 +18,61 @@
 
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
-#linux kmom02
-##sysadmin 101
+#dbjs kmom02
+##Databas, SQLite och SQL
 ###Mikael Roos, dbwebb
 </script>
+
 
 
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
-* Sysadmin 101
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Shell
-
-* sh, csh, tcsh, bash, zsh
-* Shell och skriptspråk
-* Bash startupfiler:
-    * `/etc/profile`, `~/.bash_profile`, `~/.bash_login`, `~/.profile`
-    * `~/.bashrc`
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#User env
-
-* env, echo $PATH
-* environ
-* whoami
-* hostname, uname, motd
-* aliases
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Shell builtins
-
-* help
-* type -a
-* compgen -b
-* tab completion
+* ER-modellering
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Manualen
+#Databas som kalkylark?
 
-* man man
-* man -k
-* man 
-* man passwd, 5 passwdq
-* söka, navigera, avsluta
+* Mental bild av databas
+* Att organisera data snyggt i Excel...
+* eller databasmässigt...
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Vilket kommando?
 
-* type -a
-* which
-* whereis
+<img alt="tabell som kalkylark" src="../ht16/img/tabell-som-kalkylark-1.png" style="width: 100%">
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Pakethantering
 
-* /etc/apt
-* apt-get update && apt-get upgrade
-* apt-get install cowsay
-* apt-cache search cow
+<img alt="tabell som kalkylark" src="../ht16/img/tabell-som-kalkylark-2.png" style="width: 100%">
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Job Control
+#Tabeller
 
-* sleep 10 && echo "Done sleeping"
-* ctrl-c, ctrl-z, ctrl-s, ctrl-q
-* bg, fg, jobs
-* &, &> /dev/null
-* kill %1
+* Course, CourseEvent, Teacher, Program, CourseResponsible, Examinator
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+
+<img alt="ER diagram" src="../ht16/img/er-diagram.png" style="width: 100%">
 
 </script>
 
@@ -130,7 +85,6 @@
 
 
 
-<!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 #Frågor på det?
 
