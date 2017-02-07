@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>dbjs kmom02 databas och sql</title>
+<title>dbjs kmom02 ER-modellering</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -19,7 +19,7 @@
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
 #dbjs kmom02
-##Databas, SQLite och SQL
+##ER-modellering
 ###Mikael Roos, dbwebb
 </script>
 
@@ -35,11 +35,99 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Databas som kalkylark?
+#Först lite termer
 
-* Mental bild av databas
-* Att organisera data snyggt i Excel...
-* eller databasmässigt...
+* Entity-Relationship modelmodellering (ER-modellering)
+* UML (Unified Modelling Language)
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+
+<img alt="Exempel på ER diagram" src="img/er-diagram.png" style="height: 100%">
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+
+<img alt="Typer av ER diagram" src="img/erd-types.svg" style="height: 100%">
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Ritverktyg
+
+* Online [www.draw.io](www.draw.io)
+* [Dia](https://wiki.gnome.org/Apps/Dia)
+* [MySQL Workbench](https://www.mysql.com/products/workbench/)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Tre faser i modelleringen
+
+* Konceptuell modellering
+* Logisk modellering
+* Fysisk modellering
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Konceptuell modellering
+
+* Skriv text
+* Identifiera entiteter och relationer
+* Rita grovt ER-diagram med entiteter, relationer, kardinalitet, attribut och kandidatnycklar
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Logisk modellering
+
+* Modifiera enligt relationsmodellen
+* Primära, främmande nycklar samt extra attribut
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Fysisk modellering
+
+* Skapa SQL till vald DBMS.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Data dictionary
+
+1. Titel
+1. Introduktion.
+1. Beskrivning av databasen i ren text.
+1. Det konceptuella ER-diagrammet.
+1. Det logiska ER-diagrammet.
+1. SQL DDL.
+1. Databasens API inklusive SQL för att lösa API:et.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#En liten övning
 
 </script>
 
@@ -62,9 +150,27 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Tabeller
+#Bakgrund 1
 
-* Course, CourseEvent, Teacher, Program, CourseResponsible, Examinator
+En programansvarig vill presentera en översikt över de kurser som finns i programmet. Översikten skall visas upp för blivande studenter.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Bakgrund 2
+
+En programansvarig vill visa vilka kurser som går på programmet för en viss antagningsomgång.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Bakgrund 3
+
+En programansvarig vill spara kontaktinformation för studenterna som går en viss antagningsomgång.
 
 </script>
 
@@ -75,6 +181,19 @@
 <img alt="ER diagram" src="../ht16/img/er-diagram.png" style="width: 100%">
 
 </script>
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Källor ER modellering
+
+* [Kokbok för atabasmodellering](https://dbwebb.se/kunskap/kokbok-for-databasmodellering)
+* [Boken ER-modellering](http://www.databasteknik.se/webbkursen/er/index.html)
+* [Boken ER till Relationsmodellen](http://www.databasteknik.se/webbkursen/er2relationer/index.html)
+
+</script>
+
 
 
 

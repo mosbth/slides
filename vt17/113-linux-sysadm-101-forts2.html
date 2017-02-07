@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>linux sysadmin 101, del 2</title>
+<title>linux sysadmin 101, del 3</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -19,7 +19,7 @@
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
 #linux sysadmin 101
-##del 2
+##del 3
 ###Mikael Roos, dbwebb
 </script>
 
@@ -27,7 +27,7 @@
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
-* Sysadmin 101, del 2
+* Sysadmin 101, del 3
 
 </script>
 
@@ -35,110 +35,138 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Koll på läget
+#Vad kikade vi på sist?
 
-* Shell
-* Startupfiler
-* Environ
-* Shell builtins
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Koll på läget...
-
-* Manualen
-* Vilket kommando
-* Pakethantering
-* Job control
+* Redirect output
+* Job, process control
+* Logfiler
+* Bra att ha...
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Frågor
+#History
 
-* Vilket shell kör jag?
-    * man environ -> $SHELL
-* Redirect output &, &> /dev/null
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Redirect output
-
-* &> /dev/null
-* echo "hej" > file
-* echo "hej" >> file
-* ls a > file, ls nono &> file
-* stdin, stdout, stderr
+* history, history 10, h
+* !!, !0, !1, !-2
+* sudo !!
+* !rm
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Exit status
+#Användare och grupper
 
-* echo "moped" && echo $?
-* ls . && echo $?
-* ls nono && echo $?
-* ls nono; echo $?
-* man ls search exit values
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Job Control
-
-* sleep 10 && echo "Done sleeping"
-* Managera de processer du startat från shellet
+* whoami, id, groups
+* /etc/{passwd,shadow,group}
+* adduser, passwd, userdel, usermod
+* sudo, /etc/sudoers*, su
+* homedir, $HOME, ~
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Process control
+#[Debian filesystem](https://wiki.debian.org/FileSystem)
 
-* sleep 10 && echo "Done sleeping" &
-* ps aux, ps -ef, top, ps -ejH
-* PID, PPID, PGID
-* pgrep, pkill
-* kill -l, kill PID, kill -9 PID
+* Behöver stöd i kärnan
+* ext4 (fat, ntfs, mfl)
+* mkfs
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Logs
+#Debian filesystem hierarki
 
-* /var/logs
-* last, lastlog, who
-* tail -f file
+* [Standard](https://wiki.debian.org/FilesystemHierarchyStandard)
+* /
+* Automount
+* df, du, mount
+* /etc/fstab
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Bra att ha
+#Filrättigheter
 
-* touch, cat >
-* ctrl-d
-* exit
-* cat, less (more), head, tail
-* Editera på raden
-    *ctrl-a, ctrl-e, ctrl-k, ctrl-y, ctrl-d
+* 0755, -rwxr-xr-x
+* chmod, chown, chgrp
+* stat
+* setuid, setgid (executable/dirs)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Länkar
+
+* ln (länk)
+* ln -s (symboliska länkar)
+
+```
+touch a && ln a b && ln -s a c
+ls -lF a b c
+-rw-r--r-- 2 mos mos 0 Jan 23 16:16 a
+-rw-r--r-- 2 mos mos 0 Jan 23 16:16 b
+lrwxrwxrwx 1 mos mos 1 Jan 23 16:17 c -> a
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Boota om
+
+* reboot, halt, shutdown
+* single user mode
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#vi/vim
+
+* Två modes, flytta och insert
+* Esc till flytta/radera
+* i, a, o, r för insert/replace
+* dd (radera rad), x (radera tecken)
+* shift-ZZ (avsluta spara), :wq!
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Tmux
+
+* Alias tbs och tb
+* alias tbs='tmux new-session -s basic'
+* alias tb='tmux attach -t basic'
+* tb -d
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Mellan servrar
+
+* ssh-nycklar
+* ssh med ssh-nycklar
+* rsync med ssh-nycklar
+* Spärra inloggning för root, pi, vanlig user
 
 </script>
 

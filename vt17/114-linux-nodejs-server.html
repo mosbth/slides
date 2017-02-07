@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>linux sysadmin 101, del 2</title>
+<title>linux node, npm och babel</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -18,8 +18,7 @@
 
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
-#linux sysadmin 101
-##del 2
+#linux node, npm och babel
 ###Mikael Roos, dbwebb
 </script>
 
@@ -27,7 +26,7 @@
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
-* Sysadmin 101, del 2
+* node, npm och babel
 
 </script>
 
@@ -35,12 +34,12 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Koll på läget
+#Node, nmp, babel
 
-* Shell
-* Startupfiler
-* Environ
-* Shell builtins
+* Node 0.10-0.12, 4, 5, 6, 7
+* Transpilera, source-to-source
+* Presets [es2015](https://babeljs.io/docs/plugins/#transform-plugins-es2015), es2016, es2017
+* Installera lokalt eller globalt?
 
 </script>
 
@@ -48,97 +47,97 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Koll på läget...
+#Node, nmp, babel
 
-* Manualen
-* Vilket kommando
-* Pakethantering
-* Job control
+* Installera lokalt eller globalt?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[Testa babel](https://babeljs.io/repl/)
+
+```javascript
+// Mixed
+[1, 2].map( x => x * 2 );
+
+class A { constructor() { this.a = 42 }};
+
+import server from "./server.js";
+
+const http = require("http");
+
+// Exports
+var routes = {};
+
+routes.home = (res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Home page\n");
+};
+
+export default routes;
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Babel behövs för Node?
+
+* Node gör allt fler ES6 features
+* Require (CommonJS) versus ES6 import
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Babel behövs för browser?
+
+* [Asteroids](https://github.com/mosbth/asteroids) med ES6 moduler och klasser.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#altJS
+
+* compile-to-JS
+* CoffeScript - goal is to expose the good parts and clean out the bad.
+* TypeScript - is Microsoft’s take on altJS.
+* Dart - Google’s proposal for the future of the web.
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Frågor
+#ES6 features
 
-* Vilket shell kör jag?
-    * man environ -> $SHELL
-* Redirect output &, &> /dev/null
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Redirect output
-
-* &> /dev/null
-* echo "hej" > file
-* echo "hej" >> file
-* ls a > file, ls nono &> file
-* stdin, stdout, stderr
+* let, block-scope
+* import, export modules
+* class
+* arrow functions
+* asynkron programmering på servern
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Exit status
+#Babel på Cygwin
 
-* echo "moped" && echo $?
-* ls . && echo $?
-* ls nono && echo $?
-* ls nono; echo $?
-* man ls search exit values
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Job Control
-
-* sleep 10 && echo "Done sleeping"
-* Managera de processer du startat från shellet
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Process control
-
-* sleep 10 && echo "Done sleeping" &
-* ps aux, ps -ef, top, ps -ejH
-* PID, PPID, PGID
-* pgrep, pkill
-* kill -l, kill PID, kill -9 PID
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Logs
-
-* /var/logs
-* last, lastlog, who
-* tail -f file
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Bra att ha
-
-* touch, cat >
-* ctrl-d
-* exit
-* cat, less (more), head, tail
-* Editera på raden
-    *ctrl-a, ctrl-e, ctrl-k, ctrl-y, ctrl-d
+* När man jobbar med servrar
+* ps, ps -W
+* kill, bin/kill -f
+* netstat -a -o | grep 1337
 
 </script>
 
