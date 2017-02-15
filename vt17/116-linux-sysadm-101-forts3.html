@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>linux sysadmin 101, del 4</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#linux sysadmin 101
+##del 4
+###Mikael Roos, dbwebb
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Sysadmin 101, del 4
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad kikade vi på sist?
+
+* history
+* Användare och grupper
+* Debian filsystemoch hierarki
+* Bra att ha...
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Filrättigheter
+
+* 0755, -rwxr-xr-x
+* chmod, chown, chgrp
+* stat
+* setuid, setgid (executable/dirs)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Länkar
+
+* ln (länk)
+* ln -s (symboliska länkar)
+
+```
+touch a && ln a b && ln -s a c
+ls -lF a b c
+-rw-r--r-- 2 mos mos 0 Jan 23 16:16 a
+-rw-r--r-- 2 mos mos 0 Jan 23 16:16 b
+lrwxrwxrwx 1 mos mos 1 Jan 23 16:17 c -> a
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Boota om
+
+* reboot, halt, shutdown
+* single user mode
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#vi/vim
+
+* Två modes, flytta och insert
+* Esc till flytta/radera
+* i, a, o, r för insert/replace
+* dd (radera rad), x (radera tecken)
+* shift-ZZ (avsluta spara), :wq!
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Tmux
+
+* Alias tbs och tb
+* alias tbs='tmux new-session -s basic'
+* alias tb='tmux attach -t basic'
+* tb -d
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Mellan servrar
+
+* ssh-nycklar
+* ssh med ssh-nycklar
+* rsync med ssh-nycklar
+* Spärra inloggning för root, pi, vanlig user
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>

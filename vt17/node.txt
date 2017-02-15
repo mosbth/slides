@@ -1,0 +1,82 @@
+Om programmet
+-----------------
+
+hur det vi gör nu passar in i det vi vill göra
+
+
+
+grillcon
+-----------
+
+Om eventet
+
+Om fotoklubben
+
+Om opensource
+
+
+
+nodejs
+-----------
+
+1. om node versus babel
+
+att bygga kod för produktion
+
+att installera all utvecklings tillsammans med repot
+
+varför det inte är en bra idé på ssh-student
+
+om storleken på node_modules
+
+--
+
+1. om moduler, JS-moduler allmänt och  status på ES2015-moduler.
+
+visa exempelprogrammen som är i moduler
+
+
+
+dbwebb-cli
+----------
+
+varför
+
+samband med första python kursen (och javascript1)
+
+behov av validering
+
+behov av at hjälpa på distans, download
+
+minifiering
+
+---
+
+version 1
+
+version 2
+
+Makefilen
+
+installationsproceduren
+
+strukturen i koden
+
+kompabilitet
+
+vad körs var
+om hur det funkar
+
+--
+
+behovet av skydd & struktur på studentservern
+
+--
+
+kopplingen till kursrepo
+
+--
+
+hur jobbar lärarna med kursrepona
+
+automatiserad testning
