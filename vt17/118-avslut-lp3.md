@@ -6,10 +6,10 @@ Sista föreläsningen lp3 (oopython, linux kmom10)
 Digital Ocean
 ---------------------------------
 
-1. Create a droplet
-
 1. (pi som hemmaserver)
 (eget domännamn)
+
+1. Create a droplet
 
 1. Startmiljö som repo
 https://github.com/mosbth/env
@@ -24,6 +24,9 @@ Tmux och servrar
 ---------------------------------
 
 1. Grunden med tmux
+
+alias tmux_basic_start='tmux new-session -s basic' 
+alias tmux_basic='tmux attach -t basic'
 
 alias tbs='tmux_basic_start'
 alias tb='tmux_basic'
@@ -47,6 +50,10 @@ Logga in på desktop
 
 ssh
 ssh keys
+
+ssh-keygen -t rsa
+ssh-copy-id -i $HOME/.ssh/id_rsa.pub mos@linux.dbwebb.se -p 2222
+
 rsync
 (git / github)
 (tmux)
