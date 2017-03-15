@@ -27,8 +27,8 @@ INSERT INTO Larare2
 	('CSA', 'APS', 'Lektor', 'Charlie',  30000, '1969-04-07'),
 	('BHR', 'AIS', 'Professor', 'Birgitta', 15000, '1964-02-07'),
 	('MAP', 'APS', 'Professor', 'Marie',    25000, '1972-06-07'),
-	('LRA', 'APS', 'Professor', 'Linda',    10000, '1975-03-07'),
-	('ACA', 'ATS', 'Professor', 'Anders',   10000, '1967-09-07');
+	('LRA', 'APS', 'Professor', 'Linda',    35000, '1975-03-07'),
+	('ACA', 'ATS', 'Professor', 'Anders',   45000, '1967-09-07');
 
 -- DELETE FROM Larare2;
 SELECT * FROM Larare2;
@@ -48,8 +48,16 @@ SELECT
 	tjanst,
     ROUND(AVG(lon), 0) AS "Snittlön"
 FROM Larare2
+WHERE 
+	-- 1 -- "Snittlön" > 20000 -- 1 -- lon > 20000
+    tjanst = "Lektor"
 GROUP BY
 	tjanst
+HAVING 
+	  1
+	-- "Snittlön" > 10000
+	-- AVG(lon) > 20000
+    -- tjanst = "Lektor"
 ;
 
 SELECT

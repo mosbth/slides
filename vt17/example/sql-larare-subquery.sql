@@ -64,3 +64,18 @@ FROM Larare2
 WHERE
 	lon = (SELECT MAX(lon) FROM Larare2)
 ;
+
+
+--
+-- subquery returns several rows
+--
+SELECT lon FROM Larare2 WHERE lon > 20000 ORDER BY lon;
+SELECT
+	namn,
+    lon
+FROM Larare2
+WHERE
+	lon IN ((SELECT lon FROM Larare2 WHERE lon > 20000 ORDER BY lon))
+;
+
+
