@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>webapp kmom01-02</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#webapp kmom01-02
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Allmän orientering
+* RESTful
+* API
+* XHR
+* Arkitektur
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#jQuery Mobile
+
+* [Exempel på me-sida](https://dbwebb.se/repo/webapp/example/meapp2/)
+* [A long overdue status report](http://blog.jquerymobile.com/)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#RESTful API
+
+* Representational state transfer
+    * (HTTP, JSON, XML, mfl)
+* WDSL Web Services Description Language
+    * XML
+* SOAP Simple Object Access Protocol
+    * HTTP (more), XML
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#RESTful API...
+
+* Request method
+    * GET, POST, PUT, DELETE, HEAD, PATCH
+* Vertyg
+    * RESTClient / Postman
+* [Testa mot anax lite](http://www.student.bth.se/~mosstud/dbwebb-kurser/oophp/me/anax-lite/htdocs/router/get)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#RESTful/JSON API
+
+* [Flarum API](http://flarum.org/docs/api/)
+* [JSON API](http://jsonapi.org/)
+* Om Ladok API...
+* [Bikeshed](http://bikeshed.org/)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#jq och JSON
+
+* Kort om [jq](https://stedolan.github.io/jq/)
+* Utvecklingsverktyg vid RESTful (offline)
+* [jq play](https://jqplay.org/)
+
+```bash
+$ curl http://www.student.bth.se/~mosstud/dbwebb-kurser/oophp/me/anax-lite/htdocs/router/get | jq .route
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#XHR (Ajax)
+
+* Skicka HTTP request och ta emot svaret asynkront
+* [jQuery Ajax](http://api.jquery.com/jquery.ajax/)
+* [You might not need jQuery (on Ajax)](http://youmightnotneedjquery.com/)
+* [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+* Finns i Mithril via m.request.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#GitHub
+
+* [Usability](https://github.com/).
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#BTH Kursredan
+
+* [Kursredan](https://portal.bth.se/kursredan) 
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Flarum
+
+* [Documentation of architecture](http://flarum.org/docs/extend/).
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Arkitektur
+
+* Klient/Server
+* Server ger data (RESTful med JSON)
+* Jobbet clientside eller serverside?
+* Liknande ramverksarkitektur klient/server
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Arkitektur...
+
+* Server (request, router, response (HTML/JSON) (url, view, database, mvc))
+* Klient (view (dom), mvc-ish, routing, xhr (auto-update))
+* Hur mycket göra i klient versus server?
+* Klient standalone (without server, using local storage)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Flexbox för GUI
+* Grid
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Web Components
+* 
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#JSX
+* 
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Shadow DOM
+* 
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mithril Components
+* https://mithril.js.org/components.html
+* (Key Concepts)
+* (Framework comparisom)
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mithril automatic DOM update
+* m.request, variable, event, update dom
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

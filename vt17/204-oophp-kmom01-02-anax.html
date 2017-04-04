@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>oophp kmom01-02 (anax)</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#oophp kmom01-02 (anax)
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Namespace
+* Exception
+* Interface och Trait
+* Anax Lite och moduler
+* GitHub stats
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Felsök
+
+* dbwebb publishfast (skip validering)
+* dbwebb publishpure (skip minifiering)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Namespace
+
+* Namnrymd
+* [FIG PSR-4](http://www.php-fig.org/psr/psr-4/)
+* Autoloader i composer.json [anax-lite](https://github.com/canax/anax-lite/blob/master/composer.json#L20-L22) [request](https://github.com/canax/request/blob/master/composer.json#L19-L23)
+* Fil `src/Request/Request.php`
+
+```php
+namespace Anax\Request;
+class Request
+{
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Exception
+
+* Skapas [Anax\Url\Exception](https://github.com/canax/url/blob/master/src/Url/Exception.php)
+* Används i [Anax\Url\Url](https://github.com/canax/url/blob/master/src/Url/Url.php)
+* Fördel/nackdel?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Integrera ramverk
+
+* Samla konfigurationsfiler under `config/`
+* Samla källkod under `src/`
+* Samla vyer under `view/`
+* Gemensam struktur, terminologi
+* Paketering av design mönster
+* Autoloader från composer
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Integrera konfigurationen
+
+* Implementera interface och använd trait
+* Exempel [Url](https://github.com/canax/url/blob/master/src/Url/Url.php) via [Common](https://github.com/canax/common/tree/master/src/Common) i [frontcontroller och configfil](https://github.com/canax/anax-lite).
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Integrera $app
+
+* Implementera interface och använd trait
+* På liknande sätt som konfigurationen
+* Exempel [View](https://github.com/canax/view)
+* Injectas i frontkontrollern, skickas vidare till View->render().
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vyer
+
+* PHP i vyer eller ett templatespråk?
+* Skriva logik i vyer eller "dumma vyer"?
+* Låta vyerna prata med ramverket eller ej?
+* Ett teams kompetenser varierar
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Modulen [View](https://github.com/canax/view)
+
+* ViewContainer
+* View
+* ViewRenderFile
+* ViewHelperTrait
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax moduler
+
+* [anax/request](https://github.com/canax/request)
+* Kolla packagist, travis, circleci, scrutinizr
+* make test, kolla phploc
+* Hur jobba med modulerna?
+* Länka vendor vid test
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax Lite
+
+* Request, Router, Url, View, Response. 
+* [Kod](https://github.com/canax/anax-lite)
+* make install test
+* make theme
+* composer update
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Undvik beroende
+
+* Moduler som är beroende av andra
+* Klasser som är beroende av andra
+* Injecta information som behövs
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Funktioner
+
+* [anax/common](https://github.com/canax/common)
+* src/functions.php
+* composer.json
+* Skriva funktion eller klass?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#GiHub stats
+
+* Hur många stavfel har du rättat i dbwebb.se?
+* Hur många issues har du gjort mot kursepon?
+* Hur många kodexempel har du lagt till i kursepon?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Modulen Router
+
+* 
+
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

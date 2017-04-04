@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>oophp kmom02 (mysql)</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#oophp kmom02 (mysql)
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* MySQL / MariaDB
+* Klienter
+* Lokal installation
+* BTH miljö
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Ranking databaser
+
+* [DB-Engines Ranking](http://db-engines.com/en/ranking)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om MySQL/MariaDB
+
+* Historik
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Två miljöer
+
+* Lokal/Utveckling (XAMPP/MySQL/MariaDB)
+* Drift/Produktion (BTH MySQL blu-ray)
+* Skillnader
+    * rättigheter (no CREATE DATABASE)
+    * skapa konto
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Server
+
+* Port 3306
+* Lager av inloggning/behörighet
+* Databaser i `/var/lib/mysql`
+* Loggar i `/var/log/mysql*`
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Server
+
+* Backup, optimering
+* Redundans, lastbalansering
+* [Manualen](https://dev.mysql.com/doc/)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tre klienter
+
+* Terminal
+* PHPMyAdmin
+* MySQL Workbench
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Att lära sig
+
+* SQL (standard likt SQLite)
+* Datatyper (hårt typat)
+* SQL (specifikt MySQL)
+* Administrativa kommandon
+* Att hoppa mellan klienter med SQL-filer
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL
+
+GROUPBY
+HAVING
+
+ÅLDER
+VIEW
+
+FOREIGN KEY
+
+SUBQUERY
+INNER/OUTER JOIN
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Databasmodellering
+
+* [Skapa ER-modell av databasen Jetty](https://dbwebb.se/uppgift/skapa-er-modell-av-databasen-jetty)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Programmera i databasen
+
+* [Transaktioner i databas](https://dbwebb.se/kunskap/transaktioner-i-databas)
+* [Lagrade procedurer i databas](https://dbwebb.se/kunskap/lagrade-procedurer-i-databas)
+* [Triggers i databas](https://dbwebb.se/kunskap/triggers-i-databas)
+* [Egendefinierade funktioner i databas](https://dbwebb.se/kunskap/egen-definierade-funktioner-i-databas)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Optimering/prestanda
+
+* [Index och prestanda i MySQL](https://dbwebb.se/kunskap/index-och-prestanda-i-mysql)
+
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
