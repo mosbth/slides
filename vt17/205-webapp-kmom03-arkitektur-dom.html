@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>oophp kmom03 (mysql)</title>
+<title>webapp kmom03</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
 
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
-#oophp kmom03 (mysql)
+#webapp kmom03
 ###Mikael Roos, dbwebb
 </script>
 
@@ -27,8 +27,10 @@
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
-* Att modellera
-* SQL ett exempel
+* Arkitektur nära DOM
+* Virtual DOM
+* JSX
+* Web Components
 
 </script>
 
@@ -36,19 +38,11 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#ER modellering
+#Virtual DOM
 
-* [Om databasmodellering](https://dbwebb.se/kunskap/kokbok-for-databasmodellering)
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Modellera en eshop
-
-* Hur kan databasen se ut för en eshop?
+* Alà Mithril
+* Virtual DOM tree
+* Virtual DOM node, vnode
 
 </script>
 
@@ -56,15 +50,58 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Ett exempel [dbwebb eshop](https://github.com/dbwebb-se/slides/blob/master/vt17/example/sql-eshop.sql)
+#JSX
 
-* Struktur i SQL-fil
-* View
-* Inner join
-* Foreign key
-* Coalesce
-* Insert into select from
-* ER-modellering (reversed)
+* Facebook/Instagram React JSX
+* Mithril JSX
+* Syntactic sugar
+* HTML till m()/React.createElement()
+* [HTML to m() konverterare](http://arthurclemens.github.io/mithril-template-converter/index.html)
+* [Using JSX or Hyperscript?](https://github.com/lhorie/mithril.js/issues/1619)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#JSX...
+
+* [HTML to m() konverterare](http://arthurclemens.github.io/mithril-template-converter/index.html)
+* [HTML to HyperScript](http://html-to-hyperscript.paqmind.com/)
+* [Using JSX or Hyperscript?](https://github.com/lhorie/mithril.js/issues/1619)
+* [JSX Spec](https://facebook.github.io/jsx/)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Web Components
+
+* Custom elements
+* Shadow DOM
+* HTML imports
+* HTML template element
+* [Resurs](https://www.webcomponents.org/introduction)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Får jag använda externa CSS/Web Components?
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Projektinspiration
+
+* [Projektexempel från förra tävlingen](http://hackforsweden.se/sv/) 
 
 </script>
 
@@ -88,104 +125,47 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Film med genre
-
-* Jobba igenom exempel
-* SQL-biten
-
+#Forms for mobile
+*
 </script>
 
 
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Inbyggda funktioner
-
-* COALESCE
-* CASE
-* DATETIME
-* CONCAT
-
+#Flexbox för GUI
+* Grid
 </script>
 
 
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Programmera i databasen
-
-* [Transaktioner i databas](https://dbwebb.se/kunskap/transaktioner-i-databas)
-* [Lagrade procedurer i databas](https://dbwebb.se/kunskap/lagrade-procedurer-i-databas)
-* [Triggers i databas](https://dbwebb.se/kunskap/triggers-i-databas)
-* [Egendefinierade funktioner i databas](https://dbwebb.se/kunskap/egen-definierade-funktioner-i-databas)
-
+#Mithril Components
+* https://mithril.js.org/components.html
+* (Key Concepts)
+* (Framework comparisom)
 </script>
 
 
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Optimering/prestanda
-
-* [Index och prestanda i MySQL](https://dbwebb.se/kunskap/index-och-prestanda-i-mysql)
-
+#Mithril automatic DOM update
+* m.request, variable, event, update dom
 </script>
 
 
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Storage engines
+#Access mobile
 
-* MyISAM, XXX, MEMORY
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Mer om SQL?
-
-* Group by / Having
-* Union
-* Subquery
-* Joins
+* Cam
+* GPS
+* Karta (lokal/nätet?)
 
 </script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#SQL
-
-GROUPBY
-HAVING
-
-ÅLDER
-VIEW
-
-FOREIGN KEY
-
-SUBQUERY
-INNER/OUTER JOIN
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Databasmodellering
-
-* [Skapa ER-modell av databasen Jetty](https://dbwebb.se/uppgift/skapa-er-modell-av-databasen-jetty)
-
-</script>
-
-
-
-
 
 
 

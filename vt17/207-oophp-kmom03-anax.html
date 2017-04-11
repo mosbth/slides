@@ -27,8 +27,8 @@
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
-* PHP PDO
 * Anax Lite och moduler
+* PHP PDO
 * GitHub stats
 
 </script>
@@ -39,10 +39,11 @@
 <script data-role="slide" data-markdown type="text/html">
 #Kalendrar och tärningsspel
 
-* /// Java
-* Moduler, Klasser, Objekt, Funktioner, Skript
-* Funktionell programmering
-* Python, HTML, CSS/LESS, JavaScript (klient/server), PHP, Bash, Terminalen
+* [Kalle](http://www.student.bth.se/~kabc16/dbwebb-kurser/oophp/me/anax-lite/htdocs/calendar)
+* [Olof](http://www.student.bth.se/~olen16/dbwebb-kurser/oophp/me/anax-lite/htdocs/dice)
+* [Christofer](http://www.student.bth.se/~chju16/dbwebb-kurser/oophp/me/anax-lite/htdocs/calander)
+* [André](http://www.student.bth.se/~anjd16/dbwebb-kurser/oophp/me/anax-lite/htdocs/calendar)
+* [Magnus](http://www.student.bth.se/~maaa16/dbwebb-kurser/oophp/me/anax-lite/htdocs/calendar)
 
 </script>
 
@@ -52,10 +53,12 @@
 <script data-role="slide" data-markdown type="text/html">
 #Varför OO?
 
-* /// Java
+* /// Java kontra C++
 * Moduler, Klasser, Objekt, Funktioner, Skript
-* Funktionell programmering
-* Python, HTML, CSS/LESS, JavaScript (klient/server), PHP, Bash, Terminalen
+* Funktionell programmering (mfl)
+* Python, HTML, CSS/LESS, JavaScript (klient/server), PHP, Bash, Terminalen, SQL
+* Objektorienterade databaser, ORM
+* Att tycka är lätt, att veta svårare
 
 </script>
 
@@ -66,89 +69,7 @@
 #Att skriva i ramverket eller inte?
 
 * Vad betyder det?
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#PDO Fetchstyles
-
-* Into class
-* Into object
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Ramverk eller enklare arkitektur?
-
-* Visa arkitektur för movie exemplet.
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Modulen [View](https://github.com/canax/view)
-
-* ViewContainer
-* View
-* ViewRenderFile
-* ViewHelperTrait
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Anax moduler
-
-* [anax/request](https://github.com/canax/request)
-* Kolla packagist, travis, circleci, scrutinizr
-* make test, kolla phploc
-* Hur jobba med modulerna?
-* Länka vendor vid test
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Modulen Router
-
-* 
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Lösenord mot databasen
-
-* Spara i config.php
-* Checka aldrig in på GitHub...
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Anax Lite
-
-* Request, Router, Url, View, Response. 
-* [Kod](https://github.com/canax/anax-lite)
-* make install test
-* make theme
-* composer update
+* Opiniated eller inte?
 
 </script>
 
@@ -168,12 +89,101 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
+#Ramverk eller enklare arkitektur?
+
+* Visa arkitektur för movie exemplet.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax moduler
+
+* Request, Router, Url, View, Response. 
+* [Kod](https://github.com/canax/anax-lite)
+* composer update
+* make theme
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax moduler...
+
+* make install test
+* phpunit, phpcs, phpmd, phploc
+* make doc
+* git, github, travis, circleci, scrutinizer, sensiolabs, packagist
+* automated (regression) test
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
 #Funktioner
 
 * [anax/common](https://github.com/canax/common)
 * src/functions.php
 * composer.json
 * Skriva funktion eller klass?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[PDO Fetchstyles](https://github.com/dbwebb-se/oophp/tree/master/example/pdo-fetch)
+
+* Into class
+* Into object
+* Kika i `example/pdo-fetch`
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Databasklass eller PDO
+
+* Varför skapa egen klass?
+* Felhantering?
+* Mindre kod?
+* Likrikta, forma, utbilda?
+* In i Anax Lite config/database.php
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Databasklass eller PDO...
+
+* Parkinson's Law
+
+> "work expands so as to fill the time available for its completion"
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Lösenord mot databasen
+
+* Skapa config/database_sample.php
+* Kopiera till config/database.php
+* Lägg lösen i config/database.php
+* Gör gitignore på config/database.php
+* Checka aldrig in på GitHub...
 
 </script>
 
@@ -209,9 +219,32 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
+#Anax Lite
+
+* Request, Router, Url, View, Response. 
+* [Kod](https://github.com/canax/anax-lite)
+* make install test
+* make theme
+* composer update
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
 #TDD
 
 * Testdriven utveckling
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL
+
+* Lagrade procedurer med PDO
 
 </script>
 
