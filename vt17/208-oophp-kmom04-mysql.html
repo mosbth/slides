@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>oophp kmom04 (mysql)</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#oophp kmom04 (mysql)
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Datatyper
+* Character Set och Collation
+* Primärnyckel
+* Inbyggda funktioner
+* Storage engines
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#mysqldump
+
+* Kopiera och flytta databas
+
+```
+$ mysqldump oophp > dump.sql
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Datatyper
+
+* Numeriska
+* Datum och tid
+* Strängar
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Numeriska
+
+* BIT
+* TINYINT, SMALLINT, MEDIUMINT, INT, BIGINT
+* BOOLEAN (TINYINT(1))
+* DECIMAL
+* FLOAT, DOUBLE
+* SIGNED/UNSIGNED
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Datum och Tid
+
+* DATE
+* TIME
+* YEAR
+* DATETIME
+* TIMESTAMP
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Strängar
+
+* CHAR, VARCHAR
+* BINARY, VARBINARY
+* TINYTEXT, TEXT, MEDIUMTEXT, LONGTEXT
+* TINYBLOB, BLOB, MEDIUMBLOB, LONGBLOB
+* ENUM, SET
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Character Set
+
+* Character set (ett set av symboler med encoding)
+* Collation (regler för jämförelser)
+* Alfabet: A, B, a, b
+* Char set: A = 0, B = 1, a = 2, b = 3
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Character Collation
+
+* Alfabet: A, B, a, b
+* Char set: A = 0, B = 1, a = 2, b = 3
+* Hur jämföra A mot B?
+* Jämför per värde = binary collation
+* Men om A är samma som a? case-insensetive collation
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Character Set, Collation
+
+* Sätt på databas, tabell eller kolumn.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Primär nyckel
+
+* Kandidatnyckel, primärnyckel
+* INT, CHAR, VARCHAR
+* DATE?
+* Vad är unikt?
+* Nycklar lagras med sekundära index
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Primär nyckel...
+
+* AUTO_INCREMENT
+* Natural key, Surrogate key
+* SIGNED/UNSIGNED
+* CHARACTER SET
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Att uppdatera FOREIGN KEY
+
+* ON DELETE CASCADE
+* ON UPDATE CASCADE
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Inbyggda funktioner
+
+* [Översikt](https://dev.mysql.com/doc/refman/5.7/en/functions.html)
+* CASE
+* COALESCE
+* DATEFORMAT, DATE, NOW
+* CONCAT, SUBSTR
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Storage Engines
+
+* InnoDB
+* MyISAM
+* MEMORY
+* ARCHIVE
+* BLACKHOLE
+* Mfl
+
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Film med genre
+
+* Jobba igenom exempel
+* SQL-biten
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Programmera i databasen
+
+* [Transaktioner i databas](https://dbwebb.se/kunskap/transaktioner-i-databas)
+* [Lagrade procedurer i databas](https://dbwebb.se/kunskap/lagrade-procedurer-i-databas)
+* [Triggers i databas](https://dbwebb.se/kunskap/triggers-i-databas)
+* [Egendefinierade funktioner i databas](https://dbwebb.se/kunskap/egen-definierade-funktioner-i-databas)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Optimering/prestanda
+
+* [Index och prestanda i MySQL](https://dbwebb.se/kunskap/index-och-prestanda-i-mysql)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mer om SQL?
+
+* Group by / Having
+* Union
+* Subquery
+* Joins
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL
+
+GROUPBY
+HAVING
+
+ÅLDER
+VIEW
+
+FOREIGN KEY
+
+SUBQUERY
+INNER/OUTER JOIN
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Databasmodellering
+
+* [Skapa ER-modell av databasen Jetty](https://dbwebb.se/uppgift/skapa-er-modell-av-databasen-jetty)
+
+</script>
+
+
+
+
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

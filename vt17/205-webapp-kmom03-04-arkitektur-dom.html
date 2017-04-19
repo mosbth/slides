@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>webapp kmom03</title>
+<title>webapp kmom03-04</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
 
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
-#webapp kmom03
+#webapp kmom03-04
 ###Mikael Roos, dbwebb
 </script>
 
@@ -29,8 +29,8 @@
 
 * Arkitektur nära DOM
 * Virtual DOM
-* JSX
 * Web Components
+* JSX
 
 </script>
 
@@ -38,39 +38,12 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Virtual DOM
+#Standard Installable Web Apps
 
-* Alà Mithril
-* Virtual DOM tree
-* Virtual DOM node, vnode
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#JSX
-
-* Facebook/Instagram React JSX
-* Mithril JSX
-* Syntactic sugar
-* HTML till m()/React.createElement()
-* [HTML to m() konverterare](http://arthurclemens.github.io/mithril-template-converter/index.html)
-* [Using JSX or Hyperscript?](https://github.com/lhorie/mithril.js/issues/1619)
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#JSX...
-
-* [HTML to m() konverterare](http://arthurclemens.github.io/mithril-template-converter/index.html)
-* [HTML to HyperScript](http://html-to-hyperscript.paqmind.com/)
-* [Using JSX or Hyperscript?](https://github.com/lhorie/mithril.js/issues/1619)
-* [JSX Spec](https://facebook.github.io/jsx/)
+* Use Cases and Requirements for Installable Web Apps
+* [Standard Draft](https://w3c-webmob.github.io/installable-webapps/)
+* Att bokmärka (save to home) webbplats och bli semi-native-standalone
+* Mix mellan hybrid och webbplats (Installable Web Apps)
 
 </script>
 
@@ -92,7 +65,134 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Får jag använda externa CSS/Web Components?
+#Exempel Custom elements
+
+```
+<flag-icon country="nl"></flag-icon>
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Exempel Shadow DOM
+
+```
+<x-foo class="foo">
+  <"shadow tree">
+    <div class="foo">...</div>
+  </>
+</x-foo>
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Exempel HTML imports
+
+```
+<link rel="import" href="import.html">
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Exempel HTML template
+
+* View source
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Bra idé eller ej?
+
+* Vad krävs för att det skall hända?
+* "Pakethantering"
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Virtual DOM
+
+* A là Mithril
+* Virtual DOM tree
+* Virtual DOM node, vnode
+* `m()` hyperscript utility
+
+```
+m("div", {id: "test"}, "hello")
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#HyperScript?
+
+* HyperScript is a way to create HyperText (the HT in HTML) with JavaScript
+* [Hyperscript](https://github.com/hyperhype/hyperscript)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#JSX
+
+* Facebook/Instagram React JSX
+* Mithril JSX
+* Syntactic sugar
+* HTML till m()/React.createElement()
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#JSX...
+
+* [HTML to m() konverterare](http://arthurclemens.github.io/mithril-template-converter/index.html)
+* [HTML to HyperScript](http://html-to-hyperscript.paqmind.com/)
+* [Using JSX or Hyperscript?](https://github.com/lhorie/mithril.js/issues/1619)
+* [JSX Spec](https://facebook.github.io/jsx/)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Lästips
+
+* [Flux med Redux och React](https://dbwebb.se/kunskap/flux-med-redux-och-react)
+* Googla "Mithril versus Flux", "Mithril versus React"
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Får jag använda externa JS/CSS/Web Components?
 </script>
 
 
