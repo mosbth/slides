@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>oophp kmom05 (anax)</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#oophp kmom05 (anax)
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* anax/router
+* phpdoc
+* Backend till webbshop
+* Textfilter
+* OWASP
+* Escape-klass
+* Filtrera och sanitera
+
+</script>
+
+
+
+<!-- Slide -->
+<!--
+<script data-role="slide" data-markdown type="text/html">
+#Användare
+
+* [Kolla in några lösningar](https://dbwebb.se/forum/viewtopic.php?f=37&t=6356)?
+
+</script>
+-->
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[anax/router](https://github.com/canax/router)
+
+* Nu med dokumentation
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Textfilter
+
+* Titta på hur [mos/ctextfilter](https://github.com/mosbth/ctextfilter) fungerar mot dbwebb.se artiklar.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#phpdoc
+
+* Automatgenerera dokumentationen
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om uppgiften backend webbshop
+
+* Skapa admin backend för webbshop
+* Produkter och lager
+* Återanvänd SQL från förra föreläsningen?
+* SQL för shoppingcart
+* Programmera i databasen (transaktion, procedur, trigger, funktion)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#CRUD
+
+* Formulär, hantering, spara db - återkommande kod
+* Validering i klienten och på servern
+* Säkerhet likt CSRF, Cross-Site Request Forgery
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#CRUD och CSRF
+
+> Cross-Site Request Forgery (CSRF) is a type of attack that occurs when a malicious web site, email, blog, instant message, or program causes a user’s web browser to perform an unwanted action on a trusted site for which the user is currently authenticated.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c100"></pre>
+</script>
+<script id="c100" data-role="code" data-language="text" type="text/html">
+<form action="/transfer.do" method="post">
+<input type="hidden" name="CSRFToken" 
+value="OWY4NmQwODE4ODRjN2Q2NTlhMmZlYWE...
+wYzU1YWQwMTVhM2JmNGYxYjJiMGI4MjJjZDE1ZDZ...
+MGYwMGEwOA==">
+…
+</form>
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Server side state changing
+
+* Bara med POST, inte med GET
+* Ett sätt att jobba mot CSRF
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[OWASP Top Ten 2017](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Exempel på säkerhetstänk
+
+* [anax/request getCurrentUrl](https://github.com/canax/request/blob/master/src/Request/Request.php#L237-L272)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Escape data
+
+* [Escaper rfc](https://wiki.php.net/rfc/escaper)
+* [zend/escaper](https://github.com/zendframework/zend-escaper)
+* [Manualen om Zend\Escaper](https://framework.zend.com/manual/2.4/en/modules/zend.escaper.introduction.html)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Filtrera/sanitera inkommande
+
+* [PHP Filter](http://php.net/manual/en/book.filter.php)
+* VALIDATE_EMAIL, VALIDATE_IP, VALIDATE_URL, mm
+* FILTER_SANITIZE_EMAIL, FILTER_SANITIZE_URL, mm
+* is_int, is_numeric, mm
+* ctype_digit, ctype_xdigit, mm
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#GiHub stats
+
+* Hur många stavfel har du rättat i dbwebb.se?
+* Hur många issues har du gjort mot kursepon?
+* Hur många kodexempel har du lagt till i kursepon?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax moduler...
+
+* Makefile
+* make install test
+* phpunit, phpcs, phpmd, phploc
+* make doc
+* git, github, travis, circleci, scrutinizer, sensiolabs, packagist
+* automated (regression) test
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#GetPost
+
+* Via array
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax moduler
+
+* Request, Router, Url, View, Response. 
+* [Kod](https://github.com/canax/anax-lite)
+* composer update
+* make theme
+* Makefilen
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax Lite
+
+* Request, Router, Url, View, Response. 
+* [Kod](https://github.com/canax/anax-lite)
+* make install test
+* make theme
+* composer update
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#TDD
+
+* Testdriven utveckling
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL
+
+* Lagrade procedurer med PDO
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Film med genre
+
+* Jobba igenom PHP-biten
+* (kategori i post/page)
+
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

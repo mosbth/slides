@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>oophp kmom05 (mysql)</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#oophp kmom05 (mysql)
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Transaktioner
+* Stored Procedure
+* Trigger
+* Egendefinierade funktioner
+
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Programmera i databasen
+
+* [Transaktioner i databas](https://dbwebb.se/kunskap/transaktioner-i-databas)
+* [Lagrade procedurer i databas](https://dbwebb.se/kunskap/lagrade-procedurer-i-databas)
+* [Triggers i databas](https://dbwebb.se/kunskap/triggers-i-databas)
+* [Egendefinierade funktioner i databas](https://dbwebb.se/kunskap/egen-definierade-funktioner-i-databas)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Transaktioner
+
+* Den korta varianten
+
+```
+BEGIN TRANSACTION;
+--
+COMMIT;
+ROLLBACK;
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#ACID
+
+* A - Atomicity, atomär
+* C - Consistency, konsistent
+* I - Isolation, isolerade
+* D - Durability, beständig
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#ACID...
+
+> En transaktion skall vara atomär, bevara konsistensen i databasen, vara isolerad från övriga transaktioner och vara beständig när den är committad.
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c100"></pre>
+</script>
+<script id="c100" data-role="code" data-language="sql" type="text/html">
+--
+-- Move the money
+--
+UPDATE Account
+SET
+    balance = balance + 1.5
+WHERE
+    id = "2222";
+
+UPDATE Account
+SET
+    balance = balance - 1.5
+WHERE
+    id = "1111";
+
+SELECT * FROM Account;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c101"></pre>
+</script>
+<script id="c101" data-role="code" data-language="sql" type="text/html">
+--
+-- Move the money, within a transaction
+--
+START TRANSACTION;
+
+UPDATE Account
+SET
+    balance = balance + 1.5
+WHERE
+    id = "2222";
+
+UPDATE Account
+SET
+    balance = balance - 1.5
+WHERE
+    id = "1111";
+
+COMMIT;
+
+SELECT * FROM Account;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Stored Procedures, SP
+
+* Lagrade procedurer
+* Compound statements
+* DROP / CREATE PROCEDURE myproc()
+* CALL myproc()
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c102"></pre>
+</script>
+<script id="c102" data-role="code" data-language="sql" type="text/html">
+--
+-- Procedure moveMoney()
+--
+DROP PROCEDURE IF EXISTS moveMoney;
+
+DELIMITER //
+
+CREATE PROCEDURE moveMoney(
+    fromAccount CHAR(4),
+    toAccount CHAR(4),
+    amount NUMERIC(4, 2)
+)
+    -- Here comes SQL and compund statements
+//
+
+DELIMITER ;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c103"></pre>
+</script>
+<script id="c103" data-role="code" data-language="sql" type="text/html">
+CREATE PROCEDURE moveMoney(
+    fromAccount CHAR(4),
+    toAccount CHAR(4),
+    amount NUMERIC(4, 2)
+)
+BEGIN
+    SELECT fromAccount, toAccount, amount;
+END
+//
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c104"></pre>
+</script>
+<script id="c104" data-role="code" data-language="sql" type="text/html">
+CALL moveMoney("1111", "2222", 1.5);
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c105"></pre>
+</script>
+<script id="c105" data-role="code" data-language="sql" type="text/html">
+BEGIN
+    DECLARE currentBalance NUMERIC(4, 2);
+    
+    START TRANSACTION;
+
+    SET currentBalance = (SELECT balance FROM Account WHERE id = fromAccount);
+    SELECT currentBalance;
+
+    IF currentBalance - amount < 0 THEN
+        ROLLBACK;
+            SELECT "Amount on the account is not enough to make transaction.";
+
+    ELSE
+
+        UPDATE Account 
+            SET
+            balance = balance + amount
+            WHERE
+            id = toAccount;
+
+        UPDATE Account 
+            SET
+            balance = balance - amount
+            WHERE
+            id = fromAccount;
+        
+        COMMIT;
+
+    END IF;
+
+    SELECT * FROM Account;
+END
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c106"></pre>
+</script>
+<script id="c106" data-role="code" data-language="sql" type="text/html">
+--
+-- Try OUT variables from SP
+--
+DROP PROCEDURE IF EXISTS getMoney;
+
+DELIMITER //
+
+CREATE PROCEDURE getMoney(
+	IN account CHAR(4),
+    OUT total NUMERIC(4, 2)
+)
+BEGIN
+	SELECT balance INTO total FROM Account WHERE id = account;
+END
+//
+
+DELIMITER ;
+
+CALL getMoney("1111", @sum);
+SELECT @sum;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c107"></pre>
+</script>
+<script id="c107" data-role="code" data-language="sql" type="text/html">
+--
+-- Insert multiple into variables, within SP
+--
+SELECT id, balance INTO idx, total FROM Account WHERE id = account;
+
+
+
+--
+-- Select mutiple into variables
+--
+SELECT 1, 2 INTO @a, @b;
+SELECT @a, @b;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Compound statements
+
+* LOOP, REPEAT UNTIL, WHILE DO END WHILE
+* ITERATE, LEAVE
+* DECLARE, SELECT INTO
+* CASE, IF
+* RETURN (bara funktioner)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Lagrad procedur
+
+* Fördelar och nackdelar
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Trigger
+
+* Aktivera en händelse när någon uppdaterar din tabell.
+* Trigger på INSERT, UPDATE, DELETE
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c108"></pre>
+</script>
+<script id="c108" data-role="code" data-language="sql" type="text/html">
+--
+-- Trigger for logging updating balance
+--
+DROP TRIGGER IF EXISTS LogBalanceUpdate;
+
+CREATE TRIGGER LogBalanceUpdate
+AFTER UPDATE
+ON Account FOR EACH ROW
+    INSERT INTO AccountLog (`what`, `account`, `balance`, `amount`)
+        VALUES ("trigger", NEW.id, NEW.balance, NEW.balance - OLD.balance);
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Trigger...
+
+* INSERT - NEW
+* UPDATE - NEW, OLD
+* DELETE - OLD
+* OLD är readonly
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Trigger...
+
+* NEW kan uppdateras i en BEFORE
+* Kan använda compound statements i en trigger
+* Eller CALL till en SP
+* Inga transaktioner inuti en trigger body
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Trigger
+
+* Fördelar och nackdelar
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#User defined function
+
+* UDF, Egendefinierad funktion
+* Stored function
+* Använd tillsammans med SQL-satser
+* CREATE / DROP FUNCTION ... RETURNS
+* Parametrar IN
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#User defined function...
+
+* Fungerar likt ABS() eller CONCAT()
+* Kan skapa egna aggregerande funktioner likt SUM(), COUNT()
+* Skilj på CREATE FUNCTION och UDF (externt lagrad funktion)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c109"></pre>
+</script>
+<script id="c109" data-role="code" data-language="sql" type="text/html">
+SELECT 
+	*,
+    Grade(score) AS `A-F, FX`,
+    Grade2(score) AS `U, 3-5`
+FROM Exam
+ORDER BY score DESC;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c110"></pre>
+</script>
+<script id="c110" data-role="code" data-language="sql" type="text/html">
+--
+-- Function for grading an exam U, 3-5.
+--
+DELIMITER //
+
+DROP FUNCTION IF EXISTS Grade2 //
+CREATE FUNCTION Grade2(
+	score INTEGER
+)
+RETURNS CHAR(1)
+BEGIN
+	IF score >= 90 THEN
+		RETURN "5";
+	ELSEIF score >= 70 THEN
+		RETURN "4";
+	ELSEIF score >= 55 THEN
+		RETURN "3";
+	END IF;
+    RETURN "F";
+END
+//
+
+DELIMITER ;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c111"></pre>
+</script>
+<script id="c111" data-role="code" data-language="sql" type="text/html">
+-- 
+-- Exempel tidsstämplar
+--
+SELECT
+    *,
+    DATE_FORMAT(COALESCE(updated, published), '%Y-%m-%dT%TZ') AS published_iso8601,
+    DATE_FORMAT(COALESCE(updated, published), '%Y-%m-%d') AS published
+FROM content;
+
+
+
+--
+-- Exempel isPublished()
+--
+SELECT
+    *,
+    DATE_FORMAT(COALESCE(updated, published), '%Y-%m-%dT%TZ') AS modified_iso8601,
+    DATE_FORMAT(COALESCE(updated, published), '%Y-%m-%d') AS modified
+FROM content
+WHERE
+    path = ?
+    AND type = ?
+    AND (deleted IS NULL OR deleted > NOW())
+    AND published <= NOW()
+;
+
+
+
+--
+-- Exempel getStatus()
+--
+SELECT
+    *,
+    CASE 
+        WHEN (deleted <= NOW()) THEN "isDeleted"
+        WHEN (published <= NOW()) THEN "isPublished"
+        ELSE "notPublished"
+    END AS status
+FROM content;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Egendefinierade funktioner
+
+* Fördelar och nackdelar?
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Film med genre
+
+* Jobba igenom exempel
+* SQL-biten
+
+</script>
+
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Optimering/prestanda
+
+* [Index och prestanda i MySQL](https://dbwebb.se/kunskap/index-och-prestanda-i-mysql)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mer om SQL?
+
+* Group by / Having
+* Union
+* Subquery
+* Joins
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL
+
+GROUPBY
+HAVING
+
+ÅLDER
+VIEW
+
+FOREIGN KEY
+
+SUBQUERY
+INNER/OUTER JOIN
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Databasmodellering
+
+* [Skapa ER-modell av databasen Jetty](https://dbwebb.se/uppgift/skapa-er-modell-av-databasen-jetty)
+
+</script>
+
+
+
+
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
