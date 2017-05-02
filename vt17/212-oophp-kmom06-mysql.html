@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>oophp kmom06 (mysql)</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#oophp kmom06 (mysql)
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Index och prestanda
+
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#En tabell
+
+```
+$ mysql -uuser -ppass anyDatabase < example/sql/index.sql
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Hur optimera databas?
+
+* Vilka aspekter att beakta när man optimerar förutsättningarna för en databas?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Frågeoptimeraren
+
+* Query optimizer
+* Execution plan
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Full table scan
+
+* Måste gå igenom samtliga rader i en tabell
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kom igång
+<pre data-code="c101"></pre>
+</script>
+<script id="c101" data-role="code" data-language="sql" type="text/html">
+SELECT * FROM Course;
+EXPLAIN Course;
+EXPLAIN SELECT * FROM Course;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Primärnyckel
+<pre data-code="c102"></pre>
+</script>
+<script id="c102" data-role="code" data-language="sql" type="text/html">
+SELECT * FROM Course WHERE code = "PA1444";
+EXPLAIN SELECT * FROM Course WHERE code = "PA1444";
+ALTER TABLE Course ADD PRIMARY KEY(code);
+EXPLAIN Course;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Unique
+<pre data-code="c103"></pre>
+</script>
+<script id="c103" data-role="code" data-language="sql" type="text/html">
+EXPLAIN SELECT * FROM Course WHERE nick = "dbjs";
+ALTER TABLE Course ADD CONSTRAINT nick_unique UNIQUE (nick);
+EXPLAIN Course;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Create, show, drop
+<pre data-code="c104"></pre>
+</script>
+<script id="c104" data-role="code" data-language="sql" type="text/html">
+SHOW INDEX FROM Course;
+DROP INDEX nick_unique ON Course;
+CREATE UNIQUE INDEX nick_unique ON Course (nick);
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Create, show, drop
+<pre data-code="c105"></pre>
+</script>
+<script id="c105" data-role="code" data-language="sql" type="text/html">
+SHOW CREATE TABLE Course\G
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Delsträng
+<pre data-code="c106"></pre>
+</script>
+<script id="c106" data-role="code" data-language="sql" type="text/html">
+SELECT * FROM Course WHERE name LIKE "Webb%";
+EXPLAIN SELECT * FROM Course WHERE name LIKE "Webb%";
+CREATE INDEX index_name ON Course(name);
+EXPLAIN Course;
+EXPLAIN SELECT * FROM Course WHERE name LIKE "%prog%";
+EXPLAIN SELECT * FROM Course WHERE name LIKE "%Python";
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Numeriska värden
+<pre data-code="c107"></pre>
+</script>
+<script id="c107" data-role="code" data-language="sql" type="text/html">
+SELECT * FROM Course WHERE points > 7.5;
+EXPLAIN SELECT * FROM Course WHERE points > 7.5;
+CREATE INDEX index_points ON Course(points);
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Summering
+<pre data-code="c108"></pre>
+</script>
+<script id="c108" data-role="code" data-language="sql" type="text/html">
+SHOW INDEX FROM Course;
+EXPLAIN Course;
+SHOW CREATE TABLE Course\G
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Övrigt
+
+* Främmande nycklar, joins och index
+* Logga långsamma frågor, profiling
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Film med genre
+
+* Jobba igenom exempel
+* SQL-biten
+
+</script>
+
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Optimering/prestanda
+
+* [Index och prestanda i MySQL](https://dbwebb.se/kunskap/index-och-prestanda-i-mysql)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Mer om SQL?
+
+* Group by / Having
+* Union
+* Subquery
+* Joins
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL
+
+GROUPBY
+HAVING
+
+ÅLDER
+VIEW
+
+FOREIGN KEY
+
+SUBQUERY
+INNER/OUTER JOIN
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Databasmodellering
+
+* [Skapa ER-modell av databasen Jetty](https://dbwebb.se/uppgift/skapa-er-modell-av-databasen-jetty)
+
+</script>
+
+
+
+
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

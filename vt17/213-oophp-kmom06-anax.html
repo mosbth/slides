@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>oophp kmom06 (anax)</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#oophp kmom06 (anax)
+###Mikael Roos, dbwebb
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* PHPUnit
+* PHP Xdebug
+* Testning
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om testning
+
+* Enhetstester, Feature/Funktionstester
+* Integrationstester, Systemtester, Acceptanstester
+* White/black box
+* Test Driven Development
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Status modulerna
+
+* Kika och kör testfallen i ett par av modulerna.
+* Kolla kodtäckning
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Automatiserad testning
+
+* Daily/nightly builds
+* Regressionstester
+* Tester innan merge PR (GitHub)
+* Travis, Circle, Scrutinizer
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHPUnit (xUnit)
+
+* Test runner (phpunit)
+* Test case (a test class / methods)
+* Test fixture (setUp/tearDown, setUpBeforeClass, tearDownAfterClass)
+* Test suite (share same fixture)
+* Test result formatter
+* Assertions
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[Exempel](https://github.com/dbwebb-se/oophp/tree/master/example/phpunit)
+
+* Jobba igenom exemplet.
+* Kolla kodtäckningen.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Pröva TDD
+
+
+* You are not allowed to write any production code, if there is not a failing test to warrant it.
+* You are not allowed to write more of a unit test than is strictly necessary to make it fail. Not compiling / running is failing.
+* You are not allowed to write more production code than is strictly necessary to make the failing test pass.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Pröva TDD
+
+* Bygg ut exemplet med `closeEnough()`.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Bygg testbar kod
+
+* Man når allt via klassens publika API
+* Undvik beroenden
+* Injecta beroenden
+* Mocka (trait, databaser, _SERVER)
+* Jobba TDD så löser det sig
+
+</script>
+
+
+
+<!-- Slide -->
+<!--
+<script data-role="slide" data-markdown type="text/html">
+#Användare
+
+* [Kolla in några lösningar](https://dbwebb.se/forum/viewtopic.php?f=37&t=6356)?
+
+</script>
+-->
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Filtrera/sanitera inkommande
+
+* [PHP Filter](http://php.net/manual/en/book.filter.php)
+* VALIDATE_EMAIL, VALIDATE_IP, VALIDATE_URL, mm
+* FILTER_SANITIZE_EMAIL, FILTER_SANITIZE_URL, mm
+* is_int, is_numeric, mm
+* ctype_digit, ctype_xdigit, mm
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#GiHub stats
+
+* Hur många stavfel har du rättat i dbwebb.se?
+* Hur många issues har du gjort mot kursepon?
+* Hur många kodexempel har du lagt till i kursepon?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax moduler...
+
+* Makefile
+* make install test
+* phpunit, phpcs, phpmd, phploc
+* make doc
+* git, github, travis, circleci, scrutinizer, sensiolabs, packagist
+* automated (regression) test
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#GetPost
+
+* Via array
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax moduler
+
+* Request, Router, Url, View, Response. 
+* [Kod](https://github.com/canax/anax-lite)
+* composer update
+* make theme
+* Makefilen
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax Lite
+
+* Request, Router, Url, View, Response. 
+* [Kod](https://github.com/canax/anax-lite)
+* make install test
+* make theme
+* composer update
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#TDD
+
+* Testdriven utveckling
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL
+
+* Lagrade procedurer med PDO
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Film med genre
+
+* Jobba igenom PHP-biten
+* (kategori i post/page)
+
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
