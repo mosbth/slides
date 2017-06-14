@@ -29,10 +29,11 @@
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
-* Kursutveckling: blended learning - val, tekniker, verktyg
-* Kursstruktur: dbwebb-kurser
 * Kursen python:
     * labbmiljö, material, undervisning, handledning, redovisningar, rättningar, examination
+* Kursstruktur: dbwebb-kurser
+* Kursutveckling: val, tekniker, verktyg
+* Kategori: blended, flexible learning, opencourseware
 
 </script>
 
@@ -78,6 +79,7 @@
 <script data-role="slide" data-markdown type="text/html">
 #2008 Bakgrund...
 
+* Kurser som skalar väl
 * Produktlinjearkitektur för kurser
 * Kursutveckling distans-först
 
@@ -91,6 +93,7 @@
 
 * Alla instruktioner skriftliga
 * Alla frågor/svar har en länk
+* Alltid uppdaterat
 * Inte kopplat tid/fysisk närvaro
 * Alltid öppet 24/7
 * Bygg levande community
@@ -107,7 +110,7 @@
 * Webbprogrammering 120 distans (40)
 * Webbutveckling och programmering 30hp (105)
 * Webbprogrammering och databaser 30hp (105)
-* 13 dbwebb-kurser
+* 13-16 dbwebb-kurser
 
 </script>
 
@@ -139,11 +142,7 @@
 <script data-role="slide" data-markdown type="text/html">
 #Genomströmning
 
-* ht14 
-* vt15 
-* ht15 
-* vt16 
-* ht16 
+* ht16 81%
 
 </script>
 
@@ -223,9 +222,19 @@
 #Inlämning och rättning
 
 * Me-sida, kursrepot, redovisningstext
-* (exempel1 exempel2)
 * dbwebb-cli
 * Kort feedback på ITs
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om redovisningstexter
+
+* Korta reflektionstexter
+* Kika på exempel
 
 </script>
 
