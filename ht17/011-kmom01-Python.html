@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Programmeringsspråket Python</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Programmeringsspråket Python
+
+###Mikael Roos, dbwebb
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Om Python som programmeringsspråk
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+![Guido](img/Guido_van_Rossum_OSCON_2006-1024x768.jpg)
+
+Guido van Rossum, skaparen av Python
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om varför Python kom till...
+
+> In December 1989, I was looking for a "hobby" programming project that would keep me occupied during the week around Christmas. My office ... would be closed, but I had a home computer, and not much else on my hands. I decided to write an interpreter for the new scripting language I had been thinking about lately: a descendant of ABC that would appeal to Unix/C hackers. 
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om namnet Python...
+
+> I chose Python as a working title for the project, being in a slightly irreverent mood (and a big fan of Monty Python's Flying Circus).
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om att bli BDFL
+
+> Van Rossum is Python's principal author, and his continuing central role in deciding the direction of Python is reflected in the title given to him by the Python community, [benevolent dictator for life](https://en.wikipedia.org/wiki/Benevolent_dictator_for_life) (BDFL).
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om Python2
+
+> Released on 16 October 2000 and had many major new features, including a cycle-detecting garbage collector and support for Unicode. Community-backed development process.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om Python3
+
+> Python 3.0, a major, **backwards-incompatible** release, was released on 3 December 2008 after a long period of testing.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om CPython
+
+> CPython, the reference implementation of Python, is free and open-source software and has a community-based development model.
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vem "äger" Python?
+
+> CPython is managed by the non-profit Python Software Foundation (PSF).
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[PEP 20: Zen of Python](https://en.wikipedia.org/wiki/Zen_of_Python)
+
+* Beautiful is better than ugly
+* Simple is better than complex
+* Complex is better than complicated
+* Readability counts
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PEP20...
+
+* To describe something as clever is not considered a compliment in the Python culture.
+
+> There should be one—and preferably only one—obvious way to do it.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+![import this](img/python-import-this-1024.png)
+
+`>>> import this`
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# pythonic
+
+> To say that code is pythonic is to say that it uses Python idioms well, that it is natural or shows fluency in the language, that it conforms with Python's minimalist philosophy and emphasis on readability.
+
+Motsatsen är *unpythonic*.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# [PEP8 Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
+
+* Ett sätt att skriva koden mer "pythonic".
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img alt="TIOBE Programming Community Index" src="img/tiobe-2017-08.png" style="width: 100%">
+
+2017 aug, plats 5 (2016: 5) ([TIOBE](http://www.tiobe.com/tiobe-index/)).
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Jämför med andra språk
+
+* Scripting languages (such as Python) more productive than conventional languages (such as C and Java) for a programming problem involving string manipulation and search in a dictionary
+* Memory consumption was often "better than Java and not much worse than C or C++".
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Typ av språk
+
+* Interpreterande språk
+* Inbyggd skräphantering för minneshantering
+* Dynamisk typning
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Programmeringsparadigm
+
+* Multi-paradigm programming language
+* Strukturerad/procedurell programmering
+* Objektorienterad programmering
+* Funktionell programmering
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Användningsområden
+
+* Skript, terminalprogram
+* Webbapplikationer (Django, Flask)
+* [Spel](https://wiki.python.org/moin/GameProgramming)
+* Matematik och vetenskapliga beräkningar
+* Grafiska användargränssnitt/multi OS
+* Skriptspråk i applikationer (Blender, GIMP)
+* AI och processa skrivet språk
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Vem använder Python?
+
+* Google, Yahoo!, CERN, NASA...
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+![Marvin ircbot](https://dbwebb.se/image/lararteam/no-image-yet.jpg?w=500)
+
+[Marvin](https://github.com/mosbth/irc2phpbb), en ircbot i vår IRC-kanal, skriven i Python.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
