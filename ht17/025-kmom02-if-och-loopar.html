@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>If och loopar</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#If och loopar
+##Programmeringskonstruktioner
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* If-satser i Python och PHP
+* Loopar i Python och PHP
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python if
+
+```python
+a = 42
+if a > 42:
+    print("More")
+elif a < 42:
+    print("Less")
+else:
+    print("On spot!")
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP if
+
+```php
+$a = 42;
+if ($a > 42) {
+    print("More");
+} elseif ($a < 42) {
+    print("Less");
+} else {
+    print("On spot!");
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tips if
+
+```php
+$color = "red";
+$number = 42;
+if ($number == 42 && $color == "red") {
+    print("YES");
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tips if...
+
+```php
+$color = "red";
+$number = 42;
+$isRed = $color == "red";
+$is42 = $number == 42;
+if ($is42 && $isRed) {
+    print("YES");
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Motsvarighet i Python
+
+```python
+color = "red";
+number = 42;
+if number == 42 and color == "red":
+    print("YES");
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python for
+
+```python
+>>> for x in [1, 2, 3]:
+...     print(x)
+...
+1
+2
+3
+```
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python for...
+
+```python
+>>> for x in range(3):
+...     print(x)
+...
+0
+1
+2
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP for
+
+```php
+for ($i = 0; $i < 3; $i++) {
+    echo $i;
+}
+```
+
+```
+012
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tips validering (python)
+
+* Om du har en variabel som inte används, tex i en loop, använd `_` för att undvika valideringsproblem.
+* `_` betyder ungefär "I don't care"
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python while
+
+```python
+>>> a = 1
+>>> while a < 42:
+...     a = a * 2
+...     print(a)
+```
+
+Vad skrivs ut?
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP while
+
+```php
+$a = 1;
+while ($a < 42) {
+    $a = $a * 2;
+    print($a);
+}
+```
+
+```php
+248163264
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#for eller while
+
+* `for` för uppräkningsbar sekvens
+* `while` där villkoret är beroende av omständigheter
+* Eller välj den du är bekväm med
+* Den ene kan ersätta den andre
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP do-while
+
+```php
+$a = 1;
+do {
+    $a = $a * 2;
+    print($a);
+} while ($a < 42);
+
+```
+
+```php
+248163264
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python do-while (finns ej)
+
+```python
+while True:
+    do_something()
+    if condition():
+       break
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

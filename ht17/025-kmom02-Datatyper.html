@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Datatyper</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Datatyper
+##Grundläggande om datatyper
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Olika datatyper
+* Kolla datatypen
+* Exempel i Python och PHP
+* Statiskt/Dynamiskt typade språk
+* Typkonvertering
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Grundläggande datatyper
+
+* integer
+* float, double
+* string
+* boolean
+* null/None
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python int
+
+```python
+>>> a = 42
+>>> type(a)
+<class 'int'>
+>>> a
+42
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python float
+
+```python
+>>> a = 4.2
+>>> type(a)
+<class 'float'>
+>>> a
+4.2
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python string
+
+```python
+>>> a = "42"
+>>> type(a)
+<class 'str'>
+>>> a
+'42'
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python boolean
+
+```python
+>>> a = True
+>>> type(a)
+<class 'bool'>
+>>> a
+True
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python None/null
+
+```python
+>>> a = None
+>>> type(a)
+<class 'NoneType'>
+>>> a
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Använd den inbyggda hjälpen
+
+```python
+>>> type(a)
+>>> dir(a)
+>>> help(a)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Hur stor är en int?
+
+```python
+>>> import sys
+>>> sys.maxsize
+9223372036854775807
+
+>>> sys.maxsize  
+2147483647
+>>> a = sys.maxsize + 1 
+>>> a
+2147483648
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP
+
+* Interaktivt shell via `php -a`
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP int
+
+```python
+<?php
+$a = 42;
+var_dump($a);
+```
+
+```php
+int(42)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP float/double
+
+```php
+$a = 4.2;
+var_dump($a);
+```
+
+```php
+double(4.2)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP string
+
+```php
+$a = "fyratvå";
+var_dump($a);
+```
+
+```php
+string(8) "fyratvå"
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP boolean
+
+```php
+$a = true;
+var_dump($a);
+```
+
+```php
+bool(true)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP null/None
+
+```php
+$a = null;
+var_dump($a);
+```
+
+```php
+NULL
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Statiskt v. Dynamiskt
+
+* Statiskt typade
+    * Ange typ vid deklaration av variabel
+    * Typerna kontrolleras vid kompilering, innan körning
+* Dynamiskt typade
+    * Typen känns igen vid runtime, baserat på variabelns innehåll
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Statiskt v. Dynamiskt...
+
+* Statiskt typade
+    * C/C++, SQL, Java
+* Dynamiskt typade
+    * PHP, Python, JavaScript, Bash
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avrundningsproblem float/double
+
+```python
+>>> 0.1 + 0.1 + 0.1
+0.30000000000000004
+>>> 0.3 == 0.1 + 0.1 + 0.1
+False
+>>> 0.3 == round(0.1 + 0.1 + 0.1, 1)
+True
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Konvertera typen Python
+
+```python
+>>> a = 42
+>>> b = "4.2"
+>>> c = a + float(b)
+>>> d = str(a) + b
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Konvertera typen Python...
+
+```python
+>>> c
+46.2
+>>> type(c)
+<class 'float'>
+>>> d
+'424.2'
+>>> type(d)
+<class 'str'>
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Konvertera typen PHP
+
+```php
+$a = 42;
+$b = "4.2";
+$c = $a + (float) $b;
+$d = $a + $b;
+$e = $a . $b;
+```
+
+```php
+double(46.2)
+double(46.2)
+string(5) "424.2"
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Typkonvertering
+
+* PHP type juggling
+* Python aningen hårdare typkontroll
+* Konvertera explicit vid behov
+* `+` för siffror
+* `+` eller `.` för strängar
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Jämföra olika typer
+
+```python
+>>> a = 42
+>>> b = "42"
+>>> a == b
+False
+>>> a == int(b)
+True
+>>> type(a) == type(b)
+False
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Jämföra olika typer...
+
+```python
+>>> a = 42
+>>> b = 42.0
+>>> a == b
+True
+>>> type(a) == type(b)
+False
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Jämföra olika typer...
+
+```php
+$a = 42;
+$b = "42";
+var_dump($a == $b);  // bool(true)
+var_dump($a === $b); // bool(false)
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
