@@ -28,48 +28,7 @@
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
-* Allmän programinfo
-* Om kursen
-* Kmom01
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Allmän programinfo
-
-* [GrillCon](https://grillcon.dbwebb.se/)
-* [Kurser år 2](https://dbwebb.se/kurser/)
-* [Restinlämningar](https://dbwebb.se/kurser/faq/omregistrering#ht17rest)
-* [Examen - Att byta ut kurser](https://dbwebb.se/forum/viewtopic.php?f=32&t=6629)
-* Examenshögtid
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Om kursen
-
-* [ramverk1](https://dbwebb.se/kurser/ramverk1/)
-* [ramverk2](https://dbwebb.se/kurser/ramverk2/) [mer tankar](https://dbwebb.se/forum/viewtopic.php?f=60&t=6612)
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Översikt kmom
-
-* Ramverk
-* MVC
-* DI
-* Databasdrivna modeller
-* Automatisera tester
-* CI
+* 
 
 </script>
 
@@ -79,8 +38,7 @@
 <script data-role="slide" data-markdown type="text/html">
 #Refactoring
 
-* Gör om, gör annorlunda
-* Bygg om gammal kod
+* Att skriva om gammal kod
 
 </script>
 
@@ -88,20 +46,9 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Projektfokus
+#MVC
 
-* Stackoverflow, chatt, forum, kommentarer
-* [Uppgifter kommentarssystem](https://dbwebb.se/uppgift/forbered-for-att-bygga-ett-kommentarssystem)
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Diskutera
-
-* [Gitter-chatten för ramverk1](https://gitter.im/dbwebb-se/ramverk1)
+Bild
 
 </script>
 
@@ -109,23 +56,12 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Arbetsbelastning
+#MVC flöde
 
-* Skall finnas luft för att fila på sina kodkonstruktioner
-* Jag uppdaterar efterhand som kmomen testas
-
-</script>
-
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Kmom01
-
-* Om Anax (Phalcon, Symphony, Laravel)
-* [Anax på Github](https://github.com/canax)
-* Scaffolding med anax-cli
+* Kontroller tar emot requesten.
+* Kontroller pratar med modell-lagret och förbereder $data till vyn.
+* Kontroller lämnar över till vyn.
+* Vyn renderar svaret.
 
 </script>
 
@@ -133,21 +69,11 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Fotnot om anax-cli
+#MVC frågor?
 
-* Manualen på [dbwebb.se/anax-cli](https://dbwebb.se/anax-cli/kom-igang-och-installera)
-* Bash-strukturen i [anax-cli](https://github.com/canax/anax-cli)
-* Kika installationsskriptet, koden samt bats.
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Filstrukturen
-
-<img src="https://dbwebb.se/image/snapht17/ramverk1-me.png" style="height: 100%">
+* Får vyn prata med andra kontroller?
+* Får vyn prata med modell-lagret?
+* Får en vy "skicka vidare" till en annan vy/template?
 
 </script>
 
@@ -155,11 +81,9 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Om $app
+#SOLID
 
-* Samlar alla ramverkets tjänster
-* Samla bra att ha metoder
-* Under kursens gång kommer vi att refaktora bort $app
+* ?
 
 </script>
 
@@ -167,20 +91,13 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Om namespace
+#REM server
 
-* \Anax\* går till src/ om inget annat är sagt.
-* [Använd även eget namespace](https://dbwebb.se/forum/viewtopic.php?f=59&t=6623)
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Om vyer
-
-* Templatefiler hämtas från olika kataloger
+* Scaffolda fram den
+* Testa den
+* Kika koden
+* Checka ut branchen mvc
+* Kika koden
 
 </script>
 
@@ -188,10 +105,30 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Scaffolda fram me-katalogen
+#Hur skriva kod i template-fil
 
-* anax create me ramverk1-me
-* Kolla igenom de filer som finns
+* Struktur
+* Bra att ha funktioner?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Frontmatter i Markdown
+
+* Hur skicka infon till vy/template-fil?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kursutveckling
+
+* oophp -> ramverk1
 
 </script>
 
