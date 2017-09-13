@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Strängformattering</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Strängformattering
+##Jobba med strängar
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Python docstring
+* Python format
+* PHP heredoc/nowdoc
+* PHP byt till HTML läge
+* Flytta text till fil
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python strings
+
+```
+'single quotes'
+"double quotes"
+""" triple-double quotes """  #This can contain line breaks!
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python docstring [PEP257](https://www.python.org/dev/peps/pep-0257/)
+
+```
+"""Here comes a large string. A comment perhaps."""
+```
+
+```
+"""
+Here comes a large string.
+A comment perhaps.
+Or a general string if assigned to a variable.
+"""
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python triple double quote string
+
+```
+content = """
+Here comes a large string.
+A general string used from a variable.
+"""
+
+>>> content
+'\nHere comes a large string. A comment perhaps.\nOr a general string used from a variable.\n' 
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python strings
+
+```
+content = """
+My name is {name} and I'm {age} years old.
+"""
+
+>>> content
+"\nMy name is {name} and I'm {age} years old.\n"
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python str.format()
+
+```
+>>> content
+"\nMy name is {name} and I'm {age} years old.\n"
+
+>>> content.format(name="MegaMic", age=7)      
+"\nMy name is MegaMic and I'm 7 years old.\n"  
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python str.format() [större exempel](https://github.com/dbwebb-se/python/blob/master/example/cli/mynameis2.py#L17-L42)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[PHP strängar](http://php.net/manual/en/language.types.string.php#language.types.string)
+
+* Enkelfnutt
+* Dubbelfnutt
+* Heredoc
+* Nowdoc
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP multiline string
+
+```
+$class = "breadcrumb";
+$str = "
+<ul class=\"$class\">
+    <li>A 'item'</li>
+</ul>
+";
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP heredoc
+
+```
+$class = "breadcrumb";
+$str = <<<EOD
+<ul class="$class">
+    <li>A 'item'</li>
+</ul>
+EOD;
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Text i separata filer?
+
+* Att flytta ut texmassor till separata filer?
+* För att undvika skräpa ned i koden?
+* Vi tittar på det nästa gång.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

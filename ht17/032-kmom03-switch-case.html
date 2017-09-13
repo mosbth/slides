@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Konstruktionen switch-case</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Switch case
+##PHP, Python
+###Mikael Roos, dbwebb
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Switch case
+
+* Ett specialfall av if, elseif, else.
+* Snyggare kodstruktur (?)
+* Konstruktionen finns i PHP, JavaScript, C/C++, SQL, mfl
+* Finns ej i Python.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Switch case i PHP
+
+```
+switch ($val) {
+    case 0:
+    case 1:
+        echo "Binär";
+        break;
+    case 2:
+        echo "Double up";
+        break;
+    default:
+        echo "Que?";
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Som if-sats
+
+```
+if ($val == 0 || $val == 1) {
+
+} elseif ($val == 2) {
+
+} else {
+
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python som if-sats
+
+```
+if val == 0 || val == 1:
+
+elif val == 2:
+
+else:
+ 
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[Varför inte i Python?](https://docs.python.org/2/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python)
+
+* Du kan göra det med if
+* Förslag finns, men ingen konsensus
+* Erfarna använder dictionaries
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Nästa steg?
+
+* HUr göra när switch blir för omständig?
+* Använd arrayer (PHP)
+* Använd dictionaries (Python)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>

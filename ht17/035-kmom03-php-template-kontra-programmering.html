@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>PHP som templatespråk</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP som templatespråk
+##PHP, HTML
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* PHP som programmeringsspråk
+* PHP som templatespråk
+* Hur tänka när man strukturerar sina HTML/PHP-filer?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Programmeringsspråk
+
+```
+$user = isset($_GET["user"])
+    ? $_GET["user"]
+    : null;
+
+if ($user) {
+    $hiddenAgenda = "very much secrets here";
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Templatespråk
+
+```
+<div>
+    <span class="login"><?= $user ?></span>
+    <?php if ($user) : ?>
+        <p><?= $hiddenAgenda ?></p>
+    </php endif; ?>
+</div>
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#PHP varianter
+
+* `<?` short open tag (obsolete)
+* `<?= $var ?>` short echo tag
+* `<?php echo $var; ?>` 
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#PHP alternativ syntax
+
+```
+<?php if ($user) : ?>
+    <p><?= $hiddenAgenda ?></p>
+</php endif; ?>
+```
+
+```
+<?php if ($user) {
+    echo "<p>$hiddenAgenda</p>";
+}: ?>
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kodstruktur
+
+* Lägg PHP-block överst i filen
+* Programmeringsläget
+* Validera, testa, förbered
+* Skapa variabler med innehåll
+* Börja skriva ut HTML
+* Skriv ut variabler inom `<?= ?>`
+* PHP alternativ syntax
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Fundering
+
+* Två språk i ett?
+* PHP som templatespråk?
+* PHP som programmeringsspråk?
+* Missförstånd?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Fundering
+
+* Förbered innehåll i variabler
+* Skriv ut i slutet
+* Ramverk hjälper oss styra upp kodstrukturen
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
