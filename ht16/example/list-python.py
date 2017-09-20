@@ -77,3 +77,29 @@ printGame = """
 -------
 """.format(*sum(game, []))
 print(printGame)
+
+
+print("--- Loop one dimension ---")
+game = [
+    " ", "O", "X",
+    " ", "X", "O",
+    "X", "O", " ",
+]
+i = 0
+for pos in game:
+    i += 1
+    print(pos, end="")
+    if not i % 3:
+        print()
+
+
+print("--- Loop two dimension ---")
+game = [
+    [" ", "O", "X"],
+    [" ", "X", "O"],
+    ["X", "O", " "],
+]
+for row in game:
+    for pos in row:
+        print(pos, end="")
+    print()

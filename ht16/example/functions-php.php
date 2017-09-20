@@ -5,7 +5,7 @@
  */
 function doit()
 {
-    $tot = 1 + 1;
+    $tot = 41 + 1;
     print($tot);
 }
 
@@ -82,3 +82,15 @@ print($tot);
 
 $tot = array_sum([1, 2, 3, 5, 6, 7, 8, 9, 1]);
 print($tot);
+
+
+$base=40;
+
+function doit9($num)
+{
+    global $base;
+    $base += $num;
+}
+
+doit9(2);
+print("\n" . $base);

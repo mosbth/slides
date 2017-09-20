@@ -4,7 +4,7 @@
 
 def doit():
     """ Example """
-    tot = 1 + 1
+    tot = 41 + 1
     print(tot)
 
 doit()
@@ -47,7 +47,7 @@ print(tot)
 
 def doit5(num):
     doit5.tot += num
-    print(tot)
+    print(doit5.tot)
 
 doit5.tot = 0
 
@@ -77,3 +77,19 @@ print(doit7(1, 1))
 print(doit7(1, 40, 1))
 print(doit7(num3=39, num1=1))
 print(doit7(42, num3=0, num2=0))
+
+base=40
+
+def doit8(num1):
+    return base + num1
+
+print(doit8(2))
+
+base=40
+
+def doit9(num1):
+    global base
+    base += num1
+
+doit9(2)
+print(base)

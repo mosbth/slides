@@ -16,12 +16,12 @@ print_r($mumin2);
 
 
 foreach ($mumin1 as $part) {
-    echo "$part ";
+    print("$part ");
 }
 
 // positional, count
 $items = count($mumin1);
-print($items);
+print("\n" . $items);
 
 // mutable
 echo "\n---\n";
@@ -78,3 +78,38 @@ echo <<<EOD
 |{$game[2][0]}|{$game[2][1]}|{$game[2][2]}|
 -------
 EOD;
+
+
+
+// luffarschack, en dimensionell array
+print("\n--- Loop one dimension ---");
+$game = [
+    " ", "O", "X",
+    " ", "X", "O",
+    "X", "O", " ",
+];
+print("\n");
+$i = 0;
+foreach ($game as $pos) {
+    $i++;
+    print($pos);
+    if (! ($i % 3)) {
+        print("\n");
+    }
+}
+
+
+
+print("\n--- Loop two dimension ---");
+$game = [
+    [" ", "O", "X",],
+    [" ", "X", "O",],
+    ["X", "O", " ",],
+];
+print("\n");
+foreach ($game as $row) {
+    foreach ($row as $pos) {
+        print($pos);
+    }
+    print("\n");
+}

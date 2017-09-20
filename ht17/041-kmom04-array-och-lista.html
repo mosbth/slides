@@ -141,7 +141,7 @@ print(mumin1)
 
 ```
 foreach ($mumin1 as $part) {
-    echo "$part ";
+    print("$part ");
 }
 ```
 
@@ -271,6 +271,8 @@ $pelle = ["Pelle", 22];
 $mats  = ["Mats", 25];
 $eva   = ["Eva", 25];
 $klass = [$pelle, $mats, $eva];
+
+$klass[1][0]; # ger Mats
 var_dump($klass);
 ```
 
@@ -321,6 +323,8 @@ pelle = ["Pelle", 22]
 mats = ["Mats", 25]
 eva = ["Eva", 25]
 klass = [pelle, mats, eva]
+
+klass[1][0] # ger Mats
 print(klass)
 ```
 
@@ -386,6 +390,16 @@ array(2) {
 #Funderingar
 
 * Hur representera en luffarshacksplan i array/lista?
+
+```
+-------
+| |O|X|
+-------
+| |X|O|
+-------
+|X|O| |
+-------
+```
 
 </script>
 
@@ -570,10 +584,93 @@ print(printGame)
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
+#Summera lista?
+
+* `*sum(game, [])`
+
+```
+>>> [1, 2, 3] + [0, 0, 0]
+[1, 2, 3, 0, 0, 0]
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
 #Funderingar
 
 * Om du vill loopa igenom spelplanen?
 * Testa om någon vunnit?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Loop PHP (en dimension)
+
+```
+$i = 0;
+foreach ($game as $pos) {
+    $i++;
+    print($pos);
+    if (! ($i % 3)) {
+        print("\n");
+    }
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Loop Python (en dimension)
+
+```
+i = 0
+for pos in game:
+    i += 1
+    print(pos, end="")
+    if not i % 3:
+        print()
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Loop PHP (två dimensioner)
+
+```
+foreach ($game as $row) {
+    foreach ($row as $pos) {
+        print($pos);
+    }
+    print("\n");
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Loop Python (två dimensioner)
+
+```
+for row in game:
+    for pos in row:
+        print(pos, end="")
+    print()
+```
 
 </script>
 
