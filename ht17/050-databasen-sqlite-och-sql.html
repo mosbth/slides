@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Databasen SQLite och SQL</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Databas
+##SQLite och SQL
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Databaser intro
+* SQL
+* SQLite
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Först lite termer
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Databas
+
+* Organiserad samling av data.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Database Management System
+
+* DBMS
+* Programvara för att interagera mellan användare/klient och databas.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Relational database
+
+* Lagrar data baserad på relationsmodellen (relational model)
+* Relation = tabell
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Relation database management system
+
+* RDBMS
+* Programvara för att interagera med en relationsdatabas.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Relationsdatabas bygger på mängdlära (set theory)
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Två mängder
+
+```python
+a = [0, 2, 4, 6]
+b = [1, 2, 3, 4, 5]
+```
+
+* Ritas ofta som ringar.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Snitt
+
+* Vilka siffror finns i båda mängderna?
+
+```python
+a = [0, 2, 4, 6]
+b = [1, 2, 3, 4, 5]
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Snitt...
+
+```python
+snitt = [2, 4]
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Union
+
+* Vilka siffror finns om man slår samman de båda mängderna?
+
+```python
+a = [0, 2, 4, 6]
+b = [1, 2, 3, 4, 5]
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Union...
+
+```python
+union = [0, 1, 2, 3, 4, 5, 6]
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Differens
+
+* Alla element i A som inte finns i B
+
+```python
+a = [0, 2, 4, 6]
+b = [1, 2, 3, 4, 5]
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Differans A B...
+
+```python
+diffAB = [0, 6]
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Differens
+
+* Alla element i B som inte finns i A
+
+```python
+a = [0, 2, 4, 6]
+b = [1, 2, 3, 4, 5]
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Differans B A...
+
+```python
+diffBA = [1, 3, 5]
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Relational algebra
+
+* "Räkna" mängdlära, men mot relationsdatabas
+* Grunder från mängdlära
+* Lägger till/modifierar "räknesätten"
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Konstruktioner
+
+* Selection (välj rader)
+* Projection (välj kolumner)
+* Cartesion product (cross join)
+* Set union (begränsningar)
+* Set difference (begränsningar)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Cross join
+
+* Två mängder. Gör en cross join mellan dem.
+
+```
+colors = [♥, ♠, ♣, ♦]
+values = [A, K, D, J, 10, 9, 8, 7, 6, 5, 4, 3, 2]
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vem uppfann "relationsdatabasen"?
+
+* E. F. Codd 1970
+*  "A Relational Model of Data for Large Shared Data Banks"
+* Modell för att lagra data.
+* Relational algebra för att hämta data.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Summering
+
+* Databas är mängder och bearbetning av mängder
+* Relationsmodellen och relationsalgebra (Codd 1970)
+* Relation = tabell
+* Relationsmodellen har sin bas i matematikens mängdlära
+* SQL bygger på relationsalgebra
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Låt oss gå vidare...
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Databas struktur
+
+* Tabell (relation)
+* Kolumn (attribute)
+* Rad (tuple)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<div style="background-color: white"><img alt="tabell struktur" src="img/relation-tuple-attribute.png" style="width: 100%"></div>
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Databas som kalkylark?
+
+* Mental bild av databas
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<img alt="tabell som kalkylark" src="img/tabell-som-kalkylark-1.png" style="width: 100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<img alt="tabell som kalkylark" src="img/tabell-som-kalkylark-2.png" style="width: 100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Fler vyer av databasen?
+
+* Databasens struktur (schema) kontra innehållet
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<img alt="ER diagram" src="img/er-diagram.png" style="width: 100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Hur prata med databasen?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL
+
+* Structured Query Language
+* ISO Standard: SQL-87, SQL:92, SQL:1999, mfl
+* Grund, men varierar mellan RDBMS
+* Programmeringskonstruktioner som "vanligt" språk
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL DDL kontra DML
+
+* DDL - Data Definition Language
+* DML - Data Manipulation Language
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL DDL
+
+* CREATE DATABASE/TABLE/VIEW
+* DROP DATABASE/TABLE/VIEW
+* ALTER DATABASE/TABLE/VIEW
+* (manipulera databasens schema/struktur)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQL DML
+
+* SELECT
+* INSERT
+* UPDATE
+* DELETE
+* (manipulera innehållet i databasen)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Ett exempel
+
+```
+code        name        points    
+----------  ----------  ----------
+PA1439      htmlphp     7.5       
+PA1436      design      7.5       
+DV1531      python      7.5       
+DV1532      javascript  7.5       
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#CREATE DATABASE
+
+```sql
+CREATE DATABASE Bth;
+```
+
+* Du skapar inte databasen i SQLite, databasen är samma som filen. 
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#CREATE TABLE
+
+```sql
+DROP TABLE IF EXISTS Course;
+CREATE TABLE Course
+(
+    "code" CHAR(6) PRIMARY KEY NOT NULL,
+    "name" VARCHAR(40) NOT NULL,
+    "points" REAL NOT NULL
+);
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tänk på
+
+* Datatyper skiljer mellan DMBS
+* I grunden liknande datatyper
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#INSERT INTO
+
+```sql
+INSERT INTO Course VALUES ("DV1462", "htmlphp", 7.5);
+
+INSERT INTO Course VALUES 
+    ("PA1436", "design", 7.5),
+    ("DV1531", "python", 7.5),
+    ("DV1532", "javascript1", 7.5);
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#UPDATE
+
+```sql
+UPDATE Course
+    SET
+        course = "PA1439"
+    WHERE
+        course = "DV1462"
+    LIMIT 1;
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tänk på
+
+* UPDATE utan WHERE
+* UPDATE utan LIMIT 1?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SELECT
+
+```sql
+SELECT * FROM Course;
+SELECT name FROM Course;
+SELECT name, points FROM COURSE WHERE code = "PA1439";
+SELECT * FROM COURSE WHERE code LIKE "PA%";
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#DELETE
+
+```sql
+DELETE FROM Course WHERE code LIKE "DV%";
+DELETE FROM Course WHERE code IN ("PA1439", "PA1436");
+DELETE FROM Course WHERE code = "PA1439" LIMIT 1;
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tänk på
+
+* DELETE utan WHERE
+* DELETE utan LIMIT 1?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kodexemplet
+
+* [SQL-filen](https://github.com/mosbth/slides/tree/master/ht16/example/sql-intro.sql) i sin helhet
+* [Databasfilen](https://github.com/mosbth/slides/tree/master/ht16/example/db.sqlite)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tänk på
+
+* Skillnaden mellan en SQL-fil och en SQLite databasfil
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om SQLite
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#SQLite
+
+* Filbaserad databas
+* Ingen server, ingen konfiguration
+* C-bibliotek, public domain
+* Olika klienter
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Om SQL i SQLite
+
+* Ha alltid manualen till hands
+* Manualen är din bästa vän
+* Googla (StackOverflow) är bara ett sätt att finna rätt stycke i manualen
+* (och att hitta exempel från någon som tolkat manualen)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[SQL så som SQLite förstår det](https://www.sqlite.org/lang.html).
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[Datatyper](https://www.sqlite.org/datatype3.html)
+
+* NULL
+* INTEGER
+* REAL
+* TEXT
+* BLOB
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Är NULL dåligt i databas?
+
+* Väl avvägd användning ok.
+* Avvägning mellan normalisering och bra design.
+* (Normalisering = process att organisera data i kolumner och tabeller, för att undvika redundans)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Parantes termer
+
+* (ER modellering = Entity Relationship modellering)
+* (Normalisering = del i ER modellering)
+* (Normalisering = process att organisera data i kolumner och tabeller, för att undvika "data redundancy".)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Åter till SQLite och typer
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Type Affinity (släktskap)
+
+* INTEGER (INT, SMALLINT)
+* TEXT (CHAR, VARCHAR)
+* BLOB (BLOB)
+* REAL (DOUBLE, FLOAT)
+* NUMERIC (DECIMAL, BOOLEAN, DATE)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Exempel på klienter
+
+* Terminal cli
+* Desktop
+* Webbaserad
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<img alt="SQLite cli" src="img/sqlite-cli.png" style="width: 100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<img alt="SQLite desktop" src="img/sqlite-sqlitemanager.png" style="width: 100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+<img alt="SQLite webb" src="img/sqlite-phpliteadmin.png" style="width: 100%">
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Fördel/nackdel
+
+* Hela databasen i en fil, enkel kopiera
+* Ingen administration av användare
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Dagens slutord går till SQLite
+
+> "Small. Fast. Reliable. Choose any three."
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
