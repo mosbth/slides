@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""."""
+
 # a = 0
 # b = 42 / a
 
@@ -14,7 +16,17 @@ except ZeroDivisionError:
 try:
     a = 0
     b = 42 / a
-except:
+except Exception:
     print("Some error occured!?")
 
-raise NameError("Raising an exception!")
+
+try:
+    a = 0
+    b = 42 / a
+except ZeroDivisionError:
+    print("No division by zero!")
+except Exception:
+    print("Some error occured!?")
+
+
+raise Exception("Raising an exception!")

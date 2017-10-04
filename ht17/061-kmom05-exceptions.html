@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>PHP/Python Exceptions</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP/Python Exceptions
+###Mikael Roos, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Exception som felhantering
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Hur parsas/körs programmen?
+
+* Steg 1: PHP/Python parser går igenom koden och skapar en lista av koder, opcodes.
+* Steg 2: PHP/Python exekverar listan av koder.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Fel när programmet parsas
+
+* Syntax Error
+* Parsen får inte den instruktionen den förväntar sig
+* Språkets uppbyggnad måste följas
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Fel när programmet exekveras
+
+* Runtime error
+* Exceptions (PHP/Python)
+* Error message (PHP error reporting)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Exceptions i Python
+
+```
+a = 0
+b = 42 / a
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Exceptions i Python...
+
+```
+Traceback (most recent call last):
+  File "example/exception.py", line 5, in <module>
+    b = 42 / a
+ZeroDivisionError: division by zero
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python try catch
+
+```
+try:
+    a = 0
+    b = 42 / a
+except ZeroDivisionError:
+    print("No division by zero!")
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python try catch any
+
+```
+try:
+    a = 0
+    b = 42 / a
+except Exception:
+    print("Some error occured!?")
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python try multiple catch
+
+```
+try:
+    a = 0
+    b = 42 / a
+except ZeroDivisionError:
+    print("No division by zero!")
+except Exception:
+    print("Some error occured!?")
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Python raising exception
+
+```
+raise Exception("Raising an exception!")
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP error reporting
+
+```
+// Set the error reporting.
+error_reporting(-1);              // Report all type of errors
+ini_set('display_errors', 1);     // Display all errors 
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP error reporting
+
+```
+$a = 0;
+$b = 42 / $a;
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP error reporting...
+
+```
+PHP Warning:  Division by zero in /home/mos/git/slides/ht16/example/exception.php on line 4
+PHP Stack trace:
+PHP   1. {main}() /home/mos/git/slides/ht16/example/exception.php:0
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP exception
+
+```
+function divide($a) {
+    if ($a == 0) {
+        throw new Exception("Division by zero!");
+    }
+    return 42 / $a;
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP exception...
+
+```
+echo divide(2) . "\n";
+echo divide(0) . "\n";
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP exception...
+
+```
+PHP Fatal error:  Uncaught exception 'Exception' with message 'Division by zero!' in /home/mos/git/slides/ht16/example/exception.php:8
+Stack trace:
+#0 /home/mos/git/slides/ht16/example/exception.php(14): divide(0)
+#1 {main}
+  thrown in /home/mos/git/slides/ht16/example/exception.php on line 8
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#PHP exception...
+
+```
+try {
+    echo divide(2) . "\n";
+    echo divide(0) . "\n";
+} catch (Exception $exception) {
+    echo $exception->getMessage();
+}
+```
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Skapa egna exception typer
+
+* Överkurs (men enkelt)
+* Skapa som egna klasser
+* Följ bestämd struktur
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Summering
+
+* Python try, except, raise
+* PHP try, catch, throw
+* PHP har en mix av verbose felmeddelande och exception
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kodexemplet
+
+* [exception.php](https://github.com/mosbth/slides/tree/master/ht16/example/exception.php)
+* [exception.py](https://github.com/mosbth/slides/tree/master/ht16/example/exception.py)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
