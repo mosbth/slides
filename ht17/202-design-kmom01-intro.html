@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kursen design</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Kursen design
+##Kmom01
+###Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Om kursen
+
+</script>
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#[Översikt](https://dbwebb.se/kurser/design)
+
+* Låt oss kika kort på kommande kmoms.
+* (node, npm, composer, php i pathen)
+* Ramverk &amp; innehåll (git, make)
+* LESS, LESS-moduler
+* Grid, Färg, Bild, Design
+
+</script>
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Ambitionen
+
+* Webbdesign
+* Skriva för webben
+* Användbarhet/usability
+* Förmåga kommunicera med designer och kund
+* Eget bastema
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Ambitionen...
+
+* Träna förmågan om vad som är snyggt
+* Öva på bastekniker inom vad som är snyggt
+* Mäta, analysera, skriv
+* Plattform för teknisk webbdesign och användbarhet
+* Generella verktyg för webbproggare
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Ambitionen...
+
+* Läs boken, det är det minsta du kan göra
+* Boken ger dig basen till vad detta handlar om
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Upplägget
+
+* Använd ramverk
+* Producera innehåll i ramverket
+* Bygg tema baserat på moduler
+* Bygg tema-familj
+* Mät, analysera, skriv (grupparbete)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Projektet
+
+* Bygg webbplats
+* Skapa teman
+* Mät, analysera, skriv
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Uppdateringar inför ht17
+
+* Flytta moduler till
+    * Organisationen [desinax/](https://github.com/desinax)
+    * NPM
+* Uppdaterade valideringsverktyg
+* Genomgång av alla kmoms (gulmarkerade)
+* Ny videolista med LESS
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Farhågor
+
+* Vad kan gå fel?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Bonus
+
+* Förståelse för hur verktyg och infrastruktur kan fungera för en professionell webbprogrammerare
+* Aspekten "Att använda ett ramverk"
+* I kommande kurser "Att förstå ett ramverk" samt "Att bygga ett ramverk"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kort om Usability
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Definitionen Usability
+
+* Learnability
+* Efficiency
+* Memorability
+* Errors
+* Satisfaction
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Learnability
+
+* How easy is it for users to accomplish basic tasks the first time they encounter the design?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Efficiency
+
+* Once users have learned the design, how quickly can they perform tasks?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Memorability
+
+* When users return to the design after a period of not using it, how easily can they re-establish proficiency?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Errors
+
+* How many errors do users make, how severe are these errors, and how easily can they recover from the errors?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Satisfaction
+
+* How pleasant is it to use the design?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Testa Usability
+
+* Låt någon använda din produkt, tjänst
+* Stå bakom och notera
+* Var självkritisk - hur kan du göra bättre?
+* Ta ett steg för att bli bättre
+* Testa igen, och igen.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Inse Usability
+
+* Kalla inte användaren för dum
+* Inbilla dig inte att "det borde den fatta"
+* Om något går att misstolka/missuppfatta så kommer det att ske
+* Easy/clean, krångla inte.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Innehåll för webb
+
+* Att skriva för webben
+* Bilder och material för webb
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kmom01
+
+* Allmän intro till "ämnet"
+* Labbmiljön
+* Komma igång med ett CMS
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Miljön
+
+* Composer
+* Make
+* Node och npm
+* Markdown
+* YAML
+* Git och GitHub
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Composer
+
+* [Packagist mos/anax-flat](https://packagist.org/packages/mos/anax)
+* Infrastruktur för PHP paket
+* Composer require mos/anax-flat
+* Composer update
+* Vill ha PHP i pathen
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Make
+
+* Makefile
+* Bash-liknande syntax
+* Måste vara tabbar `\t`
+* Buildtool
+* Makefilen för [dbwebb.se](https://github.com/dbwebb-se/website/blob/master/Makefile) [kursrepot design](https://github.com/dbwebb-se/design/blob/master/Makefile)
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Node och npm
+
+* Node = JavaScript på server
+* Chrome V8, event-driven och non-blocking
+* npm = pakethantering för JavaScript
+* Kompilera LESS
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Markdown
+
+* John Gruber (Daring Fireball)
+* PHP Markdown (Michel Fortin)
+* Text-till-HTML
+* Varför Markdown?
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#YAML
+
+* Text till configuration
+* Parsas till PHP array
+* Frontmatter
+* [Exempel förstasidan dbwebb.se](https://raw.githubusercontent.com/dbwebb-se/website/master/content/index.md)
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Git och GitHub
+
+* [Mos på GitHub](https://github.com/mosbth)
+* [dbwebb.se på GitHub](https://github.com/dbwebb-se/website)
+* Git (Linus T, Linux-kärnan)
+* GitHub, webbtjänst för Git-repon
+* Bitbucket (fria privata repo)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Git
+
+* git init, git add
+* gt commit
+* git tag
+* git push &amp;&amp; git push --tags
+* git pull
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#GitHub
+
+* [GitHub exempel markdown](https://github.com/dbwebb-se/website/blob/master/content/kunskap/1014_bygg-me-sida-med-anax-flat.md)
+* [Vad händer med dbwebb.se?](https://github.com/dbwebb-se/website/commits/master)
+* [Vad händer med kursrepot?](https://github.com/dbwebb-se/design/commits/master)
+* Koppling till automatiserade tester
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Arbetssätt med Git/GitHub
+
+* Att tappa data...
+* Masterkopia på GitHub
+* Många servar/utvecklingsmaskiner, git pull
+* Fixa - git commit + push
+* (Dropbox är inte heller dumt)
+
+</script>
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Anax Flat
+
+* Flat file CMS
+* Skapa innehåll sida, block
+* Basen i dbwebb.se, grillcon.dbwebb.se, cimage.se
+* Fokus innehåll för webben
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Anax Flat består av
+
+* [Anax Flat composer.json](https://github.com/canax/anax-flat/blob/master/composer.json)
+* [Anax composer.json](https://github.com/mosbth/anax/blob/master/composer.json)
+* [CTextFilter composer.json](https://github.com/mosbth/ctextfilter/blob/master/composer.json)
+
+</script>
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Varför Anax Flat?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#composer info
+
+```
+ezyang/htmlpurifier     v4.9.3  
+michelf/php-markdown    1.6.0   
+michelf/php-smartypants 1.6.0   
+mos/anax                v2.5.28 
+mos/anax-flat           v1.1.4  
+mos/cimage              v0.7.19 
+mos/ctextfilter         v1.2.21 
+scrivo/highlight.php    v9.0.0  
+symfony/yaml            v3.3.10 
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
