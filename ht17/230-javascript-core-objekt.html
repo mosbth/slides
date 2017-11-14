@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>JavaScript Core Objekt</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#JavaScript Core Objekt
+###Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Objekt
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Om Objekt
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt (literal)
+
+* Ett objekt kan vara många saker och betyda olika saker beroende på sammanhanget.
+* En samling namngivna värden, properties
+* Key/value array
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt
+<pre data-code="c5"></pre>
+</script>
+
+<script id="c5" data-role="code" data-language="javascript" type="text/html">
+var myBall = {};
+ 
+myBall.image = 'http://dbwebb.se/img/black_ball_64_64.png';
+myBall.position = {x:10, y:10}
+ 
+console.log(myBall.position.x); // prints out 10
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt mutable
+<pre data-code="c61"></pre>
+</script>
+
+<script id="c61" data-role="code" data-language="javascript" type="text/html">
+myBall.position.X = 27; // Property not exists, is created
+
+console.log('The x-position is: ' + myBall.position.x);
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt metod/property
+<pre data-code="c6"></pre>
+</script>
+
+<script id="c6" data-role="code" data-language="javascript" type="text/html">
+myBall.move = function(x, y) {
+    this.x = x;
+    this.y = y;
+};
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt this
+<pre data-code="c7"></pre>
+</script>
+
+<script id="c7" data-role="code" data-language="javascript" type="text/html">
+/* Draw element in HTML using access to this */
+myBall.HTMLelement = document.getElementById('ball');
+
+myBall.draw = function () {
+    this.HTMLelement.style.backgroundImage = 'url(' + this.image + ')';
+    this.HTMLelement.style.top = this.position.y + 'px';
+    this.HTMLelement.style.left = this.position.x + 'px';
+    console.log('Drawing ball.');
+}
+
+myBall.draw();
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt this, event
+<pre data-code="c71"></pre>
+</script>
+
+<script id="c71" data-role="code" data-language="javascript" type="text/html">
+/* This is the HTML element, not myBall */
+myBall.HTMLelement.addEventListener('click', function (event) {
+    console.log('Clicked on: ' + event.clientX + ' x ' + event.clientY);
+    console.log(this);
+});
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt kopiering (shallow)
+<pre data-code="c72"></pre>
+</script>
+
+<script id="c72" data-role="code" data-language="javascript" type="text/html">
+> a = {x: 1}
+{ x: 1 }
+> b = a
+{ x: 1 }
+---------------------------------
+> b.x = 2
+2
+> a
+{ x: 2 }
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt kopiering (clone)
+<pre data-code="c73"></pre>
+</script>
+
+<script id="c73" data-role="code" data-language="javascript" type="text/html">
+> a = {x: 1}
+{ x: 1 }
+> b = {}
+{}
+> Object.assign(b, a)
+{ x: 1 }
+> c = Object.assign({}, a)
+{ x: 1 }
+---------------------------------
+> a
+{ x: 1 }
+> b
+{ x: 1 }
+> c
+{ x: 1 }
+---------------------------------
+> b.x = 2
+2
+> c.x = 3
+3
+---------------------------------
+> a
+{ x: 1 }
+> b
+{ x: 2 }
+> c
+{ x: 3 }
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+##[Exempelprogram med boll](http://dbwebb.se/javascript/core/pushing-the-ball/)
+
+Kika i debuggern.
+</script>
+
+
+
+
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Prototype och arv?
+
+* Glöm OO
+* Prototype-baserad programmering
+* ES6 klasser
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Frågor på det?
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#This och That
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Event
+<pre data-code="c13"></pre>
+</script>
+
+<script id="c13" data-role="code" data-language="javascript" type="text/html">
+var button = document.getElementById('button');
+ 
+button.addEventListener('click', function () {
+    var colors = ['green', 'yellow', 'red', 'blue', 'pink'],
+        step = 0,
+ 
+    animateFunction = function () {
+        if (step === colors.length) {
+            button.style.backgroundColor = '';
+        } else {
+            button.style.backgroundColor = colors[step];
+            step += 1;
+            window.setTimeout(animateFunction, 500);
+        }
+    };
+ 
+    window.setTimeout(animateFunction, 500);
+});
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+##[Event exempelprogrammet](http://dbwebb.se/javascript/core/animate-using-setTimeout/)
+
+Kolla i devtools.
+
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>

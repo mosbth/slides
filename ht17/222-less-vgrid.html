@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>LESS grid</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#LESS grid
+##Vertikalt grid
+###Mikael Roos, dbwebb
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Vertikalt grid
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Termer
+
+* Above the fold
+* Content is king
+* Whitespace
+
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Whitespace
+
+> _"Empty space as important as content, ...crowded room, ...breathe by guiding the eye around the design, ...balance and unity/harmony"_
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Grid
+
+* Bara fyrkantigt?
+* Proportioner och whitespace
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Golden ratio
+
+* Gyllene snittet
+* Matematiskt 1.6180...
+* Proportioner enligt golden ratio är estetiskt tilltalande
+* Rule of thirds.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/golden-ratio1.jpg" width="100%">
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/golden-ratio2.jpg" width="100%">
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/rule-of-thirds1.jpg" width="100%">
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/rule-of-thirds2.jpg" width="100%">
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="https://dbwebb.se/image/snapvt16/grid-displayed.png" alt="vgrid" width="100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vertikalt grid
+
+* CSS ramverk, 960-1100px fixed size
+* Förberedda CSS-klasser
+* LESS/SASS ger andra möjligheter
+* Många varianter på grid-ramverk
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/semanticgridsystem.png" alt="semgrid" width="100%">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Ett gridsystem
+
+* Variabeldefinitioner på gridet
+* Antal kolumner, kolumnbredd, gutter
+* `column()`
+* `row()` för att wrappa kolumnerna
+* `container()` för att wrappa raderna
+* `clearfix()`
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Typer av grid
+
+* Fixed - baserat på pixlar
+* Fluid - flyter med sidans bredd, baserat på %
+* Responsivt - mediaqueries dölja/visa delar
+* Max-width
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Float eller Flexbox?
+
+* Två olika sätt att positionera
+* Gridet fungerar för båda
+* Samma API till gridet
+* Välj float om du är osäker
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Float eller Flexbox...
+
+```
+// float
+.row(@columns: @columns) {
+    display: block;
+
+.column(@col, @columns: @columns) {
+    display: inline;
+    float: left;
+
+// flexbox
+.row(@columns: @columns) {
+    display: flex;
+    flex-flow: row wrap;
+
+.column(@col, @columns: @columns) {
+    flex: 0 0 auto;
+
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#[HTML-strukturen](https://github.com/mosbth/anax/blob/master/view/default/index.tpl.php)
+
+```
+<div class="outer-wrap outer-wrap-header">
+    <div class="inner-wrap inner-wrap-header">
+        <div class="row">
+            <div class="header"><span>header</span></div>
+        </div>
+    </div>
+</div>
+
+<div class="outer-wrap outer-wrap-flash">
+    <div class="inner-wrap inner-wrap-flash">
+        <div class="row">
+            <div class="flash"><span>flash</span></div>
+        </div>
+    </div>
+</div>
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Applicera gridet
+
+```
+.wrap-all {
+    //.showGrid(1100px);
+}
+
+.inner-wrap {
+    .container();
+    max-width: 1100px;
+}
+
+.row {
+    .row();
+}
+
+.flash,
+.header {
+    .columns(@columns);
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Applicera gridet...
+
+```
+// Media queries för header bestående av tre delar
+@media screen and (max-width: 800px) {
+    .site-logo-text {
+        .column(16);
+    }
+
+    .navbar2 {
+        display: none;
+    }
+
+    .profile {
+        .column(8);
+    }
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Applicera gridet...
+
+```
+// Main-delen
+.main {
+    .column(@columns * 3 / 4 - 2);
+    .push(2);
+
+    &.has-sidebar-left {
+        .column(@columns * 3 / 4 - 2);
+        .push(1);
+    }
+
+    &.has-sidebar-right {
+        .column(@columns * 3 / 4 - 2);
+        .push(0);
+    }
+
+    &.has-sidebar-left.has-sidebar-right {
+        .column(@columns * 2 / 4 + 2);
+        .push(0);
+    }
+}
+
+.sidebar-right,
+.sidebar-left {
+    .column(@columns / 4 + 1);
+}
+
+.sidebar-right {
+    .push(1);
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#box-sizing: border-box
+
+* content-box | border-box
+* width inkluderar content
+* width inkluderar content, padding, border
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#box-sizing: border-box
+
+<img src="img/box-sizing.png" style="width: 100%">
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Negative margins
+
+<img src="img/negative-margins.png" style="width: 50%">
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#När allt är på plats
+
+* Dela in allt innehåll i kolumner.
+* Använd kolumner som extra whitespace.
+* Bilder och andra resurser kan matcha gridet
+* "Fix" img { max-width: 100% }
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Koden
+
+```
+/**
+ * Responsive Grid
+ */
+// Default grid, change to fit your requirements.
+@columnWidth:   60;
+@gutterWidth:   20;
+@columns:       12;
+
+// Utility variable, you should never need to modify this
+@gridSystemWidth: @columns * (@columnWidth + @gutterWidth) * 1px;
+
+// Use % for fluid layout
+@totalWidth: 100% / @gridSystemWidth;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Koden...
+
+```
+/**
+ * A small clearfix:
+ * http://stackoverflow.com/questions/211383/what-methods-of-clearfix-can-i-use
+ */
+.clearfix() {
+    &::after {
+        content: "";
+        display: block;
+        clear:both;
+    }
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Koden...
+
+```
+/**
+ * Wrap grid in a container.
+ */
+.container() {
+    margin-right: auto;
+    margin-left: auto;
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Koden...
+
+```
+/**
+ * All columns must be wrapped in a row.
+ */
+.row(@columns: @columns) {
+    display: block;
+
+    width: @totalWidth * (@gridSystemWidth + @gutterWidth);
+
+    margin-left:  -1 * @totalWidth * @gutterWidth / 2;
+    margin-right: -1 * @totalWidth * @gutterWidth / 2;
+
+    .clearfix();
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Koden...
+
+```
+/**
+ * Create a column spanning @col columns.
+ */
+.column(@col, @columns: @columns) {
+    display: inline;
+    float: left;
+
+    width: @totalWidth * (((@columnWidth + @gutterWidth) * @col ) - @gutterWidth);
+
+    margin-left:  @totalWidth * @gutterWidth / 2;
+    margin-right: @totalWidth * @gutterWidth / 2;
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Koden...
+
+```
+/**
+ * Push a column @offset columns.
+ */
+.push(@offset: 1) {
+    margin-left: @totalWidth * @offset * (@gutterWidth + @columnWidth) + @totalWidth * @gutterWidth / 2;
+ }
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Koden...
+
+```
+/**
+ * Pull a column left @offset columns.
+ */
+.pull(@offset: 1) {
+    margin-left: -1 * @totalWidth * @offset * (@gutterWidth + @columnWidth) + @totalWidth * @gutterWidth / 2;
+}
+
+
+
+/**
+ * Pull a column right @offset columns.
+ */
+.pull-right(@offset: 1) {
+    margin-right: -1 * @totalWidth * @offset * (@gutterWidth + @columnWidth) + @totalWidth * @gutterWidth / 2;
+}
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Tips
+
+* Håll basen enkel, lägg inte in massa style i basen
+* Tänk bas och anpassning, håll separerat
+* Undvik hamna i ett träsk av omskrivande av regler
+* Collapsing margins
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
