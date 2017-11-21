@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Vad är bra kod?</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad är bra kod?
+## Del 1: Programmeringsfilosofier
+###Mikael Roos, dbwebb
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Filosofier vid programmering
+<!--* Kriterier för bra kod-->
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Varför behöver man programmeringsfilosofier?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Låt oss titta på ett par (osorterade) filosofier
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Ett urval
+
+Tim Toady, DRY, KISS, POGE, YAGNI, Copy and paste programming, Dont fix it, POC, 80-20 (Pareto), Overdoit, Satisficing, Worse is better, Premature optimizations, Separation of Concerns, Technical debt
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Tim Toady
+
+* There's more than one way to do it.
+* Ibland löser vi saker olika, skriver kod olika
+* Det behöver inte vara ett fel i det
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#DRY
+
+* Don't Repeat Yourself
+* Duplicera inte koden på flera ställen
+* Lite för mycket copy paste?
+* Dax att organisera koden bättre?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#KISS
+
+* Keep It Stupid Simple
+* Keep It Simple, Stupid
+* Krångla inte
+* Finns en enkel väg, ta den?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#POGE
+
+* Principle of good enough
+* Tillräckligt bra?
+* Är det värt tiden du lägger ned?
+* Rimlig nivå att sträva efter
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#YAGNI
+
+* You aren’t gonna need it
+* Ytterligare en "bra-att-ha" grej?
+* "Det vore trevligt om..."
+* En stor del features är ofta yagni
+* Skippa alla 'bra att ha' saker redan på ritbordet, lägg bara till dem om någon verkligen behöver dem
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Copy and paste programming
+
+* Vill du vara snabb?
+* Snabbt och "enkelt"
+* Det är inte värt tiden att strukturera
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Dont fix it
+
+* If it ain't broke, don't fix it
+* Lägg inte tid på att laga saker som inte är sönder
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#POC
+
+* Proof-of-concept.
+* Bygg för att visa att idén fungerar
+* Snabbt och lätt för att visa konceptet
+* Överarbeta inte
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#80-20 (Pareto)
+
+* Pareto principle (80-20).
+* 80% av användarna kommer använda 20% av produktens funktioner 
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Overdoit
+
+* Overdoit, or overengineering.
+* Att bygg en produkt som mer robust eller komplicerad än som är försvarbart för dess tänkta användningsområde
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Satisficing
+
+* Satisfy and suffice
+* Strategi för att göra ett beslut
+* Överväg alla alternativ och finn ett alternativ som når ett acceptabelt gränsvärde - då en optimal lösning inte är ett alternativ
+* "behavior of decision makers under circumstances in which an optimal solution cannot be determined"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Worse is better
+
+* Worse is better (Less is more).
+* Kvaliteten ökar inte nödvändigvis när funktionaliteten ökar
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Premature optimizations
+
+* Optimizing before we know that we need to
+* Forget about small efficiencies, say about 97% of the time
+* Premature optimization is the root of all evil
+* Yet we should not pass up our opportunities in that critical 3%
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Separation of Concerns
+
+* Dela upp koden
+* Var sak på sin plats
+* Ordning och reda
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Technical debt
+
+* Snabba fixar skuldsätter dig i det långa loppet
+* En korrektion har en kostnad, väg mot framtida underhållskostnad
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#TIL
+
+Tim Toady, DRY, KISS, POGE, YAGNI, Copy and paste programming, Dont fix it, POC, 80-20 (Pareto), Overdoit, Satisficing, Worse is better, Premature optimizations, Separation of Concerns, Technical debt
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Fundering
+
+* Filosofier sätter ord på våra tankar
+* Ger oss termer att samtala design och kodstruktur
+* Gör aktiva val, tänk innan
+* Belyser att det är okey med olika val
+* Okey att göra "dåliga val", om det finns sådana?
+* Omständigheter styr våra val
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

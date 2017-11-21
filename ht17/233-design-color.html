@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Design Färg</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Design
+##Färg
+###Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Färg
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Fokus
+
+* Lär dig kombinera färger
+* Lär dig skapa och använda färgpalett
+* Kombinera i teman
+* Vad funkar, vad funkar inte?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Färg
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Färg
+
+* Färgsystem
+* RGB (addidative) (bildskärm)
+* CMYK (subtractive) (måleri, tryck)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/RGBvCMYK.jpg" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Aspekter av färg
+
+* Psykologi, associationer
+* Röd, Blå, Gul, Grön, Lila, Orange, Rosa, Grå, Svart, Vit, Brun
+* Positiva / negativa
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/color-psycology.png" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Aspekter av färg
+
+* Temperatur
+* Röd, orange, gul (varm)
+* Blå, blå-vit (kall)
+* Grön, lila (neutrala)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/color-temperature.png" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Aspekter av färg
+
+* Hue
+* Färghjul, 0-359 grader
+* Rena färger
+* Primärfärger (röd, grön, blå)
+* Komplementfärger (motsats) (cyan, magenta, gul) (cmyk)
+* Sekundärfärg (blanda två primärfärger)
+* Primary, secondary, tertiary colors
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/rgb-color-wheel-lg.jpg" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Aspekter av färg
+
+* Tint/Shade/Tone (målare)
+* Ren färg, mixa vit (tint)
+* Ren färg, mixa svart (shade)
+* Ren färg, mixa vit/svart (tone)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/color-tint.png" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Aspekter av färg
+
+* Mättnad (renhet kontra gråhet)
+* Saturation
+* 0-100% (grå - ren färg)
+* Grad av renhet/livfullhet
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<div style="width: 20%; height: 200px; background-color: hsl(0, 100%, 50%); float: left;">100%</div>
+<div style="width: 20%; height: 200px; background-color: hsl(0, 66%, 50%); float: left;">66%</div>
+<div style="width: 20%; height: 200px; background-color: hsl(0, 33%, 50%); float: left;">33%</div>
+<div style="width: 20%; height: 200px; background-color: hsl(0, 10%, 50%); float: left;">10%</div>
+
+<div style="width: 20%; height: 200px; background-color: hsl(120, 100%, 50%); float: left; clear: left;">100%</div>
+<div style="width: 20%; height: 200px; background-color: hsl(120, 66%, 50%); float: left;">66%</div>
+<div style="width: 20%; height: 200px; background-color: hsl(120, 33%, 50%); float: left;">33%</div>
+<div style="width: 20%; height: 200px; background-color: hsl(120, 10%, 50%); float: left;">10%</div>
+
+<div style="width: 20%; height: 200px; background-color: hsl(240, 100%, 50%); float: left; clear: left;">100%</div>
+<div style="width: 20%; height: 200px; background-color: hsl(240, 66%, 50%); float: left;">66%</div>
+<div style="width: 20%; height: 200px; background-color: hsl(240, 33%, 50%); float: left;">33%</div>
+<div style="width: 20%; height: 200px; background-color: hsl(240, 10%, 50%); float: left;">10%</div>
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Aspekter av färg
+
+* Ljushet (mörk kontra fullt upplyst)
+* Lightness
+* 0-100% (mörk - upplyst färg)
+* Standardfärg 50%
+* Lighten / darken a color
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<div style="width: 18%; height: 200px; background-color: hsl(0, 100%, 90%); float: left;">90%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(0, 100%, 70%); float: left;">70%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(0, 100%, 50%); float: left;">50%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(0, 100%, 30%); float: left;">30%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(0, 100%, 10%); float: left;">10%</div>
+
+<div style="width: 18%; height: 200px; background-color: hsl(120, 100%, 90%); float: left;">90%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(120, 100%, 70%); float: left;">70%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(120, 100%, 50%); float: left;">50%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(120, 100%, 30%); float: left;">30%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(120, 100%, 10%); float: left;">10%</div>
+
+<div style="width: 18%; height: 200px; background-color: hsl(240, 100%, 90%); float: left;">90%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(240, 100%, 70%); float: left;">70%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(240, 100%, 50%); float: left;">50%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(240, 100%, 30%); float: left;">30%</div>
+<div style="width: 18%; height: 200px; background-color: hsl(240, 100%, 10%); float: left;">10%</div>
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Ange färg
+
+* `rgb(255, 0, 0)`
+* `rgba(255, 0, 0, 1)` 
+* `hsl(0, 100%, 50%)`
+* `hsla(0, 100%, 50%, 1)`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Färgscheman
+
+* Monochromatiskt
+* Analogt (pie, adjacent colors)
+* Complementary (motliggande)
+* Split-complementary (triad, tetrad)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Färgscheman...
+
+* [Testa](http://paletton.com/)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/color-ryb-wheel.png" alt="temp" width="100%" style="background-color: white;">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Accentfärg
+
+* En färgklick som får saker att stå ut
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/accent-color-1.jpg" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/accent-color-2.jpg" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kontrast
+
+* Färger ligger för nära
+* Kontrasten för liten
+* Kontrast typsnitt kontra bakgrundsfärg
+    * Även länkar
+    * Synlighet länkstatus
+* [Kontrollera kontrasten](https://webaim.org/resources/contrastchecker/)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>

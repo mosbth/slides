@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>JavaScript object</title>
+<title>JavaScript Core Object</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -18,22 +18,64 @@
 
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
-#JavaScript object
+#JavaScript Core
+##Object
 ###Mikael Roos, dbwebb
 </script>
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
-* Om JavaScript object
+* Om objekt i JavaScript
 
 </script>
 
 
 
-<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Objekt (literal)
+
+* Ett objekt kan vara många saker och betyda olika saker beroende på sammanhanget.
+* En samling namngivna värden, properties
+* Key/value array
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt (klasser)
+
+* ES6 har "traditionellt" klassbegrepp
+* Modulbegrepp
+* Arv
+* Syntactical sugar
+* [Exempel](https://github.com/janaxs/blackjack/blob/master/src/card/card.js)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt
+
+* Prototyp baserat
+* Konstruktorfunktion
+* .prototype
+* Utöka objekt i form av objektkedja
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt literal
+</script>
+
+
+
 <script data-role="slide" data-markdown type="text/html">
 #Ett object
 <pre data-code="c1"></pre>
@@ -48,11 +90,15 @@ defaultConfig = {
 }
 
 
+
+
 // Access
 > defaultConfig.server
 'https://dbwebb.se/'
 > defaultConfig.Server
 undefined
+
+
 
 
 // Mutable
@@ -64,6 +110,8 @@ undefined
   security: 'medium',
   server2: 'http://archive.dbwebb.se' }
 > 
+
+
 
 
 // Delete properties
@@ -82,11 +130,71 @@ true
   security: 'medium' }
 > 
 
+
+
 </script>
 
 
 
-<!-- Slide -->
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt kopiering (shallow)
+<pre data-code="c72"></pre>
+</script>
+
+<script id="c72" data-role="code" data-language="javascript" type="text/html">
+> a = {x: 1}
+{ x: 1 }
+> b = a
+{ x: 1 }
+---------------------------------
+> b.x = 2
+2
+> a
+{ x: 2 }
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt kopiering (clone)
+<pre data-code="c73"></pre>
+</script>
+
+<script id="c73" data-role="code" data-language="javascript" type="text/html">
+> a = {x: 1}
+{ x: 1 }
+> b = {}
+{}
+> Object.assign(b, a)
+{ x: 1 }
+> c = Object.assign({}, a)
+{ x: 1 }
+---------------------------------
+> a
+{ x: 1 }
+> b
+{ x: 1 }
+> c
+{ x: 1 }
+
+---------------------------------
+> b.x = 2
+2
+> c.x = 3
+3
+
+---------------------------------
+> a
+{ x: 1 }
+> b
+{ x: 2 }
+> c
+{ x: 3 }
+</script>
+
+
+
 <script data-role="slide" data-markdown type="text/html">
 #Deep and shallow copy
 <pre data-code="c2"></pre>
@@ -100,7 +208,6 @@ stuff = {
     level3: { array: [3] }
 }
 
-
 // Access
 > stuff.level1
 1
@@ -108,6 +215,8 @@ stuff = {
 2
 > stuff.level3.array[0]
 3
+
+
 
 
 // Shallow copy
@@ -121,7 +230,8 @@ stuff = {
 { level1: 11, level2: [ 22 ], level3: { array: [ 33 ] } }
 > stuff
 { level1: 11, level2: [ 22 ], level3: { array: [ 33 ] } }
-> 
+
+
 
 
 // Deep copy step 1 (resetting stuff to defaults)
@@ -140,6 +250,8 @@ stuff = {
 { level1: 1, level2: [ 22 ], level3: { array: [ 33 ] } }
 
 
+
+
 // Really deep clone (exceptions on non JSON literals)
 > cloneStuff = JSON.parse(JSON.stringify(stuff))
 > cloneStuff
@@ -153,11 +265,15 @@ stuff = {
 { level1: 11, level2: [ 22 ], level3: { array: [ 33 ] } }
 > stuff
 { level1: 1, level2: [ 2 ], level3: { array: [ 3 ] } }
+
+
+
+
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Merging objects
 <pre data-code="c3"></pre>
@@ -174,47 +290,20 @@ c = { c: 3 }
 > Object.assign(a, c)
 { a: 1, b: 2, c: 3 }
 
+
 > Object.assign(a, b)
 { a: 1, b: '2' }
+
 
 > Object.assign(b, a)
 { b: 2, a: 1 }
 
+
 > Object.assign(a, b, c)
 { a: 1, b: '2', c: 3 }
 
-</script>
-
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Tänk på
-
-* Avslutande , mellan properties
-* JSON objekt grunden i REST
-* JSON (null, boolean, string, number, array, object)
-* JSON stöder ej Date, RegExp, funktioner, undefined...
 
 </script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Skydda objekt
-<pre data-code="c41"></pre>
-</script>
-
-<script id="c41" data-role="code" data-language="javascript" type="text/html">
-> Object.isExtensible(mos)
-true
-> Object.isSealed(mos)
-false
-> Object.isFrozen(mos)
-false
-
-</script>
-
 
 
 
@@ -255,8 +344,19 @@ person = {
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Låt kika på mer om JavaScripts objektmodell
+#Tänk på
 
+* Avslutande , mellan properties
+* JSON objekt grunden i REST
+* JSON (null, boolean, string, number, array, object)
+* JSON stöder ej Date, RegExp, funktioner, undefined...
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt prototyp
 </script>
 
 
@@ -327,6 +427,135 @@ true
 
 
 <script data-role="slide" data-markdown type="text/html">
+#This och that
+<pre data-code="c9"></pre>
+</script>
+
+<script id="c9" data-role="code" data-language="javascript" type="text/html">
+// Object with method using this/that
+function Person(name, friends) {
+    this.name = name;
+    this.friends = friends;
+}
+
+Person.prototype.friendsList = function () {
+    message = this.friends.map(function(value) {
+        return this.name + " is friend with " + value;
+    })
+    return message;
+}
+
+
+// Check if it works... nop
+> mos = new Person("MegaMos", ["Mumintrollet", "Moped"])
+> mos.friendsList()
+[ 'undefined is friend with Mumintrollet',
+  'undefined is friend with Moped' ]
+
+
+// Use this that
+Person.prototype.friendsList = function () {
+    that = this;
+    message = this.friends.map(function(value) {
+        return that.name + " is friend with " + value;
+    })
+    return message;
+}
+
+
+// Check if it works... yep!
+> mos.friendsList()
+[ 'MegaMos is friend with Mumintrollet',
+  'MegaMos is friend with Moped' ]
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt this, event
+<pre data-code="c71"></pre>
+</script>
+
+<script id="c71" data-role="code" data-language="javascript" type="text/html">
+/* this = HTMLelement, not myBall */
+myBall.HTMLelement.addEventListener('click', function (event) {
+    console.log('Clicked on: ' + event.clientX
+        + ' x ' + event.clientY
+    );
+    console.log(this);
+});
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Allmänt
+
+* Object som key value map
+* Object som "objektorientering"
+* JavaScripts prototypbaserade objektmodell
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Läs på
+
+* [ES5: Speaking JavaScript](http://speakingjs.com/)
+* 1\. Objects and Constructors
+* 17\. Objects and Inheritance
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Frågor på det?
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!--
+<script data-role="slide" data-markdown type="text/html">
+#Allmänt
+
+* Shadow properties (dölj/omdefiniera)
+* Object som key value map
+* Object som "objektorientering"
+* JavaScripts prototypbaserade objektmodell
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Skydda objekt
+<pre data-code="c41"></pre>
+</script>
+
+<script id="c41" data-role="code" data-language="javascript" type="text/html">
+> Object.isExtensible(mos)
+true
+> Object.isSealed(mos)
+false
+> Object.isFrozen(mos)
+false
+
+</script>
+-->
+
+
+
+
+<!--
+<script data-role="slide" data-markdown type="text/html">
 #Vad innehåller objektet?
 <pre data-code="c7"></pre>
 </script>
@@ -381,9 +610,11 @@ for(key in mos) {
 }
 name
 </script>
+-->
 
 
 
+<!--
 <script data-role="slide" data-markdown type="text/html">
 #Kan man se kopplingen?
 <pre data-code="c8"></pre>
@@ -425,98 +656,7 @@ Person { description: [Function] }
 '[object Object]'
 
 </script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#This och that
-<pre data-code="c9"></pre>
-</script>
-
-<script id="c9" data-role="code" data-language="javascript" type="text/html">
-// Object with method using this/that
-function Person(name, friends) {
-    this.name = name;
-    this.friends = friends;
-}
-
-Person.prototype.friendsList = function () {
-    message = this.friends.map(function(value) {
-        return this.name + " is friend with " + value;
-    })
-    return message;
-}
-
-
-// Check if it works... nop
-> mos = new Person("MegaMos", ["Mumintrollet", "Moped"])
-> mos.friendsList()
-[ 'undefined is friend with Mumintrollet',
-  'undefined is friend with Moped' ]
-
-
-// Use this that
-Person.prototype.friendsList = function () {
-    that = this;
-    message = this.friends.map(function(value) {
-        return that.name + " is friend with " + value;
-    })
-    return message;
-}
-
-
-// Check if it works... yep!
-> mos.friendsList()
-[ 'MegaMos is friend with Mumintrollet',
-  'MegaMos is friend with Moped' ]
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Allmänt
-
-* Shadow properties
-* Object som key value map
-* Object som "objektorientering"
-* JavaScripts prototypbaserade objektmodell
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Om fixar
-
-* Shim, en fix för nya features till en äldre miljö
-* HTML5shim
-* Polyfill, en shim för browser API:et
-* Video, audio, SVG, form elements, mfl
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Läs på
-
-* [ES5: Speaking JavaScript](http://speakingjs.com/)
-* 1\. Objects and Constructors
-* 17\. Objects and Inheritance
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Frågor på det?
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-</script>
+-->
 
 
 
