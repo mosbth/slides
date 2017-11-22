@@ -277,6 +277,7 @@ stuff = {
 <script data-role="slide" data-markdown type="text/html">
 #Merging objects
 <pre data-code="c3"></pre>
+<pre data-code="c31"></pre>
 </script>
 
 <script id="c3" data-role="code" data-language="javascript" type="text/html">
@@ -284,25 +285,23 @@ stuff = {
 a = { a: 1, b: 2 }
 b = { b: "2" }
 c = { c: 3 }
+</script>
 
 
+
+<script id="c31" data-role="code" data-language="javascript" type="text/html">
 // Merge them (clearing them before each example)
 > Object.assign(a, c)
 { a: 1, b: 2, c: 3 }
 
-
 > Object.assign(a, b)
 { a: 1, b: '2' }
-
 
 > Object.assign(b, a)
 { b: 2, a: 1 }
 
-
 > Object.assign(a, b, c)
 { a: 1, b: '2', c: 3 }
-
-
 </script>
 
 
