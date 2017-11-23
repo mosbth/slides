@@ -28,7 +28,6 @@
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
-* Realtid
 * Realtid i webben
 * Websocket
 
@@ -37,9 +36,110 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Tekniker
+#Realtime
 
-* 
+* "subject to a "real-time constraint", for example from event to system response"
+* "controls an environment by receiving data, processing them, and returning the results sufficiently quickly to affect the environment at that time"
+* Exempel, självkörande bil
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Realtid i webben
+
+* Tänk irc-klient
+* ActiveX
+* Ajax, long-polling Ajax
+* WebSockets
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Realtidsapplikationer (?)
+
+* Irc-klient
+* Massive multiplayer online game
+* Sociala nätverk (uppdateringar)
+* Hela tiden uppdaterad utan sidomladdning
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#WebSockets
+
+* "network socket is an internal endpoint for sending or receiving data"
+* Tvåvägs kommunikation, båda riktningar
+* TCP, ej HTTP
+* Skicka / ta emot meddelande
+* Klient (webbläsare) till server
+* Server till server (?)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Alternativ
+
+* Native websockets
+* socketio
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#WebSockets
+
+* exempel
+    * connect
+    * echo
+    * broadcast
+    * subprotocol
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Utveckling klient/server
+
+* Finn ett sätt att utveckla klient/server oberoende
+* Flera utvecklare i team behöver utvekla oberoende av varandra
+* Dummy server och dummy klient
+* Felsök, avgränsa, problem med klient eller server?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#[wscat](https://github.com/websockets/wscat)
+
+* Kan agera
+    * dummy klient
+    * dummy server
+* Testa?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Test
+
+* Hur tänka?
+* Enhetstesta det som går
+* Kommunikationen blir externt beroende (likt en databas)
+* Mocka, eller använd verklig server? 
+* [thoov/mock-socket](https://github.com/thoov/mock-socket)
+* Test klientkoden (mocka/verklig server)
 
 </script>
 
