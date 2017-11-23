@@ -38,8 +38,8 @@
 <script data-role="slide" data-markdown type="text/html">
 #Realtime
 
-* "subject to a "real-time constraint", for example from event to system response"
-* "controls an environment by receiving data, processing them, and returning the results sufficiently quickly to affect the environment at that time"
+* _"subject to a "real-time constraint", for example from event to system response"_
+* _"controls an environment by receiving data, processing them, and returning the results sufficiently quickly to affect the environment at that time"_
 * Exempel, självkörande bil
 
 </script>
@@ -51,6 +51,7 @@
 
 * Tänk irc-klient
 * ActiveX
+* Java Servlets
 * Ajax, long-polling Ajax
 * WebSockets
 
@@ -59,12 +60,13 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Realtidsapplikationer (?)
+#Realtidsapplikationer
 
 * Irc-klient
 * Massive multiplayer online game
 * Sociala nätverk (uppdateringar)
 * Hela tiden uppdaterad utan sidomladdning
+* Övervakning/kontroll Internet of things (IOT)
 
 </script>
 
@@ -73,22 +75,70 @@
 <script data-role="slide" data-markdown type="text/html">
 #WebSockets
 
-* "network socket is an internal endpoint for sending or receiving data"
+* _"network socket is an internal endpoint for sending or receiving data"_
 * Tvåvägs kommunikation, båda riktningar
-* TCP, ej HTTP
+* TCP, inleds över HTTP
 * Skicka / ta emot meddelande
-* Klient (webbläsare) till server
-* Server till server (?)
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Alternativ
+#WebSockets...
+
+* Ping, pong
+* Heartbeat
+* Keep alive
+* Upptäck och stäng trasig koppling
+* Inbyggt eller ej?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#WebSockets...
+
+* Klient (webbläsare) till server
+* Server till server?
+* Node.js net.Socket
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#WebSockets RFC
+
+* [RFC6455](https://tools.ietf.org/html/rfc6455)
+* [IRC RFC1459](http://www.rfc-editor.org/rfc/rfc1459.txt)
+* RFC Request for Comments
+* Internet Engineering Task Force
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#WebRTC
+
+* _"WebRTC (Web Real-Time Communications) is a technology which enables Web applications and sites to capture and optionally stream audio and/or video media, as well as to exchange arbitrary data between browsers without requiring an intermediary."_
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#WebSockets alternativ
 
 * Native websockets
+    * Inbyggt i webbläsare
+    * Programvara för servern
+    * Olika programmeringsspråk
 * socketio
+    * klient + server-del
+    * lager av bra-att-ha saker
 
 </script>
 
@@ -146,119 +196,6 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Tekniker...
-
-* Flera väljer npm före make?
-* Väljer bort Pug?
-* Väljer bort Markdown? 
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Middleware
-
-* Vad är middleware?
-* Express
-* PHP
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#CI kedja
-
-* Better Code Hub
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Drift
-
-* Försök verkligen fixa till drift av sidan.
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Ramverk efter ramverk?
-
-* Först lär vi oss ett ramverk, sen ett till.
-* Eller?
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Att börja ett projekt
-
-* Skriva tester eller kod?
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Testtyper off fokus
-
-* Integrationstester
-* Systemtester
-* Acceptanstester
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Reflektion till kursrepo tester
-
-* Att testa en kurs
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Utvecklingsmetodik
-
-* TDD
-* BDD
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Att testa redovisa-sidan
-
-* Enhetstester
-* Funktionstester
-* 200/404, kolla meddelanden
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Bash-tester
-
-* [BATS](https://github.com/sstephenson/bats) ([new repo](https://github.com/bats-core/bats-core/))
-* Relevant hur?
-* [TAP](http://testanything.org/) (unit test -> test harness)
-* [kcov](https://github.com/SimonKagstrom/kcov)
-* [Exempel dbwebb-cli v3](https://github.com/dbwebb-se/dbwebb-cli/tree/master/bats)
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
 #Funktionstester
 
 * Supertest (Superagent)
@@ -266,25 +203,6 @@
     * Chutzpah/mocha-phantomjs
     * CasperJS
 * WebSocket tests (client, server)
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Alternativ testmiljö
-
-* Jest
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Docker
-
-* Exempel till Anax
-* (från Drupal och WordPress)
 
 </script>
 
