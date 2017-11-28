@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>design bilder</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#design
+##bilder
+###Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Insyn i hur hantera bilder på webbplats
+* Fokus tekniker att placera hantera bilder i webbsidan
+* Icke-fokus att välja rätt bilder, skapa dem
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Bilder på webben
+
+* Signalera en känsla (design)
+* Flöde för ögat, tydlighet (layout)
+* Fel bildval riskerar negativ känsla
+* Bildstorlek kontra kvalitet
+* Flexibel bildstorlek
+* Responsivitet
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# [Google Pagespeed](https://developers.google.com/speed/pagespeed/)
+
+* Kan/bör jag optimera mina bilder?
+* [Greenspire](http://greenspire.se)
+* [dbwebb](https://dbwebb.se)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Filformat
+
+* JPEG, PNG, GIF, WEBP, SVG
+* Transparanta pixlar
+* CSS opacity
+* Ram på bild eller med CSS?
+* Postprocessing lossless/lossy
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Filformat
+
+* Bilder att leka med [foto](https://dbwebb.se/image/bth-sommar-hav.jpg) [skärmdump](https://dbwebb.se/image/snapht17/kmom05-summary.png) [grafik](https://dbwebb.se/image/dbwebb.jpg)
+* Hur stor?
+* Vilken kvalitet?
+* Vilket filformat?
+* Data om bilden i JSON?
+* Kreativ bildbeskärning
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# "Vanliga" problem
+
+* [Telefoner roterar bilder via EXIF information](https://cimage.se/doc/rotate)
+* [Färgprofil sRGB för datorbruk](https://cimage.se/doc/convert-to-srgb)
+* Webbdesigner/fotografen levererar/omlevererar färdigbeskurna bilder till webbprogrammeraren
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Placera bilder med text
+
+* [.figure .left|.right|.center](https://dbwebb.se/repo/design/example/figure/figure.html)
+* LESS-modul figure.less ger grundstyle, inklusive bildtext
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Responsive images 1
+
+* [.figure .w25|.w50](https://dbwebb.se/repo/design/example/figure/figure-responsive.html)
+* Media queries ändrar bildens storlek vid brytpunkter
+* Samma bild, skalas av CSS
+* Oavsett skärmens storlek, hur mycket borde bilden ta upp av utrymmet?
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Responsive images 2
+
+* [responsiveimages.org](https://responsiveimages.org/demos/)
+* HTML element picture, srcset, size
+* Olika bilder laddas, mindre enhet, mindre/mer specifik bild
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Felsök Cimage
+
+* Avgränsa
+    * image/bild.png
+    * img/bild.png
+    * cimage/img.php?bild.png
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Felsök snygga länkar
+
+* Inkommande länkar:
+    * index.php/sida - funkar alltid
+    * sida - kräver fungerande htaccess
+* Utgående länkar:
+    * ramverket genererar länkarna
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Varför shortcode?
+
+* [FIGURE shortcode](https://dbwebb.se/anax/shortcodes)
+* Krångla inte med HTML i Markdown
+* "Extension" till Markdown
+* Implementationen från WordPress shortcode
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Allmänt bilder
+
+* GIMP, Inkscape
+* Imagemagick convert, identify
+* WordPress upload crop predefined
+* Serverside processing (Cimage)
+* [Postprocess](https://cimage.se/doc/post-processing) &amp; [Optimize images](https://github.com/cimage/optimize-images)
+* [pngquant](https://pngquant.org/), [webp](https://developers.google.com/speed/webp/gallery)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Allmänt bilder...
+
+* Snapshots med editor
+* Snapshot png, skala inte om
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/questions1.jpg" style="width: 100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
