@@ -64,7 +64,6 @@
 * JavaScript i webbläsaren
 * Eventstyrd programmering (event, callback)
 * GUI ger event
-* Asynkron programmeringsmodell
 
 </script>
 
@@ -117,7 +116,7 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-<img src="img/dom-tree.png" style="width: 80%; background-color: white;">
+<img src="img/dom-tree.png" style="width: 60%; background-color: white;">
 </script>
 
 
@@ -153,10 +152,11 @@ while (current = ni.nextNode()) {
 
 
 <script data-role="slide" data-markdown type="text/html">
-#DOM relaterat
+#DOM hämta element
 
-* Virtual DOM (Single Page Applications (SPA))
-* W3C Shadow DOM (Web Components)
+* `document.getElementById()`
+* `document.getElementsByClassName()`
+* `document.querySelectorAll()`
 
 </script>
 
@@ -177,6 +177,23 @@ while (current = ni.nextNode()) {
 
 
 <script data-role="slide" data-markdown type="text/html">
+#Låt kika utanför kursens låda
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#DOM relaterat
+
+* Virtual DOM (Single Page Applications (SPA))
+* W3C Shadow DOM (Web Components)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
 #Fler spännande API:er i webbläsaren?
 
 * Device API (batteri, geolocation, screen, vibration)
@@ -184,13 +201,6 @@ while (current = ni.nextNode()) {
 * Graphics, multimedia (canvas, webgl, video, audio, webrtc)
 * Web Storage (local storage, indexeddb)
 * Realtime (websockets, webworkers)
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-#Låt kika utanför kursens låda
 
 </script>
 
@@ -215,8 +225,8 @@ while (current = ni.nextNode()) {
 * JavaScript på serversidan (2009 Dahl)
 * NPM (2010)
 * Node.js kombinerar Google V8 JS motor, med eventloop och lågnivå API.
-* Saknar `document`och `window`
 * Asynkron programmeringsmodell
+* Saknar `document`och `window`
 * Node.js v8 stödjer ES2017
 
 </script>
@@ -235,6 +245,7 @@ while (current = ni.nextNode()) {
 <script data-role="slide" data-markdown type="text/html">
 #Single Page Application
 
+* SPA
 * JavaScript client side application
 * All kod finns i klienten
 * Hämtar info från servern för att renderas sidan i klienten
@@ -247,7 +258,7 @@ while (current = ni.nextNode()) {
 <script data-role="slide" data-markdown type="text/html">
 #Moduler på klientsidan
 
-* Packa kod i återanvändbara moduler
+* Packa kod i återanvändbara moduler/filer
 * CommonJs, AMD, ES6 modules
 * Varje modul en extra HTTP request
 * webpack (bundler)
@@ -260,7 +271,7 @@ while (current = ni.nextNode()) {
 <script data-role="slide" data-markdown type="text/html">
 #WebAssembly
 
-* Assembler kode i webbläsaren
+* Assembler kod i webbläsaren
 * Kompilera godtyckligt språk (C/C++) till WebAssembly
 * Kör i webbläsaren
 * Samverka med JavaScript
@@ -273,10 +284,16 @@ while (current = ni.nextNode()) {
 #Ramverk i JavaScript
 
 * Vardagsprogrammering i JS innebär ramverk
-* Ramverken är många och unga
+* Ramverken är många och delvis unga
 * Klient, server eller både ock?
 * Flera beslut och många alternativ
 
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Frågor på det?
 </script>
 
 
