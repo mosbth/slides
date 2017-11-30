@@ -33,7 +33,25 @@
 * MongoDB i Docker
 * Docker till Docker
 * Asynkron programmering
-* Asynkrona enhetstester
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Vilka är problemen?
+
+* Fundera på vilka svårigheter du ser med tekniken du valt, eller att göra valen?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Fundering från rätting i kmom02
+
+* [Script](https://github.com/dbwebb-se/ramverk2/blob/master/.dbwebb/script/kmom02.bash)
+* [Förbättringar](https://github.com/dbwebb-se/ramverk2/issues/1)
 
 </script>
 
@@ -42,12 +60,32 @@
 <script data-role="slide" data-markdown type="text/html">
 #NoSQL
 
+* Document (MongoDb)
+* Key/Value (Memcached, Redis)
+* Graph (grafer)
+* Column (tabell, men rader kan innehålla olika kolumner, tvådimensionell key-value)
+* Multimodel
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
 #MongoDB
+
+* Free, opensource (CE/Enterprise)
+* JSON, Collections
+* Drivers olika programmeringsspråk
+* MEAN (2013, Karpov, dev Mongo, blogpost)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#[MongoDB](https://www.mongodb.com/) documentationen
+
+* MongoDB
+* MongoDB driver för Node.js
 
 </script>
 
@@ -56,8 +94,27 @@
 <script data-role="slide" data-markdown type="text/html">
 #MongoDB i Docker
 
+* Docker store [mongo](https://store.docker.com/images/mongo)
 * Samt lokal installation
 
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+```
+version: '3'
+services:
+    mongodb:
+        image: mongo
+        environment:
+            - MONGO_DATA_DIR=/data/db
+        volumes:
+            - ./data/db:/data/db
+        ports:
+            - 27017:27017
+        command: mongod
+```
 </script>
 
 
@@ -70,11 +127,85 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
+```
+# Use a base image
+FROM node:alpine
+
+# Create a workdir
+RUN mkdir -p /app
+WORKDIR /app
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+```
+version: '3'
+services:
+    express:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            - DBWEBB_DSN=mongodb://mongodb:27017/mumin
+        volumes:
+            - ./:/app/
+            - /app/node_modules/
+        ports:
+            - 1337:1337
+        links:
+            - mongodb
+        command: "node src/server.js"
+
+    mongodb:
+        image: mongo
+        environment:
+            - MONGO_DATA_DIR=/data/db
+        volumes:
+            - ./data/db:/data/db
+        ports:
+            - 27017:27017
+        command: mongod
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Mer om Docker
+
+* Docker-composer eller bara docker?
+* [När disken tar slut?](https://dbwebb.se/forum/viewtopic.php?f=23&t=7065)
+* Hur stabilt mellan plattformar?
+* dbwebb dockerize
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
 #Asynkron
 
-* Programmering
-* Enhetstester
-* Callback, versus Promise .then() versus async/await
+* Node.js (V8 JS engine, eventloop, lågnivå API)
+* Asynchronous IO
+* Ej blockande I/O (event, callback)
+* API har funktioner synkrona/asynkrona
+* Hur ([videotips i forumet](https://dbwebb.se/forum/viewtopic.php?f=11&t=7073))?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Asynkron...
+
+* Programmering och enhetstester
+* Callback
+* [Promise .then()](https://dbwebb.se/kunskap/spela-luffarschack-med-klient-och-server-i-node-js#promise)
+    * webapp mithril.request
+    * linux client/server gomoku
+* [npmc co](https://www.npmjs.com/package/co) yield
+* async/await
 
 </script>
 
@@ -85,6 +216,8 @@
 
 * WHATWG Fetch (MDN)
 * Enhetstesta redovisa med [npm node-fetch](https://www.npmjs.com/package/node-fetch)
+* [Isomorphic variant](https://www.npmjs.com/package/isomorphic-fetch)
+* async/await
 
 </script>
 
