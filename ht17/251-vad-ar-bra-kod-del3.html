@@ -24,7 +24,7 @@
 </script>
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
@@ -34,7 +34,7 @@
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Låt oss rekapitulera
 
@@ -45,20 +45,21 @@
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Tips från coachen
 
 * Bli **intresserad**
 * Programmera
 * Prata med programmerare
+* Utmana dig själv
 * (Gå i skola/universitet)
 
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Tips från coachen...
 
@@ -71,56 +72,61 @@
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Bra kod?
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #["I know it when I see it"](https://en.wikipedia.org/wiki/I_know_it_when_I_see_it)
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 <img src="img/wtf-good-code.jpg" style="width: 80%">
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Hur ser bra kod ut?
+<!-- 
+https://en.wikipedia.org/wiki/Jeanette_Lee 
+Jeanette Lee, Black Widow
+Framgångsrik professionell biljardspelare, Pool
+-->
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 <a href="http://blackwidowbilliards.com/"><img src="img/black-widow-1.jpg" style="width: 100%"></a>
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 ##["A good coder writes code that looks like it was easy and straightforward to do"](http://softwareengineering.stackexchange.com/a/17503/179237)
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 <a href="http://blackwidowbilliards.com/"><img src="img/black-widow-2.jpg" style="width: 100%"></a>
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #[En undersökning om "Good Code"](http://engineering.intenthq.com/2015/03/what-is-good-code-a-scientific-definition/)
 
@@ -132,27 +138,27 @@
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 <img src="img/good-code-characteristics.png" style="width: 100%">
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
-#"Förvånansvärt"
+#"Kommentarer"
 
 * Maintainable
 * Works
 * Testable/Tested
-* Efficient
+* Efficient (versus prem optim)
 
 </script>
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Definition (undersökningen)
 
@@ -164,7 +170,7 @@
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Definition (mos mod)
 
@@ -174,9 +180,9 @@
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
-#Ergo sum
+#Ergo
 
 * Läsbar kod - by peers
 * Enkel - simple code
@@ -186,7 +192,7 @@
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Låt kika på vad detta kan innebära
 
@@ -194,7 +200,7 @@
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 #Koda enkelt
 
@@ -208,16 +214,43 @@ else
 {
     return false;
 }
-
-// Another way
-return hours < 24 && minutes < 60 && seconds < 60;
 ```
 
 </script>
 
 
 
-<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Koda enkelt...
+
+```
+// Avoid else
+if (hours < 24 && minutes < 60 && seconds < 60)
+{
+    return true;
+}
+
+return false;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Koda enkelt...
+
+```
+// Another way
+return hours < 24 
+    && minutes < 60 
+    && seconds < 60;
+```
+
+</script>
+
+
+
 <script data-role="slide" data-markdown type="text/html">
 #Koda enkelt och läsbart
 
@@ -228,11 +261,10 @@ return hours < 24 && minutes < 60 && seconds < 60;
 
 
 
-<!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 #Kodstandard
 
-* phpcs, jscs, pylint
+* phpcs, eslint/jscs, pylint
 * Kodstandard som medvetet val
 * Strukturera och organisera koden
 * Namngivning
@@ -241,7 +273,6 @@ return hours < 24 && minutes < 60 && seconds < 60;
 
 
 
-<!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 #Source code analyser
 
@@ -252,7 +283,6 @@ return hours < 24 && minutes < 60 && seconds < 60;
 
 
 
-<!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 #CS, MD, CPD
 
@@ -263,14 +293,12 @@ return hours < 24 && minutes < 60 && seconds < 60;
 
 
 
-<!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 <img src="img/pmd_logo.png" style="width: 100%" alt="pmd-logo">
 </script>
 
 
 
-<!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 #Bra kod är...
 
@@ -282,151 +310,15 @@ return hours < 24 && minutes < 60 && seconds < 60;
 
 
 
-<!-- Slide -->
+
 <script data-role="slide" data-markdown type="text/html">
 <img src="https://dbwebb.se/img/snapht16/make-it-look-easy.jpg" style="width: 100%">
 </script>
 
 
 
-<!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#More
-
-* Refactor often
-* Comments are evil
-* Code reviews
-* Code to interface, not implementation
-* Unit testing
-* Autamize what automized can be
-* Organize the code
-* one class, one responsibilty, the right responsibility
-
-* no side effects
-* short methods/functions
-
-* Proper naming of files, variables, methods, properties, classes, functions,modules
-
-LÄr dig mixa programmeringsparadigmer
-
-* Code is easy
-
-http://www.makinggoodsoftware.com/2009/06/04/10-commandments-for-creating-good-code/
-https://bittermanandy.wordpress.com/2010/09/10/what-is-good-code/
-http://www.codeexcellence.com/2012/05/8-must-have-characteristics-for-writing-quality-code/
-
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Best coding practice
-
-* Samling informella regler, inlärda över tiden, som kan påverka kvaliteten av programvaran
-* Många programvaror används bra mycket längre än orginalförfattaren trodde (ibland 40 år)
-* Ninety-ninety rule, allt som kan undvika det är värt att överväga
-
-</script>
-
-
-
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#No Silver Bullet, Brooks
-
-* No Silver Bullet — Essence and Accident in Software Engineering (pdf)
-* 'No Silver Bullet' Refired". The Mythical Man Month (Anniversary Edition)
- 
-</script>
-
-
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Skolbokslitteraturen
-
-* Se wikipwdia https://en.wikipedia.org/wiki/Best_coding_practices
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Vad säger folk i allmänhet
-
-*
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Vad sa undersökningen
-
-*
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Vad säger en programmeraren
-
-*
-
-</script>
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#Planeringsfilosofier
-
-the ninety-ninety rule is a humorous aphorism that states:
-
-    The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts for the other 90 percent of the development time.[1]
-    
-Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law.
-
-Small Matter of Programming (SMOP) or Simple Matter of Programming
-
-Planning fallacy 
-
-
-https://en.wikipedia.org/wiki/Law_of_Demeter
-
-
-</script>
-
-
 
 
 

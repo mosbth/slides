@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>JavaScript (javascript1 kmom06)</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#JavaScript
+##Modul
+###Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* MOdulbegreppet
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Stäm av arbetsförmedlingen
+
+* HTML (330/298), CSS (296/249), JavaScript (503/451), Node (110/92), PHP (238/210), Python (386/333), MySQL (115/99), Bash (56/50), Linux (522/442), Git (310)
+* React (172/143), Fullstack (77/49), devops (126/105)
+* .NET (534/529), C# (442/432), Java (640/574), C++ (444/398)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Vad har vi lärt oss?
+
+* JavaScript Core ES5
+* Closure, hoisting, iife
+* Module pattern
+* Objekt, {}, this, create, new
+* (ej prototyp-kedja/arv)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Mer...
+
+* JavaScript i webbläsaren
+* Eventstyrd programmering (event, callback)
+* GUI ger event
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Programmeringsparadigm
+
+* Imperativ
+* Objektorienterad
+* Funktionell
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Funktionell paradigm
+
+* Arv från Scheme/Lisp
+* Functions as first class objects
+* Rena funktioner (pure functions)
+    * Samma returvärde oavsett input
+    * Ej beroende mutable state
+    * No side affects
+* Immutable (alla datastrukturer)
+<!-- https://opensource.com/article/17/6/functional-javascript -->
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#DOM
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#DOM
+
+* W3C Document Object Model
+* Länken mellan JavaScript och webbläsarens document.
+* Specifikt för webbläsaren
+* Objektet `document`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/dom-tree.png" style="width: 60%; background-color: white;">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#DOM
+
+* Trädstruktur av noder
+* Innehåller bla:
+    * document.childNodes
+    * document.all
+* NodeList (statisk/dynamisk)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#DOM traversera
+
+```
+ni = document.createNodeIterator(
+    document.documentElement
+);
+
+while (current = ni.nextNode()) {
+    console.log(current.nodeName)
+};
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#DOM hämta element
+
+* `document.getElementById()`
+* `document.getElementsByClassName()`
+* `document.querySelectorAll()`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Webbläsaren som miljö
+
+* Referens via `window` objektet
+* Innehåller bla:
+    * windows.document
+    * windows.history
+    * windows.fullscreen
+    * window.location
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Låt kika utanför kursens låda
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#DOM relaterat
+
+* Virtual DOM (Single Page Applications (SPA))
+* W3C Shadow DOM (Web Components)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Fler spännande API:er i webbläsaren?
+
+* Device API (batteri, geolocation, screen, vibration)
+* Communications API (ajax, fetch)
+* Graphics, multimedia (canvas, webgl, video, audio, webrtc)
+* Web Storage (local storage, indexeddb)
+* Realtime (websockets, webworkers)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#JavaScript versioner
+
+* ES5
+* ES2015 (ES6)
+* ES2016 (ES7)
+* ES2017 (ES8)
+* Babel transpilering
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Node.js
+
+* JavaScript på serversidan (2009 Dahl)
+* NPM (2010)
+* Node.js kombinerar Google V8 JS motor, med eventloop och lågnivå API.
+* Asynkron programmeringsmodell
+* Saknar `document`och `window`
+* Node.js v8 stödjer ES2017
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Isomorphic JavaScript
+
+* Delad kod mellan server och klienten.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Single Page Application
+
+* SPA
+* JavaScript client side application
+* All kod finns i klienten
+* Hämtar info från servern för att renderas sidan i klienten
+* REST/JSON
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Moduler på klientsidan
+
+* Packa kod i återanvändbara moduler/filer
+* CommonJs, AMD, ES6 modules
+* Varje modul en extra HTTP request
+* webpack (bundler)
+* Serversidan enklare jobba med moduler (import/export/require)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#WebAssembly
+
+* Assembler kod i webbläsaren
+* Kompilera godtyckligt språk (C/C++) till WebAssembly
+* Kör i webbläsaren
+* Samverka med JavaScript
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Ramverk i JavaScript
+
+* Vardagsprogrammering i JS innebär ramverk
+* Ramverken är många och delvis unga
+* Klient, server eller både ock?
+* Flera beslut och många alternativ
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Frågor på det?
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/questions1.jpg" style="width: 100%">
+</script>
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
