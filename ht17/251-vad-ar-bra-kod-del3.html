@@ -252,6 +252,61 @@ return hours < 24
 
 
 <script data-role="slide" data-markdown type="text/html">
+# Koda enkelt 2...
+
+```
+if (isset($_GET["page"])) {
+    $page = $_GET["page"];
+} else {
+    $page = "home";
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Koda enkelt 2...
+
+```
+$page = "home";
+if (isset($_GET["page"])) {
+    $page = $_GET["page"];
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Koda enkelt 2...
+
+```
+// PHP Notice:  Undefined index: page
+$page = isset($_GET["page"]) ? $_GET["page"] : "home";
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Koda enkelt 2...
+
+```
+$page = isset($_GET["page"]) ? $_GET["page"] : "home";
+
+// NULL coalesce operator PHP 7.0
+$page = $_GET["page"] ?? "home";
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
 #Koda enkelt och läsbart
 
 * Använd en validator för kodstandard
