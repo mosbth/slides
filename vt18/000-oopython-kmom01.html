@@ -19,7 +19,7 @@
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
 #oopython kmom01
-###Andreas Arnesson, Mikael Roos, dbwebb
+###Andreas Arnesson, dbwebb
 </script>
 
 
@@ -30,6 +30,7 @@
 * Kursinnehåll
 * Programmeringsparadigmer
 * Allmänt om objektorientering
+* Pythons historia
 
 </script>
 
@@ -78,12 +79,27 @@
 #Olika Programmeringsparadigmer
 
 * Script
-* Strukturerad (filer, block, funktioner, moduler)
-* Objektorienterad
+* Imperativt
 * Funktionsorienterad
 * Eventstyrd, Asynkron
+* Objektorienterad
 
 </script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Varför OO?
+
+- Förenkla
+- Maintainable
+- Inkapsling
+- Generisk kod
+- Arv
+
+</script>
+
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
@@ -104,7 +120,6 @@
 
 * OO analys
 * OO design
-* OO designmönster
 * OO programmering
 
 </script>
@@ -113,31 +128,22 @@
 <script data-role="slide" data-markdown type="text/html">
 #UML
 
+<img src="img/oo-uml-diagrams.png" alt="" style="width: 50%; float:right">
+
 * Unified Modelling Language
 * Standardiserad (ISO, OMG)
 * Diagram struktur och beteende
 
 </script>
 
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#UML...
-
-* Kritik 
-    * not useful
-    * too complex
-    * UML & code in sync
-* Kontra automatiserad dokumentation av kod
-
-</script>
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Begrepp oo-modellering
+#Begrepp inom oo
 
-* Objekt, Klasser
-* Instanser, att instansiera ett objekt av en klass
-* Saker som har ett tillstånd, egenskaper
+* Klass
+* Objekt
+* Instans
 
 </script>
 
@@ -145,33 +151,77 @@
 <script data-role="slide" data-markdown type="text/html">
 #Begrepp...
 
-* properties, attributes
+<img src="img/oo-car.png" alt="" style="width: 50%; float:right">
+
+* attribut - tillstånd
 * Saker man kan göra nåt med
-* metoder, behaviours, actions
+* metoder - beteende
 
 </script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#self
+<pre data-code="c100"></pre>
+</script>
+
+<script id="c100" data-role="code" data-language="python" type="text/html">
+
+class Rectangle:
+    def __init__(self, h, w):
+        self.height = h
+        self.width = w
+    def area(self):
+        return self.height * self.width
+
+</script>
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Statiska
+
+- attribut
+- metoder
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kritik mot OO-programmering
+
+- inte 
+    - återanvändbart
+    - modulärt
+- komplext
+
+</script>
+
+
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 #Summering objekt
-
-> "An object is a collection of data and associated behaviors."
-
+    
+> "An object is a collection of data and associated behaviors."    
 </script>
 
 
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Kopplingar objekt
+#Historia
 
-* Bil är ett Fordon (is-a, arv)
-* Hus innehåller Lägenheter (består av, composition)
-* Stol finns i Lägenhet (innehåller, aggregation)
-* Associationer
-* Kardinalitet 
+- Indentering
+- for .. in .. **:**
 
 </script>
+
+
 
 
 
