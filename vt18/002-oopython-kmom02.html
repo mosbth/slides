@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>oopython kmom02</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#oopython kmom02
+###Andreas Arnesson, dbwebb
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Abstraktion
+* Inkapsling
+* Relationer inom OO
+* Arv
+* CGI
+* Pythons historia
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Abstraktion
+<img src="img/prog-abstr.png" alt="" style="width: 60%">
+    
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Inkapsling
+
+<img src="img/pub-hidden.png" alt="" style="width: 40%;float:right">
+
+* Public interface
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Inkapsling...
+
+<img src="img/encapsulation.png" alt="" style="width: 40%;float:right">
+
+* Public
+* Protected
+* Private
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Inkapsling i Python
+<pre data-code="c100"></pre>
+</script>
+<script id="c100" data-role="code" data-language="python" type="text/html">
+class A:
+    def __init__(self):
+        self._attr = 0
+    def _test (self):
+        pass
+</script>
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Relationer
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Relationer
+
+* Aggregation
+* Komposition
+* Association
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Relationer
+
+<pre data-code="c101"></pre>
+</script>
+<script id="c101" data-role="code" data-language="python" type="text/html">
+class House:
+    def __init__(self):
+        self.room = Room()
+house = House()
+-----------------------------
+room = Room()
+class House:
+    def __init__(self, room):
+        self.room = room
+House(room)
+</script>
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Arv
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Arv...
+
+* Överlagra / overload
+* Överskugga / overrida
+    * Name mangling
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Arv...
+
+* Multipelt Arv
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Arv...
+
+* Multipelt Arv
+<pre data-code="c102"></pre>
+</script>
+<script id="c102" data-role="code" data-language="python" type="text/html">
+class C(A,B):
+    super(C,self).__init__(...)
+
+</script>
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Arv...
+
+* Multipelt Arv
+<pre data-code="c103"></pre>
+</script>
+<script id="c103" data-role="code" data-language="python" type="text/html">
+self.calc(4,5) # ärvd metod
+self.b.calc(4,5) # komposition
+</script>
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Arv...
+
+* Mixins
+* Traits
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Polymorfism
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Duck typing
+
+> "If it walks like a duck or swims like a duck, it's a duck"
+
+> "We don't care if it really is a duck (inheritance), only that it swims or walks"
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Abstract Base Class
+
+* ABC
+<pre data-code="c104"></pre>
+</script>
+<script id="c104" data-role="code" data-language="python" type="text/html">
+import abc
+
+class A(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def test(self):
+        pass
+</script>
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Sammanfattning
+* Abstrahera
+* Inkapsling
+* Aggregation
+* Komposition
+* Arv
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# CGI
+* Common Gateway Interface
+    * API
+
+user (client) request for page ---> webserver ---[CGI]----> Server side Program (Flask)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Historia
+* Privata attribut/metoder
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Frågor på det?
+</script>
+
+
+
+<!--
+Modules and packages
+OO i python
+-->
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
