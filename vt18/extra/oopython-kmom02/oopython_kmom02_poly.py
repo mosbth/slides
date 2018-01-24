@@ -1,7 +1,7 @@
 class A:
     def update(self):
             print("base")
-class B(A):
+class B:
     def test(self):
             print("sub")
 
