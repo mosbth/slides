@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>linux sysadmin 101, del 2</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#linux sysadmin 101
+##del 2
+###Kenneth Lewenhagen, dbwebb
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Sysadmin 101, del 2
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Koll på läget
+
+* Shell
+* Startupfiler
+* Environ
+* Shell builtins
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Koll på läget...
+
+* Manualen
+* Vilket kommando
+* Pakethantering
+* Job control
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Frågor
+
+* Redirect output &, &> /dev/null
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Redirect output
+
+* &> /dev/null
+* echo "hej" > file
+* echo "hej" >> file
+* ls a > file, ls nono &> file
+* stdin, stdout, stderr
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Exit status
+
+* echo "moped" && echo $?
+* ls . && echo $?
+* ls nono && echo $?
+* ls nono; echo $?
+* man ls search exit values
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Job Control
+
+* sleep 10 && echo "Done sleeping"
+* Managera de processer du startat från shellet
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Process control
+
+* sleep 10 && echo "Done sleeping" &
+* ps aux, ps -ef, top, ps -ejH
+* PID, PPID, PGID
+* pgrep, pkill
+* kill -l, kill PID, kill -9 PID
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Logs
+
+* /var/logs
+* last, lastlog, who
+* tail -f file
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Bra att ha
+
+* touch, cat >
+* ctrl-d
+* exit
+* cat, less (more), head, tail
+* Editera på raden
+    *ctrl-a, ctrl-e, ctrl-k, ctrl-y, ctrl-d
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
