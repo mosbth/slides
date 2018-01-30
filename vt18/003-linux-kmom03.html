@@ -60,15 +60,6 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Frågor
-
-* Redirect output &, &> /dev/null
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
 #Redirect output
 
 * &> /dev/null
@@ -84,11 +75,27 @@
 <script data-role="slide" data-markdown type="text/html">
 #Exit status
 
-* echo "moped" && echo $?
+* echo "telefon" && echo $?
 * ls . && echo $?
 * ls nono && echo $?
 * ls nono; echo $?
 * man ls search exit values
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Exit codes
+
+<table>
+    <tr><th>Nr</th><th>Varför</th></tr>
+    <tr><td>0</td><td>No errors</td></tr>
+    <tr><td>1</td><td>Catchall general errors</td></tr>
+    <tr><td>2</td><td>Misuse of shell builtins</td></tr>
+    <tr><td>126</td><td>Command invoked cannot execute</td></tr>
+    <tr><td>127</td><td>Command not found</td></tr>
+</table>
 
 </script>
 
@@ -109,7 +116,7 @@
 
 * sleep 10 && echo "Done sleeping" &
 * ps aux, ps -ef, top, ps -ejH
-* PID, PPID, PGID
+* PID
 * pgrep, pkill
 * kill -l, kill PID, kill -9 PID
 
@@ -136,7 +143,10 @@
 * exit
 * cat, less (more), head, tail
 * Editera på raden
-    *ctrl-a, ctrl-e, ctrl-k, ctrl-y, ctrl-d
+    * ctrl-a, ctrl-e, ctrl-k, ctrl-y, ctrl-d
+    * ctrl-xx, ctrl-s, ctrl-q
+    * alt-f, alt-b, ctrl-b
+    * ctrl-r
 
 </script>
 
