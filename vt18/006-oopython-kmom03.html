@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>oopython kmom01</title>
+<title>oopython kmom03</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -18,19 +18,121 @@
 
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
-#oopython kmom01
+#oopython kmom03
 ###Andreas Arnesson, dbwebb
 </script>
 
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#UML...
+#Agenda
 
-* Kritik 
-    * not useful
-    * too complex
-    * UML & code in sync
+* Vad är UML?
+* Sekvensdiagram
+* Klassdiagram
+* Kritik
+* Pythons historia
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#vad är UML?
+
+* Unified Modelling Language
+* Standardiserad (ISO, OMG)
+* Diagram struktur och beteende
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#UML ...
+
+“Owning a hammer doesn’t make one an architect”
+
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+#Objekt Orienterad Analys och Design
+<img src="img/ooad.png" alt="" style="margin-left: 30%">
+
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+#Domain model
+<img src="img/dice-domain.png" alt="" style="">
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+#Interaction Diagrams
+<img src="img/dice-seq.png" alt="" style="">
+
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+#Class Diagrams
+<img src="img/dice-class.png" alt="" style="">
+
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+#Diagram
+<img src="img/oo-uml-diagrams.png" alt="" style="width: 70%; float:right">
+
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+#Sekvensdiagram
+<img src="img/dice-seq.png" alt="" style="width: 70%; float:right">
+
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+Main success scenario (or basic flow):  
+The Customer arrives at a POS checkout with items to purchase.  
+The cashier records the identifier for each item. If there is more than
+one of the same item, the Cashier can enter the quantity as well.  
+The system determines the item price and adds the item information to
+the running sales transaction. The description and the price of the current
+item are presented.  
+On completion of item entry, the Cashier indicates to the POS system 
+that item entry is complete.  
+The System calculates and presents the sale total.  
+The Cashier tells the customer the total.  
+The Customer gives a cash payment (“cash tendered”) possibly greater
+than the sale total.
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+Extensions (or alternative flows):  
+If customer didn’t have enough cash, cancel sales transaction.
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+#Klassdiagram
+<img src="img/dice-class.png" alt="" style="width: 70%; float:right">
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Användbarhet av UML
+
+* Beror på hur vi använder det.
+* Som en skiss eller dokumentation?
+    * Ett mål att sikta mot.
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Kritik
+
+* not useful
+* too complex
+* UML & code in sync
 * Kontra automatiserad dokumentation av kod
 
 </script>
@@ -38,13 +140,10 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
+#Historia
+Varför skapades Python var fick det sitt namn ifrån?
 </script>
 
-
-<!--
-Modules and packages
-OO i python
--->
 
 
 <!-- include essential js-script -->
