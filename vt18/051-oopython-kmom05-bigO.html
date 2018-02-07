@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom03 | Kursen databas</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# OOPython
+## Algoritmer och tidskomplexitet
+### Emil Folino, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Gauss
+
+* Modell och matematisk bakgrund
+
+* Exempel på algoritmer
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Material
+
+* Kenneth har gjort ett exempel (http://local.dbwebb.se/kunskap/sorteringsalgoritmer-v2#tidskomplexitet)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+
+# Gauss
+
+Summan från 1 till 100
+
+Lätt att lösa med programmering
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Gauss
+
+Insåg sambandet
+
+1 + 100 = 101
+
+2 + 99 = 101
+
+...
+
+50 + 51 = 101
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Gauss
+
+Insåg sambandet
+
+```
+total = n * (n + 1) / 2
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Modell
+
+* Sekventiell exekvering
+
+* Vanliga operatorer och operationer
+
+* \+ - * / = == osv.
+
+* Varje operation tar en tidsenhet: u
+
+* Simpel modell, men en bra utgångspunkt
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Matematisk bakgrund
+
+* n definierar antal input
+
+* I Gauss exemplet började vi med n=100
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Matematisk bakgrund forts.
+
+Vi vill ha ett mått för hur exekveringstiden växer.
+
+Använder oss av notation bigO eller kortare notation:
+<i>O</i>(n)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Analys Gauss
+
+Vi börjar med Brute-Force lösningen:
+
+```
+n = 100 # 1 u
+total = 0 # 1 u
+for i in range(1, n + 1):
+    total += i # 1 u
+```
+
+2C + C * n = <i>O</i>(n)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Analys Gauss
+
+Gauss samband:
+
+```
+n = 100 # 1 u
+total = n * (n + 1) / 2 # 3 u
+```
+
+4 * C = <i>O</i>(1)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Exempel på analys
+
+* Vi tar det i atom
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Algoritm analys för en webbprogrammerare
+
+* Inget ni kommer använda varje dag
+
+* Bra att känna till och vad man ska undvika
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<!-- empty slide by intention -->
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
