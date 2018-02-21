@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom06 | Kursen oopython</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# OOPython
+## Saker kring programmering
+### Andreas arnesson, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Refaktorera kod
+
+* Anti patterns
+
+* Fördelar och nackdelar med OO
+
+* Skolan vs Arbetslivet
+
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+# Refaktorering av kod
+
+* Förbättra utan att lägga till
+
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+
+# Smutsig kod
+
+* Det blir inte alltid som man tänker sig.
+
+* Genvägar
+
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+# Teknisk skuld
+
+* Ett lån på banken
+
+* Big O
+
+* Varför?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Vad är ren kod?
+
+* Lättläst
+
+* Simpel
+
+* DRY
+
+* Inte onödig kod
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Hur refaktorerar vi?
+
+* Koden ska bli renare
+
+* Ingen ny funktionalitet
+
+* Alla existerande tester är gröna
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Anti-patterns
+
+* Användandet av arv
+
+* Premature Optimization
+
+* Analysis paralysis
+
+* Magiska värden
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c100"></pre>
+</script>
+<script id="c100" data-role="code" data-language="python" type="text/html">
+For i in range(4):
+    For j in range(1,14):
+        Card(i, j)
+</script>
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+<pre data-code="c200"></pre>
+</script>
+<script id="c200" data-role="code" data-language="python" type="text/html">
+NUMBER_OF_SUITS  =  4
+CARDVALUES_MIN = 1
+CARDVALUES_UPPTO = 14
+For i in range(NUMBER_OF_SUITS ):
+    For j in range(CARDVALUES_MIN ,CARDVALUES_UPPTO):
+        Card(i, j)
+</script>
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+# Anti-patterns...
+
+* God class
+
+* Inte skapa nya klasser
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+# Analys Gauss
+
+Vi börjar med Brute-Force lösningen:
+
+```
+n = 100 # 1 u
+total = 0 # 1 u
+for i in range(1, n + 1):
+    total += i # 1 u
+```
+
+2C + C * n = <i>O</i>(n)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Analys Gauss
+
+Gauss samband:
+
+```
+n = 100 # 1 u
+total = n * (n + 1) / 2 # 3 u
+```
+
+4 * C = <i>O</i>(1)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Exempel på analys
+
+* Vi tar det i atom
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Algoritm analys för en webbprogrammerare
+
+* Inget ni kommer använda varje dag
+
+* Bra att känna till och vad man ska undvika
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<!-- empty slide by intention -->
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
