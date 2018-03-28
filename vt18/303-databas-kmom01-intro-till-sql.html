@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Intro till SQL | Kursen databas</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# Databas
+## Intro till SQL
+### Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* SQL
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Hur prata med databasen?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SQL
+
+* Structured Query Language
+* ISO Standard: SQL-87, SQL:92, SQL:1999, mfl
+* Grund, men varierar mellan RDBMS
+* Programmeringskonstruktioner som "vanligt" språk
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SQL DDL kontra DML
+
+* DDL - Data Definition Language
+* DML - Data Manipulation Language
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SQL DDL
+
+* CREATE DATABASE/TABLE/VIEW
+* DROP DATABASE/TABLE/VIEW
+* ALTER DATABASE/TABLE/VIEW
+* (definiera databasens schema/struktur)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SQL DML
+
+* SELECT
+* INSERT
+* UPDATE
+* DELETE
+* (manipulera innehållet i databasen)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Ett exempel
+
+```
+code        name        points    
+----------  ----------  ----------
+PA1439      htmlphp     7.5       
+PA1436      design      7.5       
+DV1531      python      7.5       
+DV1532      javascript  7.5       
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# CREATE DATABASE
+
+```sql
+CREATE DATABASE bth;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# CREATE TABLE
+
+```sql
+DROP TABLE IF EXISTS Course;
+CREATE TABLE Course
+(
+    "code" CHAR(6) PRIMARY KEY NOT NULL,
+    "name" VARCHAR(40) NOT NULL,
+    "points" REAL
+);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tänk på
+
+* Datatyper skiljer mellan DMBS
+* I grunden liknande datatyper
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# INSERT INTO
+
+```sql
+INSERT INTO Course VALUES ("DV1462", "htmlphp", 7.5);
+
+INSERT INTO Course (code, name) VALUES ("DV1462", "htmlphp");
+
+INSERT INTO Course VALUES 
+    ("PA1436", "design", 7.5),
+    ("DV1531", "python", 7.5),
+    ("DV1532", "javascript1", 7.5);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# UPDATE
+
+```sql
+UPDATE Course
+    SET
+        course = "PA1439"
+    WHERE
+        course = "DV1462"
+    LIMIT 1;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tänk på
+
+* UPDATE utan WHERE
+* UPDATE utan LIMIT 1?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SELECT
+
+```sql
+SELECT * FROM Course;
+SELECT name FROM Course;
+SELECT name, points FROM COURSE WHERE code = "PA1439";
+SELECT * FROM COURSE WHERE code LIKE "PA%";
+```
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# DELETE
+
+```sql
+DELETE FROM Course WHERE code LIKE "DV%";
+DELETE FROM Course WHERE code IN ("PA1439", "PA1436");
+DELETE FROM Course WHERE code = "PA1439" LIMIT 1;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tänk på
+
+* DELETE utan WHERE
+* DELETE utan LIMIT 1?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<!-- empty slide by intention -->
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+</html>
