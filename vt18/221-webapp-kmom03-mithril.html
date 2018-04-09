@@ -64,8 +64,8 @@ jQuery och prototype.js
 # Varför mithril?
 
 * Litet
-* Men innehåller router och XHR.
-* Modeller och vyer.
+* Men innehåller router och XHR
+* Modeller och vyer
 
 </script>
 
@@ -83,6 +83,10 @@ jQuery och prototype.js
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 # Virtuellt DOM
+
+[Vnodes](https://mithril.js.org/vnodes.html)
+
+[Github](https://github.com/MithrilJS/mithril.js/blob/next/render/vnode.js)
 </script>
 
 
@@ -90,6 +94,54 @@ jQuery och prototype.js
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
 # Renderingsordning
+
+```
+var m = require("mithril");
+var lager = require("../models/lager.js");
+
+module.exports = {
+    oninit: lager.getProducts,
+    view: function() {
+        return m("div", [
+            lager.products.map(function(product) {
+                return m("p", product.name);
+            })
+        ]);
+    }
+};
+```
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Renderingsordning forts.
+
+```
+var m = require("mithril");
+var lager = require("../models/lager.js"); (3 hämta data)
+
+module.exports = {
+    oninit: lager.getProducts, (1)
+    view: function() { (2) och (4)
+        return m("div", [
+            lager.products.map(function(product) {
+                return m("p", product.name);
+            })
+        ]);
+    }
+};
+```
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Renderingsordning forts.
+
+[Livscykel-metoder](https://mithril.js.org/lifecycle-methods.html)
 </script>
 
 
