@@ -28,7 +28,248 @@
 <script data-role="slide" data-markdown type="text/html">
 # Agenda
 
-* 
+* Om kmom03
+* Ramverk
+* Transaktioner
+* ER
+
+
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Databas import/export
+
+* LOAD DATA LOCAL INFILE
+* SELECT INTO OUTFILE
+* Se [inlägg i databas FAQ](https://dbwebb.se/t/7117)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Ramverk
+
+* Varför Express?
+* MEAN
+* Likhet med andra ramverk
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Ramverkstermer
+
+* Frontkontroller
+* Router (middleware)
+* POST, GET, PUT, DELETE, mfl
+* Vyer, templatefiler
+* Templatespråk
+* Katalogstrukturer
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Transaktioner
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Flytta pengar
+
+```
+SET @amount = 1.5;
+SET @from   = "1111";
+SET @to     = "2222";
+
+UPDATE account SET balance = balance + @amount WHERE id = @to;
+UPDATE account SET balance = balance - @amount WHERE id = @from;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Flytta pengar...
+
+```
+SET @amount = 1.5;
+SET @from   = "1111";
+SET @to     = "2222";
+
+UPDATE account SET balance = balance + @amount WHERE id = @to;
+-- Databasen krashar...
+UPDATE account SET balance = balance - @amount WHERE id = @from;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ACID
+
+* A (Atomicity, Atomär)
+* C (Consistency, Konsistent)
+* I (Isolation, Isolerad)
+* D (Durability, Bestående)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# A i ACID
+
+* A (Atomicity, Atomär)
+* En transaktion utförs som en enhet, eller inte alls, allt eller inget. Den är odelbar.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# C i ACID
+
+* C (Consistency, Konsistent)
+* Transaktionen flyttar databasen från ett giltigt läge till ett annat, konsistensbevarande och alla integritetsregler, begränsningar och cascade gäller.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# I i ACID
+
+* I (Isolation, Isolerad)
+* Även om flera transaktioner exekveras samtidigt så skall resultatet från transaktionerna betraktas som om de exekverades sekventiellt. En transaktion kan inte se effekter av en delvis exekverad transaktion.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# D i ACID
+
+* D (Durability, Bestående)
+* När en transaktion är committad så skall den vara beständig, även om strömmen går och databasmotorn krashar.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ACID summering
+
+* En transaktion skall alltså vara atomär (A), bevara konsistensen (C) i databasen, vara isolerad (I) från övriga transaktioner och vara beständig (D) när den är committad.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# TRANSACTION, COMMIT
+
+```
+SET @amount = 1.5;
+SET @from   = "1111";
+SET @to     = "2222";
+
+START TRANSACTION
+UPDATE account SET balance = balance + @amount WHERE id = @to;
+UPDATE account SET balance = balance - @amount WHERE id = @from;
+COMMIT
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# TRANSACTION, ROLLBACK
+
+```
+SET @amount = 1.5;
+SET @from   = "1111";
+SET @to     = "2222";
+
+START TRANSACTION
+
+SET @balance = (SELECT balance FROM account WHERE id = @from);
+IF @balance < @amount THEN ROLLBACK;
+
+UPDATE account SET balance = balance + @amount WHERE id = @to;
+UPDATE account SET balance = balance - @amount WHERE id = @from;
+
+COMMIT
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Transaktion uppgift
+
+* Flytta åt <b>båda</b> hållen.
+* Adam till Eva i webb, Eva till Adam i cli.
+* Unify koden ^^?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kod struktur cli/webb
+
+* Återanvänd kod mellan cli och webb.
+* Snygg utskrift av cli tabell?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ER
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ER attributstyper
+
+* Olika typer av attribut (konceptuell)
+* [Webb-boken](http://www.databasteknik.se/webbkursen/er/)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ER attributstyper...
+
+* Sammansatta attribut (landsnummer, riktnummer, telefonnummer)
+* Flervärda attribut (har många telefonnummer)
+* Härledda attribut (hur många bor i huset (sum lägenhet))
+* Svaga entitetstyper (lägenhet har rum)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ER till relationsmodell
+
+* Översätt konceptuell till logisk
+* [Webb-boken](http://www.databasteknik.se/webbkursen/er2relationer/index.html)
+* Steg 1-10
 
 </script>
 
@@ -37,7 +278,11 @@
 <script data-role="slide" data-markdown type="text/html">
 # Summering
 
-* 
+* Slutför ER modellen med logisk och fysisk modellering.
+* Generera SQL, nästa kmom använder vi det.
+* Bli kompis ramverket Express.
+* Bemästra felsökning och async/await i JS.
+* Fundera kodstruktur i cli/webb.
 
 </script>
 
