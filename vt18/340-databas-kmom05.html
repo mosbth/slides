@@ -28,31 +28,496 @@
 <script data-role="slide" data-markdown type="text/html">
 # Agenda
 
-* Normalisering?
-* DD autogenerering.
-* Crud, olika routes, middleware
-* Proc + trigger
+* Programmera i databasen
+* Compound statement syntax
+* Lagrad procedur
+* Trigger
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Normalisering
-
-* [Webb boken](http://www.databasteknik.se/webbkursen/normalisering/index.html)
-* Normalisering
-* Modellering utifrån en faktura, order.
-* Exempel från kurslistan.
+# Programmera i databasen
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Data Dictionary
+# Flytta pengar
 
-* DD versus ER modellering
+```
+SET @amount = 1.5;
+SET @from   = "1111";
+SET @to     = "2222";
+
+START TRANSACTION;
+
+SET @balance = (SELECT balance FROM account WHERE id = @from);
+IF @balance < @amount THEN ROLLBACK;
+
+UPDATE account SET balance = balance + @amount WHERE id = @to;
+UPDATE account SET balance = balance - @amount WHERE id = @from;
+
+COMMIT;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# MySQL och SET
+
+* Användadefinierade variabler @amount
+* Globala systemvariabler
+* Lokala variabler (compound statement)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Användardefinierade variabler
+
+```
+SET @amount = 1.5;
+SET @from   = "1111";
+SET @to     = "2222";
+SET @balance = (SELECT balance FROM account WHERE id = @from);
+
+SELECT balance INTO @balance FROM account WHERE id = @from;
+SELECT @balance;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Globala systemvariabler
+
+```
+SHOW VARIABLES;
+SHOW VARIABLES LIKE "%cache%";
+
+SELECT @@have_query_cache;
+SELECT @@global.secure_file_priv;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Lokala variabler
+
+```
+BEGIN
+	DECLARE aBalance INT;
+    DECLARE aId INT;
+    DECLARE aWho VARCHAR(20) DEFAULT "mos";
+    
+    SET aId = 1111;
+    SET aWho = "MegaMos";
+
+	SELECT balance INTO aBalance FROM account WHERE id = aId;
+    SELECT aWho, aId, aBalance;
+END
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Compound statements
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Compound statements
+
+* Inuti "lagrade program" (i databasen)
+* Lagrade procedurer (stored procedures, sp)
+* Triggers
+* Funktioner (Used defined functions, udf)
+* Event
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Delimiter
+
+```
+DELIMITER ;;
+BEGIN
+    -- Statements
+END;;
+DELIMITER ;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Variabler
+
+```
+DELIMITER ;;
+BEGIN
+	DECLARE aBalance INT;
+    DECLARE aId INT;
+    
+    SET aId = 1111;
+    SET aBalance = (SELECT balance FROM account WHERE id = aId);
+
+	SELECT balance INTO aBalance FROM account WHERE id = aId;
+END;;
+DELIMITER ;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# IF
+
+```
+DELIMITER ;;
+BEGIN
+	DECLARE aBalance INT DEFAULT 7;
+
+    IF aBalance < 0 THEN
+        SELECT "A";
+    ELSEIF aBalance < 3 THEN
+        SELECT "B";
+    ELSE
+        SELECT "C";
+    END IF;
+END;;
+DELIMITER ;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Lagrad procedur
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Lagrad procedur
+
+* Stored procedure, SP
+* Litet program som lagras i databasen
+* Anropas med CALL
+* In, ut parametrar
+* Leverera resultset(s)
+* API mot databasen
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# En lagrad proc
+
+```
+DROP PROCEDURE IF EXISTS myTestProc;
+
+DELIMITER ;;
+CREATE PROCEDURE myTestProc ()
+BEGIN
+    -- Statements
+END;;
+DELIMITER ;
+
+CALL myTestProc();
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# En lagrad proc
+
+```
+CREATE PROCEDURE myTestProc ()
+BEGIN
+    DECLARE aBalance INT DEFAULT 7;
+
+    IF aBalance < 0 THEN
+        SELECT "A";
+    ELSEIF aBalance < 3 THEN
+        SELECT "B";
+    ELSE
+        SELECT "C";
+    END IF;
+END;;
+
+CALL myTestProc(); -- C
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Inparametrar
+
+```
+CREATE PROCEDURE myTestProc (
+    pBalance INT
+)
+BEGIN
+    DECLARE aBalance INT DEFAULT 7;
+
+    aBalance = pBalance;
+
+    -- IF statement
+END;;
+
+CALL myTestProc(-1); -- A
+CALL myTestProc(1);  -- B
+CALL myTestProc(7);  -- C
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# In och ut-parametrar
+
+```
+CREATE PROCEDURE myTestProc (
+    INOUT pBalance INT
+)
+BEGIN
+    SET pBalance = pBalance + 1;
+END;;
+
+SET @val = 1;
+CALL myTestProc(@val);
+SELECT @val; -- 2
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# In och ut-parametrar
+
+```
+CREATE PROCEDURE myTestProc (
+	IN pBalance INT,
+    OUT pSum INT
+)
+BEGIN
+	SET pSum = pBalance + 1;
+END;;
+
+SET @val = 0;
+CALL myTestProc(41, @val);
+SELECT @val; -- 42
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Resultsets
+
+```
+CREATE PROCEDURE myTestProc (
+	IN pId INT
+)
+BEGIN
+	SELECT * FROM account;
+    SELECT balance FROM account WHERE id = pId;
+END;;
+
+CALL myTestProc(1111); -- 2 resultsets
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Se detaljer om proc
+
+```
+SHOW PROCEDURE STATUS;
+SHOW PROCEDURE STATUS LIKE/WHERE ...;
+
+SHOW CREATE PROCEDURE moveMoney;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Felsök med varning
+
+```
+mysql> CALL editAccount("1337", "Mega", 4200000);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+SHOW WARNINGS;
+```
+</script>
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Varför proc?
+
+* \+ Komplicerade konstruktioner
+* \+ Dölj databasimplementation bakom API
+* \- Databasspecifik kod.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Trigger
+
+</script>
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Exempel
+
+* Flytta pengar mellan konton
+* Logga information om pengaflytten
+
+```
+CALL moveMoney(1111, 2222, 1.5);
+SELECT * FROM log ORDER BY timestamp DESC LIMIT 2;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Triggers sker på
+
+* INSERT account
+* UPDATE account
+* DELETE account
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Exempel
+
+```
+DROP TRIGGER IF EXISTS LogBalanceUpdate;
+
+CREATE TRIGGER LogBalanceUpdate
+AFTER UPDATE
+ON account FOR EACH ROW
+    INSERT INTO accountLog (`what`, `account`, `balance`, `amount`)
+        VALUES ("trigger", NEW.id, NEW.balance, NEW.balance - OLD.balance);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Varianter på trigger
+
+* INSERT, UPDATE, DELETE
+* BEFORE, AFTER
+* NEW, OLD
+* Med eller utan compound statement
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Admin
+
+```
+SHOW TRIGGERS
+    [{FROM | IN} db_name]
+    [LIKE 'pattern' | WHERE expr]
+
+SHOW CREATE TRIGGER <trigger-name>;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Varför triggers?
+
+* \+ Få saker att hända automatiskt
+* \- Saker händer automatiskt
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Låt oss avsluta
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Mer om compound statm
+
+* CASE-WHEN-THEN
+* LOOP, REPEAT-UNTIL, WHILE-DO
+    * ITERATE/LEAVE
+* CURSOR (iterate a resultset)
+* Condition handling (något händer...)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# JavaScript mot SP
+
+* Resultset innehåller två delar
+    * Resultset från query(ies)
+    * Status för anropet
+* Hur hanteras OUT, INOUT?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Enhetstesta SP
+
+* Kan man göra det?
 
 </script>
 
@@ -61,7 +526,10 @@
 <script data-role="slide" data-markdown type="text/html">
 # Summering
 
-* 
+* Compound statements
+* Lagrade procedurer
+* Triggers
+* Tänk API mot databasen
 
 </script>
 
