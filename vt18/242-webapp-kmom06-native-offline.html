@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>webapp kmom06</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# webapp kmom05
+## Cross-platform och native funktionalitet
+### Andreas Arnesson, dbwebb
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Native funktionalitet
+* Cross-platform tools
+* Utveckla för mobilen
+* Offline app
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Native funktioner
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Funktionalitet
+
+* Notifikationer
+* GPS
+* Kamera
+* Accelerometer
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Funktionalitet forts...
+
+* Kontakter
+* Tal
+* Filer
+* Localization
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Cross-platform tools
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+[Smartphone OS market](https://www.idc.com/promo/smartphone-market-share/RESOURCES/IMAGES/chart-ww-smartphone-os-market-share.jpg)
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Fördelar med CPT
+
+* Mindre kunskap
+* Mindre kod och utveckling
+* Mindre maintenance
+* Större marknadsdelar
+* Enhetlig design
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+Skillnader mellan olika CPT typerna:
+|       Avantages      |  WebApp  |  Hybrid  |  Compiled  |
+|:--------------------:|:------:|:------:|:--------:|
+|    No installation   |    x   |        |          |
+|     Use App store     |        |    x   |     x    |
+|   Interface resuse   |    x   |    x   |          |
+|   Native funktions   |        |    x   |     x    |
+| Native look and feel |        |        |     x    |
+| No internet connection|     |    x    |    x     |
+| No extra tool to develop |  x   |       |        |
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+[Cordova plugins](https://cordova.apache.org/docs/en/latest/#plugin-apis)
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Att uveckla för mobilen
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Begränsade resurser
+
+* Batteri
+* Internet
+* Prestanda
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Varför avinstalleras appar?
+
+* Missbrukar integritet
+* Ostabil prestanda
+* Långsam
+* Slukar batteri
+* Dåligt interface
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Praktiska råd
+
+* Använd inte .length/size i loopar
+* 69% av en applikations batteri användning sker i idle state
+* Optimera färgschemat
+* Begränsa API anrop 
+* HTTP request drar mycket batteri
+* Stäng av sensorer när de inte används
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Cordova råd
+
+* Touchstart istället för klick
+* Minifiera filer
+* Används jslint
+* Använd inte JQuery
+* CSS animationer istället för DOM manip. i js
+* Undvik globala variabler
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Cordova och filer
+
+## Cacha data och spara i filer
+[Cordova plugins](https://cordova.apache.org/docs/en/latest/#plugin-apis)
+
+[PhonGap](http://docs.phonegap.com/en/1.3.0/phonegap_file_file.md.htm)
+</script>
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
