@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>kmom02 | oophp</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# oophp
+## kmom02
+### Mikael Roos
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Repetition kmom01
+* Intro till kmom02
+* Koda i ramverket
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Repetition kmom01
+
+* [Kika guiden om objekt och klasser](https://dbwebb.se/guide/kom-igang-med-objektorienterad-programmering-i-php/objekt-och-klass)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Kmom02
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Klasser
+
+* Namespace
+* Arv
+* Komposition
+* Refactoring
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Namespace
+
+* Egen namnrymd, undvik variabelkrockar
+* Klasser, funktioner, variabler
+* Koppling till autoloader
+* Ger sökväg till klassfilen på disk
+* PSR-4: Autoloader
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Arv
+
+* Klass extends klass;
+* Ärv en klass
+* Ej multipelt arv
+* Konstruktor och destructor
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Arv...
+
+* Subklassen når "allt" i förälderklassen
+* Allt som är public, protected, ej private
+* self::
+* parent::
+* $this->
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Komposition
+
+* Komposition (hård), aggregat (lös)
+* Samma kod - klassen innehåller andra objekt
+
+```
+// In class DiceHand
+$this->dice = new Dice();
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Komposition eller Arv?
+
+* Föredra komposition
+* Tänk API mot klassen
+* Publikt API och dolt
+* Inkapsling
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Refactoring
+
+* Bygg om koden när förutsättningarna ändras
+* Inkapsling underlättar refactoring
+* Ändra interna saker
+* Ändra inte publikt API
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Versionshantering
+
+* [Semantic versioning](https://semver.org/)
+* MAJOR.MINOR.PATCH
+* v1, v2
+* v1.1, v1.2, v1.3
+* v1.1.1, v1.1.2, v1.1.3
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Bakåtkompatibel
+
+* Ändra inte publikt API
+* Ändra enbart PATCH
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# make doc
+
+* [DocBloc](https://dbwebb.se/guide/kom-igang-med-objektorienterad-programmering-i-php/docblock-kommentarer)
+* make install
+* make doc
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Gissa spelet till ramverket
+
+* Låt oss kika på ett exempel
+* Koda objektorienterat in i ramverket
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
