@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>Tips kmom02 | htmlphp</title>
+<title>Responsiv webbplats | htmlphp</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -18,8 +18,8 @@
 
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
-# Kursen htmlphp
-## Tips kmom02
+# Responsiv webbplats
+## htmlphp
 ### Mikael Roos
 </script>
 
@@ -28,13 +28,7 @@
 <script data-role="slide" data-markdown type="text/html">
 # Agenda
 
-* Responsivitet
-* Några tips
-
-* Felsökning och problem
-* Vad är en bra och en ful lösning?
-* Vad är vacker kod?
-* Varför gör man extrauppgifterna?
+* Om responsiv webbplats
 
 </script>
 
@@ -42,19 +36,10 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-# GrillCon
+# Verktyg
 
-* https://grillcon.dbwebb.se
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-# Redovisningstrådar
-
-* Show off?
+* Inspect element
+* Devtools mobile mode/responsive design mode
 
 </script>
 
@@ -62,24 +47,10 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-# Webbplatsen ser udda ut?
+# Mobile-first design (2009)
 
-* Publicera och länka.
-* Hur återskapa felet?
-* Vad ser du och vad förväntar du dig att se?
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-# Dela med dig
-
-* Gist
-* Codeshare
-* Skärmdumpa bilder (rita på dem)
-* Formattera med Markdown i gitter
+* Designa för minsta möjliga device först, anpassa uppåt till desktop.
+* "Mobile version of a website should be at the heart of the design strategy"
 
 </script>
 
@@ -87,9 +58,12 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-# dbwebb publishpure
+# Responsive web design (2010)
 
-* Publicera snabbt och med rätt radnummer
+* En version av webbplatser för alla enheter
+* "Design is automatically adjusted based on the size of users’ screens".
+* "Day by day, the number of devices, platforms, and browsers that need to work with your site grows."
+* Media queries vid brytpunkter
 
 </script>
 
@@ -97,11 +71,24 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-# Vem ser vad?
+# Adaptive web design (2011)
 
-* Servern ser php-koden (atom)
-* Webbläsaren får en html-sida (högerklicka visa källkod)
-* Webbläsaren tolkar html-sidan (inspect devtools)
+* Progressive enhancement, kolla enheten och gör bästa möjliga design
+* Uppgradera designen, beroende av enheten
+* Bygg om designen för olika enheter
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# En design per enhet
+
+* Flera versioner av webbplatsen
+* Kan bygga specifika designer mot en viss enhet
+* Mobilspecifik webbplats
+* Läsplattespecifik version
 
 </script>
 
