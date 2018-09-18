@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Säkerhet kmom03 | htmlphp</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# Kursen htmlphp
+## Säkerhet kmom03
+### Mikael Roos
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Några tips
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Lita inte på någon
+
+* [Cross Site Scripting (XSS)](https://dbwebb.se/blogg/grundregel-1a-i-cross-site-scripting-xss-lita-inte-pa-nagon)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Princip för XSS
+
+```
+?page=<script>alert("You got XSS:ed. Got ya.");</script>
+```
+
+```html
+<?= $_GET["page"] ?>
+<?= htmlentities($_GET["page"]) ?>
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# File inclusion
+
+```
+?page=../../../../etc/passwd
+?page=../../../../var/log/php.log
+```
+
+```html
+<?php require "{$_GET["page"]}"; ?>
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Testa inkommande värden
+
+```php
+// Get what subpage to show, defaults to index
+$id = $_GET["id"] ?? -1;
+
+// Check if id is numeric.
+if (!is_numeric($id)) {
+    die("Invalid id, must be a number.");
+} 
+
+// Continue to do actual work, now a bit more safe
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Header injection
+
+```php
+
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
