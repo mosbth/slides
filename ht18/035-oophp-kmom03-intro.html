@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>kmom03 | oophp</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# oophp
+## kmom03
+### Mikael Roos
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Intro till kmom03
+* Enhetstestning
+* Koda i ramverket
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Installera phpunit
+
+* Installera phpunit som phar-fil på datorn
+* xdebug
+* Installera phpunit med composer i repot
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Jobba med kodmoduler
+
+* Exempel [anax/router](https://github.com/canax/router)
+* Clone, Git tag
+* make install (Vad installeras?)
+* make test
+* firefox build/
+* Se kodvalideringstjänsterna
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Cyclomatisk komplexitet
+
+* phpmd ger råd
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Tänk enhetstest
+
+> Martin Fowler: "Whenever you are tempted to type something into a print statement or a debugger expression, write it as a test instead."
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Tänk enhetstest...
+
+* Koda i cli, istället för att göra reload i webbläsaren.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Tänk enhetstest...
+
+* **Använd klassens publika API**
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Vad är enhetstester
+
+* En klass/enhet med kod
+* Testobjekt
+* En testklass, eller flera, testar klassen/enheten
+* Exekvera all kod, alla varianter i klassen/enheten
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Vad är phpunit
+
+1. Tester för Class i ClassTest.
+1. ClassTest extends PHPUnit\Framework\TestCase.
+1. Tester är publika metoder test*().
+1. Inuti metoder utför asserts.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Testmetod
+
+* Isolerad, körs oberoende av varandra
+* @depends
+* Data providers (@dataProvider)
+* Testa exceptions (@expectedException)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Fixtures
+
+* setUp(), tearDown()
+* setUpBeforeClass(), tearDownAfterClass()
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Asserts
+
+* assertEquals($expected, $actual)
+* assertFalse($actual)
+* assertContains($needle, $haystack)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Testrunner
+
+* phpunit
+* make phpunit
+* Konfigfilen
+* Status per test .FERSI
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# TestDox
+
+* Generera documentation
+* Tänk till när man döper testmetoderna
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Organisera tester
+
+* src/
+* test/
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Testa annan kod
+
+* Funktioner
+* config/*.php
+* Templatefiler
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Testa output
+
+* Output med ob_start
+* Inbyggd test output
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Test doubles
+
+* Ersätt objekt med test double
+* Stubs
+* Mocka klasser/objekt/kod
+* När kod är beroende av annan kod
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Kodtäckning
+
+* Täck alla kodrader med ett eller flera testfall
+* Räcker det att raden är grön?
+* Hur många tester för en if-sats?
+* Hur många tester för en range av värden?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Typ av tester
+
+* Automatiserade build tester
+* Regressionstester
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Gräns mellan tester
+
+* Enhetstest kontra funktionstest
+* Kan man funktionstesta med phpunit?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Bygg testbar kod
+
+* Tänk om klassen är testbar
+* Gå all kod att nå via testklassen?
+* Får man lägga till metoder enbart för testsyfte?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Testdriven utveckling
+
+* TDD
+* Test Driven Development
+* Skriv testfallet först, se det misslyckas, skriv koden tills testerna fungerar.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# me/redovisa
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Lokal testmiljö
+
+* make install
+* Repo "selfcontained" test- och utvecklingsmiljö
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Test suite
+
+* make test
+* Spara loggfiler i build/
+* phpcs, phpmd, phploc, mfl
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Kodtäckning
+
+* make test
+* firefox build/
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Enhetstesta minesweeper
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Inject dependencies
+
+* Klass som använder $app
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Gissa spelet till ramverket
+
+* Använd inte $\_GET, $\_POST, $\_SESSION.
+* Små, minimala routes.
+* 100% kodtäckning?
+* Fixa egna badges?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
