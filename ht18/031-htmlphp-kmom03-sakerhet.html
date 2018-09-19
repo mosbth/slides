@@ -61,10 +61,10 @@
 # Princip för XSS
 
 ```
-?page=<script>alert("You got XSS:ed. Got ya.");</script>
+?page=< script>alert("You got XSS:ed. Got ya.");</ script>
 ```
 
-```html
+```
 <?= $_GET["page"] ?>
 <?= htmlentities($_GET["page"]) ?>
 ```
