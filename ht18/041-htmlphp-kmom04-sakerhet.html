@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>Säkerhet kmom03 | htmlphp</title>
+<title>Säkerhet kmom04 | htmlphp</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -19,7 +19,7 @@
 <!-- Here comes the slides in order -->
 <script data-role="slide" data-markdown type="text/html">
 # Kursen htmlphp
-## Säkerhet kmom03
+## Säkerhet kmom04
 ### Mikael Roos
 </script>
 
@@ -28,7 +28,7 @@
 <script data-role="slide" data-markdown type="text/html">
 # Agenda
 
-* Några tips och exempel på hur säkerhetshål fungerar i PHP
+* Några tips och exempel på hur formulär och injections fungerar
 * Exempelprogram i kursrepot under example/security
 
 </script>
@@ -37,54 +37,9 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-# Klicka på min länk!
+# Bild formulär injection?
 
-* Mailscam
-* Av användaren uppdaterad länk
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-# Lita inte på någon
-
-* [Cross Site Scripting (XSS)](https://dbwebb.se/blogg/grundregel-1a-i-cross-site-scripting-xss-lita-inte-pa-nagon)
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-# Princip för XSS
-
-```
-?page=<script>alert("You got XSS:ed. Got ya.");</script>
-```
-
-```html
-<?= $_GET["page"] ?>
-<?= htmlentities($_GET["page"]) ?>
-```
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-# File inclusion
-
-```
-?page=../../../../etc/passwd
-?page=../../../../var/log/php.log
-```
-
-```html
-<?php require "{$_GET["page"]}"; ?>
-```
+* SQL injection
 
 </script>
 
@@ -112,12 +67,10 @@ if (!is_numeric($id)) {
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-# Testa inkommande värdemängd
+# GET formulär
 
-* Lägg giltig värdemängd i array
-* Kolla om värdet ligger i arrayen
-* Gör känslig operation
-* Jämför hur multisidan inkluderar en fil baserat på GET
+* Inloggning
+* Loggas i loggen (gör file inclusion)
 
 </script>
 
@@ -125,12 +78,24 @@ if (!is_numeric($id)) {
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-# Summera
+# POST 
 
-* Lita inte på värden som kommer in
-* Fundera alltid på var värdet kan sättas/ändras
-* Osäker på värdet? Mappa mot något du känner igen
-* htmlentities för att skriva ut säkert i webbsidan
+* ?
+* hidden?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Header injection
+
+* Spara till fil, kombinera file injection?
+
+```php
+
+```
 
 </script>
 
