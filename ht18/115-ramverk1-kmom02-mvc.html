@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom02 | kursen ramverk1</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursen ramverk1
+## Kmom02
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Tips
+* MVC
+* Solid
+* Cohesion / Coupling
+* Uppgiften
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Generellt
+
+* Visa din sida?
+* Migrera me/redovisa
+* Hur länka?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Enhetstester
+
+* Hur nå 100% kodtäckning (städa)
+* Hur simulera GET, POST, SERVER i tester
+* Data provider
+* Testa kontroller-metod som gör redirect
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# RTFM
+
+* Symfony
+* Laravel
+* Phalcon
+* Yii
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Design mönster
+
+* Software design pattern
+* "reusable solution to a commonly occurring problem"
+* "within a given context in software design"
+* Formalized best practice
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Design mönster...
+
+* Bok GoF, Gang of Four (1987)
+* Design Patterns: Elements of Reusable Object-Oriented Software
+* Folk är benägna att alltid försöka finna en källa till var allt började...
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Design mönster...
+
+* dbwebb tips, artikel, övning, uppgift
+* dbwebb kursmoment
+* dbwebb kurs
+* dbwebb kurspaket
+* formalisera, produktifiera
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Design mönster...
+
+* Leta lösningar via mönster
+* Snabbare/säkrare utveckling
+* Kvalitetssäkran
+* Terminologi för samtal
+* Överanvänds?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# MVC
+
+* Model
+* View
+* Controller
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/mvc_start.png" style="width: 100%; background-color: white;" title="MVC">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/MVC-Process.svg" style="width: 65%; background-color: white;" title="MVC">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/Model_View_Presenter_GUI_Design_Pattern.png" style="width: 80%;" title="Model–view–presenter (MVP) for Graphical User Interface (GUI)">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/MVVMPattern.png" style="width: 100%;" title="Model–view–presenter (MVP) for Graphical User Interface (GUI), example Mithril">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Liknande pattern
+
+* Presentation–abstraction–control (PAC) (Drupal)
+* Hierarchical model–view–controller (HMVC)
+* Model–view–adapter (MVA)
+* Model–view–viewmodel (MVVM)
+* Model–view–presenter (MVP) (GUI)
+
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Model
+
+* Modellklasser
+* Modellagret
+* Affärslogik
+* Datalager
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tänk kodningsstruktur
+
+* Dumma vyer
+* Tunna kontroller-klasser
+* Vem pratar med vem?
+* Injecta beroenden
+* Logik och intelligens i modell-lagret
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kontroller + Vy är limmet som gör modell-lagret till en webbtjänst/applikation
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# MVC fördelar
+
+* Arbetsfördelning per kompetens
+* Generell kodstruktur
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SOLID
+
+* Single responsibility
+* Open/Closed
+* Liskov substitution
+* Interface segregation
+* Dependency inversion
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Single responsibility principle
+
+* "A class should have only a single responsibility"
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Open/closed principle
+
+* "software entities … should be open for extension, but closed for modification."
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Liskov substitution principle
+
+* "objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program."
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Interface segregation principle
+
+* "many client-specific interfaces are better than one general-purpose interface."
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Dependency inversion principle
+
+* one should "depend upon abstractions, [not] concretions."
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SOLID
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Cohesion / Coupling
+
+* Software metrics
+* Koncept som hjälper oss samtal om koden
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Cohesion
+
+* "degree to which the elements inside a module belong together"
+* "some unifying purpose or concept served by that class"
+* Hör sakerna ihop i klassen?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Coupling
+
+* "degree of interdependence between software modules"
+* "a measure of how closely connected two routines or modules are"
+* Hur hårt kopplade är klasser/moduler till varandra?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+> "Low coupling is often a sign of a well-structured computer system and a good design, and when combined with high cohesion, supports the general goals of high readability and maintainability."
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Summera
+
+* MVC (och varianter)
+* SOLID
+* Cohesion / Coupling
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Uppgiften
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Externa tjänster
+
+* https://ipstack.com/
+* https://www.openstreetmap.org/
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tips
+
+* Wrappa cURL i en egen klass.
+* Separera i egna modell-klasser.
+* Injecta de ramverkstjänster som behövs från kontroller-lagret.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
