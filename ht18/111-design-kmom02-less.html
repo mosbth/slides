@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom02 | kursen design</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursen design
+## Kmom02 LESS
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* CSS Preprocessor
+* LESS
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# CSS preprocessor
+
+* [LESS](http://lesscss.org/)
+* [SASS, SCSS](http://sass-lang.com/guide)
+* [Stylus](http://stylus-lang.com/)
+* CSS och standardisering
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Byggmiljö LESS
+
+* Kompilator LESS (lessc)
+* Linter LESS (lessc --lint)
+* Linter CSS (eslint/csslint)
+* npm scripts / make
+* Kompilera om vid ändring?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Makefilen
+
+* me/redovisa [make theme](https://github.com/dbwebb-se/design/blob/master/example/redovisa/Makefile)
+* me/redovisa/theme [make build](https://github.com/dbwebb-se/design/blob/master/example/theme/Makefile)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Testa konstruktioner
+
+* [Less to css online](http://lesscss.org/less-preview/)
+* [Codepen](https://codepen.io/mosbth/pen/rWjPJw)
+* example/less
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# LESS - språkets grunder
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Variabler
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Variabler
+
+```less
+@some: #fff;
+
+div {
+  color: @some;
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Variabel interpolation
+
+```less
+@magicNumber: 24px;
+@gridImage: "../img/theme/@{magicNumber}.png";
+
+div {
+  background-image: @gridImage;
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Lazy evaluation
+
+```less
+div {
+  margin-bottom: @magicNumber;
+}
+
+@magicNumber: 24px;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Last definition used
+
+```less
+@magicNumber: 24px;
+
+div {
+  margin-bottom: @magicNumber;
+}
+
+@magicNumber: 22px;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Last definition, scoped
+
+```less
+@magicNumber: 24px;
+
+div {
+  margin-bottom: @magicNumber;
+  @magicNumber: 20px;
+}
+
+@magicNumber: 22px;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Default variable
+
+```less
+// The module
+@magicNumber: 24px;
+
+div {
+  margin-bottom: @magicNumber;
+}
+
+// Using the module
+@import "module.less";
+@magicNumber: 22px;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Nested rule
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Nested rule
+
+```less
+.figure {
+    display: table;
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Parent selector
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Parent selector
+
+```less
+a {
+  color: blue;
+
+  &:hover {
+    color: green;
+  }
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Operations
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Räkna
+
+```less
+@columnWidth:   30;
+@gutterWidth:   10;
+@columns:       24;
+
+@gridSystemWidth: @columns * (@columnWidth + @gutterWidth) * 1px;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Mixin
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Klass (steg 1)
+
+```less
+@columnWidth:   30;
+@gutterWidth:   10;
+@columns:       24;
+
+.grid {
+  @gridSystemWidth: @columns * (@columnWidth + @gutterWidth) * 1px;
+  max-width: @gridSystemWidth;
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Mixin (steg 2)
+
+```less
+@columnWidth:   30;
+@gutterWidth:   10;
+@columns:       24;
+
+.grid() {
+  @gridSystemWidth: @columns * (@columnWidth + @gutterWidth) * 1px;
+  max-width: @gridSystemWidth;
+}
+
+body {
+    .grid();
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Mixin argument
+
+```less
+.grid(@maxWidth) {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: @maxWidth;
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Mixin arguments
+
+```less
+.showGrid(@maxWidth, @gridImage) {
+    background: url("@{gridImage}") repeat-y fixed center center;
+    background-size: 100% auto;
+
+    @media (min-width: @maxWidth) {
+        background-size: @maxWidth auto;
+    }
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Mixin default argument
+
+```less
+.someMixin(@color: #fff) {
+    background: @color;
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Om LESS
+
+* [Referensmanual på lesscss.org](http://lesscss.org/)
+* [Kompilator (npm)](https://www.npmjs.com/package/less)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
