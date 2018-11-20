@@ -27,10 +27,8 @@
 <script data-role="slide" data-markdown type="text/html">
 # Agenda
 
-* Tips
-* MVC
-* Solid
-* Cohesion / Coupling
+* Förra veckan
+* $di
 * Uppgiften
 
 </script>
@@ -238,7 +236,7 @@
 * Designmönster
 * Jämför med designmönster Registry.
 * Ett centralt register.
-* Där alla tjänster kan hämtas.
+* Plats där tjänster/objekt kan hämtas.
 
 </script>
 
@@ -256,7 +254,7 @@
 <script data-role="slide" data-markdown type="text/html">
 # Summera DI
 
-* Vi har en service container $di där ramverkets tjänster är (globalt) tillgängliga.
+* Vi har en (global) service container $di där ramverkets tjänster är lazy loaded och tillgängliga.
 
 </script>
 
@@ -303,7 +301,7 @@
 * Injecta de ramverkstjänster som behövs från kontroller-lagret.
 * Lagra konfiguration i `config/`.
 * Läs config-filer med $di->get("configuration");
-* Om [API dokumentation](https://rem.dbwebb.se).
+* Separata vyer.
 
 </script>
 
@@ -312,6 +310,7 @@
 <script data-role="slide" data-markdown type="text/html">
 # Tips...
 
+* Om [API dokumentation](https://rem.dbwebb.se).
 * Känner du behovet av att logga saker till fil?
 * Känner du behovet av att cacha svar från externa tjänster?
 
