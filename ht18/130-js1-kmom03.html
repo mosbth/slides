@@ -288,7 +288,7 @@ outerFunction();
 
 <script id="a9" data-role="code" data-language="javascript" type="text/html">
 // IIFE
-(function printAnswer() {
+(function () {
     console.log(42);
 })(); // 42
 </script>
@@ -301,7 +301,7 @@ outerFunction();
 </script>
 
 <script id="a10" data-role="code" data-language="javascript" type="text/html">
-(function printAnswer(value) {
+(function (value) {
     console.log(value);
 })(42); // 42
 </script>
@@ -331,6 +331,34 @@ adder(5); // 9
 adder(4); // 13
 </script>
 
+
+<script data-role="slide" data-markdown type="text/html">
+# Closure (2)
+<pre data-code="a12"></pre>
+</script>
+
+<script id="a12" data-role="code" data-language="javascript" type="text/html">
+var sum = (function() {
+    var total = 0;
+
+    return function() {
+        total += 1;
+        return total;
+    }
+})();
+
+console.log(sum()); // 1
+console.log(sum()); // 2
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+# Koda exempel!
+
+</script>
 
 
 <!-- Slide -->
