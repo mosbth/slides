@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom03 | kursen design</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursen design
+## Kmom03 LESS
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Snabb repetition
+* Guard
+* Funktioner
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# LESS - snabb repetition
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Last definition used
+
+```less
+@magicNumber: 24px;
+
+div {
+  margin-bottom: @magicNumber;
+}
+
+@magicNumber: 22px;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Nested rule
+
+```less
+.figure {
+    display: table;
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Parent selector
+
+```less
+a {
+  color: blue;
+
+  &:hover {
+    color: green;
+  }
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Räkna
+
+```less
+@columnWidth:   30;
+@gutterWidth:   10;
+@columns:       24;
+
+@gridSystemWidth: @columns * (@columnWidth + @gutterWidth) * 1px;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Mixin argument
+
+```less
+.grid(@maxWidth) {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: @maxWidth;
+}
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Om LESS
+
+* [Referensmanual på lesscss.org](http://lesscss.org/)
+* [Kompilator (npm)](https://www.npmjs.com/package/less)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>

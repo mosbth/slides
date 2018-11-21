@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom03 | kursen design</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursen design
+## Kmom03 horisontellt grid
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Typografi
+* Horisontellt grid
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Typografi
+
+* "en bred term för konsten och hantverket att utforma texter – i tryck eller på skärm – så att textens budskap förmedlas på bästa möjliga sätt, och samtidigt är estetiskt tilltalande för läsaren"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Bokstavsanatomi
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/Bokstavsdelar.gif" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Linjesystem
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/typsnitt.png" width="100%" style="background-color: white">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Radhöjd (leading)
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/lead-line-spacing.png" width="100%" style="background-color: white">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Typsnitt, font
+
+* "en uppsättning bokstäver, siffror och tecken med ett karakteristiskt och genomgående utseende, och ett gemensamt namn"
+* Times New Roman, Helvetica
+* [Vad är en font?](https://fonts.adobe.com/fonts/zeitung)
+
+</script>
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Grupper, fontfamilj
+
+```
+@fontFamilyCambria: Cambria, Georgia, Times, 'Times New Roman', serif;
+@fontFamilyVerdana: Verdana, Geneva, sans-serif;
+@fontFamilyCourier: "Courier New", Courier, monospace;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# CSS
+
+* font: 16px/1.5 "Times, serif"
+* em, fontens storlek, relativt nuvarande element
+* (rem, fontens storlek, relativt html-elementet)
+* line-height
+* font-style, font-weight
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Horisontellt grid för webben
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<div style="height: 800px; max-height: 100%; background-image: url('img/magic-number-24px.png');"></div>
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="https://dbwebb.se/image/snapvt16/typografiskt-grid.png" alt="hgrid" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Layout och komposition
+
+* Horisontellt grid
+* Typografiskt grid
+* Baseline grid
+* Vertikal rytm
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Vertikal rytm
+
+* "vertical rhythm is the structure that guides a reader’s eye through the content"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Linjer
+
+* Förhållande mellan innehåll
+* Placering av innehåll
+* Ordning, reda, struktur
+* Skapa balans, enhetlighet och harmoni
+* Hjälper ögat navigera designen
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Whitespace
+
+* Lika viktigt som innehållet
+* Undvik känsla av "trångt rum"
+* Slappna av, andas
+* Guida ögat genom designen
+* Skapa balans, enhetlighet och harmoni
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Läsbarhet
+
+* Radhöjden påverkar läsbarheten
+* (Mellanrum mellan ord, tecken)
+* Antal ord/tecken på en rad
+* Bredden på ett textstycke
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Läsbarhet...
+
+* Rekommendationer varierar
+* Tecken per rad
+    * Minst 35-45
+    * Max 55-65
+* Längre rader -> större radavstånd
+* Bokstavsstorlek beror av radavstånd, radlängd
+* Typsnittet påverkar
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Grund för grid
+
+* Dela in sidan i rader
+* Låt radhöjden vara basfont * radhöjd
+* All typografi lutar mot gridet
+* Låt magiskt nummer vara basfont * radhöjd
+* Lämna margin bottom = magiska numret
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Påverka övrig layout
+
+* Alla enheter lutar mot det horisontella gridet.
+* Använd det magiska numret som margin bottom i all layout.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Desinax typographical grid
+
+* [Modul på GitHub](https://github.com/desinax/typographic-grid)
+* [Modul på NPM](https://www.npmjs.com/package/@desinax/typographic-grid)
+* [Exempel](https://desinax.github.io/typographic-grid/htdocs/)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Välj typsnitt, råd
+
+* Rubrik och brödtext skiljer
+* Men har något gemensamt
+* Bold/icke, stora/små bokstäver, serif/sans serif
+* Glöm inte luft och läsbarhet
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
