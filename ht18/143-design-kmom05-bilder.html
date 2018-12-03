@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <meta charset="utf-8" />
-<title>Kmom04 | kursen design</title>
+<title>Kmom05 | kursen design</title>
 
 <!-- Mithril HTML Slideshow styles -->
 <link href="../css/mithril-slideshow.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
 
 <script data-role="slide" data-markdown type="text/html">
 # Kursen design
-## Kmom04 LESS
+## Kmom05 Bilder
 ### Mikael Roos
 </script>
 
@@ -27,102 +27,108 @@
 <script data-role="slide" data-markdown type="text/html">
 # Agenda
 
-* Snabb repetition
-* Guard
-* Funktioner
+* Foto
+* Snapshots
+* Bildformat
+* Verktyg
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# LESS - snabb repetition
+# Uppdatera me/redovisa
+
+* me/redovisa: migrate2
+* me/redovisa/theme: Ny version av desinax/figure
+
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Last definition used
+<img src="img/kabbe1.jpg" alt="temp">
+</script>
 
-```less
-@magicNumber: 24px;
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/kabbe2.jpg" alt="temp">
+</script>
 
-div {
-  margin-bottom: @magicNumber;
-}
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/kabbe.jpg" alt="temp">
+</script>
 
-@magicNumber: 22px;
-```
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/kabbe_grid.jpg" alt="temp">
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Designa webbplatser med bilder
+
+Kika på webbplatser som använder bilder som design element.
+
+Webbplatser som använder bilder för att visualisera.
+
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Nested rule
+# Bildformat
 
-```less
-.figure {
-    display: table;
+* JPEG
+* PNG
+* GIF
+* WEBP
+* SVG
 
-    img {
-        max-width: 100%;
-        display: block;
-    }
-}
-```
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Parent selector
+# Exempel på olika typer av bilder
 
-```less
-a {
-  color: blue;
-
-  &:hover {
-    color: green;
-  }
-}
-```
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Räkna
+# Verktyg
 
-```less
-@columnWidth:   30;
-@gutterWidth:   10;
-@columns:       24;
+* Gimp/photoshop
+* Imagemagick
+* CDN-tjänster
+* cimage med postprocessing
 
-@gridSystemWidth: @columns * (@columnWidth + @gutterWidth) * 1px;
-```
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Mixin argument
+# Bildtunga webbplatser
 
-```less
-.grid(@maxWidth) {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: @maxWidth;
-}
-```
+* Optimera bilder
+* Lossy eller lossless
+
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Om LESS
+# Responsiva bilder
 
-* [Referensmanual på lesscss.org](http://lesscss.org/)
-* [Kompilator (npm)](https://www.npmjs.com/package/less)
+* Bilder i text
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Shortcode FIGURE
+
+* Kika i källkoden för kmom05.
 
 </script>
 
