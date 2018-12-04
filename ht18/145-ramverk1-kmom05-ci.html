@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom05 | kursen ramverk1</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursen ramverk1
+## Kmom05
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Status
+* Förra veckan
+* Test, TDD, BDD
+* CI
+* Externa bygg- och kvalitetstjänster
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Status och Lägeskoll
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Uppsamlingsheat
+
+* Rättningar pågår
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Uppdateringar i programmet
+
+* Se arbetsmaterial
+* [https://dbwebb.se/wip](https://dbwebb.se/wip)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Status kmom
+
+* kmom06 "på gång"
+* kmom10 "funderar, lagt kort finns"
+* klart innan jul
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Status jul
+
+* sista arbetsdagen torsdag 13/12 (julpizza)
+* presentation onsdag 16/1
+* vårterminen börjar 21/1
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Inför våren
+
+* Alla valde telecom + sysver (campus)
+* Grupproj - spännande!
+* mos kursansvarig exjobb distans
+* Info till exjobbet gitter
+* Fixa kund
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Då tar vi ramverk1
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Feedback i kmom
+
+* "Få instruktioner"
+* "Övning OpenStreetMap"
+* "Övning mCurl/Curl"
+* (Doc Anax, README, UserGuide, Reference, källkod)
+* [Issue på GitHub](https://github.com/dbwebb-se/ramverk1/issues/1)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Testa någon av me-sidorna
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Minns förra veckan
+
+* 03: $di, `config/`
+* 04: modul
+ 
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Problem och utmaningar
+
+* Hur hantera API-nycklar och andra hemligheter?
+* Test, Drift?
+* Travis
+    * environment variabler
+    * kryptera i configfil
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Test
+
+* Separera enhetstester, funktionstester och integrationstester
+* Att testa mot live-server, eller mocka?
+* User interface tests (Selenium)
+* Prestandatester (för mindre enheter och för hela system)
+* [phpbenchmarks](http://www.phpbenchmarks.com/en/) ([ab](https://httpd.apache.org/docs/2.4/programs/ab.html))
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Testdriven utveckling
+
+* TDD
+* BDD, Behaviour driven development
+* Behaviour/Feature test ([behat](http://behat.org))
+* Se [behat-tester i Cimage](https://github.com/mosbth/cimage/tree/resize)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Denna veckan - CI
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Denna veckan
+
+* Continous Integration
+* CI, CI-kedja
+* External build tool
+* Static code analysis
+* Automated tests
+* Daily/Nightly builds
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# CI - Grön badge junkie
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Travis
+
+* Kika [REM server](https://travis-ci.org/canax/proxy)
+* Kika config-filen
+* Kika [Cimage](https://travis-ci.org/mosbth/cimage)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Scrutinizer
+
+* Kika [REM server](https://scrutinizer-ci.com/g/canax/remserver/)
+* Kika config-filen
+* Kika [Cimage](https://scrutinizer-ci.com/g/mosbth/cimage/?branch=resize)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Circleci
+
+* Kika [REM server](https://circleci.com/gh/canax/remserver)
+* Kika configfil med docker
+* [Vad är en Docker image?](https://store.docker.com/community/images/anax/dev)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kodkvalitettjänster
+
+* Kika [Codeclimate REM server](https://codeclimate.com/github/canax/remserver)
+* Kika [Codacy REM server](https://www.codacy.com/app/mosbth/remserver?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=canax/remserver&amp;utm_campaign=Badge_Grade)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Fler CI byggtjänster
+
+* Travis/CircleCI
+* BitBucket
+* GitLab
+* [Jenkins](https://jenkins.io/)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Wanna be a devop?
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
