@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom06 | kursen ramverk1</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursen ramverk1
+## Kmom06
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Tillbakablick
+* Innehåll kmom06
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tillbakablick
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# 01 Ramverk
+
+* Ramverkets struktur
+* Modularitet
+* Versionshantering 
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# 02 MVC
+
+* Traditionell MVC
+* Limmet mot ramverket
+* REST API
+* SOLID
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# 03 DI
+
+* Dependencies inject
+* Service Locator
+* Lazy loading
+* PSR-11 Container Interface
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# 04 Modul
+
+* Att tänka i moduler
+* Organisera kod i moduler
+* Enhetstestning ++
+* Pakethantering (packagist/composer)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# 05 CI
+
+* Moduler
+* Byggtjänster
+* Kodkvalitet
+* Enhetstestning ++
+* Arbetsprocess
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# 06 Databasdrivna modeller
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Problem?
+
+* Formulärhantering
+* Objektorientering versus relationer
+* Koppla databasen
+* CRUD
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Lösning?
+
+* Scaffolding
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Scaffolding
+
+* Bygger på kända kodstrukturer
+* Generera kod enligt templates
+* Variant av återanvändning
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# anax/htmlform
+
+* Skapa formulär programmatiskt
+* Drupal
+* Fristående libb
+* Django (python)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# anax/database
+
+* Database access layer (DBA)
+* Konfigurationsfiler
+* Connect
+* Förenkla PDO
+* Förenkla debugging
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# anax/database
+
+```
+$db = $di->get("db");
+$db->connect();
+$res = $db->executeFetchAll($sql);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# anax/database-query-builder
+
+* Dölj SQL bakom metodanrop
+* Bygger på anax/database
+* Databasagnostic
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# anax/database-query-builder
+
+```
+$res = $this->db->select("*")
+                ->from("user")
+                ->where("id = 1")
+                ->execute()
+                ->fetch();
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# anax/database-active-record
+
+* Active Record designmönster
+* Bygger på anax/database-query-builder
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# anax/database-active-record
+
+```
+$user = new User();
+$user->setDb($this->di->get("dbqb"));
+$user->acronym = $acronym;
+$user->setPassword($password);
+$user->save();
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# anax/database-active-record
+
+* Jämför ORM
+* Object Relational mapping
+* Många gör Active Record
+* Några väljer Data mapper, Repository (Symfony/Doctrine ORM)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# anax/scaffold
+
+* Templates för kodgenerering
+* Titta på [ramverk1-crud-v2](https://github.com/canax/scaffold/tree/master/scaffold)
+* Kräver ett anax-cli
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Designmönster
+
+* Studera andras kod och designmönster är en bra väg att bli en bättre programmerare.
+* Kika på ledande ramverk och de moduler de använder
+* Ha koll på diskussioner likt PHP-FIG och PSR
+* Studera designmönster
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# God struktur
+
+* Vad är god struktur i modell-lagret?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
