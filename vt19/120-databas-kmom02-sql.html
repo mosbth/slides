@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom02 SQL | Kursen databas</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# Kursen databas
+## Kmom02 SQL
+### Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Bash-skript
+* Terminalklient
+* my.cnf
+* SQL-filer
+* Joins
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Bash-skript
+
+* Textfil med kommandon
+* Programmeringsspråk med variabler, arrayer, loopar, funktioner
+* Skriptspråk för shellet
+* Samla kommandon, automatisera, förenkla
+* dbwebb-cli är skrivet i bash
+* Googla "bash for loop"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Windows kontra Unix radbrytning
+
+* Unix radbrytning `\n`
+* Windows radbrytning `\r\note`
+* Visa dolda tecken i Atom
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Terminalklienten
+
+```
+mysql -uuser
+mysql -uuser -p
+mysql -uuser -ppass
+mysql -uuser -ppass skolan
+mysql -uuser -ppass skolan < fil.sql
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Terminalklienten...
+
+```
+mysql --help
+mysql --help | more
+mysql --help | grep "user"
+man mysql
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# my.cnf
+
+* Konfigurationsfil som läses av terminalklient(er)
+* Inställningar per klient eller generellt
+* chmod 600
+* Känslig information
+* Visa värden som används `mysql --print-defaults`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SQL-filer
+
+* Filer med SQL-kommandon
+* Redigera i Workbench och kör hela eller delar av filen
+* Redigera i Atom och kör i terminalklienten
+* Ordning av kommandon viktig
+* Tom databas eller full databas? 
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kör SQL-filer
+
+```
+mysql -uroot -p < setup.sql
+mysql -udbwebb -p < ddl.sql
+```
+
+```
+mysql> source ddl.sql
+mysql> source dml.sql
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Jobba i terminalen
+
+* Setup databas
+* Visa hur databasen ser ut
+* Joina tabeller
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<!-- empty slide by intention -->
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
