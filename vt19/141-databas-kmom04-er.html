@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom04 ER | Kursen databas</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# Databas
+## Kmom04 ER
+### Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Workbench och reverse engineering
+* ER i Workbench
+* Kokbok för databasmodellering
+* 3 faser i 10 steg
+* Boken om konceptuell modellering
+* Boken om översätt konceptuell till relationsmodellen
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Workbench
+
+* Reverse engineering
+* Rita ER
+* Generera SQL
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kokboken 3 faser
+
+* Modellering i tre faser
+    * Konceptuell modellering
+    * Logisk modellering
+    * Fysisk modellering
+
+* Totalt 10 steg
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Konceptuell modelleringsfas
+
+1. Beskriv databasen i text
+1. Skriv ned alla entiteter
+1. Skriv ned alla relationer (matris)
+1. Rita förenklat diagram (entiteter och relationer)
+1. Komplettera diagram med kardinalitet
+1. Komplettera diagram med attribut och kandidatnycklar
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Logisk modelleringsfas
+
+7\. Modifiera ER-diagram enligt relationsmodellen.
+
+8\. Utöka ER-diagram med primära/främmande nycklar samt kompletterande attribut.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Fysisk modelleringsfas
+
+9\. Skapa SQL DDL för tabellerna.
+
+10\. Lista funktioner som databasen skall stödja (API).
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ER enligt boken
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ER konceptuell
+
+* Typer av entiter, attribut och samband
+* [Webb-boken](http://www.databasteknik.se/webbkursen/er/)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Några begrepp
+
+* Sambandstyper 1:1, 1:N, N:M
+* Flervägssamband (person ser fil på biograf)
+* Sammansatta attribut (landsnummer, riktnummer, telefonnummer)
+* Flervärda attribut (har många telefonnummer)
+* Härledda attribut (hur många bor i huset (sum lägenhet))
+* Svaga entitetstyper (lägenhet har rum)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ER Logisk
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ER till relationsmodell
+
+* Översätt konceptuell till relationsmodellen
+* [Webb-boken](http://www.databasteknik.se/webbkursen/er2relationer/index.html)
+* Steg 1-10
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Primärnyckel?
+
+* Hur välja primärnyckel från kandidatnycklar?
+* Se forumet [Vad välja som primärnyckel till en databastabell?](https://dbwebb.se/forum/viewtopic.php?t=6439&p=52728)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Summering ER
+
+* Slutför ER modellen med logisk och fysisk modellering.
+* Generera SQL, nästa kmom använder vi det.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<!-- empty slide by intention -->
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+</html>

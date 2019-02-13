@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom04 | Kursen databas</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# Databas
+## Kmom04
+### Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Om kmom04
+* Om kmom03
+* Om kmom10
+* Ramverk
+* Transaktioner
+* Kodstruktur/modul för databaskod
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Om kmom04
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Om kmom04
+
+* Slutför ER modellering enligt de tio stegen
+* Introducera transaktioner
+* Introducera Express.js och web
+* Slå samman kod från cli och web
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Om kmom03
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Om rättning
+
+* "Automaträttas" enligt dwebb inspect + extra bash-skript
+* Program provkörs mot din egen databas
+* Status kmom03, 20 rättningar, 4 kompletteringar (er, stor bokstav i databasen, skolan.sql ej korrekt)
+* Så långt är det vackra ER-dokument
+* Väl fungerande meny-program (snyggt med färgkodning)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Ordning på uppgifterna
+
+* Börja med node eller guiden
+* Gör ER efter guiden
+* Provkör ditt node, när du är klar med guiden (databasdumpen)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Feedback tuff vecka
+
+> "Samtidigt så tycker jag att det fanns nog lite för mycket att göra inom 20 timmars ramen."
+
+> "Milda makter. Det här var en tuff vecka med tre verkligen omfattande uppgifter som skulle redovisas. Detta var för mig det överlägset mest tidskrävande kursmomentet på hela programmet än så länge."
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tankar om konceptuell ER
+
+* "Svårt att veta om man gjort rätt"
+
+* Vi kan lösa det efterhand, i nästa steg
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Databas import
+
+* LOAD DATA [LOCAL] INFILE
+* LOAD DATA INFILE (serversidan)
+* LOAD DATA [LOCAL] INFILE (klientsidan)
+* Se forumdiskussioner
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Databas export
+
+* SELECT INTO OUTFILE
+* För info, se FAQ i forumet och äldre artikel i guiden
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Om kmom10
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tidigare feedback
+
+* Mycket/en del att göra
+* Mycket CRUD
+* Projekt (grupp) + individuell examination 
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Fokus och röd tråd
+
+* Funderingar kring fokus i 04, 05, 06
+* Funderingar kring examinationen
+* Exempel på individuell examination
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Åter till kmom04
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Ramverk
+
+* Varför Express?
+* MEAN (Mongo, Express, Angular, Node)
+* Likhet med andra ramverk (XAMPP)
+    * (Apache, MySQL/MariaDB, PHP, (Perl), (Tomcat))
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Webbaserade ramverk
+
+* Liknande struktur och uppbyggnad, oavsett språk
+* "Standardisering" via designmönster
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Webb/Ramverkstermer
+
+* Request, Response
+* Webbläsare/klient genererar Request
+* Router tar emot Request
+* Middleware processar Request
+* Router dispatch Request till callback
+* Callback genererar Response
+* Webbläsare/klient hanterar Response
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Ett Response
+
+* Redirect till annan route
+* JSON data
+* Webbsida statisk
+* Dynamisk webbsida (HTML + templatespråk)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Fler termer
+
+* HTTP/HTTPS
+* GET, POST, PUT, DELETE, mfl
+* URL, URL path
+    * /bank/index
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Fler termer...
+
+* Frontkontroller
+* Vyer, templatefiler
+* Templatespråk
+    * EJS (Embedded JavaScript templating)
+* Template taggar `<% %>`, `<%= %>`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Katalogstruktur Express
+
+* Provkör exempelprogram
+* Gå igenom katalogstrukturen
+* Kika modulen för databashantering, diskutera
+* Bästa sättet att jobba igenom övningar/uppgifter?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Transaktioner
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Databasmodell
+
+* Vi har en tabell med konton, där kontoinnehavare har pengar.
+* Varje kontoinnehavare har ett id på sitt konto.
+* Man skall kunna flytta pengar mellan konton.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Innehåll
+
+```
++------+------+---------+
+| id   | name | balance |
++------+------+---------+
+| 1111 | Adam |   10.00 |
+| 2222 | Eva  |    7.00 |
++------+------+---------+
+2 rows in set (0.00 sec)
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Flytta pengar
+
+```
+SET @amount = 1.5;
+SET @from   = "1111";
+SET @to     = "2222";
+
+UPDATE account SET balance = balance + @amount WHERE id = @to;
+UPDATE account SET balance = balance - @amount WHERE id = @from;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Flytta pengar...
+
+```
+SET @amount = 1.5;
+SET @from   = "1111";
+SET @to     = "2222";
+
+UPDATE account SET balance = balance + @amount WHERE id = @to;
+-- Databasen krashar...
+UPDATE account SET balance = balance - @amount WHERE id = @from;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Transaktion ACID
+
+* A (Atomicity, Atomär)
+* C (Consistency, Konsistent)
+* I (Isolation, Isolerad)
+* D (Durability, Bestående)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# A i ACID
+
+* A (Atomicity, Atomär)
+* En transaktion utförs som en enhet, eller inte alls, allt eller inget. Den är odelbar.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# C i ACID
+
+* C (Consistency, Konsistent)
+* Transaktionen flyttar databasen från ett giltigt läge till ett annat, konsistensbevarande så att alla integritetsregler, begränsningar och cascade gäller.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# I i ACID
+
+* I (Isolation, Isolerad)
+* Även om flera transaktioner exekveras samtidigt så skall resultatet från transaktionerna betraktas som om de exekverades sekventiellt. En transaktion kan inte se effekter av en delvis exekverad transaktion.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# D i ACID
+
+* D (Durability, Bestående)
+* När en transaktion är committad så skall den vara beständig, även om strömmen går och databasmotorn krashar.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ACID summering
+
+* En transaktion skall alltså vara atomär (A), bevara konsistensen (C) i databasen, vara isolerad (I) från övriga transaktioner och vara beständig (D) när den är committad.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Transaktion låsning
+
+* En transaktion låser de resurser den jobbar mot
+* En databashanterare kan ha flera olika tekniker för att hantera låsning
+* Överkurs
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# START TRANSACTION
+
+```
+START TRANSACTION;
+-- do some code
+ROLLBACK;
+COMMIT;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# COMMIT
+
+```
+SET @amount = 1.5;
+SET @from   = "1111";
+SET @to     = "2222";
+
+START TRANSACTION;
+UPDATE account SET balance = balance + @amount WHERE id = @to;
+UPDATE account SET balance = balance - @amount WHERE id = @from;
+COMMIT;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# ROLLBACK
+
+```
+SET @amount = 1.5;
+SET @from   = "1111";
+SET @to     = "2222";
+
+START TRANSACTION;
+
+SET @balance = (SELECT balance FROM account WHERE id = @from);
+IF @balance < @amount THEN ROLLBACK;
+
+UPDATE account SET balance = balance + @amount WHERE id = @to;
+UPDATE account SET balance = balance - @amount WHERE id = @from;
+
+COMMIT;
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Transaktion uppgift
+
+* Flytta åt <b>båda</b> hållen.
+* Adam till Eva i webb, Eva till Adam i cli.
+* Bygg flexibel kod som jobbar med parametrar ^^
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<!-- empty slide by intention -->
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+</html>
