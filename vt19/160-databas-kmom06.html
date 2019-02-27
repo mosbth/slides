@@ -28,8 +28,9 @@
 <script data-role="slide" data-markdown type="text/html">
 # Agenda
 
+* Statuskoll
 * Programmera i databasen (repetition)
-* UDF
+* Funktioner
 * Prestanda i databasen
 * Index
 
@@ -38,23 +39,105 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-# ATT GÖRA
+# Statuskoll
+</script>
 
-* Loop i compound statement
-* Sp anropa annan Sp.
-* Hantera SP med INOUT/OUT variabler i JS
-* Hantera SQL variabler in till JS
-* Hantera SP med flera resultsets
 
-* DEFAULT TIMESTAMP(s)
+
+<script data-role="slide" data-markdown type="text/html">
+# Rättningsläget
+
+| Kmom | Web | SE | 
+|:----:|:---:|----|
+| 01   | 121 (123) | 35 (35) |
+| 02   | 104 (108) | 34 (36) |
+| 03   |  67 (78)  | 21 (24) |
+| 04   |  47 (57)  | 16 (19) |
+| 05   |   6 (13)  |  0 (0)  |
+| 06   |   0 (0)   |  0 (0)  |
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Programmera i databasen
+# Examinationen
 
+* 28/3 "programmeringstenta" 5h
+* [Se tidigare programmeringstentor](https://dbwebb.se/kurser/databas-v1/examination)
+* Bygg vidare på eshop för högre betyg
+* Detaljer vid nästa veckas stream
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tidplanering
+
+* Tidplanering för resterande del av kursen
+* Jobba på kmom05|kmom06 fram tills tentan
+* Totalt 5v inklusive denna veckan och examinationsveckan
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Om felsökning
+
+* Fokus på felmeddelandet
+* Återskapa felet (upprepade gånger)
+* Begränsa komplexiteten
+    * (kör SQL i WB innan JS)
+    * Är felet i vyn, routen, databasfunktionen, lagrad proc
+* Avgränsa problemområdet (en kodrad)
+* Skriv separat testfall
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Vanliga fel i kmom05
+
+* [Lagrade procedurer är inte med i databasdumpen](https://dbwebb.se/forum/viewtopic.php?f=13&t=8371)
+* [Kodstandard med små bokstäver och _](https://dbwebb.se/forum/viewtopic.php?f=73&t=8379)
+* "Jag tänkte själv och gjorde bättre lösning..."
+    * Att följa en spec
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Sagt om kmom05
+
+* Mycket.
+* Stor spec.
+* Enklare än jag först trodde.
+* Repetition.
+* Återanvänd koden mellan klienterna.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Om kmom05
+
+* En delmängd av din ER
+* Excelark ger en viss bas av tabeller
+* Skapa grund i DDL och INSERT
+* Bygg om databas schema vid behov
+* KISS, Keep It Stupid Simple
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Programmera i databasen (repetition)
 </script>
 
 
@@ -63,16 +146,17 @@
 # Lagrad procedur
 
 ```
-DROP PROCEDURE IF EXISTS myTestProc;
-
+DROP PROCEDURE IF EXISTS my_test_proc;
 DELIMITER ;;
-CREATE PROCEDURE myTestProc ()
+
+CREATE PROCEDURE my_test_proc ()
 BEGIN
     -- Statements
 END;;
+
 DELIMITER ;
 
-CALL myTestProc();
+CALL my_test_proc();
 ```
 
 </script>
@@ -83,13 +167,13 @@ CALL myTestProc();
 # Trigger
 
 ```
-DROP TRIGGER IF EXISTS LogBalanceUpdate;
+DROP TRIGGER IF EXISTS log_balance_update;
 
-CREATE TRIGGER LogBalanceUpdate
+CREATE TRIGGER log_balance_update
 AFTER UPDATE
 ON account FOR EACH ROW
     INSERT INTO accountLog (`what`, `account`, `balance`, `amount`)
-        VALUES ("trigger", NEW.id, NEW.balance, NEW.balance - OLD.balance);
+        VALUES ('trigger', NEW.id, NEW.balance, NEW.balance - OLD.balance);
 ```
 
 </script>
@@ -100,9 +184,8 @@ ON account FOR EACH ROW
 # Compund statements
 
 ```
-DELIMITER ;;
 BEGIN
-	DECLARE aBalance INT DEFAULT 7;
+    DECLARE aBalance INT DEFAULT 7;
 
     IF aBalance < 0 THEN
         SELECT "A";
@@ -112,7 +195,6 @@ BEGIN
         SELECT "C";
     END IF;
 END;;
-DELIMITER ;
 ```
 
 </script>
@@ -125,9 +207,9 @@ DELIMITER ;
 * Compound statements
     * IF, CASE, loopar, variabler
 * Lagrad procedur
-    * Argument in/ut, resultsets
+    * Argument in/ut, "returnerar/lämnar" resultsets
 * Trigger
-    * INSERT, UPDATE, DELETE, BEFORE/AFTER, OLD/NEW
+    * INSERT|UPDATE|DELETE, BEFORE|AFTER, OLD|NEW
 
 </script>
 
@@ -143,9 +225,33 @@ DELIMITER ;
 <script data-role="slide" data-markdown type="text/html">
 # Vad är Funktion
 
-* Stored function
-* Egendefinierad funktion
+* Egen funktion liknande ABS(), CONCAT(), etc
+* CREATE/DROP/ALTER FUNCTION
+* Lagras i databasen
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Två typer av Function
+
 * User Defined Function (UDF)
+    * Extern kod som länkas in till databasservern
+    * Skriv i C/C++ eller liknande
+    * Kan skapa aggregerande funktioner
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Två typer av Function...
+
+* FUNCTION, liknande PROCEDURE
+    * Jämför lagrad procedur/trigger
+    * Kan använda compound statements
+    * Kan använda SQL mot andra tabeller
 
 </script>
 
@@ -154,36 +260,13 @@ DELIMITER ;
 <script data-role="slide" data-markdown type="text/html">
 # Använd Funktion
 
-* Används i en SELECT
+* Används i en SELECT (tex)
 * Returnerar ett värde
+* Kan ta argument
 
 ```
-SELECT score, Grade(score) FROM Examination;
+SELECT score, grade(score) FROM examination;
 ```
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-# MySQL UDF
-
-* Skriv i C/C++
-* Bygg din egen ABS() eller CONCAT()
-* Eller aggregate som SUM() och COUNT()
-* Använd CREATE FUNCTION
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-# MySQL CREATE FUNCTION
-
-* Skriv med Compound Statements
-* Använd CREATE FUNCTION
-* Lagras i database
-* Jämför procedurer, triggers
 
 </script>
 
@@ -193,20 +276,59 @@ SELECT score, Grade(score) FROM Examination;
 # En funktion
 
 ```
-DROP FUNCTION IF EXISTS Grade;
-
+DROP FUNCTION IF EXISTS grade;
 DELIMITER ;;
-CREATE FUNCTION Grade(
-    score INTEGER
-)
-RETURNS VARCHAR(2)
+
+CREATE FUNCTION grade()
+RETURNS CHAR(2)
 BEGIN
     -- Statements
-    RETURN "Fx";
 END;;
-DELIMITER ;
 
-SELECT score, Grade(score) FROM Examination;
+DELIMITER ;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# En funktion body
+
+```
+CREATE FUNCTION grade()
+RETURNS CHAR(2)
+BEGIN
+    RETURN 'Fx';
+END;;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Inkommande argument
+
+```
+CREATE FUNCTION grade(
+    score INTEGER
+)
+RETURNS CHAR(2)
+BEGIN
+    RETURN 'Fx';
+END;;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Använd funktion
+
+```
+SELECT score, grade(score) FROM examination;
 ```
 
 </script>
@@ -217,26 +339,54 @@ SELECT score, Grade(score) FROM Examination;
 # Compound statements
 
 ```
-RETURNS VARCHAR(2)
+RETURNS CHAR(2)
 BEGIN
     IF score >= 90 THEN
-        RETURN "A";
+        RETURN 'A';
     ELSEIF score >= 80 THEN
-        RETURN "B";
+        RETURN 'B';
     ELSEIF score >= 70 THEN
-        RETURN "C";
+        RETURN 'C';
     ELSEIF score >= 60 THEN
-        RETURN "D";
+        RETURN 'D';
     ELSEIF score >= 55 THEN
-        RETURN "E";
+        RETURN 'E';
     ELSEIF score >= 50 THEN
-        RETURN "FX";
+        RETURN 'FX';
     END IF;
-    RETURN "F";
+    RETURN 'F';
 END;;
 ```
 
 </script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Funktion karaktäristik
+
+* [NOT] DETERMINISTIC
+* CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Funktion karaktäristik...
+
+```
+CREATE FUNCTION time_of_the_day()
+RETURNS DATETIME
+NOT DETERMINISTIC NO SQL
+BEGIN
+    RETURN NOW();
+END
+;;
+```
+
+</script>
+
 
 
 
@@ -247,6 +397,8 @@ END;;
 * Returnerar ett värde
 * Datatyper enligt MySQL
 * Compound statements
+* Kan utföra SQL
+* Karaktäristik
 
 </script>
 
@@ -255,12 +407,12 @@ END;;
 <script data-role="slide" data-markdown type="text/html">
 # Administrera funktioner
 
-* SHOW FUNCTION STATUS;
-* SHOW CREATE FUNCTION Grade;
-
 ```
-SHOW FUNCTION STATUS
-    [LIKE 'pattern' | WHERE expr]
+SHOW FUNCTION STATUS;
+SHOW FUNCTION STATUS LIKE 'grade' \G
+SHOW FUNCTION STATUS WHERE Db = 'dbwebb';
+
+SHOW CREATE FUNCTION grade \G
 ```
 
 </script>
@@ -272,7 +424,7 @@ SHOW FUNCTION STATUS
 
 * Snygga till koden
 * Återanvänd komplicerade konstruktioner
-* DRY
+* DRY (Do not Repeat Yourself)
 
 </script>
 
@@ -286,7 +438,7 @@ SHOW FUNCTION STATUS
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Prestandaoptimering av databaser
+# Prestandaoptimering hårdvara
 
 * Datorn, minne, processor.
 * Hårddisk.
@@ -298,12 +450,16 @@ SHOW FUNCTION STATUS
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Prestandaoptimering...
+# Prestandaoptimering schema
 
 * Optimera datat i tabellerna
+    * Datatyp, längd
 * Optimera schemat mot frågorna
-* Använd MEMORY
+    * Förenkla att göra frågor
 * Optimera frågorna
+    * Olika sätt att ställa samma fråga
+    * SELECT * eller bara välja kolumner?
+* Använd MEMORY tabell
 
 </script>
 
@@ -312,7 +468,10 @@ SHOW FUNCTION STATUS
 <script data-role="slide" data-markdown type="text/html">
 # Kort notering
 
-* Om databasen är slö, överväg att cacha svaren utanför databasen.
+* Om databasen är en flaskhals:
+    * Cacha svaren utanför databasen.
+    * Ställ färre frågor till databasen
+* Sker låsningar i databasen?
 * Optimering kan ske på flera nivåer.
 
 </script>
@@ -322,9 +481,10 @@ SHOW FUNCTION STATUS
 <script data-role="slide" data-markdown type="text/html">
 # Frågeoptimeraren 
 
+* Query optimizer
 * Parsa och tolka SQL-frågan.
-* Query optimizer optimerar utförandet.
-* Optimal plan för exekvering, execution plan.
+* Optimerar utförandet av frågan.
+* Optimal plan för exekvering, "execution plan".
 * Skillnaden kan vara sekunder, timmar, dagar.
 * Hur ge frågeoptimeraren goda förutsättningar?
 
@@ -335,8 +495,9 @@ SHOW FUNCTION STATUS
 <script data-role="slide" data-markdown type="text/html">
 # Index 
 
+* "Full table scan"
 * Undvik "full table scan".
-* Index visar genvägar till svaret.
+* Index skapar genvägar till svaret.
 
 </script>
 
@@ -345,10 +506,11 @@ SHOW FUNCTION STATUS
 <script data-role="slide" data-markdown type="text/html">
 # Varför index?
 
-* To find the rows matching a WHERE clause quickly.
-* To eliminate rows from consideration.
-* To retrieve rows from other tables when performing joins.
-* Indexes are less important for queries on small tables, or big tables where report queries process most or all of the rows.
+* Finn matchande rader för WHERE
+* Eliminera vissa rader från att bearbetas
+* För att hämta rader från andra tabeller vid joins
+* Mindre viktigt för små tabeller
+* Mindre viktigt för stora tabeller där (nästan) alla rader måste processas
 
 </script>
 
@@ -360,6 +522,8 @@ SHOW FUNCTION STATUS
 * MySQL löser det bakom kulisserna
 * B-tree
 * Hash index
+* Kan skilja mella storage engine
+* Välj typ av index
 
 </script>
 
@@ -385,6 +549,7 @@ SHOW FUNCTION STATUS
     * exakt matchning (=, IN)
 * Index byggs vid behov
 * Hash index bygger på befintligt B-tree index
+* Jämför key:value array
 
 </script>
 
@@ -393,7 +558,7 @@ SHOW FUNCTION STATUS
 <script data-role="slide" data-markdown type="text/html">
 # Indexera allt? 
 
-* Index kostar
+* Index har en kostnad
 * Plats på hårddisken
 * Frågeoptimeraren väljer mellan olika index
 * Databasen måste hålla indexen uppdaterade
@@ -415,9 +580,99 @@ SHOW FUNCTION STATUS
 
 
 <script data-role="slide" data-markdown type="text/html">
-# FK (index) 
+# Exempeltabell 
 
-* FOREIGN KEY
+```
+CREATE TABLE `course`
+(
+    `code` CHAR(6),
+    `nick` CHAR(12),
+    `points` DECIMAL(3, 1),
+    `name` VARCHAR(60)
+);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# PRIMARY KEY 
+
+```
+CREATE TABLE `course`
+(
+    `code` CHAR(6),
+
+    PRIMARY KEY (`code`)
+);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# UNIQUE 
+
+```
+CREATE TABLE `course`
+(
+    `code` CHAR(6),
+    `nick` CHAR(12),
+
+    UNIQUE KEY (`nick`)
+);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# INDEX 
+
+```
+CREATE TABLE `course`
+(
+    `points` DECIMAL(3, 1),
+    `name` VARCHAR(60),
+
+    KEY `index_points` (`points`),
+    KEY `index_name` (`name`)
+);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# FULLTEXT 
+
+```
+CREATE TABLE `course`
+(
+    `name` VARCHAR(60),
+
+    FULLTEXT KEY `full_name` (`name`)
+);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# FOREIGN KEY (index) 
+
+```
+CREATE TABLE `Course` (
+    `acronym` CHAR(6),
+
+    FOREIGN KEY `acronym` REFERENCES `teacher`(`acronym`)
+);
+```
 
 </script>
 
@@ -489,42 +744,10 @@ CREATE TABLE `Course` (
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Projektet
-
-* Släpps nästa vecka
-* Specen kommer att ses över och uppdateras
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
 # Session &amp; Inloggning
 
-* Med Kenneth på tisdag
-* Läs mer i kmomet under extrauppgiften.
-* Flash-meddelande via sessionen.
-* Style med Bootstrap (eller annat)?
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-# Programmeringstenta
-
-* Campus
-* Distans
-* [Se tidigare programmeringstentor](https://dbwebb.se/kurser/databas-v1/examination)
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-# Summering
-
-* Se till att du kan göra kmom06 individuellt, då har du allt på plats som löser examinationsdelarna.
+* Finns som extrauppgift
+* Återkommer ej i examinationen
 
 </script>
 
