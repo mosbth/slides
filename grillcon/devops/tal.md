@@ -14,7 +14,7 @@ Denna konflikten kan skapa en nedåtgående spiral av långsammare driftsättnin
 Spiralen har tre steg:
 
 steg 1:
-Det börjar hos Ops som ska använda verktyg och driftsätta utvecklarnas kod som är dåligt dokumenterade, komplicerade och kraschar lätt på grund av den tekniska skulden eller att sidan blev plötsligt väldigt populär och antalet besökare stiger snabbare än vad ops hinner uppdatera miljön. Detta gör att webbsidan kraschar och inte fungerar som den ska vilket i sin tur gör att organisationen inte når upp till sina intäkts mål och sidan är inte tillgänglig för besökarna.
+Det börjar hos Ops som ska använda verktyg och driftsätta utvecklarnas kod som är dåligt dokumenterade, komplicerade och kraschar lätt på grund av den tekniska skulden eller att sidan blev plötsligt väldigt populär. Detta gör att webbsidan kraschar och inte fungerar som den ska vilket i sin tur gör att organisationen inte når upp till sina intäkts mål och sidan är inte tillgänglig för besökarna.
 
 steg 2:
 Någon behöver kompensera för problemen som uppstod i steg 1 och då börjar steg 2. Det kan vara en produkt ägare som lovar att leverera en ny häftigt funktion eller en chef som sätter högre inkomstmål för att kompensera för den tidigare förlusten. Detta förbinder IT organisationen att leverera de nya löftena oberoende av vad som gjorde att problemen uppstod eller vad teknologin klarar av.
@@ -31,7 +31,7 @@ så vad är DevOps?
 DevOps är ett tankesätt, många tänker att det är att använda verktyg som Ansible, Docker och Jenkins för att automatisera och sätta upp kontinuerliga flöden. Men det är inta att använda verktygen som är DevOps utan det är hur man använder verktygen och att ha en arbetskultur där individer och organisationer tillåts att utveckla och underhålla en hållbara arbetspraxis.
 
 
-Utvecklare, produkt ägare, QA, ops och säkerhet ska jobba tillsammans för att skapa ett snabbt och säkert flöde mellan planerat arbete och produktion. QA, IT och säkerhet skapar automatiserade verktyg och plattformar som utvecklarna kan använda för att snabbt, enkelt och självständigt utveckla, testa och driftsätta lösningar och ny funktionalitet.
+produkt ägare, QA, ops och säkerhet ska jobba tillsammans för att skapa ett snabbt och säkert flöde mellan planerat arbete och produktion. QA, IT och säkerhet skapar automatiserade verktyg och plattformar som utvecklarna kan använda för att snabbt, enkelt och självständigt utveckla, testa och driftsätta lösningar och ny funktionalitet.
 
 Så utvecklare ska ha en produktionsliknande miljö lokalt där de kan testa kod. När man commitar ska kod köra automatisk i en mer produktionsliknande miljö. Där kör vi mer tester, inter, funktion och gui hela köret. Sen kör vi code reviews för att sprida kunskapen och ett till säkerhetsteg för att kolla koden. När allt det är klart så sker automatisk en driftsättning eller om utvecklaren själv klickar på en knapp så det driftsätts. Vi ska vara säkra på att om koden har passerat alla stegen så är den redo att driftsättas. Vi som utvecklare behöver ha den tilliten från kollgegor och chefer att koden vi skriver när den ha passerat alla checkpoint så fungerar den. Utvecklare och organisationer inom företag ksa äga koden och ansvaret för sitt jobb, oavsett vilken roll man har. Vi måste lita på att våra kollegor vet vad de gör.
 

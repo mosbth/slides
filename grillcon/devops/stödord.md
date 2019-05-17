@@ -1,8 +1,8 @@
-VI jobbar på ett företag... konkurenter.
+!!! VI jobbar på ett företag... !!!! konkurenter.
 
 Vårt företag   snabbt testa och fåt ut funktionalitet på stabolt....
 
-Men vårt företag lider av core chronic Conflict
+!!!! Men vårt företag lider av core chronic Conflict
 
 två mål
     1. hänga med på marknad. produktion snabbt
@@ -10,7 +10,7 @@ två mål
     2. stabil pålitlig produktionsmiljö. äventyras av ny saker.
     
     
-    Dr goldratt core chronic Conflict
+    !!!!! Dr goldratt core chronic Conflict
     "
     When organizational measurmenets and incentives across different silos 
     prevent the achievement of global, organizational goals!
@@ -21,29 +21,30 @@ två mål
     tre steg
     1. ops verktyg driftästtning
         dokumentation, komplicerad kraschar teknisk skuld.
-        utvecklare slänger kod över en mur som ops ska göra något med.
+!!!!    utvecklare slänger kod över en mur som ops ska göra något med.
         sidan växer
         kraschar långsam.
         intäksmål
     
     2. kompensera 
         produkt ägare funktionalitet
-        chef inkomsmål
+!!!!    chef inkomsmål
         oberoende teknik och tidigare problem
     
     3. producera nytt samtidigt lösa fel
-        övertid, genvägar teknisk skuld.
+!!!!    övertid, genvägar teknisk skuld.
         upptagna krävs kommunikation för att lösa saker
         kvalite nere produktioncykler färre projekt
         förlora besökare marknad
     
     Devops lösa
     
-    
+!!!!!!    
     tankesätt, inte verktyg.
     hur använder i arbetskultur där individer och org utveckla och underhålla 
         hållbar arbets praxis.
-    
+
+!!!!!    
     QA ops säk snabbt säker flöde...
         skapar automatiserade vekryg  platfformar.
     dev snabbt enkelt sjölvständigt
@@ -55,12 +56,13 @@ två mål
         dirftästtning av utvecklare
     
     om passerat flöden är vi säkra på redo driftsätta.
-    tillit från kollegor chefer .
+!!!!!!    tillit från kollegor chefer .
     dev och org äger sitt arbete, säkra på kvaliten och ansvara för det.
     måste ha tillit till kollegor.
     
     dark launch/canary release
     
+!!!!!!!
     för fungera, snabb återkoppling i varje steg.
         se effekt av arbetet
         auto tester i prod miljö 
@@ -71,6 +73,7 @@ två mål
     
     Vi ska hela tiden få feedback på arbetet, via tester peer review och data
     
+!!!!!!
     men saker kan gå fel. 
         viktig kultur inte beskylla straffa
     obduktion
@@ -81,6 +84,7 @@ två mål
     kunnat prata med om hur företags verksamhete binder in och företag/organisationsmåle
     det blev lite uppdelat med dev/ops och verktyg
 
+!!!!!!
     lämna three ways of devops
     
     principle... flow
@@ -95,4 +99,5 @@ två mål
     allt detta ska göra att vi som organisation kan ta större risker med funk
     ge marknasvärde och besökare.
     
+!!!!!
     "a manifestation of creating a dynamic, learning organisation that continually reinforce high-trust cultural norms."
