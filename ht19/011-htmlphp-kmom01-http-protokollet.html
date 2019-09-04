@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>HTTP-protokollet | htmlphp</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# HTTP-protokollet
+## Kurs htmlphp
+### Mikael Roos
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* HTTP-protokollet
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# [Tim](https://sv.wikipedia.org/wiki/Tim_Berners-Lee) gjorde det 1990
+
+* HTML för hypertextdokument
+* En browser för att läsa
+* En server för att sprida
+* Ett protokoll för att prata
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# [HTTP-protokollet](https://sv.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
+
+* Textbaserat
+* Request/Response: header + body
+* Method: GET, POST, HEAD, ...
+* Stateless
+* [RFC 2616](https://tools.ietf.org/html/rfc2616)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Stateless
+
+* Minns inget
+* All info måste skickas med i varje request
+* Cookies
+* Sessioner
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Status kod
+
+* 200
+* 301, 304
+* 403, 404
+* 500
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Request/Response
+
+* Det som skickas till servern är en request header och en request body.
+* Det som kommer som svar är en response header och en response body.
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Testa med telnet
+
+* Nätverksprotokoll för internet
+* Applikation koppla mot servrar
+* Mailservrar, webbservrar, mfl
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# HEAD/GET Request
+
+```bash
+$ telnet localhost 80 
+GET / HTTP/1.0
+```
+
+```bash
+$ telnet localhost 80 
+HEAD / HTTP/1.0 
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Tänk
+
+* Textbaserat stateless protokoll
+* Header/body
+* Request header data -> webbservern
+* Response header data -> webbläsaren
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Studera protokollet i webbläsaren?
+
+* Se devtools Network
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# HTTPS
+
+* SSL (krypterad koppling) mot webbserver
+* Ingen kan tjuvlyssna
+* Webbserver certifikat
+* Certifikat ger identitet
+* Starka/svaga certifikat
+* Påverkar SEO
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Testa HTTPS
+
+```
+$ openssl s_client -connect dbwebb.se:443
+
+GET / HTTP/1.1
+HOST: dbwebb.se
+```
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Curl &amp; wget
+
+* Hämta webbsida/resurs
+* Spara till fil, visa, exekvera kod
+* Se exempel:
+    * [Installation av dbwebb-cli](https://dbwebb.se/dbwebb-cli/installera)
+    * [Bilder vid htmlphp kmom01/me](https://dbwebb.se/kunskap/skapa-en-webbsida-med-html-css-och-php#struktur)
+    * [Läsa JSON-data](http://dbwebb.se/webapp/repo/example/arbetsformedlingen/soklista_lan.json)
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Säkerhet
+
+* Vem kan vi lita på?
+* Vem kan redigera data i request/response?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Bedrägerier på webben
+
+* Use Agent, exempel på serp-bov "[dbwebb hijackad i serpen](https://dbwebb.se/forum/viewtopic.php?f=21&t=6598)"
+* "[Bedrägeri med hjälp av (mos) webbplats iframe, clickjacking](https://dbwebb.se/forum/viewtopic.php?f=23&t=7359)"
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Hur skydda sig?
+
+* Baskunskap för att veta hur saker fungerar
+* (programmering) Skeptisk mot inkommande data
+* (server) Konfigurera och övervaka
+
+</script>
+
+
+
+<!-- Slide --> 
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
