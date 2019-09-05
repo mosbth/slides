@@ -16,8 +16,28 @@
 
 <style>
     h1 {
-        border-bottom: 2px solid orange;
+        border-bottom: 2px solid lime;
     }
+    #slide {
+        font-family: monospace;
+        color: lime;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li:before {
+        content: "$ ";
+    }
+
+    ul li ul li:before {
+        content: "- ";
+    }
+
+    /* ul < li < ul < li:before {
+        content: "$ ";
+    } */
 </style>
 
 
@@ -43,13 +63,12 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Course content
+# Course content
 
-* 01: Linux som server
-* 02: Apache Virtual Hosts
-* 03: Introduktion till Docker
-* 04: En webbserver i Docker
-
+* 01: Virtual Hosts
+* 02: Bash
+* 03: Regular Expressions
+* 04: Mazerunner
 
 </script>
 
@@ -67,11 +86,12 @@
 <script data-role="slide" data-markdown type="text/html">
 # Unix
 
-<img src="img/ken-dennis.jpg" width="700px" alt="ken & dennis">
-
 * 1969, AT&T Bell Labs
-* Multics
-* Ken Thompson, Dennis Ritchie
+* Multics - time sharing OS
+<figure>
+    <img src="img/ken-dennis.jpg" width="700px" alt="ken & dennis">
+    <figcaption style="font-size:smaller; color: white;">Ken Thompson, Dennis Ritchie</figcaption>
+</figure>
 * Written in C
 * Unix brand (license)
 
@@ -94,12 +114,13 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
+# GNU/Linux
 
-    # GNU/Linux
-    * GNU's Not Unix (GNU Project)
-    * GNU software + Linux/own kernel
-    * Richard Stallman 1984 - GNU, GNU Hurd
-    * Linus Torvalds 1991 - kärnan (kernel)
+* Richard Stallman 1984 - GNU Project
+* GNU's Not Unix
+* GNU Hurd
+* Linus Torvalds 1991 - Kernel
+* <strong>GNU software + Linux kernel</strong>
 
 </script>
 
@@ -109,16 +130,17 @@
 # Where is Linux used?
 
 * Windows, MacOS
-* Android (kernel)
+* 95% top 1m servers
+* 85% smartphones
 * Smart TV's
 * Cars
 * Airplanes
+* 100% of world 500 Supercomputers
+* 90% of the public cloud workload runs on Linux
+* 90% of Hollywood’s special effects are made on Linux.
 * etc
 
 </script>
-
-
-
 
 
 
@@ -163,139 +185,21 @@
 
 
 
-
-
-
-
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#/home
+# Why am I taking this course?
 
-* Hemmakatalog för icke-root användare
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/lib, /lib32, /lib64
-
-* lib-filer för systemet
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/lost+found
-
-* Sparade filer vid krash
-* Inte röra
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/media
-
-* Automatisk montering för vissa externa enheter
-* tex USB, CD-ROM
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/mnt
-
-* Montering av filsystem, hdd
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/opt
-
-* Blandad mjukvara
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/proc
-
-* virtuellt filsystem för resurser, processer etc
-* <code>$ cat /proc/1/limits</code>
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/root
-
-* Hemmakatalog för root-användaren
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/sbin
-
-* /bin fast för sysadmin
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/tmp
-
-* Temporär, raderas vid omstart
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/usr
-
-* Mini-root (/)
-* Specifikt för användarens program
-* /usr/bin kör över /bin
-* $PATH tar /bin sist
-
-</script>
-
-
-
-<!-- Slide -->
-<script data-role="slide" data-markdown type="text/html">
-#/var
-
-* Systemet skriver data under körning
-* /var/log/ - alla logg-filer
+Because...
+* ...90% of the public cloud workload runs on Linux.
+* ...95% top 1m servers runs on Linux.
+* ...Cisco IOS is based on Linux.
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Lycka till!
+# Good luck!
 </script>
 
 
