@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Unix - intro</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+<style>
+    h1 {
+        border-bottom: 2px solid orange;
+    }
+</style>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# Unix intro
+### Kenneth Lewenhagen, Emil Folino, dbwebb
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Course content
+* History of Linux
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Course content
+
+* 01: Linux som server
+* 02: Apache Virtual Hosts
+* 03: Introduktion till Docker
+* 04: En webbserver i Docker
+
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# History of Linux
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Unix
+
+<img src="img/ken-dennis.jpg" width="700px" alt="ken & dennis">
+
+* 1969, AT&T Bell Labs
+* Multics
+* Ken Thompson, Dennis Ritchie
+* Written in C
+* Unix brand (license)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# BSD
+
+* Berkley Software Distribution (OS)
+* University of California, Berkley
+* 70's - 80's
+* Open source code, Unix-license
+* Lawsuit process, BSD & Unix (-80)
+* FreeBSD, OpenBSD, Mac OS, Windows, GNU/Linux
+
+</script>
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+    # GNU/Linux
+    * GNU's Not Unix (GNU Project)
+    * GNU software + Linux/own kernel
+    * Richard Stallman 1984 - GNU, GNU Hurd
+    * Linus Torvalds 1991 - kärnan (kernel)
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Where is Linux used?
+
+* Windows, MacOS
+* Android (kernel)
+* Smart TV's
+* Cars
+* Airplanes
+* etc
+
+</script>
+
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Architecture (*nix)
+
+* Userspace (application)
+    * User defined programs
+* Shell/Commands/Standard libs (libc)
+    - Mediator
+    - Command interpreter
+    - Handling system calls (process, file, device, information, communication)
+* Kernel
+    - Interacts directly with hardware
+* Hardware
+    - Processor, Memory, Display, HDD
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Architecture (*nix)
+
+<img src="img/archtecture.png" alt="image of architecture">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Desktop Environment
+
+* Gnome, KDE, LXDE, XFCE, Cinnamon etc
+* Window manager (WM)
+* X Window System, X11, (X.Org)
+
+</script>
+
+
+
+
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/home
+
+* Hemmakatalog för icke-root användare
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/lib, /lib32, /lib64
+
+* lib-filer för systemet
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/lost+found
+
+* Sparade filer vid krash
+* Inte röra
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/media
+
+* Automatisk montering för vissa externa enheter
+* tex USB, CD-ROM
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/mnt
+
+* Montering av filsystem, hdd
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/opt
+
+* Blandad mjukvara
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/proc
+
+* virtuellt filsystem för resurser, processer etc
+* <code>$ cat /proc/1/limits</code>
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/root
+
+* Hemmakatalog för root-användaren
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/sbin
+
+* /bin fast för sysadmin
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/tmp
+
+* Temporär, raderas vid omstart
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/usr
+
+* Mini-root (/)
+* Specifikt för användarens program
+* /usr/bin kör över /bin
+* $PATH tar /bin sist
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#/var
+
+* Systemet skriver data under körning
+* /var/log/ - alla logg-filer
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Lycka till!
+</script>
+
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+<!-- default to theme 3 -->
+<script>app.useTheme(3);</script>
+
+</html>
