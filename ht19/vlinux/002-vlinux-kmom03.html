@@ -91,8 +91,8 @@
 #Vad består Docker av?
 
 * Docker Engine
-    * Server - klient
-    * docker daemon -> REST API -> docker CLI
+    * Klient - Server
+    * docker CLI -> REST API -> docker daemon
 * Docker Registry
     * dockerhub
 * Docker Objects
@@ -104,7 +104,7 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#docker daemon
+#Docker daemon
 
 * dockerd
 * Lyssnar efter API requests
@@ -116,9 +116,21 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#docker CLI
+#Docker CLI
 
 * Skickar kommandon till dockerd
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Docker Registry
+
+* Lagrar images
+* Publikt/lokalt
+* Dockerhub (default)
 
 </script>
 
@@ -130,8 +142,7 @@
 
 * images
 * containers
-* volymer
-* nätverk
+* (volymer, nätverk)
 
 </script>
 
@@ -141,8 +152,9 @@
 <script data-role="slide" data-markdown type="text/html">
 #images
 
-*
-
+* Läsbar mall för att skapa en Docker container
+* Lagersystem - bara toppen är skrivbar
+* Varje instruktion i Dockerfile skapar ett lager i imagen
 </script>
 
 
@@ -151,13 +163,94 @@
 <script data-role="slide" data-markdown type="text/html">
 #container
 
-*
+* Körbar instans av en image
+* Förstörs när man stänger ner den
 
 </script>
 
 
 
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Docker arkitektur
+<img src="img/docker-arch.png" alt="docker architecture">
 
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Permissions
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#$ chmod 755 filename
+
+* Read (4)
+* Write (2)
+* Execute (1)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Absolute Permissions
+
+<table>
+<tr>
+    <th>Number</th><th>Permission</th><th>Symbolic</th>
+</tr>
+<tr>
+    <td>0</td><td>No permission</td><td>---</td>
+</tr>
+<tr>
+    <td>1</td><td>Execute</td><td>--x</td>
+</tr>
+<tr>
+    <td>2</td><td>Write</td><td>-w-</td>
+</tr>
+<tr>
+    <td>3</td><td>Execute and write</td><td>-wx</td>
+</tr>
+<tr>
+    <td>4</td><td>Read</td><td>r--</td>
+</tr>
+<tr>
+    <td>5</td><td>Read and execute</td><td>r-x</td>
+</tr>
+<tr>
+    <td>6</td><td>Read and write</td><td>rw-</td>
+</tr>
+<tr>
+    <td>7</td><td>All permissions</td><td>rwx</td>
+</tr>
+</table>
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Access modes
+
+* Owner - Group - Other
+
+<img src="img/ls.png" alt="ls -l">
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Vi skapar ett bash-script!
+</script>
 
 
 
