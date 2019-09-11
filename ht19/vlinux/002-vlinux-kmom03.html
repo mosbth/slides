@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>vlinux kmom03</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../../css/default.css">
+<link rel="stylesheet" href="../../css/tomorrow.css">
+<script src="../../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../../js/showdown.min.js"></script>
+
+<style>
+    h1 {
+        border-bottom: 2px solid orange;
+    }
+</style>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#vlinux kmom03
+###Kenneth Lewenhagen, dbwebb
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Docker vs VirtualBox (Container vs Virtual Machine)
+* Permissions
+* Bash
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Docker vs VirtualBox
+
+###Mål: "Att isolera en applikation och dess beroenden i en fristående enhet som kan köras var som helst."
+
+<img src="img/VMvsContainer.png" alt="vm vs container">
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#VirtualBox
+
+* Virtual Machines
+* Type 2 Hypervisor (VM monitor) skapar och kör VMs
+    * Abstraherar CPU, RAM, HDD
+* Flera unika OS på en fysisk server
+* Skapar overhead
+* Tar mycket plats, lång tid att skapa/starta
+* Kräver mycket resurser
+* Svårt att hitta färdiga VMs
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Docker
+
+* Containers
+* Ingen Hypervisor - app och OS delar resurser
+* Körs ovanpå ett befintligt OS
+* Underliggande OS spelar ingen roll
+* Paketeras med delar som behövs
+* Tar mindre plats
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Vad består Docker av?
+
+* Docker Engine
+    * Server - klient
+    * docker daemon -> REST API -> docker CLI
+* Docker Registry
+    * dockerhub
+* Docker Objects
+    * images, containrar, volymer, nätverk
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#docker daemon
+
+* dockerd
+* Lyssnar efter API requests
+* Hanterar images, containrar, volymer, nätverk
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#docker CLI
+
+* Skickar kommandon till dockerd
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Docker Objects
+
+* images
+* containers
+* volymer
+* nätverk
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#images
+
+*
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#container
+
+*
+
+</script>
+
+
+
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Lycka till!
+</script>
+
+
+
+
+<!-- include essential js-script -->
+<script src="../../js/mithril.min.js"></script>
+<script src="../../js/mithril-slideshow.js"></script>
+<!-- default to theme 3 -->
+<script>app.useTheme(3);</script>
+
+</html>
