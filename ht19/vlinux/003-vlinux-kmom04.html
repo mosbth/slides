@@ -34,8 +34,10 @@
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
 
-* Dockerfile kommandon
-* docker kommandon/flaggor
+* 3-veckorsupprop
+* Dockerfile kommandon (instruktioner)
+* docker run command
+* Kursmomentet
 
 
 </script>
@@ -50,6 +52,7 @@
 * RUN
 * CMD / ENTRYPOINT
 * COPY / ADD
+* (ENV)
 
 </script>
 
@@ -57,7 +60,11 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Docker kommandon
+#Olika former
+
+RUN / CMD / ENTRYPOINT
+* exec form
+* shell form
 
 
 </script>
@@ -66,12 +73,138 @@
 
 <!-- Slide -->
 <script data-role="slide" data-markdown type="text/html">
-#Docker flaggor
+#exec form
 
+* Föredra för CMD/ENTRYPOINT
+<pre><code>&lt;instruction&gt; ["executable", "param1", "param2", ...]</code></pre>
 
 </script>
 
 
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#shell form
+
+<pre><code>&lt;instruction&gt; &lt;command&gt;</code></pre>
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre>
+<code>FROM debian:stretch-slim
+
+RUN apt-get update && \
+    apt-get -y install apache2
+
+CMD apachectl -D FOREGROUND</code>
+</pre>
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+Exempel på de olika formerna
+<pre>
+<code>FROM debian:stretch-slim
+
+RUN apt-get update
+
+# shell form
+CMD echo "Hello world"
+ENTRYPOINT echo "Hello world"
+
+# exec form
+CMD ["/bin/echo", "Hello world"]
+ENTRYPOINT ["/bin/echo", "Hello world"]</code>
+</pre>
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+<pre>
+<code>FROM debian:stretch-slim
+
+RUN apt-get update
+
+COPY script.bash /script.bash
+
+ENTRYPOINT ["/bin/bash", "-c", "script.bash"]</code>
+</pre>
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+Tredje form av CMD
+<pre>
+<code>FROM debian:stretch-slim
+
+RUN apt-get update
+
+ENTRYPOINT ["/bin/echo", "Hello"]
+
+#exec form!
+CMD ["world"]</code>
+</pre>
+<pre><code>$ docker run -it imagename Kenneth</code></pre>
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+shell form av ENTRYPOINT ignorerar CMD & docker run
+<pre>
+<code>FROM debian:stretch-slim
+
+RUN apt-get update
+
+ENTRYPOINT echo Hello
+
+CMD ["world"]</code>
+</pre>
+<pre><code>$ docker run -it imagename Kenneth</code></pre>
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#ADD / COPY
+
+* Samma mål
+* ADD kan använda URL:er
+* ADD packar automatiskt upp till mapp (tar, gzip etc)
+* Inte om &lt;src&gt; är URL ^
+* Använd COPY
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#docker run options
+
+* Volymer (-v)
+    * &lt;outside&gt;:&lt;inside&gt;
+* port (-p)
+    * outside:inside
+<pre></code>$ docker run -p 8083:80 -v $(pwd)/example-site/:/var/www/html/ username/imagename:tag</code></pre>
+* Interaktiv terminal (-it)
+    * --interactive --tty
+* Rensa (--rm)
+</script>
+
+<script data-role="slide" data-markdown type="text/html">
+#Kursmomentet
+</script>
 
 <script data-role="slide" data-markdown type="text/html">
 #Lycka till!
