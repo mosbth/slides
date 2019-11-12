@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom02 | javascript1</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+<style>
+    h1 {
+        border-bottom: 2px solid orange;
+    }
+</style>
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# Programmering med JavaScript
+## (js1)
+## Kmom02
+### Kenneth Lewenhagen
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Språket JavaScript
+* Debuggern
+* Repetition, tips eller önskemål
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Språket JavaScript
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Lexikalisk struktur
+
+* Skiljer små/stora bokstäver
+* Semikolon valfria
+* Kommentarer // och /* */
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Identifierare
+
+En identifierare börjar med en bokstav a-z, A-Z, understreck _ eller dollartecken $ och följs därefter av bokstav a-z, A-Z, understreck _, dollartecken $ eller siffror 0-9.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Identifierare...
+
+```
+$
+_
+moped42
+$something
+```
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Dynamiskt typat
+
+```
+var answer;             // undefined
+answer = 42;            // Number
+answer = "some text";   // String
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Numeriska värden och strängar...
+
+```javascript
+console.log("50" - 8); // 42
+console.log("50" + 8); // "508"
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Literaler
+
+* Representerar värden
+
+<img src="img/literaler.png" width="1024px" />
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#`typeof()`
+
+```
+> typeof(4.2)
+'number'
+> typeof(42)
+'number'
+> typeof("moped")
+'string'
+> typeof('moped')
+'string'
+> typeof(true)
+'boolean'
+> typeof(false)
+'boolean'
+> typeof(null)
+'object'
+> typeof(undefined)
+'undefined'
+> typeof(/./)
+'object'
+> typeof([])
+'object'
+> typeof({})
+'object'
+> typeof(function () {})
+'function'
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Typkonvertering...
+
+* Konvertera strängar till nummer med `parseInt()` och `parseFloat()`
+* Konvertera nummer till sträng med `toString()`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Datatyper och objekt
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Primitiva värden
+
+* Boolska variabler `true` och `false`.
+* Numeriska värden `42` och `4.2`.
+* Strängar `"mumin"` och `'mumin'`.
+* Icke-värden `null` och `undefined`.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Objekt (icke-primitiva)
+
+* `[]` `{}` `//` typeof() ger "object"
+* `function(){}` typeof() ger "function"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+
+* "text" === "text"; // true
+* ["a", "b", "c"] === ["a", "b", "c"] // false
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Objekt...
+
+* `[]` ger instanceof `Array`, `Object`
+* `{}` ger instanceof `Object`
+* `//` ger instanceof `RegExp`, `Object`
+* `function(){}` ger instanceof `Function`, `Object`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Objektbaserade typer
+
+* `Number`, `String`, `Boolean`
+* `Object`, `Array`, `Function`, `RegExp`
+* Globala objekt som exponerar metoder och properties
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Exempel...
+
+* Objektet `Number`
+    * `Number.isInteger`, `Number.isNaN`
+* Objektet `String`
+    * Strängfunktioner `trim`,  `split`, `substr` mfl i [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Jämför värde och typ
+
+* Skillnad mellan == och ===
+* != och !==
+* Använd === och !==
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Variabeldeklarationer
+<pre data-code="c20"></pre>
+</script>
+
+<script id="c20" data-role="code" data-language="javascript" type="text/html">
+// Like this
+var variable1 = "Hello World!";
+var variable2 = "Testing...";
+var variable3 = 42;
+var variable4;
+
+// or like this
+var variable1 = "Hello World!",
+    variable2 = "Testing...",
+    variable3 = 42,
+    variable4;
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Debuggern
+
+* sources
+* breakpoint
+* event-breakpoints
+* debugger;
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Repetition, tips eller önskemål
+
+* Template string
+* var vs let
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+# Tack för idag!
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+<!-- default to theme 3 -->
+<script>app.useTheme(3);</script>
