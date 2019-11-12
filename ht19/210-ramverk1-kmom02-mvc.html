@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom02 | kursen ramverk1</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursen ramverk1
+## Kmom02
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Enhetstester
+* Modellklasser
+* MVC
+* Solid
+* Cohesion / Coupling
+* Uppgiften
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Se exempel på kmom01
+
+* Se min me-sida i ramverk1-kursen (hösten 2018)
+    * https://dbwebb.se/t/7993
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kod bakom kmom01
+
+* [filter_var()](https://www.php.net/manual/en/filter.examples.validation.php)
+* [gethostbyaddr()](https://www.php.net/manual/en/function.gethostbyaddr.php)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Enhetstester
+
+* Hur nå 100% kodtäckning
+    * Städa
+    * Vikten av assertions?
+* Hur simulera GET, POST, SERVER i tester?
+    * Anax\Request
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Enhetstester...
+
+* Data provider i phpunit
+    * Se Anax\Request
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Enhetstester...
+
+* Testa kontroller-metod som gör redirect
+    * Anax\Request
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Enhetstester...
+
+* Testa med exit?
+* Testa echo?
+    * `ob_start()`
+    * `ob_get_contents()`
+    * `ob_end_clean()`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Enhetstester...
+
+* Hur testa när man kör mot extern server?
+    * Har man tillgång till tjänsten?
+    * Kostnad?
+    * API begränsningar?
+    * Schysst att köra tester mot live server?
+* Mock
+    * Exempel MockGeoTagService
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kmom02
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Modellklasser?
+
+* All kod som kan lyftas ut ur kontrollerklassen
+* Tänk
+    * En controller för webguit
+    * En kontroller för restapi
+    * Delad kod lyfts ut i modellklass(er)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Modellklasser...
+
+* Inför kmom02, skriv om koden
+* Modellklass
+    * IpValidator
+Controllerklasser
+    * IPValidatorController
+    * IPValidatorAPIController
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# MVC
+
+* Designmönster arkitektur
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# MVC
+
+* Model
+* View
+* Controller
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/mvc_start.png" style="width: 100%; background-color: white;" title="MVC">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/MVC-Process.svg" style="width: 65%; background-color: white;" title="MVC">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/Model_View_Presenter_GUI_Design_Pattern.png" style="width: 80%;" title="Model–view–presenter (MVP) for Graphical User Interface (GUI)">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/MVVMPattern.png" style="width: 100%;" title="Model–view–presenter (MVP) for Graphical User Interface (GUI), example Mithril">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Liknande pattern
+
+* Presentation–abstraction–control (PAC) (Drupal)
+* Hierarchical model–view–controller (HMVC)
+* Model–view–adapter (MVA)
+* Model–view–viewmodel (MVVM)
+* Model–view–presenter (MVP) (GUI)
+
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Model
+
+* Modellklasser
+* Modellagret
+* Affärslogik
+* Datalager
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tänk kodningsstruktur
+
+* Tunna kontroller-klasser
+* Dumma vyer
+* Logik och intelligens i modell-lagret
+* Vem pratar med vem?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kontroller + Vy är limmet som gör modell-lagret till en webbtjänst/applikation
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# MVC fördelar
+
+* Arbetsfördelning per kompetens
+* Generell kodstruktur för arkitekturen av en applikation
+* Sätt att prata om koden
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# RTFM (om MVC)
+
+* Symfony
+* Laravel
+* Phalcon
+* Yii
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Design mönster
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Design mönster
+
+* Software design pattern
+* "reusable solution to a commonly occurring problem"
+* "within a given context in software design"
+* Formalized best practice
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Design mönster...
+
+* Bok GoF, Gang of Four (1987)
+* Design Patterns: Elements of Reusable Object-Oriented Software
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Design mönster (generellt)
+
+* dbwebb tips, artikel, övning, uppgift
+* dbwebb kursmoment
+* dbwebb kurs
+* dbwebb kurspaket
+* formalisera, kommunicera, produktifiera, återanvänd
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Utveckla med design mönster
+
+* Leta lösningar via mönster
+* Terminologi för samtal
+* Snabbare/säkrare utveckling
+* Kvalitetssäkran
+* Överanvänds?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SOLID
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SOLID
+
+* Single responsibility
+* Open/Closed
+* Liskov substitution
+* Interface segregation
+* Dependency inversion
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Single responsibility principle
+
+* "A class should have only a single responsibility"
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Open/closed principle
+
+* "software entities … should be open for extension, but closed for modification."
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Liskov substitution principle
+
+* "objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program."
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Interface segregation principle
+
+* "many client-specific interfaces are better than one general-purpose interface."
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Dependency inversion principle
+
+* one should "depend upon abstractions, [not] concretions."
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SOLID
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Cohesion / Coupling
+
+* Koncept som hjälper oss samtal om koden
+* Software metrics
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Cohesion
+
+* Hör sakerna ihop i klassen?
+
+* "degree to which the elements inside a module belong together"
+* "some unifying purpose or concept served by that class"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Coupling
+
+* Hur hårt kopplade är klasser/moduler till varandra?
+
+* "degree of interdependence between software modules"
+* "a measure of how closely connected two routines or modules are"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+> "Low coupling is often a sign of a well-structured computer system and a good design, and when combined with high cohesion, supports the general goals of high readability and maintainability."
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Summera
+
+* Designmönster
+* MVC (och varianter)
+    * Model (och dess förhållande till)
+        * Controller
+        * View
+* SOLID
+* Cohesion / Coupling
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Uppgift
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Uppgift kmom02
+
+* "En webbtjänst för att geotagga ip-adresser"
+> "Skapa en sida där du kan mata in en ip-adress. Man kan posta formuläret och få ett svar på ip-adressens geografiska position, förutsatt att ip-adressen är giltig."
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Externa tjänster
+
+* https://ipstack.com/
+* https://www.openstreetmap.org/
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Tips
+
+* Wrappa cURL i en egen klass.
+    * Se exmpel på CURL
+* Separera i egna modell-klasser.
+    * Separata controllers
+    * Dumma vyer (hämta inte info från ramverket)
+* Varje klass skall var testbar (100% kodtäckning?)
+* Injecta de ramverkstjänster som behövs från kontroller-lagret.
+* Hur spara API-nyckel?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Uppgift kmom03
+
+* Make an application that allows the user to view the observed (in the past 30 days) or forecasted (in the future) daily weather conditions for a given location
+* [Dark Sky API](https://darksky.net/dev/docs)
+* Send multiple requests concurrently
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
