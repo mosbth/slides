@@ -49,8 +49,12 @@
 <script data-role="slide" data-markdown type="text/html">
 # MVC
 
-* Minns att det finns olika sätt att se på detta designmönster, beroende av sammanhanget.
+* Model View Controller
+* Tunna kontrollers
+* Dumma vyer
+* "Vem pratar med vem?"
 * En modellklass är "bara ytterligare en klass"
+* Minns att det finns olika sätt att se på detta designmönster, beroende av sammanhanget.
 
 </script>
 
@@ -70,6 +74,21 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
+# SOLID...
+
+* S "A class should have only a single responsibility"
+* O "open for extension, closed for modification"
+* L "replaceable with instances of their subtypes"
+* I "many client-specific, no general-purpose (interface)"
+* D "depend upon abstractions, not concretions."
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Coupling / Cohesion
+
 > "Low coupling is often a sign of a well-structured computer system and a good design, and when combined with high cohesion, supports the general goals of high readability and maintainability."
 
 </script>
@@ -79,8 +98,10 @@
 <script data-role="slide" data-markdown type="text/html">
 # Enhetstester
 
-* Små tydliga uppgifter
+* Små tydliga testmetoder
 * Små rena och tydliga klasser
+    * Skapa många små testklasser
+    * Positiva och negativa tester
 * 100% kodtäckning fullt rimligt
 
 </script>
@@ -108,6 +129,12 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
+# Dependency injection
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
 # RTFM om $di
 
 * Symfony
@@ -115,12 +142,6 @@
 * Phalcon
 * Yii
 
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-# Dependency injection
 </script>
 
 
@@ -143,6 +164,7 @@
 
 * Kolla koden
 * PHP-FIG rekommendation
+    * [PSR-11: Container interface](https://www.php-fig.org/psr/psr-11/)
 
 </script>
 
@@ -183,15 +205,6 @@
 * Constructorn
 * Setter-metod
 * Interface injection
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-# Uppdaterad läsanvisning
-
-* Artikel x 2 av Martin Fowler.
 
 </script>
 
@@ -247,6 +260,7 @@
 # Service container slentrian
 
 * [Microsoft/vscode-python#1999](https://github.com/Microsoft/vscode-python/issues/1999)
+* Injecta bara det som behövs
 
 </script>
 
@@ -274,8 +288,10 @@
 <script data-role="slide" data-markdown type="text/html">
 # Proxy
 
-* anax/proxy
+* Låt oss prata lite designmönster...
+* [anax/proxy](https://github.com/canax/proxy)
 * Ett alternativ till att nå ramverkets tjänster
+* (Diskussion om [Laravel Facade versus Proxy](https://stackoverflow.com/questions/17332322/does-facade-in-laravel-implements-facade-or-proxy-pattern))
 
 </script>
 
@@ -321,7 +337,9 @@
 <script data-role="slide" data-markdown type="text/html">
 # TODO
 
+* Visa kodexempel om dessa?
 * Injecta beroenden in i modellklassen
+* Prata om hur man fördelar klasserna?
 
 </script>
 
