@@ -37,17 +37,11 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Testa någon av me-sidorna
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-# Minns förra veckan
+# Något från förra veckan?
 
 * $di
 * `config/`
+* mvc, solid, cohesion, coupling, cyclomatic complexity
 
 </script>
 
@@ -56,7 +50,7 @@
 <script data-role="slide" data-markdown type="text/html">
 # Proxy
 
-* Låt oss prata lite designmönster...
+* Låt oss prata lite designmönster (och modul)...
 * [anax/proxy](https://github.com/canax/proxy)
 * Ett alternativ till att nå ramverkets tjänster
 * (Diskussion om [Laravel Facade versus Proxy](https://stackoverflow.com/questions/17332322/does-facade-in-laravel-implements-facade-or-proxy-pattern))
@@ -66,7 +60,18 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Denna veckan
+# REM Server
+
+* Hur dela upp moduler?
+* [anax/remserver](https://github.com/canax/remserver)
+* [anax/remserver-website](https://github.com/canax/remserver-website)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Denna vecka
 
 * _Dependencies_
 * Modul
@@ -90,28 +95,28 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Exempelmodul
-
-* anax/remserver
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
 # [Packagist](https://packagist.org/)
+
+* Pakettjänst PHP moduler och utilitites
+
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
 # [Composer](https://getcomposer.org/)
+
+* Installera paket från Packagist
+
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
 # [Semantic Versioning](https://semver.org/)
+
+* Kom överens om hur versionsnummer fungerar och används
+
 </script>
 
 
@@ -133,6 +138,7 @@
 # Övning kmom04...
 
 * Scaffolding
+* Automatisera kopierande och vanligt förekommande installationsrutiner
 
 </script>
 
@@ -141,6 +147,7 @@
 <script data-role="slide" data-markdown type="text/html">
 # Installera modul
 
+* Dokumentation (för din och andras del)
 * Hur installera modulen?
 * Hur koppla sig mot en befintlig installation?
 * README.md
@@ -162,10 +169,10 @@
 <script data-role="slide" data-markdown type="text/html">
 # Enhetstester
 
-* 100% kodtäckning fullt rimligt
-* Kika Scrutinizer
+* 100% kodtäckning inte orimligt
 * Beroende av $di, hur hantera?
 * Hur tänka när man testar kontroller/modeller?
+* Kika Scrutinizer
 
 </script>
 
@@ -175,7 +182,6 @@
 # Kodkvalitet
 
 * Scrutinizer säger 10/10 för remservern
-* phpmetrics
 * Se vad rapporten genererar
 
 </script>
@@ -188,6 +194,7 @@
 * Poängtera vikten av en lokal utvecklingsmiljö
 * `make install`, `make test`
 * Docker
+* (phpmetrics)
 
 </script>
 
@@ -212,6 +219,7 @@
 
 * Continous integration
 * Bygg egen CI kedja för modulen.
+* Integrera med Travis, CircleCI, Scrutinizer, mfl.
 
 </script>
 
