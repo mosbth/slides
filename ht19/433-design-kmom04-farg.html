@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom04 | kursen design</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursen design
+## Kmom04 Färg
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Färg
+* Om att analysera webbplatser
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Förkunskaper
+
+* Layout och compositionen, i grunden enligt grid
+* Typografi och val av typografi
+* LESS med moduler och variabler
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färgschema
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/colorscheme.png" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färg
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/IMG_7117.jpg" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/IMG_7118.jpg" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färgteori
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färgsystem (Color model)
+
+<img src="img/RGBvCMYK.jpg" alt="temp" width="50%" style="float:right;">
+
+* RGB (addidative) (bildskärm)
+* RGB -> mer färg -> vitt
+* CMYK (subtractive) (måleri, tryck)
+* CMYK -> mer färg -> svart
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färgrymd (color space)
+
+<img src="img/RGB_Cube_Show_lowgamma_cutout_b.png" alt="temp" width="50%" style="float: right;">
+
+* Färgrymd definierar vilka färger som finns
+* Färgrymden sRGB bygger på färgsystement RGB
+* Definierad av Microsoft/HP 1996 för databruk
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/CIE1931xy_gamut_comparison.svg" style="background-color: white; width: 70%;" alt="temp" title="Jämför olika färgrymder vilka färger de omfattar">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Stöd för sRGB?
+
+* Kamera, tv, projektor, 3D-tekniker, 3D-skrivare, mfl?
+* [Vad händer om inkompabilitet med färgrymden?](https://cimage.se/doc/convert-to-srgb)
+* Färgrymd har en ICC profil (data om färgerna)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färg i webben
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färg i CSS
+
+* Färgrymden sRGB
+* Kan innehålla en alpha-kanal (hur kombinera färgen med bakgrundsfärgen)
+* Alpha, opacity, genomskinlighet
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Color Picker AddOn ColorZilla
+
+* Att få färgens värde, från en webbsida/bild 
+* Finns i Chrome/Firefox
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# [MDN Color Picker](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool)
+
+* Översikt av färger och dess varianter
+* Hjälp att jämföra färger och att bygga ett färgschema
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Ange färg i css
+
+<img src="img/RGB_Cube_Show_lowgamma_cutout_b.png" alt="temp" width="50%" style="float: right;">
+
+* Kuben, geometrisk representation (RGB)
+* `#f00`, `#ff0000`
+* `rgb(255, 0, 0)`
+* `rgba(255, 0, 0, 1)` 
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Ange färg i css...
+
+<img src="img/HSL_color_solid_cylinder_saturation_gray.png" alt="temp" width="50%" style="float: right;">
+
+* Cylinder, HSL/HSV (RGB systemet) 1970
+* `hsl(0, 100%, 50%)`
+* `hsla(0, 100%, 50%, 1)`
+* HSL Hue, Saturation, Light
+* (HSV Hue, Saturation, Value)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# HSV - HSL
+
+<img src="img/HSV_color_solid_cylinder_saturation_gray.png" alt="temp" width="50%" style="float: left;">
+<img src="img/HSL_color_solid_cylinder_saturation_gray.png" alt="temp" width="50%" style="float: left;">
+
+</script>
+
+
+<script data-role="slide" data-markdown type="text/html">
+# HSL/HSV
+
+* Hue: 0-360 grader (0 red, 120 green, 240 blue)
+* Light/Value: 0-1 (0 black, 1 white, 0.5 neutral)
+* Saturation: färgmättnad (pure 1, matta 0)
+* Röd (#F00)
+    * HSV 0° 100% 100% 
+    * HSL 0° 100% 50%
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Rena färger, mixa
+
+<img src="img/color-tint.png" alt="temp" width="50%" style="float: right;">
+
+* En målares terminologi
+* Tint/Shade/Tone
+* Ren färg, mixa vit (tint)
+* Ren färg, mixa svart (shade)
+* Ren färg, mixa vit/svart (tone)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Att välja/kombinera färger
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färgskala
+
+<div style="float: right; width: 50%;">
+<img src="img/Grafiska_Riktlinjer-Primar_fargskala.png" alt="temp" style="max-width: 100%;" title="Sidas färgprofil"><br>
+<img src="img/Grafiska_Riktlinjer-komplement_farger.png" alt="temp" style="max-width: 100%;">
+</div>
+
+* Färgpalett, färgkarta
+* Färgprofil
+* Färger som hör ihop
+* Färger man valt använda
+* Låt oss leta reda på en grafisk profil för ett företag
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färger inom samma typ
+
+<div style="float: right; width: 50%">
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #ff0000;"></div>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #00ff00;"></div>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #0000ff;"></div>
+    <br>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #ffcccc;"></div>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #ccffcc;"></div>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #ccccff;"></div>
+    <br>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #660000;"></div>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #006600;"></div>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #000066;"></div>
+</div>
+
+* Klara färger
+* Ljusa färger
+* Mörka färger
+* Skifta ett värde, inte flera
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färger och känsla
+
+<div style="float: right; width: 50%">
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #ff9999;"></div>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #99ff99;"></div>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #9999ff;"></div>
+    <br>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #47663D;"></div>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #FFCC66;"></div>
+    <div style="float: right; width: 200px; height: 200px; margin: 4px; background-color: #FF6633;"></div>
+</div>
+
+* Pastellfärger
+* Höstfärger
+* Färgerna hör ihop - delar parametrar (hue, saturation, light/tint, shade)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Känsla
+
+* Färgers psykologi
+* Associationer mellan färger och känsla
+* Var medveten om att färg associeras till känslor, medvetet och omedvetet
+* Färgskala för olika känslor (googla bilder vår, höst, hav, etc)? 
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/color-psycology.png" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/tallrik-christmas.jpg" alt="temp" width="80%" title="Design  Dinnerware - Christmas Moments">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färghjul RYB
+
+<img src="img/color-ryb-wheel.png" alt="temp" width="50%" style="background-color: white; float: right;">
+
+* RYB kontra RGB?
+* RYB traditionell färgteori, 1700-talet
+* Red Yellow Blue som primära (rena) färger
+* Fokus vad människan psykologiskt uppfattar som rena färger
+* Primärfärg, sekundärfärg, tertiär
+* RYB (subtractive) målares palett (fler färger normalt sett, grön ibland primärfärg)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färghjul RYB...
+
+<img src="img/color-ryb-wheel.png" alt="temp" width="50%" style="background-color: white; float: right;">
+
+* Färghjul [Paletton](http://paletton.com/), [Adobe](https://color.adobe.com/create/color-wheel/)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färgsystem NCS
+
+<img src="img/Opponent_colors.svg" alt="temp" width="50%" style="float: right;">
+
+* Natural Color System
+* Svenskt ursprung
+* 4 primära färger
+* red versus green, blue versus yellow, and black versus white
+* Bygger på hur människan uppfattar färger, inte hur färger mixas
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Hur välja färger
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Bestäm dig
+
+* Har du redan färger att utgå ifrån, logotype, etc?
+* Vilken känsla och signal vill du att din design skall signalera?
+* Därefter välj färger som leder mot den känslan
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Val av färger
+
+* Kombinera färger som hör ihop via dess parametrar (hue, saturation, light, tint, shade)
+* Kombinera enligt färgshema (monochromatiskt, analogt, complementary, etc)
+* Var försiktig att använda mycket färg, välj vitt/ljust
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Färgschema
+
+* Se färghjulens varianter(Paletton)
+* Monochromatic (med/utan komplementfärg)
+* Komplementfärg (motliggande färg)
+* Adjacent colors (närliggande)
+* Triad (complementary, adjacent)
+* Tetrad (complementary, adjacent)
+* Tint, Shade av grundfärgerna
+* Skapa din egen palett
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/colorscheme.png" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Hur applicera en palett?
+
+* Basfärg, grunden
+* Accentfärg (färgklick som får saker stå ut)
+* Vitt, Svart, Grått, nyanser
+* Försiktig
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/accent-color-1.jpg" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/accent-color-2.jpg" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/IMG_7117.jpg" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<img src="img/IMG_7118.jpg" alt="temp" width="100%">
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# LESS funktioner
+
+* [Funktioner om färg](http://lesscss.org/functions/)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Rapport
+
+* [Struktur](https://dbwebb.se/uppgift/utvardera-webbplatsers-fargval-och-kanslan-de-signalerar)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
