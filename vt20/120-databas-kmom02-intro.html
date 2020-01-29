@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom02 | Kursen databas</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# Kursen databas
+## Kmom02
+### Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Bra att veta
+* Uppsamling av saker från kmom01
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Genomgång av SQL
+
+* Mer SQL?
+* Kika på förra årets genomgång av intro exemplet
+    * [Streams vt19, kmom02 fläs, del I](https://www.youtube.com/playlist?list=PLKtP9l5q3ce8JaLBnz0TszCXc_eCVpmOh)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Inlämningar
+
+* Läraren kollar att inlämningen uppfyller kraven
+* Begränsat med feedback
+* Fråga i forum, chatt, programmeringsstuga, issue
+    * Be om utläggningar
+* Dubbelkolla med "dbwebb inspect kmom01"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Hur rättas?
+
+* Allt laddas ned till lärarens dator
+* "dbwebb inspect kmom" körs
+* Me-sidan med redovisningstext läses
+* Uppgifterna kollas
+* Allt körs i docker, i lärarens egen databas
+    * Konsekvenser av det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Konfigurera min databas?
+
+* Hur kan jag lösa problem?
+* https://dbwebb.se/t/8909
+* Vad händer om jag konfigurerar om min databas lokalt?
+    * Har rättaren samma konfiguration?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Windows kontra Unix radbrytning
+
+* Unix radbrytning `\n`
+* Windows radbrytning `\r\n`
+* Visa dolda tecken i Atom
+* Tab eller space
+* Hur många spaces?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kodstandard
+
+* Filnamn, ej med mellanslag eller svenska tecken
+* Kodstandard för SQL
+    * Inte svenska tecken
+    * Bara små bokstäver
+* Validering av kodstandard
+* dbwebb validate
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Terminalklienten
+
+```
+mysql
+mysql -uuser
+mysql -uuser -p
+mysql -uuser -ppass
+mysql -uuser -ppass skolan
+mysql -uuser -ppass skolan < fil.sql
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Terminalklienten...
+
+```
+mysql --help
+mysql --help | more
+mysql --help | grep "user"
+man mysql
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# my.cnf
+
+* Konfigurationsfil som läses av terminalklient(er)
+* Inställningar per klient eller generellt
+* chmod 600
+* Känslig information
+* Visa värden som används `mysql --print-defaults`
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SQL-filer
+
+* Filer med SQL-kommandon
+* Redigera i Workbench och kör hela eller delar av filen
+    * ctrl-enter (kör raden jag står på)
+* Redigera i Atom och kör i terminalklienten
+* Ordning av kommandon viktig (hela filen exekveras, om och om igen)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kör SQL-filer
+
+```
+mysql -uroot -p < setup.sql
+mysql -udbwebb -p < ddl.sql
+```
+
+Inuti klienten
+
+```
+mysql> source ddl.sql
+mysql> source dml.sql
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Bash-skript
+
+* Textfil med kommandon
+* Programmeringsspråk med variabler, arrayer, loopar, funktioner
+* Skriptspråk för shellet
+* Samla kommandon, automatisera, förenkla
+* dbwebb-cli är skrivet i bash
+* Googla "bash for loop"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Fixa ett bash skript?
+
+* Basha förra veckans intro?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<!-- empty slide by intention -->
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
