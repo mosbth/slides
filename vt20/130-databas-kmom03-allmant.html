@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kmom03 Allmänt | Kursen databas</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/tomorrow.css">
+<script src="../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# Kursen databas
+## Kmom03 Allmänt
+### Mikael Roos, dbwebb
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Allmänt från kmom02
+* Smått och gott
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Formattera datum i Js
+
+* Tips från coachen:
+    * [Formattera datum i JavaScript](https://dbwebb.se/forum/viewtopic.php?f=57&t=8220)
+    * [Formattera datum i (My)SQL](https://dbwebb.se/forum/viewtopic.php?f=57&t=8222)
+* Konfiguration i npm mysql konfig fil?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# SELECT med IF-sats
+
+```
+SELECT IF (1 = 2, 'yes', 'no');
+```
+
+* [Functions and Operators > Control Flow Functions](https://dev.mysql.com/doc/refman/8.0/en/control-flow-functions.html)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# COALESCE operator
+
+```
+SELECT COALESCE(NULL, NULL, columnA, columnB);
+```
+
+* [Functions and Operators > Operators > Comparison Functions and Operators](https://dev.mysql.com/doc/refman/8.0/en/comparison-operators.html#function_coalesce)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Terminalklienten och my.cnf
+
+* [my.cnf](https://github.com/dbwebb-se/databas/blob/master/example/sql/my.cnf)
+
+```
+mysql --print-defaults
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Validering och kodstandard
+
+* JavaScript kodstandard och validering
+* SQL kodstandard
+    * Enbart små bokstäver
+    * Ej svenska tecken (kolumnnamn, tabellnamn, AS)
+* Namnen är på svenska eller engelska?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# [Forumet](https://dbwebb.se/forum/viewforum.php?f=73)
+
+* FAQ i forumet
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Läs mer om JavaScript
+
+* Jag vill veta mer om kärnan i programmeringsspråket JavaScript
+* [Axels böcker](https://dbwebb.se/kurser/databas-v1/kmom02#javascript)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Feedback så här långt
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Feedback så här långt
+
+> "Har verkligen saknat dbwebb och er som lärare, att ha en kurs på detta sätt är extremt effektivt och riktigt roligt."
+
+> "Innan kursen började så var jag rädd för att det skulle bli en till C++ kurs där man inte fattade någonting, men det har verkligen visat sig vara motsatsen denna kurs. Alla övningar är välskrivna och lätta att följa med. "
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Feedback...
+
+> "All I can say about how it went connecting JavaScript, Node.js with SQL and the database is that it happened in uncomplicated way just because of the guide’s instructions how doing it! so COMPREHENSIBLE!"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Feedback...
+
+> "Ska jag vara ärlig är frågorna under all kritik. Vad är meningen att fråga massa "hur känns det frågor" och förvänta er minst 15 meningar? Det bidrar inte direkt till "reflektion" utan mer att man ordbajsar halvrelevanta detaljer varken vi eller ni bryr er om. Är det inte bättre med frågor om koncepten vi gått igenom och ur de kan användas, till exmepel? På det viset kan vi få reda på om vi har förstått centrala begrepp samtidigt som ni får reda på om alla hänger med i kursen... I alla fall jag skiter bokstavligen i vad jag "känner" om programmeringsspråket och ser inte riktigt hur det hjälper undervisningen. Om det istället kommer en fråga om begrepp jag inte vet vad det är, får jag en chans att läsa på om det konceptet och fortsatt hänga med i kursen."
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kmom03 survival handbook
+
+* Node.js menyklient (tisdagen)
+* ER (timme 1)
+* Guiden skolan (timme 2)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kmom03 survival handbook...
+
+* ER (timme 1)
+    * Läs om ER-modellering
+    * Jobba i grupp
+    * Kolla eshop-videon
+    * Följ processen
+    * Reverse engineering
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kmom03 survival handbook...
+
+* Guiden skolan (timme 2)
+    * Samla DDL
+    * INNER/OUTER JOIN
+    * Subquery
+    * UNION
+    * LOAD LOCAL INFILE
+    * Import/export Excel
+    * mysqldump
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Frågor på det?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<!-- empty slide by intention -->
+</script>
+
+
+<!--
+
+<script data-role="slide" data-markdown type="text/html">
+# Unix/Windows radbrytning
+
+* WINDOWS CRLF `\r\n`
+* Unix LF `\n`
+
+</script>
+
+-->
+
+
+
+<!-- include essential js-script -->
+<script src="../js/mithril.min.js"></script>
+<script src="../js/mithril-slideshow.js"></script>
+
+</html>
