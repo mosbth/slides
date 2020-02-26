@@ -28,6 +28,8 @@
 <script data-role="slide" data-markdown type="text/html">
 # Agenda
 
+* Allmänt
+* Tidsstämplar
 * Programmera i databasen
 * Compound statement syntax
 * Lagrad procedur
@@ -42,12 +44,12 @@
 
 | Kmom | Status | 
 |:----:|:------:|
-| 01   | 153/156
-| 02   | 121/131
-| 03   |  68/87
-| 04   |  5/33
-| 05   |  3/5
-| 06   |  0/1
+| 01   | 154/156 |
+| 02   | 122/131 |
+| 03   |  68/88 |
+| 04   |  16/34 |
+| 05   |  3/5 |
+| 06   |  0/1 |
 
 </script>
 
@@ -57,9 +59,18 @@
 # Examinationen
 
 * Torsdag 26/3 "programmeringstenta" 5h
-* [Se tidigare programmeringstentor](https://dbwebb.se/kurser/databas-v1/examination)
-* Bygg vidare på eshop för högre betyg
+* [Se tidigare programmeringstentor](https://dbwebb.se/kurser/databas-v1/kmom10)
+* Bygg vidare på eshop för högre betyg (enskilt)
 * Mer detaljer vid nästa veckas stream
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Om kmom05
+
+* Du kan utföra denna uppgift enskilt, eller i samma grupp som utförde ER-modelleringen.
 
 </script>
 
@@ -81,20 +92,10 @@
 <script data-role="slide" data-markdown type="text/html">
 # Om kmom05
 
-* Du kan utföra denna uppgift enskilt, eller i samma grupp som utförde ER-modelleringen.
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-# Om kmom05
-
 * Implementera delmängd av ER
 * CRUD web + cli
 * Excelark bas av tabeller/innehåll
-* Bygg vidare i kmom06
-* Optionellt bygga vidare i projektet
+* Bygg vidare i kmom06 + optionellt kmom10
 * KISS Keep It Stupid Simple
 
 </script>
@@ -108,15 +109,14 @@
 	* Återanvänd kod i JavaScript
 	* Tänk databas API (lagrade proc)
 	* "Ingen sql-kod i klienterna"
-* Inkonsekvent användning av stora/små bokstäver (komplettering)
-	* Relaterat till SQL-koden (finns ju även i JS-koden)
+* Inkonsekvent SQL med stora/små bokstäver
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Tips kmom05
+# Tips kmom05...
 
 * Triggers visar hur loggtabell kan fungera
 
@@ -130,7 +130,7 @@
 * God grund DDL/INSERT (csv)
 	* Använd csv-filer för att fylla data
 	* `\n` kontra `\r\n` i csv-filer 
-	* LOAD DATA LOCAL INFILE (lokal sökväg)
+	* Lokal sökväg
 	* Bash-script som skapar om db + backup?
 	* Snabbt och enkelt att återskapa/förändra databasen
 </script>
@@ -140,8 +140,8 @@
 <script data-role="slide" data-markdown type="text/html">
 # Tips kmom05...
 
+* ["Testspec" finns i uppgiften](https://dbwebb.se/uppgift/bygg-databasen-till-en-eshop-del-1#test)
 * Testa din lösning med default data
-* "Testspec" finns i uppgiften
 * Läs in din egna databasbackup
 	* Gör ett bashskript så slipper du minnas hur du gör
 
@@ -192,6 +192,7 @@ MySQL [dbwebb]> SELECT * FROM t1;
 +-----+---------------------+---------------------+---------+
 3 rows in set (0.00 sec)
 ```
+</script>
 
 
 
@@ -210,6 +211,7 @@ MySQL [dbwebb]> SELECT * FROM t1;
 +-----+---------------------+---------------------+---------+
 3 rows in set (0.00 sec)
 ```
+</script>
 
 
 
@@ -234,6 +236,7 @@ MySQL [dbwebb]> SELECT * FROM t1;
 # Flytta pengar
 
 ```
+-- PSUEDO KOD
 SET @amount = 1.5;
 SET @from   = '1111';
 SET @to     = '2222';
@@ -340,7 +343,7 @@ END
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Compound statements
+# Compound statement
 
 ```
 BEGIN
@@ -353,7 +356,7 @@ END
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Compound statements
+# Compound statement
 
 * Inuti "lagrade program" (i databasen)
 * Lagrade procedurer (stored procedures, sp)
@@ -401,23 +404,10 @@ DELIMITER ;
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Variabler
+# Variabler...
 
 * Mixa inte namngivning av lokala variabler och kolumn/tabellnamn
 
-```
-DELIMITER ;;
-BEGIN
-	DECLARE a_balance INT;
-    DECLARE a_id INT;
-    
-    SET a_id = 1111;
-    SET a_balance = (SELECT balance FROM account WHERE id = a_id);
-
-	SELECT balance INTO a_balance FROM account WHERE id = a_id;
-END;;
-DELIMITER ;
-```
 </script>
 
 
@@ -666,6 +656,15 @@ SHOW WARNINGS;
 
 
 <script data-role="slide" data-markdown type="text/html">
+# Kodexempel
+
+* [example/sql/stored_procedure_slides.sql](https://github.com/dbwebb-se/databas/blob/master/example/sql/stored_procedure_slides.sql)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
 # Trigger
 </script>
 
@@ -674,9 +673,9 @@ SHOW WARNINGS;
 <script data-role="slide" data-markdown type="text/html">
 # Triggers sker på
 
-* INSERT account
-* UPDATE account
-* DELETE account
+* INSERT
+* UPDATE
+* DELETE
 
 </script>
 
@@ -695,9 +694,9 @@ SHOW WARNINGS;
 <script data-role="slide" data-markdown type="text/html">
 # Tillgång till 
 
-* Raderna och kolumnernas värde ligger i variabel
 * NEW (NEW.id, etc)
 * OLD (OLD.id, etc)
+* Raderna och kolumnernas värde ligger i variabel
 
 </script>
 
@@ -788,24 +787,25 @@ SHOW TRIGGERS FROM dbwebb \G;
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Felsök trigger
+# Varför triggers?
 
-* Glöm inte bort att du har dem...
-* Udda fel, kolla om du har triggers på din db/tabell
-* Droppa alla triggers och försök igen
-* (echo) Logga triggers genom skriva till debug tabell
+* \+ Får saker att hända automatiskt
+* \+ Mindre kod i databasen
+* \- Saker händer automatiskt
+* \- Magisk osynlig kod i databasen
+* \- Glömmer bort dem
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Varför triggers?
+# Felsök trigger
 
-* \+ Får saker att hända automatiskt
-* \+ Mindre kod i databasen
-* \- Saker händer automatiskt
-* \- Magisk, en synlig, kod i databasen
+* Glöm inte bort att du har dem...
+* Udda fel, kolla om du har triggers på din db/tabell
+* Droppa alla triggers och försök igen
+* (echo) Logga triggers genom skriva till debug tabell
 
 </script>
 
@@ -827,8 +827,7 @@ SHOW TRIGGERS FROM dbwebb \G;
 <script data-role="slide" data-markdown type="text/html">
 # Exempel på triggers
 
-* Kodexempel på olika triggers
-	* [example/sql/triggers_insert_update_delete.sql](https://github.com/dbwebb-se/databas/blob/master/example/sql/triggers_insert_update_delete.sql) 
+* [example/sql/triggers_insert_update_delete.sql](https://github.com/dbwebb-se/databas/blob/master/example/sql/triggers_insert_update_delete.sql) 
 
 </script>
 
@@ -849,6 +848,7 @@ SHOW TRIGGERS FROM dbwebb \G;
 
 
 
+<!--
 <script data-role="slide" data-markdown type="text/html">
 # JavaScript mot SP
 
@@ -857,7 +857,10 @@ SHOW TRIGGERS FROM dbwebb \G;
     * Status för anropet
 * Hur hanteras OUT, INOUT?
 
+Tror inte artikeln om JS/SP tar upp alla olika fall. Gör testprogram som visar.
+
 </script>
+-->
 
 
 
