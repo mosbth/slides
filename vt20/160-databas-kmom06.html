@@ -47,27 +47,35 @@
 <script data-role="slide" data-markdown type="text/html">
 # Rättningsläget
 
-| Kmom | Web | SE | 
-|:----:|:---:|----|
-| 01   | 121 (123) | 35 (35) |
-| 02   | 104 (108) | 34 (36) |
-| 03   |  67 (78)  | 21 (24) |
-| 04   |  47 (57)  | 16 (19) |
-| 05   |   6 (13)  |  0 (0)  |
-| 06   |   0 (0)   |  0 (0)  |
+| Kmom | Status    | 
+|:----:|:---------:|
+| 01   | 154 (156) |
+| 02   | 129 (144) |
+| 03   |  95 (104) |
+| 04   |  45 (75)  |
+| 05   |   7 (21)  |
+| 06   |   2 (5)   |
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Examinationen
+# Undvik komplettering
 
-* 28/3 "programmeringstenta" 5h
-* [Se tidigare programmeringstentor](https://dbwebb.se/kurser/databas-v1/examination)
-* Bygg vidare på eshop för högre betyg
-* Detaljer vid nästa veckas stream
+* Testa din kod enligt testspecen (och kraven)
+* Spara filer på angiven plats med angivet filnamn och struktur
+* Backupfilen finns och [innehåller lagrade procedurer](https://dbwebb.se/t/8371)
+* [Mixa inte små/stora bokstäver](https://dbwebb.se/t/8379) i filnamn, tabell- och kolumnnamn
+* dbwebb inspect kmom06 ger dig viss säkerhet
+* Ignorera CRLF varning på csv-filer (om du har koll)
 
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# 3-veckors kollen
 </script>
 
 
@@ -76,61 +84,34 @@
 # Tidplanering
 
 * Tidplanering för resterande del av kursen
+* Dubbelkolla lektionsplanen och rekommenderad studieplan
 * Jobba på kmom05|kmom06 fram tills tentan
-* Totalt 5v inklusive denna veckan och examinationsveckan
+* Gör provtentor med start nästa vecka
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Om felsökning
+# Examinationen
 
-* Fokus på felmeddelandet
-* Återskapa felet (upprepade gånger)
-* Begränsa komplexiteten
-    * (kör SQL i WB innan JS)
-    * Är felet i vyn, routen, databasfunktionen, lagrad proc
-* Avgränsa problemområdet (en kodrad)
-* Skriv separat testfall
+* Torsdagen den 26/3 "programmeringstenta"
+* 5h (9-14 campus / 9-24 distans)
+* [Se tidigare programmeringstentor](https://dbwebb.se/kurser/databas-v1/kmom10)
+* Detaljer vid nästa veckas stream `dbwebb exam ls`
+* Projekt - Bygg vidare på eshop för högre betyg
 
 </script>
 
 
 
 <script data-role="slide" data-markdown type="text/html">
-# Vanliga fel i kmom05
+# Bedömning och betygsättning
 
-* [Lagrade procedurer är inte med i databasdumpen](https://dbwebb.se/forum/viewtopic.php?f=13&t=8371)
-* [Kodstandard med små bokstäver och _](https://dbwebb.se/forum/viewtopic.php?f=73&t=8379)
-* "Jag tänkte själv och gjorde bättre lösning..."
-    * Att följa en spec
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-# Sagt om kmom05
-
-* Mycket.
-* Stor spec.
-* Enklare än jag först trodde.
-* Repetition.
-* Återanvänd koden mellan klienterna.
-
-</script>
-
-
-
-<script data-role="slide" data-markdown type="text/html">
-# Om kmom05
-
-* En delmängd av din ER
-* Excelark ger en viss bas av tabeller
-* Skapa grund i DDL och INSERT
-* Bygg om databas schema vid behov
-* KISS, Keep It Stupid Simple
+* [Läs på](https://dbwebb.se/kurser/faq/bedomning-och-betygsattning-tentamen-och-projekt)
+* Tenta F,E-C
+* Projekt D-A (påverkar 1-3 nivåer)
+* Texter +/- kan påverka en betygsnivå
 
 </script>
 
@@ -207,7 +188,8 @@ END;;
 * Compound statements
     * IF, CASE, loopar, variabler
 * Lagrad procedur
-    * Argument in/ut, "returnerar/lämnar" resultsets
+    * Argument in/ut
+    * "returnerar/lämnar" resultsets
 * Trigger
     * INSERT|UPDATE|DELETE, BEFORE|AFTER, OLD|NEW
 
@@ -217,7 +199,6 @@ END;;
 
 <script data-role="slide" data-markdown type="text/html">
 # Funktioner
-
 </script>
 
 
@@ -229,6 +210,26 @@ END;;
 * CREATE/DROP/ALTER FUNCTION
 * Lagras i databasen
 
+```
+SELECT grade(points) AS Betyg FROM exam;
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Använd funktion
+
+```
+SELECT grade(75) AS Betyg;
+
+SELECT
+    score AS Poäng,
+    grade(score) AS Betyg
+FROM exam;
+```
+
 </script>
 
 
@@ -239,7 +240,7 @@ END;;
 * User Defined Function (UDF)
     * Extern kod som länkas in till databasservern
     * Skriv i C/C++ eller liknande
-    * Kan skapa aggregerande funktioner
+    * Kan skapa aggregerande funktioner likt SUM()
 
 </script>
 
@@ -261,7 +262,7 @@ END;;
 # Använd Funktion
 
 * Används i en SELECT (tex)
-* Returnerar ett värde
+* Returnerar ett värde, `RETURNS CHAR(2)`
 * Kan ta argument
 
 ```
@@ -273,7 +274,7 @@ SELECT score, grade(score) FROM examination;
 
 
 <script data-role="slide" data-markdown type="text/html">
-# En funktion
+# Funktion kod template
 
 ```
 DROP FUNCTION IF EXISTS grade;
@@ -293,7 +294,7 @@ DELIMITER ;
 
 
 <script data-role="slide" data-markdown type="text/html">
-# En funktion body
+# Funktion kod
 
 ```
 CREATE FUNCTION grade()
@@ -328,7 +329,10 @@ END;;
 # Använd funktion
 
 ```
-SELECT score, grade(score) FROM examination;
+SELECT
+    score AS poäng,
+    grade(score) AS Betyg
+FROM examination;
 ```
 
 </script>
@@ -367,6 +371,7 @@ END;;
 
 * [NOT] DETERMINISTIC
 * CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA
+* [RTFM (Read The Fine Manual)](https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html)
 
 </script>
 
@@ -452,7 +457,7 @@ SHOW CREATE FUNCTION grade \G
 <script data-role="slide" data-markdown type="text/html">
 # Prestandaoptimering schema
 
-* Optimera datat i tabellerna
+* Optimera data i tabellerna
     * Datatyp, längd
 * Optimera schemat mot frågorna
     * Förenkla att göra frågor
@@ -496,8 +501,10 @@ SHOW CREATE FUNCTION grade \G
 # Index 
 
 * "Full table scan"
-* Undvik "full table scan".
-* Index skapar genvägar till svaret.
+    * Undvik...
+* Index skapar genvägar till svaret
+    * Eliminera vissa rader från att bearbetas
+    * Vi slipper full table scan
 
 </script>
 
@@ -506,9 +513,8 @@ SHOW CREATE FUNCTION grade \G
 <script data-role="slide" data-markdown type="text/html">
 # Varför index?
 
-* Finn matchande rader för WHERE
-* Eliminera vissa rader från att bearbetas
-* För att hämta rader från andra tabeller vid joins
+* Finn matchande rader för WHERE col = 2;
+* För att hämta rader från andra tabeller vid joins, ON-villkoren (FK)
 * Mindre viktigt för små tabeller
 * Mindre viktigt för stora tabeller där (nästan) alla rader måste processas
 
@@ -523,7 +529,7 @@ SHOW CREATE FUNCTION grade \G
 * B-tree
 * Hash index
 * Kan skilja mella storage engine
-* Välj typ av index
+* Välj typ av index (avancerat)
 
 </script>
 
@@ -754,7 +760,7 @@ CREATE TABLE `Course` (
 
 
 <script data-role="slide" data-markdown type="text/html">
-#Avslutningsvis
+# Avslutningsvis
 
 * Frågor på det?
 
