@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kursintro | js</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="../../css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="../../css/default.css">
+<link rel="stylesheet" href="../../css/tomorrow.css">
+<script src="../../js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="../../js/showdown.min.js"></script>
+
+<style>
+    h1 {
+        border-bottom: 2px solid orange;
+    }
+</style>
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+# Programmering med JavaScript
+## (js)
+## Kursintro
+### Kenneth Lewenhagen
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Allmänt om kursen
+* Lite bakgrund
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Om kursen
+
+* [js](https://dbwebb.se/kurser/js/)
+* [Kursens mål](https://dbwebb.se/kurser/js#mal)
+* [Rekommenderad studieplan](https://docs.google.com/spreadsheets/d/1SZLrSLd6yJIarOIdqFJEW3F27nMIJWUntav5PZEy1_4/edit#gid=446409415)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Slides och stream
+
+* Stream sparas i spellista ([youtube-kanalen](https://www.youtube.com/playlist?list=PLKtP9l5q3ce9Y0T-JtChmThWa1DouIOXq))
+* Slides på [dbwebb.se/repo/slides/ht20/js](https://dbwebb.se/repo/slides/ht20/js)
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Översikt kmom
+
+* 01 Utvecklingsmiljö
+* 02 Variabler och loopar
+* 03 Funktioner
+* 04 Arrayer och objekt
+* 05 DOM och events
+* 06 Modul och closure
+* 07/10 Projekt och examination
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursens innehåll
+
+* Klientsida, webbläsare
+* Grunderna i JavaScript, exkl "objektorientering"
+* (ES5,ES6+)
+* DOM
+* Eventstyrd programmering
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursens icke-innehåll
+
+* JavaScript serversida
+* Transpilering (Babel)
+* Ramverk/libs
+* (HTML/CSS)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Tidigare kursutvärderingar
+
+* kmom01-04 för lätta, kmom05-06 för svåra
+* kmom05
+* mer om moduler
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Kommande kursutvärdering
+
+* Svara gärna, hissa eller dissa (eller var bara lagom nöjd)
+* BTH kursutvärdering avslutar kursen
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Planering
+
+[Schema](https://cloud.timeedit.net/bth/web/sched1/ri1w7X7Q47ZZ9YQm5Q0086Y7yQY.html)
+
+* Veckoschema i 6-7 veckor
+* Projekt i 3-4 veckor
+* Totalt ~10 veckor
+* Zoom mån em + ons fm (Zoom läggs upp på youtube)
+* Torsdag programmeringsstuga heldag
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Arbetstakt
+
+* Gör ett kmom i veckan
+* Man kan lämna in även senare (konsekvens när rättning sker)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Handledning
+
+* Campus i sal torsd (osäkert kort)
+* Discord (länk via Canvas)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Kmom till Ladok
+
+* Kmom01 + kmom02 = Uppgift 1 á 2.5hp
+* Kmom03 + kmom04 = Uppgift 2 á 2.5hp
+* Kmom05 - kmom10 = Projekt á 2.5hp
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Betygsättning
+
+* Kmom01 - kmom06 -> U/Ux/G
+* Kmom10 ger hel kurs -> A-F
+* Dokument om [bedömning och betygsättning](https://dbwebb.se/kurser/js#betyg).
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis del 1
+
+* Frågor på det?
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Vad är JavaScript?
+
+* Tredje lagret av standardiserade webbteknologier (HTML, CSS)
+* Renderas av en js-motor i webbläsarna
+    * Mozilla - Spidermonkey
+    * Chrome, Edge - V8
+    * Safari - JavascriptCore
+    * IE, Edge (innan) - Chakra
+* Dynamisk uppdatering och manipulering av HTML DOM
+* Browser API (Application Programming Interface)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# HTML DOM
+
+* Document Object Model
+* [Visualisering av DOM](https://dbwebb.se/image/javascript/guide/htmldom.png)
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Window
+
+* Window -> DOM document
+* Varje "tabb" har ett eget windowobjekt
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Vad kommer JavaScript från? (I)
+
+* 1993 NCSA - [Mosaic](http://www.favbrowser.com/images/mosaic-browser.jpg)
+* Marc Andreessen
+* 1994 Mosaic Communications - Mosaic Netscape
+* Netscape Communications - [Netscape Navigator](https://upload.wikimedia.org/wikipedia/commons/1/10/Netscape_Navigator_1.22_Screenshot.png)
+
+
+</script>
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Vad kommer JavaScript från? (II)
+
+* 1995 - Mer dynamik på webben!
+* Brendan Eich - Scheme
+* (Microsoft, Netscape, IBM)
+* Netscape + Sun Microsystems = Java
+* Mocha - LiveScript - JavaScript
+* 1996 Navigator 2.0
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# ECMAScript (ECMA-262)
+
+* 1996 standardisering ECMA International
+* QWERTY
+* Övriga ECMAScripts: ActionScript, JScript etc
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+# Utgåvor/versioner
+
+* ES1 1997
+* ES2 1998
+* ES3 1999
+* ES4 Abandoned
+* ES5 2009
+* ES6 2015
+* ES 2016 (7:e utgåvan)
+* ES 2017 (8:e utgåvan)
+* ES 2018 (9:e utgåvan)
+* ES 2019 (10:e utgåvan)
+* ES 2020 (11:e utgåvan)
+* ES.Next
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+#Googla JavaScript
+
+* Är det ES5 eller ES6 eller jQuery?
+* Är lösningen kompatibel mellan webbläsare?
+* Referens på MDN
+
+</script>
+
+
+
+<!-- Slide -->
+<!-- <script data-role="slide" data-markdown type="text/html">
+
+#[Hur det känns att lära sig JavaScript 2016](https://dbwebb.se/t/5877)
+
+</script> -->
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+# Hur kan vi använda JavaScript?
+
+* Inline script
+* Extern fil
+* Konsolen
+* Bookmarklets
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+
+# Tack för idag!
+
+</script>
+
+
+
+<!-- Slide -->
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="../../js/mithril.min.js"></script>
+<script src="../../js/mithril-slideshow.js"></script>
+
+<!-- default to theme 3 -->
+<script>app.useTheme(3);</script>
