@@ -114,7 +114,7 @@ app.play = function(controller, reverse) {
 app.useTheme = function(theme) {
     var element = document.getElementsByTagName("html").item(0);
 
-    console.log(element);
+    // console.log(element);
 
     element.classList.remove("theme-1", "theme-2", "theme-3", "theme-4", "theme-5");
     element.classList.add("theme-" + theme);
@@ -129,7 +129,7 @@ var cp = {};
 
 cp.navigate = function(controller, event) {
 
-    console.log(event.keyCode);
+    // console.log(event.keyCode);
 
     switch (event.keyCode) {
         case 0:    //ContextMenu
